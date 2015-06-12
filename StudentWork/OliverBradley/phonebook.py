@@ -21,11 +21,7 @@ def change():
     if edit_choice == "1":
         edit_name = raw_input("Enter the name you would like to change: ")
         for value in phonebook.iteritems():
-            print value[1]["name"]
-            if value[1]["name"] not in phonebook:
-                print "Name not found!"
-                change()
-            elif value[1]["name"] == edit_name:
+            if value[1]["name"] == edit_name:
                 print "Found name!"
                 new_name = raw_input("What do you want to change the name to? ")
                 value[1]["name"] = new_name
