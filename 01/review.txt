@@ -1,0 +1,51 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?)
+1. Variable:
+
+2. Operator
+
+3. Assignment Operator
+
+4. String
+
+5. Float
+
+6. Boolean
+
+7. List
+
+8. Dict
+
+9. Conditional Expression/Operator
+
+10. Function
+
+11. Argument
+
+12. Return Value
+
+BONUS: What other python keywords can you answer these questions for?
