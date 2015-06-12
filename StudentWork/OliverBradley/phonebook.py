@@ -29,9 +29,15 @@ def search():
 
 
 while True:
-    choice = raw_input("press 1 to search, 2 to add....")
+    choice = raw_input("press 1 to search, 2 to add, 3 to change, 4 to delete and 5 to exit")
     if choice == '1':
         search()
     elif choice == '2':
         add()
+    elif choice == '3':
+        change()
+    elif choice == '4':
+        delete()
+    else:
+        break
     # The rest of the menu code here
