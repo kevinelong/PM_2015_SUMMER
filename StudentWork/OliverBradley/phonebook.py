@@ -1,7 +1,11 @@
 __author__ = 'Oliver'
 
 # Create a dictionary of dictionaries to hold your data.
-phonebook = {}
+phonebook = {
+    'jones': {'name': 'Chris Jones', 'phone': '503-277-9710'},
+    'dover': {'name': 'Chelsea Dover', 'phone': '503-511-9981'},
+    'bradley': {'name': 'Oliver Bradley', 'phone': '503-333-0475'}
+}
 
 
 def add():
