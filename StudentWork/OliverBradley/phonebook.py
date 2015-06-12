@@ -17,7 +17,25 @@ def add():
 
 def change():
     # Function to change entries
-    pass
+    edit_choice = raw_input("Please enter 1 to change a name or 2 to change a phone number: ")
+    if edit_choice == "1":
+        edit_name = raw_input("Enter the name you would like to change: ")
+        for value in phonebook.iteritems():
+            print value[1]["name"]
+            if value[1]["name"] not in phonebook:
+                print "Name not found!"
+                change()
+            elif value[1]["name"] == edit_name:
+                print "Found name!"
+                new_name = raw_input("What do you want to change the name to? ")
+                value[1]["name"] = new_name
+
+    elif edit_choice == "2":
+        edit_phone = raw_input("Enter the phone number you would like to change: ")
+        print edit_phone
+    else:
+        print ("That is not a vaiid choice!")
+        change()
 
 
 def delete():
@@ -25,7 +43,6 @@ def delete():
     delete_name = raw_input("Please enter the last name of the person you want to remove: ").lower()
     print delete_name
     phonebook.pop(delete_name, None)
-    print phonebook
 
 
 def search():
@@ -45,4 +62,3 @@ while True:
         delete()
     else:
         break
-    # The rest of the menu code here
