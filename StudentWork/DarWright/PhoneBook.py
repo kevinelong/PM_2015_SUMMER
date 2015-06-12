@@ -2,10 +2,11 @@ import time
 
 # Create a dictionary of dictionaries to hold your data.
 phonebook = [
-            {"fname" : "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
-            {"fname" : "Luigi", "lname": "Mario", "phone": "505-123-4567"},
-            {"fname" : "Mario", "lname": "Mario", "phone": "555-123-4567"}
-        ]
+            {"fname": "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
+            {"fname": "Luigi", "lname": "Mario", "phone": "505-123-4567"},
+            {"fname": "Mario", "lname": "Mario", "phone": "555-123-4567"}
+            ]
+
 
 def add():
     # Function for adding entries
@@ -17,7 +18,7 @@ def add():
         phone = raw_input("Please enter the phone number in this format XXX-XXX-XXXX: ")
         build_entry = {"fname": fname, "lname": lname, "phone": phone}
         print build_entry["fname"], build_entry["lname"], build_entry["phone"]
-        choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: " ))
+        choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: "))
         if choice == 'yes' or choice == 'y':
             phonebook.append(build_entry)
             break
@@ -77,7 +78,6 @@ def search_phone(phone):
     return found
 
 
-
 def search():
     # Function to search for entries
     while True:
@@ -92,27 +92,30 @@ def search():
             name = raw_input("Please enter the first name: ")
             entries = search_fname(name)
             if not entries:
-                print "No match found."
+                print "\nNo match found.\n"
             else:
                 for n in entries:
+                    print "\n****Match found!****"
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
         elif choice == '2':
             name = raw_input("Please enter the last name: ")
             entries = search_lname(name)
             if not entries:
-                print "No match found."
+                print "\nNo match found.\n"
             else:
                 for n in entries:
+                    print "\n****Match found!****"
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
         elif choice == '3':
             phone = raw_input("Please enter the phone number in this format XXX-XXX-XXXX: ")
             entries = search_phone(phone)
             if not entries:
-                print "No match found."
+                print "\nNo match found.\n"
             else:
                 for n in entries:
+                    print "\n****Match found!****"
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
         elif choice == '4':
@@ -142,6 +145,3 @@ while True:
         exit()
     else:
         print "Not a valid choice. Please try again.\n\n"
-
-# phonebook()
-
