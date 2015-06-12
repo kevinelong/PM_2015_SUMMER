@@ -10,8 +10,10 @@ phonebook = {
 
 def add():
     # Function for adding entries
-    pass
-
+    new_name = raw_input("Please enter the full name of the new phonebook entry: ")
+    new_phone = raw_input("Please enter the corresponding phone number as 555-555-5555: ")
+    new_key = new_name.split()
+    phonebook[new_key[0].lower()] = {'name': new_name, 'phone': new_phone}
 
 def change():
     # Function to change entries
@@ -29,7 +31,7 @@ def search():
 
 
 while True:
-    choice = raw_input("press 1 to search, 2 to add, 3 to change, 4 to delete and 5 to exit")
+    choice = raw_input("press 1 to search, 2 to add, 3 to change, 4 to delete and 5 to exit: ")
     if choice == '1':
         search()
     elif choice == '2':
