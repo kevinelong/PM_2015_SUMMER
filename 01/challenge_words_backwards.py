@@ -8,3 +8,12 @@
 # Then I would see the string:
 # Michele is name My
 # shown back to you.
+
+source = "My name is Michele"
+parts = source.split(" ")
+print(parts.index("name"))
+print(parts)
+parts.reverse()
+print(parts.index("name"))
+
+print(parts)
