@@ -35,19 +35,19 @@ def edit():
             \t3. Phone number
             Please enter a choice by number. >> """)
         if selection == '1':
-            new = raw_input("What is the new last name? ")
+            new = raw_input("What is the new last name? >> ")
             phonebook[new.lower()] = {"name": first + " " + new, "phone": phone}
 
             del phonebook[last.lower()]
             print "\nThe contact information has been changed!\n"
 
         elif selection == '2':
-            new = raw_input("What is the new first name?")
+            new = raw_input("What is the new first name? >> ")
             phonebook[last.lower()] = {"name": new + " " + last, "phone": phone}
             print "\nThe contact information has been changed!\n"
 
         elif selection == '3':
-            new = raw_input("What is the new phone number?")
+            new = raw_input("What is the new phone number? >> ")
             phonebook[last.lower()] = {"name": first + " " + last, "phone": new}
             print "\nThe contact information has been changed!\n"
 
