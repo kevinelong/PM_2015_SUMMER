@@ -13,7 +13,7 @@ def add():
     new_name = raw_input("Please enter the full name of the new phonebook entry: ")
     new_phone = raw_input("Please enter the corresponding phone number as 555-555-5555: ")
     new_key = new_name.split()
-    phonebook[new_key[0].lower()] = {'name': new_name, 'phone': new_phone}
+    phonebook[new_key[1].lower()] = {'name': new_name, 'phone': new_phone}
 
 def change():
     # Function to change entries
@@ -22,7 +22,10 @@ def change():
 
 def delete():
     # Function to delete entries
-    pass
+    delete_name = raw_input("Please enter the last name of the person you want to remove: ").lower()
+    print delete_name
+    phonebook.pop(delete_name, None)
+    print phonebook
 
 
 def search():
