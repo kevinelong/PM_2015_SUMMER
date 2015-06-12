@@ -9,19 +9,13 @@ def transform(data_list_input):
     data_dictionary_output = {}
 
     # DO YOUR WORK HERE
-    # LOOP THROUGH ALL ITEMS IN data_list
-    for item in data_list_input:
-        # EXTRACT id from each extracted item
-        id = item["id"]
-        # CREATE an output item that is a new Dictionary/Object
-        output_item = {}
 
-        for key in item.keys():
-            if key != "id":
-                output_item[key] = item[key]
+    # LOOP THROUGH ALL ITEMS IN data_list
+        # EXTRACT id from each extracted item
+        # CREATE an output item that is a new Dictionary/Object
         # COPY all properties except id from the original item into the new one
         # ADD the new item to data_dictionary using the id as the key.
-        data_dictionary_output[id] = output_item
+
     # INCORRECT NAIVE ATTEMPT WITHOUT LOOPS OR VARIABLES
     # data_dictionary_output[data_list_input[0]["id"]] = {"name": data_list_input[0]["name"]}
     # data_dictionary_output[data_list_input[1]["id"]] = {"name": data_list_input[1]["name"]}
