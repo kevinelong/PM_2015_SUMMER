@@ -2,15 +2,27 @@ import time
 
 # Create a dictionary of dictionaries to hold your data.
 phonebook = [
-            {"id": 1, "fname" : "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
-            {"id": 2, "fname" : "Luigi", "lname": "Mario", "phone": "505-123-4567"},
-            {"id": 3, "fname" : "Mario", "lname": "Mario", "phone": "555-123-4567"}
+            {"fname" : "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
+            {"fname" : "Luigi", "lname": "Mario", "phone": "505-123-4567"},
+            {"fname" : "Mario", "lname": "Mario", "phone": "555-123-4567"}
         ]
 
 def add():
     # Function for adding entries
-
-    pass
+    while True:
+        print "Add an entry:\n" \
+              "~~~~~~~~~~~~"
+        fname = str.capitalize(raw_input("Please enter the first name: "))
+        lname = str.capitalize(raw_input("Please enter the last name: "))
+        phone = raw_input("Please enter the phone number in this format XXX-XXX-XXXX: ")
+        build_entry = {"fname": fname, "lname": lname, "phone": phone}
+        print build_entry["fname"], build_entry["lname"], build_entry["phone"]
+        choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: " ))
+        if choice == 'yes' or choice == 'y':
+            phonebook.append(build_entry)
+            break
+        else:
+            break
 
 
 def change():
@@ -33,7 +45,7 @@ def delete():
                 if del_entry == 'yes' or del_entry == 'y':
                     phonebook.remove(entry)
                 elif choice == 'no' or choice == 'n':
-                    exit()
+                    break
         elif len(entry_list) > 1:
             print "Sorry, too many entries, please use a different search method to narrow the choice.\n"
 
