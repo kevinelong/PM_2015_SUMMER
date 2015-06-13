@@ -2,10 +2,10 @@ import time
 
 # Create a dictionary of dictionaries to hold your data.
 phonebook = [
-            {"fname": "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
-            {"fname": "Luigi", "lname": "Mario", "phone": "505-123-4567"},
-            {"fname": "Mario", "lname": "Mario", "phone": "555-123-4567"}
-            ]
+    {"fname": "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
+    {"fname": "Luigi", "lname": "Mario", "phone": "505-123-4567"},
+    {"fname": "Mario", "lname": "Mario", "phone": "555-123-4567"}
+]
 
 
 def add():
@@ -40,10 +40,10 @@ def change():
                 change_entry = str.lower(raw_input("This is the entry you wish to change Yes or No: ?"))
                 if change_entry == 'yes' or change_entry == 'y':
                     change_type = int(raw_input("What field do you want to change?\n"
-                                        "1 for first name.\n"
-                                        "2 for last name.\n"
-                                        "3 for phone number.\n"
-                                        ">>"))
+                                                "1 for first name.\n"
+                                                "2 for last name.\n"
+                                                "3 for phone number.\n"
+                                                ">>"))
                     if change_type == 1:
                         fname = str.capitalize(raw_input("Please enter the first name: "))
                         lname = entry["lname"]
@@ -77,6 +77,7 @@ def change():
             print "Sorry, too many entries, please use a different search method to narrow the choice.\n"
         else:
             mainmenu()
+
 
 def delete():
     # Function to delete entries
@@ -172,7 +173,6 @@ def search():
 
 
 def mainmenu():
-# while True:
     choice = raw_input("Phone Book Menu:\n"
                        "~~~~~~~~~~~~~~~~\n"
                        "Enter 1 to search\n"
