@@ -37,8 +37,6 @@ def edit():
         if selection == '1':
             new = raw_input("What is the new last name? >> ")
             phonebook[new.lower()] = {"name": first + " " + new, "phone": phone}
-
-            del phonebook[last.lower()]
             print "\nThe contact information has been changed!\n"
 
         elif selection == '2':
@@ -79,9 +77,7 @@ def search():
         print phonebook[last]["name"] + " : " + phonebook[last]["phone"]
 
 
-done = False
-
-while not done:
+while True:
     choice = raw_input("""
         Please make a selection:
         \t1. Search by last name
