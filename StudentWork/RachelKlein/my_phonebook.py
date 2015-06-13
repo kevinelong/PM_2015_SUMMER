@@ -1,16 +1,17 @@
-# Create a dictionary of dictionaries to hold your data.
+# The phonebook is a dictionary of dictionaries.
+
 phonebook = {
     "klein": { "name": "Rachel Klein", "phone": "541-231-2603" },
     "hauck": { "name": "Buzzy Hauck", "phone": "541-231-2569" }
 }
 
-# Function for adding entries
+# Function to add entries
 
 def add():
     firstname = raw_input("Please enter a first name: ")
     lastname = raw_input("Please enter a last name: ")
     phonenum = raw_input("Please enter a phone number: ")
-    phonebook[lastname.lower()] = { "name": firstname + " " + lastname, "phone": phonenum}
+    phonebook[lastname.lower()] = { "name": firstname + " " + lastname, "phone": phonenum }
     print "Thank you. %s %s has been added." % (firstname, lastname)
 
 # Function to change entries
@@ -41,15 +42,19 @@ def change():
             new_num = raw_input("Please enter the new phone number: ")
             phonebook[phone_key] = { "name": firstname + " " + lastname, "phone": new_num}
 
+        else:
+            print "Sorry, I do not understand that."
+            return
+
 # Function to delete entries
 
 def delete():
     lastname = raw_input("Please enter the last name of the entry you want to delete from the phonebook: ")
     print phonebook[lastname.lower()]
-    ifdel = raw_input("Are you sure you want to delete this entry? y/n ")
-    if ifdel.lower() == "y" or ifdel.lower() == "yes":
+    delete_this = raw_input("Are you sure you want to delete this entry? y/n ")
+    if delete_this.lower() == "y" or ifdel.lower() == "yes":
         del phonebook[lastname.lower()]
-    elif ifdel.lower() == "n" or ifdel.lower == "no":
+    elif delete_this.lower() == "n" or ifdel.lower == "no":
         return
 
 # Function to search for entries (return full name and phone)

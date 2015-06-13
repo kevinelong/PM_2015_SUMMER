@@ -2,12 +2,13 @@ import time
 
 # Create a dictionary of dictionaries to hold your data.
 phonebook = [
-            {"fname": "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
-            {"fname": "Luigi", "lname": "Mario", "phone": "505-123-4567"},
-            {"fname": "Mario", "lname": "Mario", "phone": "555-123-4567"}
-            ]
+    {"fname": "Dar", "lname": "Wright", "phone": "XXX-XXX-XXXX"},
+    {"fname": "Luigi", "lname": "Mario", "phone": "505-123-4567"},
+    {"fname": "Mario", "lname": "Mario", "phone": "555-123-4567"}
+]
 
 
+# add a new entry
 def add():
     # Function for adding entries
     while True:
@@ -21,29 +22,35 @@ def add():
         choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: "))
         if choice == 'yes' or choice == 'y':
             phonebook.append(build_entry)
+            print "Entry added.\n" \
+                  "Returning to the main menu..."
+            time.sleep(.5)
             mainmenu()
         else:
             print "Add an entry canceled."
             mainmenu()
 
 
+# change/update entry
 def change():
     # Function to change entries
     while True:
         print "Update an entry:\n " \
               "~~~~~~~~~~~~~~~~\n" \
               "Loading Search Menu...\n"
-        time.sleep(1)
+        time.sleep(.5)
         entry_list = search()
+        # checking to see if serch function returned more than 1 match
         if len(entry_list) == 1:
             for entry in entry_list:
                 change_entry = str.lower(raw_input("This is the entry you wish to change Yes or No: ?"))
                 if change_entry == 'yes' or change_entry == 'y':
                     change_type = int(raw_input("What field do you want to change?\n"
-                                        "1 for first name.\n"
-                                        "2 for last name.\n"
-                                        "3 for phone number.\n"
-                                        ">>"))
+                                                "1 for first name.\n"
+                                                "2 for last name.\n"
+                                                "3 for phone number.\n"
+                                                ">>"))
+                    # change first name
                     if change_type == 1:
                         fname = str.capitalize(raw_input("Please enter the first name: "))
                         lname = entry["lname"]
@@ -51,7 +58,11 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
+                    # change last name
                     elif change_type == 2:
                         fname = entry["fname"]
                         lname = str.capitalize(raw_input("Please enter the last name: "))
@@ -59,7 +70,11 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
+                    # change phone number
                     elif change_type == 3:
                         fname = entry["fname"]
                         lname = entry["lname"]
@@ -67,6 +82,9 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
                     else:
                         print "Please enter a valid option.\n"
@@ -78,19 +96,25 @@ def change():
         else:
             mainmenu()
 
+
+# delete an entry function
 def delete():
     # Function to delete entries
     while True:
         print "Delete an entry:\n" \
               "~~~~~~~~~~~~~~~~\n" \
               "Loading Search Menu...\n"
-        time.sleep(1)
+        time.sleep(.5)
         entry_list = search()
+        # checking if there is only 1 item returned by search function
         if len(entry_list) == 1:
             for entry in entry_list:
                 del_entry = str.lower(raw_input("This is the entry you wish to delete? Yes or No: ?"))
                 if del_entry == 'yes' or del_entry == 'y':
                     phonebook.remove(entry)
+                    print "Entry deleted!\n" \
+                        "Returning to the main menu..."
+                    time.sleep(.5)
                     mainmenu()
                 elif del_entry == 'no' or del_entry == 'n':
                     mainmenu()
@@ -98,6 +122,7 @@ def delete():
             print "Sorry, too many entries, please use a different search method to narrow the choice.\n"
 
 
+# first name search function
 def search_fname(name):
     name = str.capitalize(name)
     found = []
@@ -107,6 +132,7 @@ def search_fname(name):
     return found
 
 
+# last name search function
 def search_lname(name):
     name = str.capitalize(name)
     found = []
@@ -116,6 +142,7 @@ def search_lname(name):
     return found
 
 
+# phone search function
 def search_phone(phone):
     phone = phone
     found = []
@@ -135,6 +162,7 @@ def search():
                            "Press 3 to search by phone number.\n"
                            "Press 4 to quit.\n"
                            ">>\n")
+        # get first name to search by, pas to first name search
         if choice == '1':
             name = raw_input("Please enter the first name: ")
             entries = search_fname(name)
@@ -145,6 +173,7 @@ def search():
                     print "\n****Match found!****"
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
+        # get last name to search by, pass to last name search
         elif choice == '2':
             name = raw_input("Please enter the last name: ")
             entries = search_lname(name)
@@ -155,6 +184,7 @@ def search():
                     print "\n****Match found!****"
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
+        # get phone number and pass to phone search
         elif choice == '3':
             phone = raw_input("Please enter the phone number in this format XXX-XXX-XXXX: ")
             entries = search_phone(phone)
@@ -166,13 +196,13 @@ def search():
                     print n["fname"], n["lname"], n["phone"] + "\n"
             return entries
         elif choice == '4':
-            exit()
+            mainmenu()
         else:
             print "Please enter a valid option.\n"
 
 
+# main phone book menu function. drives all options. all options return here.
 def mainmenu():
-# while True:
     choice = raw_input("Phone Book Menu:\n"
                        "~~~~~~~~~~~~~~~~\n"
                        "Enter 1 to search\n"
@@ -183,6 +213,8 @@ def mainmenu():
                        ">> ")
     if choice == '1':
         search()
+        time.sleep(.5)
+        mainmenu()
     elif choice == '2':
         add()
     elif choice == '3':
