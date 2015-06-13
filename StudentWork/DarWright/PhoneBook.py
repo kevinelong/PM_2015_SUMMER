@@ -21,16 +21,62 @@ def add():
         choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: "))
         if choice == 'yes' or choice == 'y':
             phonebook.append(build_entry)
-            break
+            mainmenu()
         else:
-            break
+            print "Add an entry canceled."
+            mainmenu()
 
 
 def change():
     # Function to change entries
-
-    pass
-
+    while True:
+        print "Update an entry:\n " \
+              "~~~~~~~~~~~~~~~~\n" \
+              "Loading Search Menu...\n"
+        time.sleep(1)
+        entry_list = search()
+        if len(entry_list) == 1:
+            for entry in entry_list:
+                change_entry = str.lower(raw_input("This is the entry you wish to change Yes or No: ?"))
+                if change_entry == 'yes' or change_entry == 'y':
+                    change_type = int(raw_input("What field do you want to change?\n"
+                                        "1 for first name.\n"
+                                        "2 for last name.\n"
+                                        "3 for phone number.\n"
+                                        ">>"))
+                    if change_type == 1:
+                        fname = str.capitalize(raw_input("Please enter the first name: "))
+                        lname = entry["lname"]
+                        phone = entry["phone"]
+                        build_entry = {"fname": fname, "lname": lname, "phone": phone}
+                        phonebook.remove(entry)
+                        phonebook.append(build_entry)
+                        mainmenu()
+                    elif change_type == 2:
+                        fname = entry["fname"]
+                        lname = str.capitalize(raw_input("Please enter the last name: "))
+                        phone = entry["phone"]
+                        build_entry = {"fname": fname, "lname": lname, "phone": phone}
+                        phonebook.remove(entry)
+                        phonebook.append(build_entry)
+                        mainmenu()
+                    elif change_type == 3:
+                        fname = entry["fname"]
+                        lname = entry["lname"]
+                        phone = raw_input("Please enter the phone number in this format XXX-XXX-XXXX: ")
+                        build_entry = {"fname": fname, "lname": lname, "phone": phone}
+                        phonebook.remove(entry)
+                        phonebook.append(build_entry)
+                        mainmenu()
+                    else:
+                        print "Please enter a valid option.\n"
+                else:
+                    print "Change entry canceled."
+                    mainmenu()
+        elif len(entry_list) > 1:
+            print "Sorry, too many entries, please use a different search method to narrow the choice.\n"
+        else:
+            mainmenu()
 
 def delete():
     # Function to delete entries
@@ -45,8 +91,9 @@ def delete():
                 del_entry = str.lower(raw_input("This is the entry you wish to delete? Yes or No: ?"))
                 if del_entry == 'yes' or del_entry == 'y':
                     phonebook.remove(entry)
-                elif choice == 'no' or choice == 'n':
-                    break
+                    mainmenu()
+                elif del_entry == 'no' or del_entry == 'n':
+                    mainmenu()
         elif len(entry_list) > 1:
             print "Sorry, too many entries, please use a different search method to narrow the choice.\n"
 
@@ -124,7 +171,8 @@ def search():
             print "Please enter a valid option.\n"
 
 
-while True:
+def mainmenu():
+# while True:
     choice = raw_input("Phone Book Menu:\n"
                        "~~~~~~~~~~~~~~~~\n"
                        "Enter 1 to search\n"
@@ -145,3 +193,6 @@ while True:
         exit()
     else:
         print "Not a valid choice. Please try again.\n\n"
+
+
+mainmenu()
