@@ -17,21 +17,30 @@ def add():
 
 def change():
     # Function to change entries
-    edit_choice = raw_input("Please enter 1 to change a name or 2 to change a phone number: ")
-    if edit_choice == "1":
-        edit_name = raw_input("Enter the name you would like to change: ")
-        for value in phonebook.iteritems():
-            if value[1]["name"] == edit_name:
-                print "Found name!"
-                new_name = raw_input("What do you want to change the name to? ")
-                value[1]["name"] = new_name
-
-    elif edit_choice == "2":
-        edit_phone = raw_input("Enter the phone number you would like to change: ")
-        print edit_phone
-    else:
-        print ("That is not a vaiid choice!")
+    pick_name = raw_input("Enter the last name of the person whose record you would like to change: ").lower()
+    if pick_name not in phonebook:
+        print ("That name does not exist!")
         change()
+    else:
+        for key in phonebook:
+            if key == pick_name:
+                print "Found name!"
+                edit_choice = raw_input("Please enter 1 to change a name or 2 to change a phone number: ")
+                if edit_choice == "1":
+                    edit_name = raw_input("What do you want to change the name to? ")
+                    edit_key = edit_name.split()
+                    phonebook[key]["name"] = edit_name
+                    phonebook[edit_key[1].lower()] = phonebook.pop(pick_name)
+                    print ("Name changed successfully!")
+                    print phonebook
+                elif edit_choice == "2":
+                    edit_phone = raw_input("What do you want to change the phone number to? ")
+                    phonebook[key]["phone"] = edit_phone
+                    print ("Phone number changed successfully!")
+                    print phonebook
+                else:
+                    print ("That is not a valid choice!")
+                    change()
 
 
 def delete():
