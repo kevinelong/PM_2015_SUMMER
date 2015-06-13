@@ -21,6 +21,9 @@ def add():
         choice = str.lower(raw_input("Is this the entry you wish to add? Yes or No: "))
         if choice == 'yes' or choice == 'y':
             phonebook.append(build_entry)
+            print "Entry added.\n" \
+                  "Returning to the main menu..."
+            time.sleep(.5)
             mainmenu()
         else:
             print "Add an entry canceled."
@@ -33,7 +36,7 @@ def change():
         print "Update an entry:\n " \
               "~~~~~~~~~~~~~~~~\n" \
               "Loading Search Menu...\n"
-        time.sleep(1)
+        time.sleep(.5)
         entry_list = search()
         if len(entry_list) == 1:
             for entry in entry_list:
@@ -51,6 +54,9 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
                     elif change_type == 2:
                         fname = entry["fname"]
@@ -59,6 +65,9 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
                     elif change_type == 3:
                         fname = entry["fname"]
@@ -67,6 +76,9 @@ def change():
                         build_entry = {"fname": fname, "lname": lname, "phone": phone}
                         phonebook.remove(entry)
                         phonebook.append(build_entry)
+                        print "Entry updated!\n" \
+                              "Returning to the main menu..."
+                        time.sleep(.5)
                         mainmenu()
                     else:
                         print "Please enter a valid option.\n"
@@ -85,13 +97,16 @@ def delete():
         print "Delete an entry:\n" \
               "~~~~~~~~~~~~~~~~\n" \
               "Loading Search Menu...\n"
-        time.sleep(1)
+        time.sleep(.5)
         entry_list = search()
         if len(entry_list) == 1:
             for entry in entry_list:
                 del_entry = str.lower(raw_input("This is the entry you wish to delete? Yes or No: ?"))
                 if del_entry == 'yes' or del_entry == 'y':
                     phonebook.remove(entry)
+                    print "Entry deleted!\n" \
+                        "Returning to the main menu..."
+                    time.sleep(.5)
                     mainmenu()
                 elif del_entry == 'no' or del_entry == 'n':
                     mainmenu()
@@ -183,6 +198,8 @@ def mainmenu():
                        ">> ")
     if choice == '1':
         search()
+        time.sleep(.5)
+        mainmenu()
     elif choice == '2':
         add()
     elif choice == '3':
