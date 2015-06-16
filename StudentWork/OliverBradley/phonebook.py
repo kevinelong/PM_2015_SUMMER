@@ -48,7 +48,6 @@ def delete():
     phonebook.pop(delete_name, None)
     print ("Record successfully deleted!")
 
-
 def search():
     # Function to search for entries
     search_choice = raw_input("Enter 1 to search by last name, 2 to search by first name or 3 to search by phone number")
