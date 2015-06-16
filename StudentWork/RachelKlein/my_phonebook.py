@@ -72,6 +72,8 @@ def search():
     else:
         print "Sorry, that person is not in the phonebook."
 
+# Returning users to the menu.
+
 while True:
     choice = raw_input("press 1 to search, 2 to add, 3 to delete, 4 to change ")
     if choice == '1':
