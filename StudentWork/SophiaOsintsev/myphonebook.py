@@ -4,7 +4,7 @@ phonebook = {
             "rich": {"name": "Kyle Rich", "phone": "503-789-4398"},
             "green": {"name": "Rachel Green", "phone": "503-413-9843"},
             "douglas": {"name": "Anna Douglas", "phone": "360-436-8451"},
-            "drew": {"name": "Laura Drew", "phone": "456-567-8451"}
+            "drew": {"name": "Laura Drew", "phone": "456-567-8451 "}
 }
 
 
