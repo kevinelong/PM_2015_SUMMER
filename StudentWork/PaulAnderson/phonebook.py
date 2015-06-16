@@ -64,7 +64,6 @@ def delete():
             print "\nContact info has been deleted"
 
 
-
 def search():
     last = raw_input("What is your last name?: ").lower()
     if last not in phonebook:
