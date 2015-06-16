@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 __author__ = "Paul Anderson"
+__copyright__   = "Copyright 2015, Die Laughing Media"
 __date__ = "6/12/2015"
 __version__ = "1.0.1"
 
