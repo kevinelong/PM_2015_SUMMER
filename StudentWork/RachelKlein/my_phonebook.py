@@ -11,8 +11,12 @@ def add():
     firstname = raw_input("Please enter a first name: ")
     lastname = raw_input("Please enter a last name: ")
     phonenum = raw_input("Please enter a phone number: ")
+    if len(phonenum) != 12:
+        print "Please use this format for phone numbers: 000-000-0000"
+        add()
+    else:
+        print "Thank you. %s %s has been added." % (firstname, lastname)
     phonebook[lastname.lower()] = { "name": firstname + " " + lastname, "phone": phonenum }
-    print "Thank you. %s %s has been added." % (firstname, lastname)
 
 # Function to change entries
 
