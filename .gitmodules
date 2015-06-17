@@ -1,0 +1,3 @@
+[submodule "testingtools"]
+	path = testingtools
+	url = git@github.com:purple4reina/testingtools.git
