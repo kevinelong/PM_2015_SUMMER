@@ -24,6 +24,9 @@ def add_contact():
     print (" ")
     start_over()
 
+def add_test():
+    assert()
+
 # Delete a contact
 def delete_contact():
     last_name = raw_input("What is the name last name you want to delete?: ").lower()
