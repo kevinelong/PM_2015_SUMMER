@@ -1,0 +1,314 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"print",
+				"print_all_reciept_totals"
+			],
+			[
+				"item",
+				"item_id"
+			],
+			[
+				"re",
+				"reciept"
+			],
+			[
+				"ran",
+				"random"
+			],
+			[
+				"ra",
+				"raw_input"
+			],
+			[
+				"r",
+				"randint"
+			],
+			[
+				"rand",
+				"random"
+			],
+			[
+				"s",
+				"self"
+			],
+			[
+				"w",
+				"weapon"
+			],
+			[
+				"T",
+				"Things"
+			],
+			[
+				"gue",
+				"guess"
+			],
+			[
+				"guesses",
+				"guesses_left"
+			],
+			[
+				"f",
+				"first_guess"
+			],
+			[
+				"you",
+				"your"
+			],
+			[
+				"user",
+				"user_age"
+			],
+			[
+				"y",
+				"years_till_100"
+			],
+			[
+				"F",
+				"fizzbuzz"
+			],
+			[
+				"nu",
+				"num"
+			],
+			[
+				"Fi",
+				"FizzBuzz"
+			],
+			[
+				"is",
+				"is_even"
+			],
+			[
+				"def",
+				"def	Function"
+			],
+			[
+				"sleep",
+				"sleep_in"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/stephen/Projects/Downloaded_Python_code/Game1/Human class.py",
+			"settings":
+			{
+				"buffer_size": 158,
+				"line_ending": "Unix",
+				"name": "class human():"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"print fruit"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/stephen/Projects/Downloaded_Python_code/Game1/PyAdventureGame_2.py",
+		"/home/stephen/Downloads/PyAdventureGame_4.py",
+		"/home/stephen/Projects/store_reciept.py",
+		"/home/stephen/PM_2015_SUMMER/StudentWork/Stephen/stephen_index.html",
+		"/home/stephen/Downloads/unfinished_game1_usr-fight.py",
+		"/home/stephen/Projects/intro_to_coding/bankAccount.py",
+		"/home/stephen/Projects/intro_to_coding/years_to_100yrs.py",
+		"/home/stephen/Projects/intro_to_coding/ascii.py",
+		"/home/stephen/Projects/intro_to_coding/vacation_days.py",
+		"/home/stephen/Projects/intro_to_coding/madlib.py",
+		"/home/stephen/Projects/intro_to_coding/guessing_game.py",
+		"/home/stephen/Projects/intro_to_coding/pick_a_number.py",
+		"/home/stephen/Projects/intro_to_coding/intro_to_python.py",
+		"/home/stephen/Projects/intro_to_coding/sum_of_values.py",
+		"/home/stephen/Projects/intro_to_coding/Test1.py",
+		"/home/stephen/Projects/intro_to_coding/odd_even.py",
+		"/home/stephen/Projects/intro_to_coding/FizzBuzz.py",
+		"/home/stephen/Projects/intro_to_coding/treehouse_test.py",
+		"/home/stephen/Projects/intro_to_coding/fruit.py",
+		"/home/stephen/Projects/intro_to_coding/boolean.py",
+		"/home/stephen/Projects/intro_to_coding/helloworld"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"10"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/stephen/Projects/Downloaded_Python_code/Game1/Human class.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								158,
+								158
+							]
+						],
+						"settings":
+						{
+							"auto_name": "class human():",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "index.html",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 50.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
