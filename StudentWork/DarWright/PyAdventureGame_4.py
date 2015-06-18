@@ -143,7 +143,36 @@ class Room:
         return path
 
 
+class Hero(Things):
+    """
+    Just a type of Thing
+    """
+
+
+class Monster(Things):
+    """
+    Just another type of Thing
+    """
+
+
 class Things():
+    """
+    Either a Hero or a Monster
+    """
+
+    def move(self, direction):
+        """
+        Does a movement
+        """
+        wall = 'Oh em gee!'
+        for bla in range(10):
+            print bla
+
+    def attack(other_thing):
+        """
+        Hit someone in the face
+        """
+
     def __init__(self, name):
         self.hp = 50 + random.randint(5, 50)
         self.name = name
