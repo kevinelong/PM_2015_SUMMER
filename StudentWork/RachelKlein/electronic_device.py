@@ -91,20 +91,22 @@ class AlarmClock(object):
 		minute = self.format_minutes(minute)
 		print "The current time is: {}:{}".format(hour, minute)
 
-	def user_set_alarm():
+	def user_set_alarm(self):
 		"""
 		Takes user input and sets alarm, then confirms alarm to user.
 		"""
 		user_alarm_hour = raw_input("""Please enter the hour of your new alarm
 			(ex. 14 if you want the alarm to go off at 2:XX): """)
-		user_alarm_minute = raw_input("""Please enter the hour of your new alarm
+		user_alarm_minute = raw_input("""Please enter the minutes of your new alarm
 			(ex. 02 if you want the alarm to go off at X:02): """)
 		self.set_alarm(user_alarm_hour, user_alarm_minute)
-		user_alarm_minute = format_alarm_minutes(user_alarm_minute)
+		user_alarm_minute = self.format_minutes(user_alarm_minute)
 		print "Your current alarm is set to {}:{}.".format(user_alarm_hour, user_alarm_minute)
 
 alarmclock = AlarmClock()
-alarmclock.run_alarm(alarmclock.current_hour, alarmclock.current_hour + 1)
+alarmclock.user_interface()
+
+# alarmclock.run_alarm(alarmclock.current_hour, alarmclock.current_hour + 1)
 
 # def test_init_time():
 # 	alarmclock = AlarmClock()
