@@ -1,3 +1,11 @@
+import time
+import os
+
+
+def clear_term():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 class BikeLight(object):
 
     def __init__(self):
@@ -16,6 +24,33 @@ class BikeLight(object):
 
     def is_on(self):
         return self.state != 0
+
+    def get_light_output(self):
+        return getattr(self, 'get_{}_output'.format(self.state))()
+
+    def draw_light(self):
+        pass
+
+    def get_0_output(self):
+        return ("     ",)
+
+    def get_1_output(self):
+        return ("*****",)
+
+    def get_2_output(self):
+        return ("*****", "     ")
+
+    def get_3_output(self):
+        return (
+            "*    ",
+            " *   ",
+            "  *  ",
+            "   * ",
+            "    *",
+            "   * ",
+            "  *  ",
+            " *   ",
+        )
 
 
 def test_init():
@@ -41,3 +76,25 @@ def test_toggle_switch():
 
 test_init()
 test_toggle_switch()
+
+
+bikelight = BikeLight()
+while True:
+    entry = raw_input('\nPush 1 to click the switch, 2 to see the light  ')
+    if entry != '1' and entry != '2':
+        # they did something wrong, so ask again
+        print '{} is not a recognized entry'.format(entry)
+        continue
+
+    if entry == '1':
+        bikelight.toggle_switch()
+        print 'The bike is currently set to state {}'.format(bikelight.state)
+    elif entry == '2':
+        while True:
+            try:
+                for out in bikelight.get_light_output():
+                    print out
+                    time.sleep(1)
+                    clear_term()
+            except KeyboardInterrupt:
+                break
