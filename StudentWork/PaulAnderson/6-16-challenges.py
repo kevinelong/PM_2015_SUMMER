@@ -58,11 +58,12 @@ list_to_convert = ["Reina", "Ollie", "Rachel", "Paul", "Ryan", "Anderson"]
 #             my_string = my_string + ", " + item
 #     print my_string
 
+
+# pop off the last item and store it in a variable
+# check to see if list has content
+# join the list items in a variable seperated by commas
+# return a concat of the variables seperated by 'and'
 def new_string(convert):
-    # pop off the last item and store it in a variable
-    # check to see if list has content
-    # join the list items in a variable seperated by commas
-    # return a concat of the variables seperated by 'and'
     last_item = convert.pop()
     if len(convert) > 0:
         remainder = ", ".join(convert)
