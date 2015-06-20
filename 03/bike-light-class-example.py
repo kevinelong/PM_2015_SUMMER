@@ -1,6 +1,8 @@
 import time
 import os
 
+import testingtools.colors as colors
+
 
 def clear_term():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -22,6 +24,20 @@ class BikeLight(object):
         """
         self.state = (self.state + 1) % 4
 
+    def get_state_display(self):
+        """
+        Get the human readable display name for the current state of the bike
+        light
+        """
+        if self.state == 0:
+            return 'Off'
+        elif self.state == 1:
+            return 'Solid On'
+        elif self.state == 2:
+            return 'Flashing On'
+        elif self.state == 3:
+            return 'Night Rider On'
+
     def is_on(self):
         return self.state != 0
 
@@ -42,14 +58,14 @@ class BikeLight(object):
 
     def get_3_output(self):
         return (
-            "*    ",
+            colors.RED + "*    ",
             " *   ",
             "  *  ",
             "   * ",
             "    *",
             "   * ",
             "  *  ",
-            " *   ",
+            " *   " + colors.COLOR_OFF,
         )
 
 
@@ -88,13 +104,14 @@ while True:
 
     if entry == '1':
         bikelight.toggle_switch()
-        print 'The bike is currently set to state {}'.format(bikelight.state)
+        print 'The bike is currently set to state {}'.format(
+            bikelight.get_state_display())
     elif entry == '2':
         while True:
             try:
                 for out in bikelight.get_light_output():
                     print out
-                    time.sleep(1)
+                    time.sleep(0.1)
                     clear_term()
             except KeyboardInterrupt:
                 break
