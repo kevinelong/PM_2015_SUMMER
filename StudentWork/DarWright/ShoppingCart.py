@@ -3,16 +3,16 @@
 # check out sum total, tender out
 
 # cart -
-class Item:
+class Item(object):
     def __init__(self):
-        self.price = '0'
+        self.price = 0
         self.name = ''
         self.barcode = ''
 
     def __repr__(self):
         return self.name
 
-    def set_price(self, price='0'):
+    def set_price(self, price=0):
         self.price = price
 
     def set_name(self, name='a'):
@@ -28,16 +28,17 @@ class Item:
         # return {name + price: price, name: name, barcode: barcode}
 
     def show_item(self):
-        return {self.name + self.price: self.price, self.name: self.name, self.barcode: self.barcode}
+        return {'price': self.price, 'name': self.name, 'barcode': self.barcode}
 
 class Cart:
     def __init__(self):
-        self.numofitems = 0
+        # self.numofitems = 0
         self.itemlist = []
+        self.total = 0.00
 
     def add_item(self, item):
         self.itemlist.append(item)
-        return self.itemlist
+        # return self.itemlist
 
     def remove_item(self):
         # search through the item list
@@ -45,10 +46,31 @@ class Cart:
         # get the user to say what item to remove
         # remove the item
         # for item in self.itemlist:
-            pass
+        self.show_items()
+        choice = raw_input("Enter the name of the item you want to remove: ")
+        index = next(index for (index, d) in enumerate(self.itemlist) if d["name"] == choice)
+        #TODO add error catching
+        del self.itemlist[index]
+
+    def clear_cart(self):
+        self.itemlist = []
+
     def show_items(self):
         print self.itemlist
         #TODO make this look pretty
+
+
+    def sum_total(self):
+        for item in self.itemlist:
+            a = float(item["price"])
+            self.total += a
+
+
+
+            # if isinstance(iter(self.itemlist), int) == True:
+            #
+            #     self.total +=
+
 
 item = Item()
 item.create_item('2.00', 'Widget', 'acb123')
@@ -58,6 +80,13 @@ cart = Cart()
 # print item.show_item()
 cart.add_item(item.show_item())
 cart.add_item(item2.show_item())
+cart.show_items()
+print cart.total
+cart.sum_total()
+print cart.total
+cart.remove_item()
+cart.show_items()
+cart.clear_cart()
 cart.show_items()
 
 # class CheckOut:
