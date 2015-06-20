@@ -28,7 +28,7 @@ class Item(object):
         # return {name + price: price, name: name, barcode: barcode}
 
     def show_item(self):
-        return {'price': self.price, self.name: self.name, self.barcode: self.barcode}
+        return {'price': self.price, 'name': self.name, 'barcode': self.barcode}
 
 class Cart:
     def __init__(self):
@@ -46,7 +46,14 @@ class Cart:
         # get the user to say what item to remove
         # remove the item
         # for item in self.itemlist:
-            pass
+        self.show_items()
+        choice = raw_input("Enter the name of the item you want to remove:")
+        index = next(index for (index, d) in enumerate(self.itemlist) if d["name"] == choice)
+        print index
+        print self.itemlist[index]
+
+    def clear_cart(self):
+        self.itemlist = []
 
     def show_items(self):
         print self.itemlist
@@ -77,7 +84,7 @@ cart.show_items()
 print cart.total
 cart.sum_total()
 print cart.total
-
+cart.remove_item()
 
 # class CheckOut:
 #
