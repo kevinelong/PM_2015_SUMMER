@@ -8,6 +8,7 @@ class AlarmClock(object):
         These alarm clocks start out showing the current time. No need to set them! :)
         They don't have any alarm to start.
         """
+        # TODO: Figure out why the current time is not printing out correctly!
         current_datetime = datetime.datetime.now()
         self.current_hour = current_datetime.hour
         self.current_minute = current_datetime.minute
@@ -33,8 +34,8 @@ class AlarmClock(object):
         the alarm is set (so the loop doesn't stop everything else.)
         In the current form of this program it doesn't execute.
         """
-        # TODO: Make this work! Currently I can make the alarm go off immediately
-        # but I cannot make it go off in one minute (test instance below).
+        # TODO: Make this work! Currently I cannot make the alarm go off at all.
+        # Is it because the current time is printing out wrong as well?
         # FURTHER TODO: Make this do something cooler when the alarm goes off!
         # Maybe a "clock radio" setting that plays music by opening a webpage?
         while self.current_hour != alarm_hour or self.current_minute != alarm_minute:
