@@ -23,16 +23,17 @@ class Vending_machine(object):
         return self.amount                                                                 #     purchase        #
                                                                                            #                     #
     def item_purchase_02(self):                                                            #                     #
+        self.amount -= self.selection_02                                                   #                     #
         print "Thank youf for your purchase! Your balance is now {}".format(self.amount)   #       Need to       #
         return self.amount                                                                 #        shorten      #
                                                                                            #                     #
     def item_purchase_03(self):                                                            #        add promos   #
+        self.amount -= self.selection_03                                                   #                     #
         print "Thank youf for your purchase! Your balance is now {}".format(self.amount)   #                     #
         return self.amount                                                                 ##################### #
 
 vending_machine = Vending_machine(object)
 balance = vending_machine.check_balance()
-choice_00 = vending_machine.item_purchase
 
 def vending_visit():
     print "Hello, welcome to your friendly nieghborhood vending machine! Take a gander at what we have to offer!"
@@ -50,13 +51,11 @@ def vending_visit():
         vending_machine.check_balance()
         return vending_visit()
     elif choice == '1':
-        if  > self.selection_01:
-        ret    amount -= self.selection_01                  urn vending_visit()
-    elif ch    print "Your balance is now {}".format(amount)oice == '2':
-        Vending_machine.item_purchase.self.selection_02
-        return vending_visit()
+        pass
+    elif choice == '2':
+        pass
     elif choice == '3':
-        Vending_machine.item_purchase.self.selection_03
+        pass
         return vending_visit()
     else:
         KeyError
