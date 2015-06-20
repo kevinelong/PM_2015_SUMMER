@@ -32,13 +32,13 @@ class Item(object):
 
 class Cart:
     def __init__(self):
-        self.numofitems = 0
+        # self.numofitems = 0
         self.itemlist = []
         self.total = 0.00
 
     def add_item(self, item):
         self.itemlist.append(item)
-        return self.itemlist
+        # return self.itemlist
 
     def remove_item(self):
         # search through the item list
@@ -47,10 +47,10 @@ class Cart:
         # remove the item
         # for item in self.itemlist:
         self.show_items()
-        choice = raw_input("Enter the name of the item you want to remove:")
+        choice = raw_input("Enter the name of the item you want to remove: ")
         index = next(index for (index, d) in enumerate(self.itemlist) if d["name"] == choice)
-        print index
-        print self.itemlist[index]
+        #TODO add error catching
+        del self.itemlist[index]
 
     def clear_cart(self):
         self.itemlist = []
@@ -85,6 +85,9 @@ print cart.total
 cart.sum_total()
 print cart.total
 cart.remove_item()
+cart.show_items()
+cart.clear_cart()
+cart.show_items()
 
 # class CheckOut:
 #
