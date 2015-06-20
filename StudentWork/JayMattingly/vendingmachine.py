@@ -51,11 +51,13 @@ def vending_visit():
         vending_machine.check_balance()
         return vending_visit()
     elif choice == '1':
-        pass
+        vending_machine.item_purchase_01()
+        return vending_visit()
     elif choice == '2':
-        pass
+        vending_machine.item_purchase_02()
+        return vending_visit()
     elif choice == '3':
-        pass
+        vending_machine.item_purchase_03()
         return vending_visit()
     else:
         KeyError
