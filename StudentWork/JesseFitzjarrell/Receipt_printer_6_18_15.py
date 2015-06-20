@@ -33,4 +33,3 @@ class Printer(object):
             print "paper out"
 
 
-# poipoi
