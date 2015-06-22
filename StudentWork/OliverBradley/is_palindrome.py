@@ -10,4 +10,4 @@ def main():
     print isPalindrome(tester)
 
 if __name__ == '__main__':
-  main()
+    main()
