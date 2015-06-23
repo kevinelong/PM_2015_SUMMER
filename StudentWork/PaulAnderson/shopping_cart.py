@@ -6,8 +6,10 @@ food_dict = {
         'flour': {"name": "flour", "amount": "pound", "price": 3.49}
 }
 
+shoppers_wallet = 10.49
 user_cart = []
 shopping_list = []
+total = []
 
 class Shopping_cart():
 
@@ -49,49 +51,52 @@ class Shopping_cart():
         if len(user_cart) == 0:
             print "Your cart is empty"
         else:
-            print ', '.join(user_cart)
-            print food_dict["eggs"]["price"]
+            for item in user_cart:
+                print "%s: %s" % (food_dict[item]['name'], food_dict[item]['price'])
+                total.append(food_dict[item]['price'])
+            print "total: %s" % sum(total)
+            if sum(total) > shoppers_wallet:
+                print "You don't have enough funds."
 
 
-# Make a shopping list
+
+# Makes a shopping list
 def make_list():
     print "You have {} items in your list.".format(len(shopping_list))
-    print "would you like to add items to your list or delete items?\n type 'list' to exit: "
-    while True:
-        new_list_item = raw_input("> ").lower()
+    choice = raw_input("would you like to add items to your list or delete items?\n type 'list' to exit: ").lower()
+    if choice == "add":
+        while True:
+            new_list_item = raw_input("> ").lower()
 
-        if new_list_item == "list":
-            show_shopping_list()
+            if new_list_item == "list":
+                show_shopping_list()
 
-        shopping_list.append(new_list_item)
+            shopping_list.append(new_list_item)
 
-        if len(shopping_list) == 1:
-            print "There is 1 item in your cart"
+            if len(shopping_list) == 1:
+                print "There is 1 item in your cart"
+            else:
+                print "There are {} items in your cart".format(len(shopping_list))
+            continue
         else:
-            print "There are {} items in your cart".format(len(shopping_list))
-        continue
+            Shopping_cart.remove_items()
 
+
+# Shows shopping list
 def show_shopping_list():
     print ', '.join(shopping_list)
     menu()
 
 
-    # list_items =  "Your list has {} in it".format(len(shopping_list))
-    # print list_items
-    # new_item = raw_input("Add an item to your list, type 'Done' to exit: ").lower()
-    # while new_item != 'done':
-    #     menu()
-    # else:
-    #     shopping_list.append(new_item)
-
-
-# app menu
+# Main menu
 def menu():
-    choice = raw_input("Would you like to check out or continue?: ").lower()
+    choice = raw_input("Would you like to shop, check out, or go to main menu?: ").lower()
     if choice == "check out":
         Shopping_cart().view_cart()
-    else:
+    elif choice == "shop":
         Shopping_cart().add_item()
+    else:
+        menu()
 
 # initialization
 welcome = raw_input("Welcome to the shopping cart.\n1. Check shopping list\n2. Go shopping\nChoose by number: ")
