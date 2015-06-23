@@ -9,6 +9,11 @@ class Person(object):
         self.age = age
         self.height = height  # in inches
 
+    def __repr__(self):
+        return (
+            'Person: {}'.format(self.name if self.name else '(no name)')
+        )
+
 person = Person(name='Reina', age=33, height=64)
 print "\033[93m person:  ",  person, "\033[0m"
 
