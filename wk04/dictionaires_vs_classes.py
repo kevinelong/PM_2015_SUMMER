@@ -9,6 +9,9 @@ class Person(object):
         self.age = age
         self.height = height  # in inches
 
+    def __repr__(self):
+        return 'Person: {}'.format(self.name if self.name else 'Nada')
+
 person = Person(name='Reina', age=33, height=64)
 print "\033[93m person:  ",  person, "\033[0m"
 
@@ -28,3 +31,10 @@ def grow_taller(person, growth):
         person['height'] += growth
 
     return person
+
+
+reina = Person(name='Reina')
+dar = Person(name='Dar')
+stephen = Person(name='Stephen')
+
+our_class = [reina, dar, stephen]
