@@ -43,9 +43,9 @@ class Weather(object):
         return results
 
 
-weather = Weather()
-city_id = weather.get_id_by_location('Portland, Oregon')
-print weather.get_weather(city_id)
-print weather.get_weather('87123')
+# weather = Weather()
+# city_id = weather.get_id_by_location('Portland, Oregon')
+# print weather.get_weather(city_id)
+# print weather.get_weather('87123')
 
 
