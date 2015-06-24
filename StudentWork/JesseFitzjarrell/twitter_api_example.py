@@ -9,5 +9,4 @@ auth.set_access_token("3253921376-59a5Q52Qm6FMDorvvHDSttQtp6vRYennGGhIPga", "NSp
 api = tweepy.API(auth)
 
 public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print tweet.hello_world;
+api.update_status(status='Have a tweet')
