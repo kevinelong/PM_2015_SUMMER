@@ -21,12 +21,8 @@ class EmptyListException(Exception):
 class RangeException(Exception):
 	""" When all the numbers in the list are not in range """
 
-class ListValueExcetion(Exception):
-	""" When one of the items in the list given is not an integer """
-
 list1 = [2, 3, 4]
 list2 = [11, 9, 10]
-wrong_list = [11, 13, 15]
 
 def is_in_range_test():
 	assert is_in_range(list1) is True

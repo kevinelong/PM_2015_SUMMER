@@ -24,13 +24,15 @@ class Animal(object):
 		self.health -= random.randint(0, 2)
 		self.happiness -= 1
 
-		if self.fullness < 1:
+	def check_stats(self):
+
+		if self.fullness < 3:
 			print "{} is getting very hungry! Time for food!".format(self.name)
 
 		if self.health < 3:
 			print "It looks like {} doesn't feel well. Time for a vet visit.".format(self.name)
 
-		if self.happiness < 2:
+		if self.happiness < 3:
 			print "{} is lonely and needs some playtime!".format(self.name)
 
 	def feed_me(self):
@@ -57,6 +59,7 @@ class Animal(object):
 		self.change_stats()
 		self.animal_rescue()
 		self.print_stats()
+		self.check_stats()
 
 	def animal_rescue(self):
 		if self.fullness == 0:
@@ -76,7 +79,7 @@ class Dog(Animal):
 			print "{} doesn't feel well enough for a walk today. :(".format(self.name)
 		else:
 			print "{} loves getting outside for a walk! You are the BEST!".format(self.name)
-			self.happiness += 5
+			self.happiness += 3
 			self.health += 1
 
 	def play_fetch(self):
@@ -84,7 +87,7 @@ class Dog(Animal):
 			print "{} doesn't feel well enough to play fetch today. :(".format(self.name)
 		else:
 			print "{} could play fetch for hours!".format(self.name)
-			self.happiness += 5
+			self.happiness += 3
 			self.health += 1
 
 	def give_bath(self):
@@ -121,8 +124,8 @@ class Dog(Animal):
 class Cat(Animal):
 
 	def dangle_string(self):
-		roll_the_die = random.int(1, 6)
-		if roll_the_die > 1:
+		roll_the_die = random.randint(1, 6)
+		if roll_the_die >= 3:
 			print "Yay, playtime!"
 			self.happiness += 1
 		else:
@@ -134,7 +137,7 @@ class Cat(Animal):
 		self.health += 1
 
 	def pet_tummy(self):
-		roll_the_die = random.int(1, 6)
+		roll_the_die = random.randint(1, 6)
 		if roll_the_die <= 3:
 			print "Yay, {} loves getting tummy pets!".format(self.name)
 			self.happiness += 1
@@ -171,6 +174,7 @@ class Rat(Animal):
 	def feed_cheese(self):
 		print "Cool, a special treat! {} loves it.".format(self.name)
 		self.happiness += 1
+		self.fullness += 1
 
 	def explore(self):
 		print "Rats love exploring new places! {} thinks you're a cool human.".format(self.name)
@@ -204,5 +208,19 @@ class Rat(Animal):
 		self.bedtime()
 		self.rat_ui()
 
-foo = Cat("Foo")
-foo.cat_ui()
+class NotAPetException(Exception):
+	""" In case the user tries to select a type of pet we don't have in this game. """
+
+new_pet_name = raw_input("What do you want your pet to be named? >> ")
+new_pet_choice = int(raw_input("Do you want (1) a dog, (2) a cat, or (3) a rat? >> "))
+if new_pet_choice == 1:
+	new_pet = Dog(new_pet_name)
+	new_pet.dog_ui()
+elif new_pet_choice == 2:
+	new_pet = Cat(new_pet_name)
+	new_pet.cat_ui()
+elif new_pet_choice == 3:
+	new_pet = Rat(new_pet_name)
+	new_pet.rat_ui()
+else:
+	raise NotAPetException("Sorry, whatever you typed was not a pet.")
