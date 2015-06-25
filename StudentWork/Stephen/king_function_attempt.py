@@ -17,7 +17,7 @@ def transform(data_list_input):
 		# EXTRACT ID FROM each extracted item
 		id = item["id"]
 
-		# creat an output item that is a new Dictionary/Object
+		# create an output item that is a new Dictionary/Object
 		output_item = {}
 
 		name = item["name"]
