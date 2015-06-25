@@ -1,10 +1,10 @@
 __author__ = 'stephen'
 import random
-import time
+#import time
 
-def new_numbers():
+def set_counter():
     for seconds in range(10):
        if 0 <= seconds:
         print random.randint(self)
 
-new_numbers()
+set_counter()
