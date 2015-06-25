@@ -1,5 +1,7 @@
 import tweepy
-from get_weather import Weather
+
+from Tools.get_weather import Weather
+
 
 # setting up tweedy api with keys and fun things.
 consumer_key = 'U8cqX60tkVaElYwi2tSF6juU3'

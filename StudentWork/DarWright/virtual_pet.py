@@ -259,7 +259,7 @@ class UI(object):
         """
         Time to play! Walk, bath, feed.
         """
-        #walk, bath , feed, show_checks
+        # walk, bath , feed, show_checks
         print "Let's have some fun with your pet!"
         time.sleep(2)
         pet.ascii_art()
