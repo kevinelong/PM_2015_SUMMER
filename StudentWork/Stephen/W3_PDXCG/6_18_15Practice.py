@@ -39,7 +39,7 @@ bikelight = Bike_Light()
 
 while True:
     user_choice = raw_input("Press 1 to turn your light on, press 0 to turn light off.  ")
-    #TODO: ADD TIMERS FOR LIGHT TO TURN OFF AFTER A GIVEN TIME
+    # ADD TIMERS FOR LIGHT TO TURN OFF AFTER A GIVEN TIME
     #
     if user_choice == "1":
             bikelight.toggle_switch()
