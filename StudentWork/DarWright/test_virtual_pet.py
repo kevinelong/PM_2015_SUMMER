@@ -120,15 +120,3 @@ def test_check_hunger():
     test.check_hunger()
     assert(test.how_hungry == '\033[0;31mnot HUNGRY')
 test_check_hunger()
-
-
-
-
-
-
-
-
-
-
-
-
