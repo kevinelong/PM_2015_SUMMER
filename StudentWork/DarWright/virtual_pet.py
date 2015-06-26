@@ -7,7 +7,7 @@
 # Bonus: Make fun ascii art or add sounds.
 #
 # TODO add fish sub class
-# TODO add more interactions like Pet, brush
+# TODO add more interactions like Pet, brush, goto vet
 # TODO work on stats more
 # TODO Unit tests
 # TODO save/load pet
@@ -108,7 +108,7 @@ class Animal(object):
         hunger_list = ['\033[1;32mreally HUNGRY', '\033[0;36mHUNGRY', '\033[0;31mnot HUNGRY']
         if self.hunger >= 10:
             self.how_hungry = hunger_list[0]
-        elif self.hunger < 9 and self.health > 0:
+        elif self.hunger < 10 and self.hunger > 2:
             self.how_hungry = hunger_list[1]
         else:
             self.how_hungry = hunger_list[2]
@@ -120,7 +120,8 @@ class Animal(object):
         self.check_happy()
         self.check_health()
         self.check_hunger()
-        print "\nYour pet is %s\033[0m, in %s\033[0m, and %s\033[0m" % (self.how_hungry, self.how_healthy, self.how_happy)
+        print "\nYour pet is %s\033[0m, in %s\033[0m, and %s\033[0m" \
+              % (self.how_hungry, self.how_healthy, self.how_happy)
 
     def show_stats(self):
         """
@@ -148,6 +149,7 @@ class Animal(object):
         # TODO generic class art?
         pass
 
+
 class Cat(Animal):
 
     def walk(self):
@@ -174,10 +176,11 @@ class Cat(Animal):
               "         '-. \\ \"|\ \n" \
               "           '.,,/'.,,mrf\n\n"
 
+
 class Dog(Animal):
     def walk(self):
         """
-        dogs love walks, increases happiness and hunger
+        Dogs love walks, increases happiness and hunger
         """
         self.happiness += 10
         self.hunger += 2
@@ -198,6 +201,7 @@ class Dog(Animal):
               "              \#|_   _'-. /\n" \
               "               |/ \_( # |\" \n " \
               "       snd   C/ ,--___/\n\n"
+
 
 class UI(object):
 
@@ -286,6 +290,7 @@ class UI(object):
             print "Goodbye! Thanks for playing!"
             exit()
 
+
 class NameTooLong(Exception):
     """
     An exception where the name is longer than 50 characters.
@@ -293,28 +298,3 @@ class NameTooLong(Exception):
 
 
 # ui = UI()
-
-# animal = Animal()
-# animal.show_stats()
-# animal.bath()
-# animal.show_stats()
-# animal.feed()
-# animal.show_stats()
-# animal.walk()
-# animal.show_stats()
-
-# cat = Cat()
-# cat.show_stats()
-# # cat.bath()
-# cat.show_stats()
-# cat.walk()
-# cat.show_stats()
-# cat.walk()
-# cat.show_stats()
-
-# dog = Dog()
-# dog.ascii_dog()
-# dog.show_stats()
-# # dog.walk()
-# # dog.show_stats()
-# dog.show_checks()
