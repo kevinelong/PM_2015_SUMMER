@@ -1,17 +1,10 @@
-nums = [1,2,3,4,5,6,7,8,9,10]
-num_list = []
-
 def exception_test(passed_list):
-    for item in passed_list:
-        num_list.append(int(item))
-        while item in nums:
-            print num_list
-    print num_list
-    # try:
-    #     if item in nums:
-    #         print num_list
-    # except:
-    #     raise
+    num_store = []
+    for num in passed_list:
+        num_store.append(num)
+        if num == num - 1
+    # whatever += passed_list
+
 
 
 
