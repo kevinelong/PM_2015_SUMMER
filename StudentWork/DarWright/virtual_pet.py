@@ -292,7 +292,7 @@ class NameTooLong(Exception):
     """
 
 
-ui = UI()
+# ui = UI()
 
 # animal = Animal()
 # animal.show_stats()
