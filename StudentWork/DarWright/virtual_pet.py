@@ -66,6 +66,15 @@ class Animal(object):
         self.dot_time_passes(20)
         return "Pet has been bathed."
 
+    def pet_the_pet(self):
+        """
+        pets like being petted! YAY pet loving!
+        """
+        self.happiness += 10
+        print "Aaaaahhh yea, that's the ticket, {} enjoys the pets".format(self.name)
+        self.dot_time_passes(10)
+        return "Snuggles are good."
+
     def time_passed(self):
         """
         As time passes, pet health decreases and hunger increases
@@ -271,7 +280,8 @@ class UI(object):
                                "1. Got for a walk.\n"
                                "2. Take a bath.\n"
                                "3. Eat something!\n"
-                               "4. Quit\n"
+                               "4. Pet the PET!\n"
+                               "9. Quit\n"
                                ">> "))
                                 # TODO add save and quit option
         if choice == 1:
@@ -287,6 +297,10 @@ class UI(object):
             time.sleep(5)
             self.interact_with_pet(pet)
         elif choice == 4:
+            pet.pet_the_pet()
+            time.sleep(5)
+            self.interact_with_pet(pet)
+        elif choice == 9:
             print "Goodbye! Thanks for playing!"
             exit()
 

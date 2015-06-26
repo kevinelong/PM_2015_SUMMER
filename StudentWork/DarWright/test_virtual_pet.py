@@ -48,6 +48,23 @@ def test_bath():  # base stats 5 health, 15 happiness, 0 hunger
     assert(test.hunger == 2)  # time passes + 2 to hunger
 test_bath()
 
+def test_pet_the_pet():
+    test = Animal()
+    test.pet_the_pet()  # happiness + 10
+    assert(test.health == 5)
+    assert(test.happiness == 25)
+    assert(test.hunger == 0)
+test_pet_the_pet()
+
+def pet_the_pet(self):
+        """
+        pets like being petted! YAY pet loving!
+        """
+        self.happiness += 10
+        print "Aaaaahhh yea, that's the ticket, {} enjoys the pets".format(self.name)
+        self.dot_time_passes(10)
+        return "Snuggles are good."
+
 def test_time_passed_20_seconds():
     test = Animal()
     time.sleep(20)
@@ -120,3 +137,21 @@ def test_check_hunger():
     test.check_hunger()
     assert(test.how_hungry == '\033[0;31mnot HUNGRY')
 test_check_hunger()
+
+# UNIT test for Cat Class
+def test_cat_walk():  # base stats 5 health, 15 happiness, 0 hunger
+    test = Cat()
+    test.walk()  # happy - 5, hungry + 1
+    assert(test.health == 5)
+    assert(test.happiness == 10)
+    assert(test.hunger == 1)
+test_cat_walk()
+
+# UNIT Test for Dog class
+def test_dog_walk():  # base stats 5 health, 15 happiness, 0 hunger
+    test = Dog()
+    test.walk()  # happy + 10, hungry + 2
+    assert(test.health == 4)  # time passes - 1 health
+    assert(test.happiness == 25)
+    assert(test.hunger == 3)  # time passes + 1 to hunger
+test_dog_walk()
