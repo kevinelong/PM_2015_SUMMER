@@ -5,9 +5,6 @@ def exception_test(passed_list):
         if num == num - 1
     # whatever += passed_list
 
-
-
-
 user_nums = raw_input('Enter a series of numbers between 1 and 10 >> ')
 exception_test(user_nums)
 
