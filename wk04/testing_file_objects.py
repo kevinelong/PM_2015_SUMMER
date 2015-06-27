@@ -23,6 +23,6 @@ elif choice == 1:
     name_requested = raw_input('What name are you looking for?  ')
     with open(my_file) as name_age_file:
         for line in name_age_file:
-            name, age = line.split(',')
+            name, age = line[:-1].split(',')
             if name_requested == name:
                 print 'The age of {} is {}'.format(name, age)

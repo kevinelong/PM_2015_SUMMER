@@ -7,7 +7,7 @@ Freecodecamp in class example
 palindrome
 """
 
-print "Enter a word,\ let's see if it'\s a palindrome?"
+print "Enter a word, let's see if it's a palindrome?"
 potentialpalindrome = raw_input()
 
 # s[0] == s[-1]
