@@ -1,10 +1,24 @@
 def pig_latin(word):
 	english_word = word
 
-	# First we take care of words that start with consonant clusters.
+	# This string contains all possible consonant clusters in the English language.
 
-	if english_word[:2] in "plprblbrtrdrklkrglgrflfrthrshrsk"
-	"skrslsmsnspsplsprststrswtwdrkwskwgw":
+	consonant_clusters = "plprblbrtrdrklkrglgrflfrthrshrskskrslsmsnspsplsprststrswtwdrkwskwgw"
+
+	# First we deal with words that start with 3-letter consonant clusters.
+
+	if english_word[:3] in consonant_clusters:
+		word_length = len(english_word)
+		first_three_letters = english_word[:3]
+		other_letters = ""
+		for letter in english_word[3:word_length]:
+			other_letters += letter
+		pig_latin_word = other_letters + "-" + first_three_letters + "ay"
+		return pig_latin_word
+
+	# Then we take care of words that start with 2-letter consonant clusters.
+
+	if english_word[:2] in consonant_clusters:
 		word_length = len(english_word)
 		first_two_letters = english_word[:2]
 		other_letters = ""
@@ -35,3 +49,4 @@ def pig_latin(word):
 assert pig_latin("Rachel") == "achel-Ray"
 assert pig_latin("Ollie") == "Ollie-yay"
 assert pig_latin("snack") == "ack-snay"
+assert pig_latin("three") == "ee-thray"
