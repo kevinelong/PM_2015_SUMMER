@@ -2,6 +2,8 @@ from time import sleep
 import random
 import sys
 
+# TODO: Separate save/load functions and anything else that can be removed into other file and import them
+
 saved_games = '/Users/rachel/Projects/PM_2015_SUMMER/StudentWork/RachelKlein/saved_games.txt'
 
 class Animal(object):
@@ -11,7 +13,6 @@ class Animal(object):
         self.health = 5
         self.days_old = 2
         self.happiness = 5
-        self.print_stats()
 
     def print_stats(self):
         print "Good morning. Today, {} is {} days old.".format(self.name, self.days_old)
@@ -53,7 +54,7 @@ class Animal(object):
         print "{} did not enjoy going to the vet, but it was good for them.".format(self.name)
 
     def bedtime(self):
-    	sleep(1)
+        sleep(1)
         print "Sleep tight, little {}. Tomorrow's another big day.".format(self.name)
         for x in xrange(3):
             print "z"
@@ -76,11 +77,13 @@ class Animal(object):
             "You let your pet get too lonely and animal rescue took it away. Take better care of your pets!!"
             sys.exit(0)
 
+    # TODO: separate out this method so it is no longer in the class - instead of using self use the instance name
+
     def save_game(self):
-	    with open(saved_games, 'a') as adding_game:
-	        adding_game.write('{},{},{},{},{},{}\n'.format
-	        	(self.__class__.__name__, self.name, self.fullness, self.health, self.days_old, self.happiness))
-	    sys.exit()
+        with open(saved_games, 'a') as adding_game:
+            adding_game.write('{},{},{},{},{},{}\n'.format
+                (self.__class__.__name__, self.name, self.fullness, self.health, self.days_old, self.happiness))
+        sys.exit()
 
 class Dog(Animal):
     def walk(self):
@@ -126,12 +129,12 @@ class Dog(Animal):
     jgs  `~~~~~`    `~~~~~`
            (`"======="`)
            (_.=======._)
-        	"""
+            """
         while user_actions < 3:
             user_actions += 1
             user_choice = int(raw_input(
                 "What would you like to do with your dog today? (1) Feed (2) Pet (3) Vet visit "
-                	"(4) Other stuff (5) Save (6) Quit >> "))
+                    "(4) Other stuff (5) Save (6) Quit >> "))
             if user_choice == 1:
                 self.feed_me()
             elif user_choice == 2:
@@ -148,9 +151,9 @@ class Dog(Animal):
                 elif user_choice_2 == 3:
                     self.give_bath()
             elif user_choice == 5:
-            	self.save_game()
+                self.save_game()
             elif user_choice == 6:
-            	sys.exit()
+                sys.exit()
         self.bedtime()
         self.dog_ui()
 
@@ -181,7 +184,7 @@ class Cat(Animal):
         user_actions = 0
         print """ 
 
-		      
+
                                          .
                                                  .
                                        '
@@ -197,13 +200,13 @@ class Cat(Animal):
                                    ( ',
                                     `-'
 
-			       MM
-		    """
+                   MM
+            """
         while user_actions < 3:
             user_actions += 1
             user_choice = int(raw_input(
                 "What would you like to do with your cat today? (1) Feed (2) Pet (3) Vet visit "
-                	"(4) Other stuff (5) Save (6) Quit >> "))
+                    "(4) Other stuff (5) Save (6) Quit >> "))
             if user_choice == 1:
                 self.feed_me()
             elif user_choice == 2:
@@ -220,9 +223,9 @@ class Cat(Animal):
                 elif user_choice_2 == 3:
                     self.pet_tummy()
             elif user_choice == 5:
-            	self.save_game()
+                self.save_game()
             elif user_choice == 6:
-            	sys.exit()
+                sys.exit()
         self.bedtime()
         self.cat_ui()
 
@@ -244,22 +247,22 @@ class Rat(Animal):
         user_actions = 0
         print """
 /		       __             ___
-		      // )    ___--""    "-.
-		 \ |,"( /`--""              `.    Bernhard Rieder
-		  \/ o                        \\
-		  (   _.-.              ,'"    ;  
-		   |\\"   /`. \  ,      /       |
-		   | \  ' .'`.; |      |       \.______________________________
-		     _-'.'    | |--..,,,\_    \________------------""""""""""""
-		    '''"   _-'.'       ___"-   )
-		          '''"        '''---~""
+              // )    ___--""    "-.
+         \ |,"( /`--""              `.    Bernhard Rieder
+          \/ o                        \\
+          (   _.-.              ,'"    ;
+           |\\"   /`. \  ,      /       |
+           | \  ' .'`.; |      |       \.______________________________
+             _-'.'    | |--..,,,\_    \________------------""""""""""""
+            '''"   _-'.'       ___"-   )
+                  '''"        '''---~""
 
         """
         while user_actions < 3:
             user_actions += 1
             user_choice = int(raw_input(
                 "What would you like to do with your dog today? (1) Feed (2) Pet (3) Vet visit "
-                	"(4) Other stuff (5) Quit >> "))
+                    "(4) Other stuff (5) Quit >> "))
             if user_choice == 1:
                 self.feed_me()
             elif user_choice == 2:
@@ -276,64 +279,64 @@ class Rat(Animal):
                 elif user_choice_2 == 3:
                     self.sit_on_shoulder()
             elif user_choice == 5:
-            	self.save_game()
+                self.save_game()
             elif user_choice == 6:
-            	sys.exit()
+                sys.exit()
         self.bedtime()
         self.rat_ui()
 
 def new_game():
-	new_pet_name = raw_input("What do you want your pet to be named? >> ")
-	new_pet_choice = int(raw_input("Do you want (1) a dog, (2) a cat, or (3) a rat? >> "))
-	if new_pet_choice == 1:
-	    new_pet = Dog(new_pet_name)
-	    new_pet.dog_ui()
-	elif new_pet_choice == 2:
-	    new_pet = Cat(new_pet_name)
-	    new_pet.cat_ui()
-	elif new_pet_choice == 3:
-	    new_pet = Rat(new_pet_name)
-	    new_pet.rat_ui()
-	else:
-	    raise NotAPetException("Sorry, whatever you typed was not a pet.")
+    new_pet_name = raw_input("What do you want your pet to be named? >> ")
+    new_pet_choice = int(raw_input("Do you want (1) a dog, (2) a cat, or (3) a rat? >> "))
+    if new_pet_choice == 1:
+        new_pet = Dog(new_pet_name)
+        new_pet.dog_ui()
+    elif new_pet_choice == 2:
+        new_pet = Cat(new_pet_name)
+        new_pet.cat_ui()
+    elif new_pet_choice == 3:
+        new_pet = Rat(new_pet_name)
+        new_pet.rat_ui()
+    else:
+        raise NotAPetException("Sorry, whatever you typed was not a pet.")
 
 def saved_game():
-	saved_pet_name = raw_input("What is the name of your pet? >> ")
-	with open(saved_games) as loading_saved_game:
-	        for line in loading_saved_game:
-	            pet_type, pet_name, pet_fullness, pet_health, pet_days_old, pet_happiness = line.split(',')
-	            # TODO: Figure out why fullness, health, happiness, and days_old are not being set to saved values.
-	            if pet_name == saved_pet_name:
-	            	if pet_type == "Dog":
-	            		saved_dog = Dog(pet_name)
-	            		saved_dog.fullness = pet_fullness
-	            		saved_dog.health = pet_health
-	            		saved_dog.days_old = pet_days_old
-	            		saved_dog.happiness = pet_happiness
-	            		saved_dog.dog_ui()
-	            	elif pet_type == "Cat":
-	            		saved_cat = Cat(pet_name)
-	            		saved_cat.fullness = pet_fullness
-	            		saved_cat.health = pet_health
-	            		saved_cat.days_old = pet_days_old
-	            		saved_cat.happiness = pet_happiness
-	            		saved_cat.cat_ui()
-	            	elif pet_type == "Rat":
-	            		saved_rat = Rat(pet_name)
-	            		saved_rat.fullness = pet_fullness
-	            		saved_rat.health = pet_health
-	            		saved_rat.days_old = pet_days_old
-	            		saved_rat.happiness = pet_happiness
-	            		saved_rat.cat_ui()
-	           	else:
-	           		print "Sorry, I cannot find your pet."
+    saved_pet_name = raw_input("What is the name of your pet? >> ")
+    with open(saved_games) as loading_saved_game:
+            for line in loading_saved_game:
+                pet_type, pet_name, pet_fullness, pet_health, pet_days_old, pet_happiness = line.split(',')
+                # TODO: Figure out why fullness, health, happiness, and days_old are not being set to saved values.
+                if pet_name == saved_pet_name:
+                    if pet_type == "Dog":
+                        saved_dog = Dog(pet_name)
+                        saved_dog.fullness = int(pet_fullness)
+                        saved_dog.health = int(pet_health)
+                        saved_dog.days_old = int(pet_days_old)
+                        saved_dog.happiness = int(pet_happiness)
+                        saved_dog.dog_ui()
+                    elif pet_type == "Cat":
+                        saved_cat = Cat(pet_name)
+                        saved_cat.fullness = int(pet_fullness)
+                        saved_cat.health = int(pet_health)
+                        saved_cat.days_old = int(pet_days_old)
+                        saved_cat.happiness = int(pet_happiness)
+                        saved_cat.cat_ui()
+                    elif pet_type == "Rat":
+                        saved_rat = Rat(pet_name)
+                        saved_rat.fullness = int(pet_fullness)
+                        saved_rat.health = int(pet_health)
+                        saved_rat.days_old = int(pet_days_old)
+                        saved_rat.happiness = int(pet_happiness)
+                        saved_rat.cat_ui()
+                else:
+                    print "Sorry, I cannot find your pet."
 
 class NotAPetException(Exception):
     """ In case the user tries to select a type of pet we don't have in this game. """
 
 start_game_choice = int(raw_input("Welcome to Petlandia! Choose from the following: "
-	"(1) New Game (2) Saved Game >> "))
+    "(1) New Game (2) Saved Game >> "))
 if start_game_choice == 1:
-	new_game()
+    new_game()
 elif start_game_choice == 2:
-	saved_game()
+    saved_game()
