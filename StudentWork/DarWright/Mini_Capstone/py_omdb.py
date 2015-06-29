@@ -10,7 +10,7 @@ class Search(object):
         """
         Sets the default search parameters
         """
-        self.imdbid = '?i='  # A valid IMDb ID (e.g. tt1285016)
+        self.imdb_id = '?i='  # A valid IMDb ID (e.g. tt1285016)
         self.title = '?t='  # Movie title to search for.
         self.s_type= '&type=movie'  # movie, series, episode	Type of result to return.
         self.year = '&y='  # Year of release.
@@ -18,7 +18,7 @@ class Search(object):
         self.plot = '&plot=short'
         self.tomatoes = '&tomatoes=true'
         self.url = 'http://www.omdbapi.com/'
-        self.response_list = []
+        self.response_list = py_omdb_resultlist.common_list
 
         # http://www.omdbapi.com/?t=Mad+Max+Fury+Road&y=2015&plot=short&r=json
 
@@ -29,11 +29,12 @@ class Search(object):
         self.title = self.title + title
         self.build_url()
 
-    def imdbid(self, id):
+    def imdbid(self, imdbid):
         """
         search by imdb ID directly
         """
-
+        self.imdb_id = self.imdb_id + imdbid
+        self.build_url()
 
     def episode(self, season, episode):
         """
@@ -55,10 +56,10 @@ class Search(object):
         take the different variables and build the GET url
         """
         # build_url = url + title + year_of_release + plot + response_type
-        if self.imdbid == '?i=':  # blank imdb ID, therefore a movie title search
-            self.url = self.url + self.title + self.plot + self.tomatoes
+        if self.imdb_id == '?i=':  # blank imdb ID, therefore a movie title search
+            self.url = self.url + self.title + self.year + self.plot + self.tomatoes
         else:
-            self.url = self.url + self.imdbid + self.year + self.plot + self.tomatoes
+            self.url = self.url + self.imdb_id + self.tomatoes
 
         self.post_url(self.url)
 
@@ -89,8 +90,6 @@ class Search(object):
         data = response.json()
         self.show_results(data)
 
-
-
     def post_url(self, url):
         """
         GET the info from the url
@@ -108,3 +107,11 @@ class Search(object):
             print "{}: {}".format(each, value)
 
 
+# search = Search()
+#
+#
+# search.imdbid('tt2178782')
+#
+# print search.imdb_id
+# # search.build_url()
+# print search.url

@@ -12,9 +12,10 @@ class UI(object):
     def main_menu(self):
         print "Welcome to the movie search"
         choice = int(raw_input("Do you want to search for a:\n"
-                               "1. Movie\n"
+                               "1. Movie Title\n"
                                "2. TV Show\n"
                                "3. TV Show Episode\n"
+                               "4. IMDB ID number\n"
                                "9. Quit\n"
                                ">> "))
 
@@ -28,27 +29,25 @@ class UI(object):
         elif choice == 2:
             title = raw_input("Enter the name of the TV Show:  ")
             title = title.replace(' ', '+')
-            self.full_or_common()
+            result_choice = self.full_or_common()
+            self.search.set_response_details(result_choice)
             self.search.series(title)
 
         elif choice == 3:
             season = int(raw_input("Enter the number of the season: "))
             episode = int(raw_input("Enter the number of the episode:  "))
-            self.full_or_common()
+            result_choice = self.full_or_common()
+            self.search.set_response_details(result_choice)
             self.search.episode(season, episode)
+
+        elif choice == 4:
+            imdbid = raw_input("Enter the IMDB ID number:  ")
+            result_choice = self.full_or_common()
+            self.search.set_response_details(result_choice)
+            self.search.imdbid(imdbid)
 
         elif choice == 9:
             exit()
-    #
-    # def tomatoes_choice(self):
-    #     tomatoes_choice = raw_input("Do you want to see the ratings from rotten tomatoes? y/n: ").lower()
-    #     if tomatoes_choice == 'y':
-    #         t_choice = True
-    #         self.
-    #     else:
-    #         t_choice = False
-    #     return t_choice
-
 
     def full_or_common(self):
         """
@@ -65,7 +64,6 @@ class UI(object):
                                "3. Common list\n"
                                "4. Common List with Rotten Tomatoes\n"
                                ">> "))
-
         return choice
 
 test = UI()
