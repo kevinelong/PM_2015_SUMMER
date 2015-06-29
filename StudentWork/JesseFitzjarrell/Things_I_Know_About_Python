@@ -1,0 +1,26 @@
+Jesse Fitzjarrrell
+6-29-15
+This is a simple doc I'm making to keep track of what I know about Python
+I will probably include examples
+
+control-s saves files in Pycharm
+control + shift + f10 runs a file in Pycharm
+
+You print strings or numbers easy
+you can print a integer + a string if you put a comma in between.
+You can do simple math using the print function
+/ rounds down
+% divides and shows remainder
+The = (single-equal) assigns the value on the right to a variable on the left.
+The == (double-equal) tests if two things have the same value
+You should add space around operators
+
+variables
+you can use a comma to insert a variable
+you can also use % to insert a variable
+%() is how you insert multiple variables
+you can do math inside that variable ()
+if you want multiple formats in your string to print multiple variables,
+  you need to put them inside ( )
+
+ended at chapter 6
