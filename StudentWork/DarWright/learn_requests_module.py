@@ -1,4 +1,5 @@
-import urllib2
+__author__ = 'darwright'
+import requests
 import json
 
 class MovieSearch(object):
@@ -12,11 +13,10 @@ class MovieSearch(object):
         response_type = '&r=json'
         # build the URL from all the above pieces
         build_url = url + title + year_of_release + plot + response_type
-        # Send the url out and get a json response back
-        response = urllib2.urlopen(build_url)
-        # parse? json is like a dictionary, everything is in unicode.
-        data = json.load(response)
-        # print data
+        # Send the url out and get a response back
+        response = requests.get(build_url)
+        # put into a dict file using json
+        data = response.json()
         if data['Response'] == "False":
             print "No match found for: {}.".format(title_input)
         else:
@@ -27,8 +27,3 @@ class MovieSearch(object):
 new = MovieSearch()
 new.search_by_title('Gravity')
 new.search_by_title('I am not a real movie')
-
-
-
-
-
