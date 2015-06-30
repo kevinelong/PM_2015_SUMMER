@@ -11,32 +11,32 @@ def test_init():
     assert(search.tomatoes == '&tomatoes=true')
     assert(search.url == 'http://www.omdbapi.com/')
     assert(search.response_list == ['Title', 'Plot', 'Actors', 'Year'])
-# test_init()
+test_init()
 
-def test_movie():
+def test_movie_title():
     search = Search()
-    search.movie('Mad+Max')
-    assert(search.title == '?t=Mad+Max')
+    search.title('Mad+Max')
+    assert(search.m_title == u'?t=Mad+Max')
     assert(search.url == 'http://www.omdbapi.com/?t=Mad+Max&y=&plot=short&tomatoes=true')
-# test_movie()
+test_movie_title()
+
+def test_series_title():
+    search = Search()
+    search.title('Game+of+Thrones')
+    assert(search.m_title == u'?t=Game+of+Thrones')
+    assert(search.url == 'http://www.omdbapi.com/?t=Game+of+Thrones&y=&plot=short&tomatoes=true')
+test_series_title()
 
 def test_imdbid():
     search = Search()
     search.imdbid('tt0079501')
     assert(search.imdb_id == '?i=tt0079501')
     assert (search.url == 'http://www.omdbapi.com/?i=tt0079501&tomatoes=true')
-# test_imdbid()
+test_imdbid()
 
 def test_episode():
     search = Search()
     search.episode('Game+of+Thrones', '2', '1')
-    assert(search.title == '?t=Game+of+Thrones&Season=2&Episode=1')
+    assert(search.m_title == u'?t=Game+of+Thrones&Season=2&Episode=1')
     assert(search.url == 'http://www.omdbapi.com/?t=Game+of+Thrones&Season=2&Episode=1&y=&plot=short&tomatoes=true')
 test_episode()
-# http://www.omdbapi.com/?t=Game+of+Thrones&Season=2&Episode=1&y=&plot=short&tomatoes=true
-
-    
-    
-    
-    
-        

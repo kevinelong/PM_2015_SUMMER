@@ -9,7 +9,7 @@ class Search(object):
         Sets the default search parameters
         """
         self.imdb_id = '?i='  # A valid IMDb ID (e.g. tt1285016)
-        self.m_title = '?t='  # Movie title to search for.
+        self.m_title = u'?t='  # Movie title to search for.
         self.season = '&Season='  # numeric season number
         self.epi = '&Episode='  # number episode number
         self.s_type = '&type=movie'  # movie, series, episode	Type of result to return.
@@ -54,28 +54,26 @@ class Search(object):
         self.imdb_id = self.imdb_id + imdbid
         self.build_url()
 
-    def episode(self,in_title, in_season, in_episode):
+    def episode(self, ui_title, ui_season, ui_episode):
         """
         alter search defaults for episodes
         example: http://www.omdbapi.com/?t=Game+of+Thrones&Season=3&Episode=1
         """
-        self.season = self.season + in_season
-        self.epi = self.epi + in_episode
-        self.m_title = self.m_title + in_title + self.season + self.epi
+        self.season = self.season + ui_season
+        self.epi = self.epi + ui_episode
+        self.m_title = self.m_title + ui_title + self.season + self.epi
         self.build_url()
 
     def build_url(self):
         """
         take the different variables and build the GET url
         """
-        # build_url = url + title + year_of_release + plot + response_type
         if self.imdb_id == '?i=':  # blank imdb ID, therefore a movie/series title search
             self.url = self.url + self.m_title + self.year + self.plot + self.tomatoes
         else:
             self.url = self.url + self.imdb_id + self.tomatoes
 
         self.post_url()
-        # TODO error handling
 
     def post_url(self):
         """
@@ -89,4 +87,3 @@ class Search(object):
         get json response and turn it into a dictionary
         """
         self.data = response.json()
-
