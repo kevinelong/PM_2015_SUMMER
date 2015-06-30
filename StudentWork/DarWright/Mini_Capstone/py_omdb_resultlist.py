@@ -34,16 +34,18 @@ full_list = [
     'imdbRating',
     'imdbID'
         ]
+
 full_list_without_tomatoes = [
+    'Title',
     'Plot',
+    'Actors',
+    'Year'
     'Rated',
     'Language',
-    'Title',
     'Country',
     'Writer',
     'BoxOffice',
     'Production',
-    'Actors',
     'Runtime',
     'Type',
     'imdbVotes',
@@ -54,13 +56,11 @@ full_list_without_tomatoes = [
     'Director',
     'Released',
     'Awards',
-    'Year',
     'Genre',
     'DVD',
     'imdbRating',
     'imdbID'
 ]
-
 
 common_list = [
     'Title',
