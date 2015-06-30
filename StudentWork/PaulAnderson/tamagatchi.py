@@ -54,7 +54,8 @@ class Bird(Animal):
 
 
 def hungry():
-    pass
+    hungry_pet = pet
+    if hungry_pet ==
 
 def tired():
     pass
