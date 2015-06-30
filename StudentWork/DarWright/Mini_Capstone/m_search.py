@@ -34,17 +34,19 @@ class UI(object):
             self.search.series(title)
 
         elif choice == 3:
-            season = int(raw_input("Enter the number of the season: "))
-            episode = int(raw_input("Enter the number of the episode:  "))
+            title = raw_input("Enter the name of the TV Show:  ")
+            title = title.replace(' ', '+')
+            season = raw_input("Enter the number of the season: ")
+            episode = raw_input("Enter the number of the episode:  ")
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.episode(season, episode)
+            self.search.episode(title, season, episode)
 
         elif choice == 4:
-            imdbid = raw_input("Enter the IMDB ID number:  ")
+            imdb_id = raw_input("Enter the IMDB ID number:  ")
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.imdbid(imdbid)
+            self.search.imdbid(imdb_id)
 
         elif choice == 9:
             exit()

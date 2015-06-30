@@ -12,7 +12,9 @@ class Search(object):
         """
         self.imdb_id = '?i='  # A valid IMDb ID (e.g. tt1285016)
         self.title = '?t='  # Movie title to search for.
-        self.s_type= '&type=movie'  # movie, series, episode	Type of result to return.
+        self.season = '&Season='  # numeric season number
+        self.epi = '&Episode='  # number episode number
+        self.s_type = '&type=movie'  # movie, series, episode	Type of result to return.
         self.year = '&y='  # Year of release.
         self.response_type = '&r=json'
         self.plot = '&plot=short'
@@ -36,20 +38,24 @@ class Search(object):
         self.imdb_id = self.imdb_id + imdbid
         self.build_url()
 
-    def episode(self, season, episode):
+    def episode(self,in_title, in_season, in_episode):
         """
         alter search defaults for episodes
         example: http://www.omdbapi.com/?t=Game+of+Thrones&Season=3&Episode=1
         """
-        pass
+        self.season = self.season + in_season
+        self.epi = self.epi + in_episode
+        self.title = self.title + in_title + self.season + self.epi
+        self.build_url()
 
-    def series(self, title):
-        """
-        alter search default for series
-        This is a basic overview of a series
-        example: http://www.omdbapi.com/?t=Game+of+Thrones
-        """
-        pass
+    # Series cane be done via title, does not need to be separated anymore
+    # def series(self, title):
+    #     """
+    #     alter search default for series
+    #     This is a basic overview of a series
+    #     example: http://www.omdbapi.com/?t=Game+of+Thrones
+    #     """
+    #     pass
 
     def build_url(self):
         """
@@ -62,6 +68,7 @@ class Search(object):
             self.url = self.url + self.imdb_id + self.tomatoes
 
         self.post_url(self.url)
+        # TODO error handling
 
     def set_response_details(self, choice):
         """
@@ -82,14 +89,6 @@ class Search(object):
         elif choice == 4:
             self.response_list = py_omdb_resultlist.common_list_with_tomatoes
 
-    def parse_response(self, response):
-        """
-        get json response and turn it into a dictionary
-        :return:
-        """
-        data = response.json()
-        self.show_results(data)
-
     def post_url(self, url):
         """
         GET the info from the url
@@ -97,6 +96,13 @@ class Search(object):
         response = requests.get(self.url)
         self.parse_response(response)
         pass
+
+    def parse_response(self, response):
+        """
+        get json response and turn it into a dictionary
+        """
+        data = response.json()
+        self.show_results(data)
 
     def show_results(self, data):
         """
@@ -106,11 +112,15 @@ class Search(object):
             value = data[each]
             print "{}: {}".format(each, value)
 
-
-# search = Search()
 #
+search = Search()
+# #
+search.episode('Game+of+Thrones', '2', '1')
+print search.url
+
 #
 # search.imdbid('tt2178782')
+# print search.url
 #
 # print search.imdb_id
 # # search.build_url()
