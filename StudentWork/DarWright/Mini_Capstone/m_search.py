@@ -1,7 +1,5 @@
+# UI for omdb wrapper
 from Mini_Capstone.py_omdb import Search
-
-
-#
 
 class UI(object):
 
@@ -24,27 +22,33 @@ class UI(object):
             title = title.replace(' ', '+')
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.movie(title)
+            self.search.m_title(title)
+            self.print_results()
 
         elif choice == 2:
             title = raw_input("Enter the name of the TV Show:  ")
             title = title.replace(' ', '+')
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.series(title)
+            self.search.m_title(title)
+            self.print_results()
 
         elif choice == 3:
-            season = int(raw_input("Enter the number of the season: "))
-            episode = int(raw_input("Enter the number of the episode:  "))
+            title = raw_input("Enter the name of the TV Show:  ")
+            title = title.replace(' ', '+')
+            season = raw_input("Enter the number of the season: ")
+            episode = raw_input("Enter the number of the episode:  ")
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.episode(season, episode)
+            self.search.episode(title, season, episode)
+            self.print_results()
 
         elif choice == 4:
-            imdbid = raw_input("Enter the IMDB ID number:  ")
+            imdb_id = raw_input("Enter the IMDB ID number:  ")
             result_choice = self.full_or_common()
             self.search.set_response_details(result_choice)
-            self.search.imdbid(imdbid)
+            self.search.imdbid(imdb_id)
+            self.print_results()
 
         elif choice == 9:
             exit()
@@ -65,5 +69,15 @@ class UI(object):
                                "4. Common List with Rotten Tomatoes\n"
                                ">> "))
         return choice
+
+    def print_results(self):
+        if self.search.data['Response'] == "'False'":
+            print "Could not find a match for {}".format(self.search.title)
+        else:
+            for each in self.search.response_list:
+                value = self.search.data[each]
+                if each == 'Plot':
+                    value == value.replace(" .", " .\n")
+                print "{}: {}".format(each, value)
 
 test = UI()
