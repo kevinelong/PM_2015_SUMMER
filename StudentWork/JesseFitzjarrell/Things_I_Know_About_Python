@@ -21,6 +21,34 @@ you can also use % to insert a variable
 %() is how you insert multiple variables
 you can do math inside that variable ()
 if you want multiple formats in your string to print multiple variables,
-  you need to put them inside ( )
+you need to put them inside ( )
+What's the point of %s and %d when you can just use %r?
+The %r is best for debugging
+%d is for a number
+%s is for string
+Use the %r for debugging, since it displays the "raw" data of the variable, but the others are used for displaying to users
+I'm at chapter 8 now
+you can set a variable and put multiple things into it using print
+\t for tab
+\n for newline
+in exercise 10 they declare a variable and use it to print a tabbed list. It's kinda cool
+\\ is a backslash
+\' is a single quote
+\" is a double quote
+you take in input using raw data
+you can change a raw input string to a variable by using x = int(raw_input())
+I'm on ex 12 now
+you don't need to type print when you are doing raw input
 
-ended at chapter 6
+I got slowed down learning about pydoc
+argv allows you to input multiple variables but you have to have "from sys import argv" at the top of the page to use it
+to use argv you need to enter your variables when you run the program
+as in python ex13.py first 2nd 3rd
+you can print the filename of the current file by using "print __file__" without the quotes
+argv is a feature, features are known as modules in Python. There are many modules available
+
+I finished at chapter 13
+
+
+
+
