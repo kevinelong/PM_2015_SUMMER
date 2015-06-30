@@ -56,7 +56,7 @@ def delete():
     lastname = raw_input("Please enter the last name of the entry you want to delete from the phonebook: ")
     print phonebook[lastname.lower()]
     delete_this = raw_input("Are you sure you want to delete this entry? y/n ")
-    if delete_this.lower() == "y" or ifdel.lower() == "yes":
+    if delete_this.lower() == "y" or delete_this.lower() == "yes":
         del phonebook[lastname.lower()]
     elif delete_this.lower() == "n" or ifdel.lower == "no":
         return

@@ -26,9 +26,16 @@ class Cart(object):
         else:
             print "Item not in cart."
 
+    def user_is_eighteen(self):
+        age = int(raw_input("What is your age?: "))
+        if age < 18:
+            print "No soup for you!"
+            return
+        else:
+            cart.menu()
+
     def checkout(self):
-        # TODO: Implement this. User will confirm final list of items and give us payment.
-        pass
+        self.user_is_eighteen()
 
     # The view gives the user more choices if they branch out from the basic menu.
 
@@ -95,7 +102,7 @@ class Item(object):
 
 # Items we created and running the program
 
-item = Item("01", "name", 9.99, 200)
-item2 = Item("02", "foo", 19.99, 100)
+item = Item("01", "beer", 9.99, 200)
+item2 = Item("02", "20 tacos", 19.99, 100)
 cart = Cart()
 cart.menu()
