@@ -21,7 +21,9 @@ class Item(object):
 
     def set_barcode(self, barcode='111'):
         self.barcode = barcode
-
+        """
+            creating an item here
+        """
     def create_item(self, price, name, barcode):
         self.set_price(price)
         self.set_name(name)
@@ -75,7 +77,7 @@ cart.show_items()
 
 
 
-
+#
 # UNIT Test
 # def test_create_item
 # item = Item()
