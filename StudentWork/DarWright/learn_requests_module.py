@@ -1,6 +1,6 @@
 __author__ = 'darwright'
 import requests
-import json
+
 
 class MovieSearch(object):
 

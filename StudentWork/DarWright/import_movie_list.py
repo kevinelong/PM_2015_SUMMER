@@ -2,47 +2,35 @@ __author__ = 'darwright'
 """
 Write a program to read in a list/text file and grab the name of the movie in the list. List from imdb
 """
-import re
-class Import(object):
+class Import(object, input_file, output_file):
 
     def __init__(self):
         self.title_list = []
+        self.input_filename = ''
+        self.output_filename = ''
 
     def open_file(self):
-        filename = 'test_import.list'
-
-
+        filename = self.input_filename
         with open(filename) as load_import_data:
             for line in load_import_data:
                 if '   (aka' in line:
-                    # line = ''
                     continue
                 else:
-                    print line
-                    line = line[:-1]
-                    # match = re.findall(r'(\d{4})', line)
-                    # match = str(match)
-                    # print match
-                    # line.replace('(' + match + ')', '')
-                    # print match
-                    # print line
-                    # line = line[:-7]
-                    # year = [int(s) for s in line.split() if s.isdigit()]
-                    # print year
-                    new_line = line.split(' ')
-                    print new_line
-                    new_line.pop()
-                    print new_line
-                    line = ' '.join(new_line)
-                    print line
+                    line = line[:-1]  # removes the \n from the line
+                    new_line = line.split(' ')  # split the line into a list of words
+                    new_line.pop()  # remove the year off the end
+                    line = ' '.join(new_line)  # put the title back together
                     self.title_list.append(line)
         for item in self.title_list:
             if item == '':
                 self.title_list.remove(item)
 
-        # print self.title_list
+        out_filename = self.output_filename = ''
+        with open(out_filename, 'a') as save_file:
+            for each in self.title_list:
+                save_file.write('{}\n'.format(each))
+inputn = 'full_movie_list.txt'
+output = 'movie_titles.txt'
+new = Import(inputn, output)
 
-new = Import()
-new.open_file()
 
-# '   (aka Pferdediebe am Missouri (1952))	(Austria)
