@@ -75,7 +75,7 @@ class Party(object):
 		self.primary_guest = primary_guest
 
 	def __repr__(self):
-		return self.location + "\n" + self.date + "\n" + self.time + "\n" + self.party + "\n" + self.qty_guests + "\n" + self.primary_guest
+		return self.location + " " + self.date + " " + self.time + " " + self.party + " " + self.qty_guests + " " + self.primary_guest
 
 
 	def set_location(self, location ):
