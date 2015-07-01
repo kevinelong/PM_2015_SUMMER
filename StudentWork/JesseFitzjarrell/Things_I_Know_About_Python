@@ -5,6 +5,9 @@ I will probably include examples
 
 control-s saves files in Pycharm
 control + shift + f10 runs a file in Pycharm
+control + z + enter in powershell to quit python
+you run a python file in pewershell by being in the correct folder and entering in "python plus the file name" without the quotes or plus
+
 
 You print strings or numbers easy
 you can print a integer + a string if you put a comma in between.
@@ -49,6 +52,22 @@ argv is a feature, features are known as modules in Python. There are many modul
 
 I finished at chapter 13
 
+anytime you use argv you need to put in an entry when you run the file or else there will be an error
 
+close -- Closes the file. Like File->Save.. in your editor.
+read -- Reads the contents of the file. You can assign the result to a variable.
+readline -- Reads just one line of a text file.
+truncate -- Empties the file. Watch out if you care about the file.
+write('stuff') -- Writes "stuff" to the file.
+
+I finished at chapter 16-took me an hour to get through 3 chapters
+
+
+If you get a syntax error try
+1) Copy your code and paste it in Notepad++
+
+2) Select Encoding -> Encode in UTF-8
+
+3) Select View -> Show Symbol -> Show All Characters
 
 
