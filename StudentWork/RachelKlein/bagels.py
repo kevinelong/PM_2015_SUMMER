@@ -119,7 +119,7 @@ class Game(object):
             self.number_of_guesses += 1
             self.last_guess = current_guess
         else:
-            computer_guess()
+            self.computer_guess()
 
 
     def computer_guess_smarter(self):
