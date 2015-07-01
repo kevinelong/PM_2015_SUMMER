@@ -1,6 +1,6 @@
 __author__ = 'rachel'
 
-from random import randrange
+from random import randrange, choice
 
 class Game(object):
 
@@ -16,7 +16,18 @@ class Game(object):
             self.chosen_number = self.create_num(digits)
         # TODO: Figure out what happens when the computer guesses!
         else:
-            pass
+            self.first_digit_possibilities = range(1, 10)
+            self.other_digit_possibilities = range(0, 10)
+            self.not_possibilities = []
+            self.last_guess = []
+            if guesser == "computer":
+                pass
+                # while True:
+                #     self.last_guess = self.computer_guess()
+            elif guesser == "smarter_computer":
+                pass
+                # while True:
+                #     self.last_guess = self.computer_guess_smarter()
 
     def create_num(self, digits):
         """
@@ -40,7 +51,6 @@ class Game(object):
             if new_digit not in final_number:
                 final_number.append(new_digit)
 
-
         return final_number
 
     def compare_guess(self, human_guess):
@@ -62,15 +72,52 @@ class Game(object):
                 codewords.insert(0, "Pico")
             digits_place += 1
 
-        # Note: Is this preserving the traditional order of Bagels keywords (Pico first, then Fermi)?
-        # We need to hide from the user as much as possible which digits are correct.
-
         if len(codewords) == 0:
             codewords.insert(0, "Bagels")
 
         return codewords
 
-    def did_user_win(self, codewords):
+    def computer_guess(self, codewords=None):
+        """
+        This method allows the computer to guess the number chosen by a human player.
+        """
+
+        # TODO: Make a computer player class so we can, at a minimum, save past guesses.
+        # However, that would mean making a seperate win condition check. :(
+        # Maybe just make past_guesses an attribute of the class?
+
+        current_guess = []
+
+        if codewords == ["Bagels"]:
+            for x in self.last_guess:
+                self.first_digit_possibilities.remove(x)
+                self.other_digit_possibilities.remove(x)
+                self.not_possibilities.append(x)
+
+        first_digit = choice(self.first_digit_possibilities)
+        current_guess.append(first_digit)
+
+        infinite_loop_prevention = 0
+
+        while len(current_guess) < self.digits:
+            infinite_loop_prevention += 1
+            if infinite_loop_prevention > 10:
+                raise Exception("This is to make sure if I make a bug it doesn't loop forever.")
+            new_digit = choice(self.other_digit_possibilities)
+            if new_digit not in current_guess:
+                current_guess.append(new_digit)
+
+        self.number_of_guesses += 1
+        self.last_guess = current_guess
+
+    def computer_guess_smarter(self):
+        """
+        This method is my attempt to create a "smarter" guessing method for the
+        computer player.
+        """
+        pass
+
+    def did_player_win(self, codewords):
 
         if len(codewords) == self.digits and set(codewords) == set(["Fermi"]):
             return True
