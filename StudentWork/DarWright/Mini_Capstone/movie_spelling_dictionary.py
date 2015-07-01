@@ -1,7 +1,5 @@
 import enchant
 
-# movie_dict = enchant.DictWithPWL("en_US", "movie_titles.txt")  # create dict object with PWL (text file)
-
 class CheckSpelling(object):
 
     def __init__(self):
@@ -12,6 +10,6 @@ class CheckSpelling(object):
         return movie_suggestion
 
 
-test = CheckSpelling()
-print test.check('Mad ma')
-print test.check('Laska k zivotu')
+# test = CheckSpelling()
+# print test.check('Mad ma')
+# print test.check('Laska k zivotu')

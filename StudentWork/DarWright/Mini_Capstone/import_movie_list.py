@@ -1,9 +1,9 @@
 # coding=utf-8
 """
-Write a program to read in a list/text file and grab the name of the movie in the list.
+Write a program to read in a list/text file and grab the title of the movie in the list.
+Strip out foreign characters to use file in a personal dictionary
 """
 import unicodedata
-from django.utils.encoding import smart_str, smart_unicode
 
 class Import(object):
 
@@ -17,17 +17,9 @@ class Import(object):
         filename = self.input_filename
         with open(filename) as load_import_data:
             for line in load_import_data:
-                # line = unicode(line, 'utf-8')
-                # line = line.encode('ascii')
-                line = unicodedata.normalize('NFKD', line).encode('ascii', 'ignore')
-                # line = smart_str(line)
                 if '   (aka' in line:
                     continue
                 else:
-
-
-                    #
-
                     line = line[:-1]  # removes the \n from the line
                     if ' {' in line:  # removes the episode titles from list
                         new_line = line.split(' {')
@@ -43,7 +35,11 @@ class Import(object):
                     new_line.pop()  # remove the year off the end
                     line = ' '.join(new_line)  # put the title back together
                     if line:  # take out the blank lines
-                        self.title_list.append(line)
+                        unicode_you = unicode(line, "utf-8")
+                        # decode and remove those special characters from foreign film titles
+                        no_more_accents = unicodedata.normalize('NFKD', unicode_you).encode('ascii', 'ignore')
+
+                        self.title_list.append(no_more_accents)
         self.title_list = set(self.title_list)  # remove duplicates
         self.title_list = list(self.title_list)  # put it back into a list for ease of use
         out_filename = self.output_filename
@@ -51,11 +47,12 @@ class Import(object):
             for each in self.title_list:
                 save_file.write('{}\n'.format(each))
 
-inputn = '/Users/darwright/Python/PM_2015_SUMMER/StudentWork/DarWright/Mini_Capstone/test_import2.txt'
-output = '/Users/darwright/Python/PM_2015_SUMMER/StudentWork/DarWright/Mini_Capstone/test_export.txt'
-# inputn = 'full_movie_list.txt'
-# output = 'movie_titles.txt'
-new = Import(inputn, output)
+# path = '/Users/darwright/Python/PM_2015_SUMMER/StudentWork/DarWright/Mini_Capstone/'
+# inputn = path + 'test_import2.txt'
+# output = path + 'test_export.txt'
+# inputn = path + 'full_movie_list.txt'
+# output = path + 'movie_titles.txt'
+# new = Import(inputn, output)
 #
 
 
