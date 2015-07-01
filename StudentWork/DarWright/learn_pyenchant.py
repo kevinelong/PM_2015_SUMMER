@@ -19,5 +19,5 @@ import enchant
 # d.add()
 
 # pwl = enchant.request_pwl_dict("test_list.txt")  # set Personal Word List
-movie_dict = enchant.DictWithPWL("en_US","test_list.txt")  # create dict object with PWL (text file)
+movie_dict = enchant.DictWithPWL("en_US","movie_titles.txt")  # create dict object with PWL (text file)
 print movie_dict.suggest('Last Plan Out')
