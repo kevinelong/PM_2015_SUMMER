@@ -2,6 +2,9 @@
 """
 Write a program to read in a list/text file and grab the name of the movie in the list.
 """
+import unicodedata
+from django.utils.encoding import smart_str, smart_unicode
+
 class Import(object):
 
     def __init__(self, input_file, output_file):
@@ -14,12 +17,16 @@ class Import(object):
         filename = self.input_filename
         with open(filename) as load_import_data:
             for line in load_import_data:
+                # line = unicode(line, 'utf-8')
+                # line = line.encode('ascii')
+                line = unicodedata.normalize('NFKD', line).encode('ascii', 'ignore')
+                # line = smart_str(line)
                 if '   (aka' in line:
                     continue
                 else:
-                    import unicodedata
 
-                    line = unicodedata.normalize('NFKD', line).encode('ascii', 'ignore')
+
+                    #
 
                     line = line[:-1]  # removes the \n from the line
                     if ' {' in line:  # removes the episode titles from list
@@ -44,8 +51,8 @@ class Import(object):
             for each in self.title_list:
                 save_file.write('{}\n'.format(each))
 
-inputn = u'test_import2.txt'
-output = u'test_export.txt'
+inputn = '/Users/darwright/Python/PM_2015_SUMMER/StudentWork/DarWright/Mini_Capstone/test_import2.txt'
+output = '/Users/darwright/Python/PM_2015_SUMMER/StudentWork/DarWright/Mini_Capstone/test_export.txt'
 # inputn = 'full_movie_list.txt'
 # output = 'movie_titles.txt'
 new = Import(inputn, output)
