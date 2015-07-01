@@ -14,12 +14,12 @@ class Game(object):
         self.number_of_guesses = 0
         if guesser == "human":
             self.chosen_number = self.create_num(digits)
-        # TODO: Figure out what happens when the computer guesses!
         else:
             self.first_digit_possibilities = range(1, 10)
             self.other_digit_possibilities = range(0, 10)
             self.not_possibilities = []
             self.last_guess = []
+            self.previous_guesses = []
             if guesser == "computer":
                 pass
                 # while True:
@@ -83,16 +83,23 @@ class Game(object):
         """
 
         # TODO: Make a computer player class so we can, at a minimum, save past guesses.
-        # However, that would mean making a seperate win condition check. :(
-        # Maybe just make past_guesses an attribute of the class?
+        # However, that would mean making a separate win condition function. :(
+        # Maybe just make past_guesses an attribute?
 
         current_guess = []
 
+        # TODO: Fix this. It works but it has too much nested looping.
+
         if codewords == ["Bagels"]:
             for x in self.last_guess:
-                self.first_digit_possibilities.remove(x)
-                self.other_digit_possibilities.remove(x)
+                if x in self.first_digit_possibilities:
+                    self.first_digit_possibilities.remove(x)
+                if x in self.other_digit_possibilities:
+                    self.other_digit_possibilities.remove(x)
                 self.not_possibilities.append(x)
+                # Instead of a list of things that are NOT possibilities, maybe make a list
+                # of digits that definitely ARE in the number? And other method(s) to test that
+                # through deduction?
 
         first_digit = choice(self.first_digit_possibilities)
         current_guess.append(first_digit)
@@ -107,8 +114,13 @@ class Game(object):
             if new_digit not in current_guess:
                 current_guess.append(new_digit)
 
-        self.number_of_guesses += 1
-        self.last_guess = current_guess
+        if current_guess not in self.previous_guesses:
+            self.previous_guesses.append(current_guess)
+            self.number_of_guesses += 1
+            self.last_guess = current_guess
+        else:
+            computer_guess()
+
 
     def computer_guess_smarter(self):
         """
