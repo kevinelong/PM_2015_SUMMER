@@ -1,4 +1,4 @@
-# UI for omdb wrapper
+# UI for py_ omdb wrapper
 from Mini_Capstone.py_omdb import Search
 from Mini_Capstone.movie_spelling_dictionary import CheckSpelling
 import sys
@@ -11,6 +11,7 @@ class UI(object):
         self.search = Search()
         self.main_menu()
         self.movie_title = ''
+        self.imdb_num = ''
 
 
     def main_menu(self):
@@ -37,6 +38,8 @@ class UI(object):
 
         elif choice == 2:
             title = raw_input("Enter the name of the TV Show:  ")
+            self.movie_title = title
+            title = title.decode(sys.stdin.encoding)
             title = title.replace(' ', '+')
             result_choice = self.full_or_common()
             self.plot_choice()
@@ -46,6 +49,8 @@ class UI(object):
 
         elif choice == 3:
             title = raw_input("Enter the name of the TV Show: ").decode(sys.stdin.encoding)
+            self.movie_title = title
+            title = title.decode(sys.stdin.encoding)
             title = title.replace(' ', '+')
             season = self.check_season_number()
             episode = self.check_episode_number()
@@ -57,7 +62,9 @@ class UI(object):
 
         elif choice == 4:
             imdb_id = raw_input("Enter the IMDB ID number:  ")
+            self.imdb_num = imdb_id
             result_choice = self.full_or_common()
+            self.movie_title = 'None'
             self.plot_choice()
             self.search.set_response_details(result_choice)
             self.search.imdbid(imdb_id)
@@ -119,12 +126,15 @@ class UI(object):
 
     def print_results(self):
         if self.search.data['Response'] == 'False':
-            check_spelling = CheckSpelling()
-            suggestions = check_spelling.check(self.movie_title)
-            print u"Could not find a match for {}".format(self.movie_title)
-            print "Possible suggestions: "
-            for each in suggestions:
-                print each + "   "
+            if self.movie_title == 'None':
+                print u"Could not find a match for IMDB # {}".format(self.imdb_num)
+            else:
+                check_spelling = CheckSpelling()
+                suggestions = check_spelling.check(self.movie_title)
+                print u"Could not find a match for {}".format(self.movie_title)
+                print "Possible suggestions: "
+                for each in suggestions:
+                    print each + "   "
             time.sleep(5)
             self.main_menu()
         else:
