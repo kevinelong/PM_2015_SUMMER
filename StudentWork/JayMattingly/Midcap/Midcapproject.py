@@ -67,12 +67,16 @@ def heart_rate():
     time.sleep(10)
     return
 
+def add_client_profile():
+    pass
+
 def my_progress():
     decision = raw_input("What would you like to do?\n"
+                         "A. Add new client profile\n"
                          "P. View a profile\n"
                          "C. Change a profile\n"
                          "X. Return to Main Menu\n"
-                         "A. See all profile data\n"
+                         "V. See all profile data\n"
                          "\n"
                          ":").lower()
     if decision == 'p':
@@ -89,9 +93,12 @@ def my_progress():
             print "{}'s profile {}".format(search_name,progress_report_dict[search_name])
     elif decision == 'x':
         response_1()
-    elif decision == 'a':
+    elif decision == 'v':
         print get_from_file()
         my_progress()
+    elif decision == 'a':
+        pass
+
     else:
         print "\n"
         time.sleep(0.5)
@@ -182,15 +189,14 @@ while True:
         """
     status = raw_input(str("Input F to continue.\n"
                            "Input C to view element\n"
-                           "Input Exit to close application\n"
-                           "Input Surprise for well...a surprise duh!\n"
+                           "Input E to close application\n"
                            "\n"
                            ":")).lower()
     if status.lower() in 'f':
         response_1()
     elif status.lower() in 'c':
         webbrowser.open('https://github.com/kevinelong/PM_2015_SUMMER/blob/master/StudentWork/JayMattingly/Midcap/Midcapproject.py')
-    elif status.lower() in "exit":
+    elif status.lower() in "e":
         print "Saving application data...\n" \
               "Done!\n" \
               "Good bye!"
