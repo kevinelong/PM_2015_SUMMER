@@ -154,8 +154,8 @@ such behavior, but a customer is a customer and your confidence is as threadbare
 greeting and open the door wide; the woman breezes right past you and looks intently around your office.
 """
 
-def dialogue_tree():
 
+def dialogue_tree():
     tree_input = raw_input("""
 
 What's your next move, ace?
@@ -174,28 +174,35 @@ You open the drawer to your woefully stocked liquor cabinet and produce a second
 "And I suppose that will have to do," she says with a sigh. She eyes the bottle warily but accepts the glass readily,
 seemingly grateful.
 """
-    # if new_character.Character Empathy >= 30
-    # print """ As she takes a pull from the glass, you notice that her hands shake. You stare for another half
-    # second - despite her outwards appearance she doesn't seem as well-collected as you previously believed.
-    #
-    # "Look, I deal with all sorts of cases and have seen just about everything under the sun. There's no need to be
-    # nervous."
-    #
-    # "I am certainly not nervous. I am here because I have need of your services. Will you assist me or not?"
-    #
-    # "Of course. Of course I will." Your slow nod seems to reassure her a bit but you already get the suspicion
-    # that your new client is already up to no good.
-    if tree_input == 'b':
+        if my_character['intuition'] >= 30:
+            print """
+As she takes a pull from the glass, you notice that her hands shake. You stare for another half second - despite her
+outwards appearance she doesn't seem as well-collected as you previously believed.
+
+"Look, I deal with all sorts of cases and have seen just about everything under the sun. There's no need to be
+nervous."
+
+"I am certainly not nervous. I am here because I have need of your services. Will you assist me or not?"
+
+"Of course. Of course I will." Your slow nod seems to reassure her a bit but you already get the suspicion
+that your new client is already up to no good. She turns to you and says:
+"""
+        return tree_input == 'c'
+
+    elif tree_input == 'b':
         print """
 My name is Martha Sternwood.
 """
-    if tree_input == 'c':
+    elif tree_input == 'c':
         print """
 My name is Martha Sternwood.
 """
     else:
         print "Please enter the letter that corresponds with the dialogue you wish to choose."
         dialogue_tree()
+
+
+dialogue_tree()
 
 
 class OfficeBuilding(Scene):
