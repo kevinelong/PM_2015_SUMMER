@@ -75,7 +75,10 @@ class Game(object):
         if len(codewords) == 0:
             codewords.insert(0, "Bagels")
 
-        return codewords
+        # Sorting the list so it's harder for the human to tell which digits the computer
+        # is talking about with the keywords.
+
+        return sorted(codewords)
 
     def computer_guess(self, codewords=None):
         """
