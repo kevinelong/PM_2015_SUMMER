@@ -1,7 +1,9 @@
 # UNIT Tests for virtual_pet.py
-from virtual_pet import Animal, Cat, Dog, UI
 import datetime
 import time
+
+from virtual_pet.virtual_pet import Animal, Cat, Dog
+
 
 # class animal tests
 

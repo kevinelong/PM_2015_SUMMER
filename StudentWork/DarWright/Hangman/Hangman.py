@@ -6,7 +6,6 @@
 # Subgoals
 # If the user loses, print out the word at the end of the game.
 # Create a "give up" option.
-# import urllib2
 import random
 import time
 
@@ -19,12 +18,12 @@ class Hangman(object):
         self.guessed_letters = []
         self.start_game()
 
-    def set_random_word(self, length=6):
+    def set_random_word(self, length=8):
         """
         choose a random word from my local dictionary, defaults to 6 characters and greater than 2
         updated with a common word list with around 3k words
         """
-        word_file = "/Users/darwright/Python/common_word_list.txt"
+        word_file = "common_word_list.txt"
         with open(word_file, 'r') as word_list:
             narrow_word_choice = [x for x in word_list if len(x) <= length and len(x) >= 3]
         self.word = random.choice(narrow_word_choice)
@@ -32,7 +31,6 @@ class Hangman(object):
         if self.word == self.word.capitalize():
             self.set_random_word()
 
-    # TODO look up decorators
     @property
     def welcome_message(self):
         """
@@ -42,9 +40,19 @@ class Hangman(object):
                   "You will have 10 chances to guess the word!\n" \
                   "Each ^ is a letter to guess!\n" \
                   "Let's play!"
-        # TODO UI for word length choice
-        # self.menu_countdown()
         return welcome
+
+    def choice_word_length(self):
+        choice = raw_input("How long of a word do you want to guess?\n"
+                           "Enter a number between 3 and 10: ")
+        try:
+            choice = int(choice)
+        except ValueError:
+            print "Please enter a number only."
+        if choice > 10 and choice < 3:
+            print "Please enter a number between 3 and 10: "
+        else:
+            return choice
 
     def menu_countdown(self):
         """
@@ -54,9 +62,9 @@ class Hangman(object):
         a = "."
         while timer < 1.51:
             time.sleep(.25)
-            print a
+            print a,
             timer += .25
-            a += "."
+        print "\n"
 
     def set_hidden_word_list(self):
         """
@@ -88,7 +96,9 @@ class Hangman(object):
         :return:
         """
         print self.welcome_message
-        self.set_random_word()
+        word_length = self.choice_word_length()
+        self.menu_countdown()
+        self.set_random_word(word_length)
         self.set_hidden_word_list()
         self.play()
 
@@ -101,7 +111,7 @@ class Hangman(object):
         letter = raw_input("Enter 'quit' to quit, enter the word guess, or guess a letter: ")
         letter = letter.lower()
         if len(letter) > 1:
-            if letter == 'quit':
+            if letter == 'quit' or letter == 'q':
                 print "Thank you for playing!"
                 exit()
             elif letter != 'quit' and letter != self.word:
@@ -109,8 +119,7 @@ class Hangman(object):
                 self.set_guess()
             elif letter == self.word:
                 print "You win!"
-                exit()
-                # TODO make a win function
+                self.play_again()
             else:
                 print "Please only enter one letter."
                 self.set_guess()
@@ -141,12 +150,24 @@ class Hangman(object):
                     print "You have \033[0;31mONE\033[0m guess left!"
                 print "Letters used: ", ' '.join(self.guessed_letters)
             else:
-                # TODO You win function
                 print "You win!"
-                break
+
         if self.counter == 0:
             print "Oh no! You lost, the word was %s!" % self.word
-        # TODO you loose function
+            self.play_again()
+
+    def play_again(self):
+        replay = raw_input("\nDo you want to play again? y/n > ").lower()
+        if replay == 'y':
+            self.word = ''
+            self.counter = 6
+            self.hidden_word_list = []
+            self.word_list = []
+            self.guessed_letters = []
+            self.start_game()
+        else:
+            print "Good bye!"
+            exit()
 
     def ascii_hangman(self):
         if self.counter == 6:
@@ -206,31 +227,7 @@ class Hangman(object):
 
         return hang
 
-
-
-
 new = Hangman()
-# word = new.set_random_word(8)
-# print new.word
-# # new.welcome_message()
-# new.set_hidden_word_list()
-# print new.hidden_word_list
-# print new.word_list
 
-
-
-# Unit Tests
-# from types import *
-#
-# def test_welcome_message():
-#     game = Hangman()
-#     message_test = game.welcome_message()
-#
-# def test_guess():
-#     game = Hangman()
-#     game.set_guess()
-#     assert type(message_test) is StringType, "guess is not a string: %r" % message_test
-#
-# test_welcome_message()
 
 
