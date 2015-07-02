@@ -1,6 +1,8 @@
 # UI for omdb wrapper
 from Mini_Capstone.py_omdb import Search
+from Mini_Capstone.movie_spelling_dictionary import CheckSpelling
 import sys
+import time
 
 
 class UI(object):
@@ -8,6 +10,8 @@ class UI(object):
     def __init__(self):
         self.search = Search()
         self.main_menu()
+        self.movie_title = ''
+
 
     def main_menu(self):
         print "Welcome to the movie search"
@@ -20,7 +24,9 @@ class UI(object):
                                ">> "))
 
         if choice == 1:
-            title = raw_input("Enter the name of the movie:  ").decode(sys.stdin.encoding)
+            title = raw_input("Enter the name of the movie:  ")
+            self.movie_title = title
+            title = title.decode(sys.stdin.encoding)
             title = title.replace(' ', '+')
             self.check_year()
             result_choice = self.full_or_common()
@@ -112,8 +118,15 @@ class UI(object):
         return choice
 
     def print_results(self):
-        if self.search.data['Response'] == "'False'":
-            print u"Could not find a match for {}".format(self.search.title)
+        if self.search.data['Response'] == 'False':
+            check_spelling = CheckSpelling()
+            suggestions = check_spelling.check(self.movie_title)
+            print u"Could not find a match for {}".format(self.movie_title)
+            print "Possible suggestions: "
+            for each in suggestions:
+                print each + "   "
+            time.sleep(5)
+            self.main_menu()
         else:
             for each in self.search.response_list:
                 value = self.search.data[each]
