@@ -1,6 +1,6 @@
-from virtual_pet import Animal, Cat, Dog, UI
 import datetime
 
+from virtual_pet.virtual_pet import Animal
 
 test = Animal()
 test.type = 'save'
