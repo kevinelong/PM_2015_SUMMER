@@ -80,10 +80,19 @@ class Search(object):
         GET the info from the url
         """
         response = requests.get(self.url)
-        self.parse_response(response)
+        if response == 'Response [200]':
+            raise TimeoutError('Web service timed out')
+        else:
+            self.parse_response(response)
 
     def parse_response(self, response):
         """
         get json response and turn it into a dictionary
         """
         self.data = response.json()
+
+
+class TimeoutError(Exception):
+    """
+    When the request module gets back a response 200, give  time out error
+    """

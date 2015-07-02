@@ -39,7 +39,7 @@ full_list_without_tomatoes = [
     'Title',
     'Plot',
     'Actors',
-    'Year'
+    'Year',
     'Rated',
     'Language',
     'Country',

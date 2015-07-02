@@ -1,4 +1,4 @@
-# UI for py_ omdb wrapper
+# UI for py_omdb wrapper
 from Mini_Capstone.py_omdb import Search
 from Mini_Capstone.movie_spelling_dictionary import CheckSpelling
 import sys
@@ -13,16 +13,16 @@ class UI(object):
         self.movie_title = ''
         self.imdb_num = ''
 
-
     def main_menu(self):
         print "Welcome to the movie search"
-        choice = int(raw_input("Do you want to search for a:\n"
-                               "1. Movie\n"
-                               "2. TV Show\n"
-                               "3. TV Show Episode\n"
-                               "4. IMDB ID number\n"
-                               "9. Quit\n"
-                               ">> "))
+        choice = raw_input("Do you want to search for a:\n"
+                           "1. Movie\n"
+                           "2. TV Show\n"
+                           "3. TV Show Episode\n"
+                           "4. IMDB ID number\n"
+                           "9. Quit\n"
+                           ">> ")
+        choice = self.try_catch_not_an_int(choice)
 
         if choice == 1:
             title = raw_input("Enter the name of the movie:  ")
@@ -100,10 +100,12 @@ class UI(object):
             self.search.year = '&y=' + movie_year
 
     def plot_choice(self):
-        choice = int(raw_input("There are two options available for the Plot listing:\n"
-                               "1. Full plot\n"
-                               "2. Short plot\n"
-                               ">> "))
+        choice = raw_input("There are two options available for the Plot listing:\n"
+                           "1. Full plot\n"
+                           "2. Short plot\n"
+                           ">> ")
+        choice = self.try_catch_not_an_int(choice)
+
         if choice == 1:
             self.search.plot = '&plot=full'
 
@@ -116,15 +118,17 @@ class UI(object):
             4 = common list with tomatoes
         """
 
-        choice = int(raw_input("Do you want the full results, or the most common results?\n"
-                               "1. Full list\n"
-                               "2. Full list without Rotten Tomatoes\n"
-                               "3. Common list\n"
-                               "4. Common List with Rotten Tomatoes\n"
-                               ">> "))
+        choice = raw_input("Do you want the full results, or the most common results?\n"
+                           "1. Full list\n"
+                           "2. Full list without Rotten Tomatoes\n"
+                           "3. Common list\n"
+                           "4. Common List with Rotten Tomatoes\n"
+                           ">> ")
+        choice = self.try_catch_not_an_int(choice)
         return choice
 
     def print_results(self):
+
         if self.search.data['Response'] == 'False':
             if self.movie_title == 'None':
                 print u"Could not find a match for IMDB # {}".format(self.imdb_num)
@@ -146,5 +150,26 @@ class UI(object):
                     print u"{}: {}".format(each, value)
                     continue
                 print u"{}: {}".format(each, value)
+        self.reset()
+
+    def reset(self):
+        """
+        reset the data/clear out the data so more than one search can happen
+        :return:
+        """
+        self.search = Search()
+        self.movie_title = ''
+        self.imdb_num = ''
+        time.sleep(3)
+        self.main_menu()
+
+    def try_catch_not_an_int(self, choice):
+        try:
+            choice = int(choice)
+        except ValueError:
+            print "Please enter a number only."
+            self.reset()
+        return choice
+
 
 test = UI()
