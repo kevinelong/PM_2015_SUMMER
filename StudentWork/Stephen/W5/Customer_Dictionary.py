@@ -2,6 +2,8 @@ __author__ = 'stephen'
 #
 # The Customer DICTIONARY is used to store Customer contact info.
 import datetime
+import cPickle as pickle
+pickle_file = '/home/stephen/Desktop/party_reg_save/'
 
 customer_list = []
 # locations = ["Portland", "Vancouver"]
@@ -58,7 +60,9 @@ def add():
 	choice = raw_input("")
 	if choice == "yes" or choice == "y":
 		add_customer(fname, lname, address, phone, email)
-
+	elif choice == "no" or choice =="n":
+		exit()
+# 	I would like to add a choice to change a particular entry, but for now I will make this just exit out of the add option.
 add()
 print customer_list
 
@@ -67,7 +71,7 @@ print customer_list
 
 class Party(object):
 	def __init__(self, location, date, time, party, qty_guests, primary_guest):
-		self.location = []
+		self.location = location
 		self.date = date
 		self.time = time
 		self.party = party
@@ -75,7 +79,7 @@ class Party(object):
 		self.primary_guest = primary_guest
 
 	def __repr__(self):
-		return self.location + " " + self.date + " " + self.time + " " + self.party + " " + self.qty_guests + " " + self.primary_guest
+		return self.location +" " + self.date +" " + self.time + " " + self.party + " " + self.qty_guests + " " + self.primary_guest
 
 
 	def set_location(self, location ):
@@ -119,6 +123,8 @@ def new_party():
 	choice = raw_input("")
 	if choice == "yes" or choice == "y":
 		add_party(location, date, time, party, qty_guests, primary_guest)
+	elif choice == "no" or choice =="n":
+		exit()
 
 new_party()
 print party_list
