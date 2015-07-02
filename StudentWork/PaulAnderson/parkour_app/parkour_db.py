@@ -1,86 +1,125 @@
 catalog = {
-    "safety_vault_right": {
-        "name": "safety_vault",
+    # Level One
+    "roll": {
+        "name": "roll",
+        "level": 1,
+        "move_type": "ground",
+    },
+    "back_roll": {
+        "name": "back roll",
+        "level": 1,
+        "move_type": "ground",
+    },
+    "tack": {
+        "name": "tack",
+        "level": 1,
+        "move_type": "wall",
+    },
+    "cat": {
+        "name": "cat",
+        "level": 1,
+        "move_type": "wall",
+    },
+    "underbar": {
+        "name": "underbar",
+        "level": 1,
+        "move_type": "bar",
+    },
+    "bar_balance": {
+        "name": "bar_balance",
+        "level": 1,
+        "move_type": "bar",
+    },
+    "safety_vault": {
+        "name": "safety vault",
         "level": 1,
         "move_type": "vault",
-        "take_off": "right",
     },
-    "safety_vault_left": {
-        "name": "safety_vault",
+    "lazy_vault": {
+        "name": "lazy vault",
         "level": 1,
         "move_type": "vault",
-        "take_off": "left",
     },
-    "speed_vault_right": {
-        "name": "speed_vault",
-        "level": 1,
-        "move_type": "vault",
-        "take_off": "right",
-    },
-    "speed_vault_left": {
-        "name": "speed_vault",
-        "level": 1,
-        "move_type": "vault",
-        "take_off": "right",
-    },
-    "lazy_vault_right": {
-        "name": "lazy_vault",
-        "level": 1,
-        "move_type": "vault",
-        "take_off": "right",
-    },
-    "lazy_vault_left": {
-        "name": "lazy_vault",
-        "level": 1,
-        "move_type": "vault",
-        "take_off": "right",
-    },
-    "dash_vault": {
-        "name": "dash_vault",
+    # Level Two
+    "dive_roll": {
+        "name": "roll",
         "level": 2,
-        "move_type": "vault",
-        "take_off": "right",
+        "move_type": "ground",
+    },
+    "hand_walk": {
+        "name": "hand walk",
+        "level": 2,
+        "move_type": "ground",
+    },
+    "wall_run": {
+        "name": "wall run",
+        "level": 2,
+        "move_type": "wall",
+    },
+    "arm_up": {
+        "name": "arm up",
+        "level": 2,
+        "move_type": "wall",
+    },
+    "lache": {
+        "name": "lache",
+        "level": 2,
+        "move_type": "bar",
+    },
+    "muscle_up": {
+        "name": "muscle up",
+        "level": 2,
+        "move_type": "bar",
     },
     "kong_vault": {
-        "name": "kong_vault",
+        "name": "kong vault",
         "level": 2,
         "move_type": "vault",
     },
-    "side_vault": {
-        "name": "side_vault",
+    "dash_vault": {
+        "name": "dash vault",
         "level": 2,
         "move_type": "vault",
-        "take_off": "right",
     },
-    "turn_vault": {
-        "name": "turn_vault",
-        "level": 2,
+    # Level Three
+    "front_flip": {
+        "name": "front_flip",
+        "level": 3,
+        "move_type": "ground",
+    },
+    "back_flip": {
+        "name": "back flip",
+        "level": 3,
+        "move_type": "ground",
+    },
+    "palm_flip": {
+        "name": "palm flip",
+        "level": 3,
+        "move_type": "wall",
+    },
+    "palm_spin": {
+        "name": "palm spin",
+        "level": 3,
+        "move_type": "wall",
+    },
+    "bar_front_flip": {
+        "name": "front flip",
+        "level": 3,
+        "move_type": "bar",
+    },
+    "bar_back_flip": {
+        "name": "back flip",
+        "level": 3,
+        "move_type": "bar",
+    },
+    "double_kong_vault": {
+        "name": "double kong vault",
+        "level": 3,
         "move_type": "vault",
-        "take_off": "right",
     },
+    "spin_vault": {
+        "name": "spin vault",
+        "level": 3,
+        "move_type": "vault",
+    }
 }
-
-# self.wall_run = 2
-# self.wall_sweep = 2
-# self.kick_up = 2
-# self.tic-tac = 2
-# self.wall_run = 2
-# self.wall_run = 2
-# self.wall_run = 2
-#
-# self.safety = 1
-# self.speed = 1
-# self.lazy = 1
-# self.dash = 2
-# self.kong = 2
-# self.side = 2
-# self.turn = 2
-# self.pop = 2
-# self.gate = 2
-# self.straddle = 2
-# self.reverse = 2
-# self.spin = 2
-# self.double_kong = 3
-# self.kash = 3
-# self.reverse_kong = 3
-# self.rail_flow = 3

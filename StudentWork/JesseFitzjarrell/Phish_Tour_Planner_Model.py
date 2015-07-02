@@ -6,7 +6,7 @@ Summer 2015 Phish Tour Planner Model File
 My first real Python file, let's do it.
 """
 
-"""
+
 phish_show_dictionary = {'Bend_night_1':'7/21 Les Schwab Amphitheatre, Bend, OR',
                    'Bend_night_2':'7/22 Les Schwab Amphitheatre, Bend, OR',
                    'Mountain View':'7/24 Shoreline Amphitheatre, Mountain View, CA',
@@ -36,14 +36,14 @@ phish_show_dictionary = {'Bend_night_1':'7/21 Les Schwab Amphitheatre, Bend, OR'
 
 
 
-
+'''
 for keys,values in phish_show_dictionary.items():
     print(keys)
     print(values)
-"""
+'''
 
-phish_show_list = ("Here is a list of Phish's Summer 2015 dates!!!!",
-                    'Bend_night_1 7/21 Les Schwab Amphitheatre, Bend, OR',
+phish_show_list = ("!!!!Here is a list of Phish's Summer 2015 dates!!!!",
+                    '\nBend_night_1 7/21 Les Schwab Amphitheatre, Bend, OR',
                    'Bend_night_2 7/22 Les Schwab Amphitheatre, Bend, OR',
                    'Mountain View 7/24 Shoreline Amphitheatre, Mountain View, CA',
                    'Los Angeles 7/25 Forum, Los Angeles, CA',
@@ -68,6 +68,7 @@ phish_show_list = ("Here is a list of Phish's Summer 2015 dates!!!!",
                     'Commerce City, CO Night 2 9/5 Dick\'s Sporting Goods Park, Commerce City, CO',
                     'Commerce City, CO Night 3 9/6 Dick\'s Sporting Goods Park, Commerce City, CO',
 )
-
-#for elem in phish_show_list:
- #       print elem
+'''
+for elem in phish_show_list:
+        print elem
+'''

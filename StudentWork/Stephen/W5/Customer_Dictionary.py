@@ -51,7 +51,7 @@ def add():
 	address = raw_input("Please enter your address here:   ")
 	phone = raw_input("Enter the phone number of your new Contact here: ")
 	email = raw_input("Enter the email of your new Contact:  ")
-	print "this is the information you entered, is it correct?"
+	print "\n\n\n\t\t\tThis is the information you entered, is it correct?\n Please enter yes or no."
 	print fname
 	print lname
 	print address
@@ -113,7 +113,7 @@ def new_party():
 	party = raw_input("What type of party would you like? \n\nOpen Studio\nMessy Madness\nAdvanced Artistry\nPrivate Party\n  : ")
 	qty_guests = raw_input("How many guest are attending? :  ")
 	primary_guest = raw_input("Is there a Guest of Honor? Put in their name here\n: ")
-	print "this is the information you entered, is it correct?"
+	print "This is the information you entered, is it correct?\n Please enter yes or no."
 	print location
 	print date
 	print time
