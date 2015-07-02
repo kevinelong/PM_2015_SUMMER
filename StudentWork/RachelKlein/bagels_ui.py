@@ -29,7 +29,7 @@ def results_of_guess(codewords, game):
 
     # If the list codewords is as long as the number of digits in the chosen number and
     # all the slots contain "Fermi", the human user wins!
-    if new_game.did_player_win(codewords):
+    if bagels.did_player_win(codewords, new_game.digits):
         you_win()
         sys.exit()
     else:
@@ -77,7 +77,7 @@ def compare_computer_guess():
     """
     Prompts the user for input on how well the computer did on its last guess.
     """
-    computer_guess = ''.join(map(str, new_game.last_guess))
+    computer_guess = ''.join(map(str, computer_player.last_guess))
     print computer_guess
     guess_response = raw_input \
         ("Okay, how did I do? Remember, type \'Bagels\' if none of the digits are right,\n"
@@ -109,9 +109,11 @@ if __name__ == '__main__':
         number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
             Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))
         new_game = bagels.Game("computer", number_of_digits)
-        new_game.computer_guess()
+        computer_player = bagels.ComputerPlayer(number_of_digits)
+        computer_player.computer_guess()
         keywords = []
-        while new_game.did_player_win(keywords) is False:
+        while bagels.did_player_win(keywords, new_game.digits) is False:
+            new_game.number_of_guesses += 1
             keywords = compare_computer_guess()
-            new_game.computer_guess(keywords)
+            computer_player.computer_guess(keywords)
         print "Yay! I won! And it only took me {} guesses.".format(new_game.number_of_guesses)

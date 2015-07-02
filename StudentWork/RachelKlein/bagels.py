@@ -2,6 +2,17 @@ __author__ = 'rachel'
 
 from random import randrange, choice
 
+def did_player_win(codewords, digits):
+    """
+    This method is shared by the Game and ComputerPlayer classes because it can check whether a human
+    or a computer player has won the game.
+    """
+
+    if len(codewords) == digits and set(codewords) == set(["Fermi"]):
+        return True
+    else:
+        return False
+
 class Game(object):
 
     def __init__(self, guesser="human", digits=3):
@@ -14,20 +25,6 @@ class Game(object):
         self.number_of_guesses = 0
         if guesser == "human":
             self.chosen_number = self.create_num(digits)
-        else:
-            self.first_digit_possibilities = range(1, 10)
-            self.other_digit_possibilities = range(0, 10)
-            self.not_possibilities = []
-            self.last_guess = []
-            self.previous_guesses = []
-            if guesser == "computer":
-                pass
-                # while True:
-                #     self.last_guess = self.computer_guess()
-            elif guesser == "smarter_computer":
-                pass
-                # while True:
-                #     self.last_guess = self.computer_guess_smarter()
 
     def create_num(self, digits):
         """
@@ -46,7 +43,7 @@ class Game(object):
         while len(final_number) < digits:
             infinite_loop_prevention += 1
             if infinite_loop_prevention > 10:
-                raise Exception("This is to make sure if I make a bug it doesn't loop forever.")
+                raise Exception("Infinite loop detected!")
             new_digit = randrange(0, 10)
             if new_digit not in final_number:
                 final_number.append(new_digit)
@@ -80,18 +77,31 @@ class Game(object):
 
         return sorted(codewords)
 
+class ComputerPlayer(object):
+
+    def __init__(self, digits):
+        """
+        The computer player can store information about its guesses in a variety of different ways.
+        """
+        self.digits = digits
+        self.first_digit_possibilities = range(1, 10)
+        self.other_digit_possibilities = range(0, 10)
+        self.not_possibilities = []
+        self.previous_guesses = []
+        self.last_guess = []
+        self.next_guess = []
+        self.best_guess = []
+
     def computer_guess(self, codewords=None):
         """
         This method allows the computer to guess the number chosen by a human player.
         """
-
-        # TODO: Make a computer player class so we can, at a minimum, save past guesses.
-        # However, that would mean making a separate win condition function. :(
-        # Maybe just make past_guesses an attribute?
-
         current_guess = []
 
-        # TODO: Fix this. It works but it has too much nested looping.
+        # if "Fermi" in codewords:
+        #     if len(self.not_possibilities) >=  2:
+
+        # TODO: Figure out if there is a way to do this part without so much nested looping.
 
         if codewords == ["Bagels"]:
             for x in self.last_guess:
@@ -112,29 +122,22 @@ class Game(object):
         while len(current_guess) < self.digits:
             infinite_loop_prevention += 1
             if infinite_loop_prevention > 10:
-                raise Exception("This is to make sure if I make a bug it doesn't loop forever.")
+                raise Exception("Infinite loop detected!")
             new_digit = choice(self.other_digit_possibilities)
             if new_digit not in current_guess:
                 current_guess.append(new_digit)
 
+        # This makes sure the computer doesn't guess the same number multiple times.
+
         if current_guess not in self.previous_guesses:
             self.previous_guesses.append(current_guess)
-            self.number_of_guesses += 1
             self.last_guess = current_guess
         else:
-            self.computer_guess()
+            computer_guess()
 
+        return self.last_guess
 
-    def computer_guess_smarter(self):
-        """
-        This method is my attempt to create a "smarter" guessing method for the
-        computer player.
-        """
-        pass
-
-    def did_player_win(self, codewords):
-
-        if len(codewords) == self.digits and set(codewords) == set(["Fermi"]):
-            return True
-        else:
-            return False
+class SmarterComputerPlayer(ComputerPlayer):
+    """
+    A computer player with a somewhat smarter playing algorithm.
+    """
