@@ -142,7 +142,7 @@ is different. You're on your last dime and haven't had a real case in two months
 lights are about to go out and the landlord will be coming down on you any day now. You've always heard stories about
 the Cook County Almshouse - it looks like you'll be getting a firsthand tour real soon.
 """
-    raw_input("Press Enter to continue...  ").lower()
+    raw_input("Press Enter to continue...  ")
 
     print """
 That's why the knock on the door is surprising but welcome, like Christmas come early. You open the door and are greeted
@@ -157,7 +157,6 @@ greeting and open the door wide; the woman breezes right past you and looks inte
 
 def dialogue_tree():
     tree_input = raw_input("""
-
 What's your next move, ace?
 
 A.) "Say there - you wanna drink?"
@@ -187,15 +186,89 @@ nervous."
 "Of course. Of course I will." Your slow nod seems to reassure her a bit but you already get the suspicion
 that your new client is already up to no good. She turns to you and says:
 """
-        return tree_input == 'c'
+            # return tree_input == 'c'
 
     elif tree_input == 'b':
         print """
-My name is Martha Sternwood.
+"My name is Martha Sternwood. I represent the interests of my late husband, Earl Sternwood, an executive accountant with
+U.S. Steel. He was murdered and robbed last night, his body left in an alley off West Lexington Street."
+
+Your ears perk up like a mut being called in for supper. If Mrs. Sternwood's recently departed spouse actually brushed
+elbows with the types you've seen at all those fancy restaurants and clubs in the Loop, than she may think your time is
+worth more than it actually is.
+
+"West Lexington, huh? That's an awful dangerous neighborhood for a glorified bookkeeper to be traipsing around in."
+"""
+        raw_input("Press Enter to continue...  ")
+
+        print """
+"Executive accountant, detective. He was head of accounts receivable for one of the largest corporations in the world.
+He handled millions of dollars in invoices every day, from all across the world. He was an important man in an important
+company... and I believe his murder wasn't a simple mugging."
+
+Her words hang in the air for a bit, the suspicion in her voice as palpable as the burn of the cheap scotch down a dry
+throat.
+
+"Any particular reason why you don't think the cops are doing their job, Mrs. Sternwood? Or even U.S. Steel, for that
+matter - hell, I'm willing to bet that they have a small army of guys like me on retainer, just waiting for the chance
+to make a name for themselves."
+
+"Let's just say I suspect that Mr. Sternwood stumbled across an account that he shouldn't have. The weekend before he
+died, he confided in me that he found a dummy account that was receiving vast sums of money from illegal loans. He told
+me he wanted to go to the police but suspected he was being followed. He wouldn't tell me who he thought was following
+him. I didn't doubt what he said about the account but, I admit, I thought that he was being paranoid about being
+stalked. When I received the call that Earl..."
+
+She tears up a bit, shakes her head and downs the last of the scotch in her glass.
+"""
+        raw_input("Press Enter to continue...  ")
+
+        print """
+"When the police called Earl had been dead several hours. His wallet, money - everything had been taken. The only reason
+they identified him is because a coworker of his happened to be passing by. A coworker who had just happened to walk
+down a dark alley, pass through police tape and pulled aside an officer to tell them who they had. And, oddly enough,
+not only did the police not question the man, they immediately labeled the case a mugging gone wrong and rushed the body
+to the morgue."
+
+"I see. So you think that maybe someone at U.S. Steel had something to do with this? Someone who didn't want the
+information your husband had out in the open? That doesn't explain the police's reaction to the crime though, nor why
+your husband was where he was found."
+
+"I'm not presuming anything," Mrs. Sternwood says as she eyes you levelly. "That's your job, detective. I want you to
+find my husband's killer and bring that person to justice. I am willing to pay you one thousand dollars for your
+efforts."
+
+The case sounded a lot like chasing ghosts - there were no leads, no evidence you've seen or heard of yet, and
+apparently no witnesses. Just the hollow suspicions of a grieving widow, held together by the paranoia of her late
+husband. But one thousand dollars... that would keep you set for the better part of a year and was a hell of sight
+better than the change that rattled in your pocket.
+
+"Sounds tricky," you say as you cross behind your desk. "I'll need an advance. To cover expanses, of course."
+"""
+        raw_input("Press Enter to continue...  ")
+        print """
+"Will one hundred dollars do?"
+
+She doesn't hesitate for a moment - she produces the money and hands it to you.
+
+"I assume this means you accept my case, detective?"
+
+"Yeah, I guess it does." You pocket the money, raise your glass to Mrs. Sternwood, and down the scotch. Cheap scotch
+never has, nor probably ever will, taste quite as good as it does now.
+
+"Excellent. Here is the address of the crime scene - I expect you go there promptly."
+
+She turns to leave, stops short of the door and turns around to face you.
+
+"And detective... I hope you understand that I expect results. You will find the man who murdered my husband."
+
+With those parting words, she whisks right out the door, just as quickly as she entered your life.
+
+One thousand dollars... a pretty good rate for an easy job!
 """
     elif tree_input == 'c':
         print """
-My name is Martha Sternwood.
+
 """
     else:
         print "Please enter the letter that corresponds with the dialogue you wish to choose."
