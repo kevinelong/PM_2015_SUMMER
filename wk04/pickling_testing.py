@@ -1,38 +1,45 @@
-# Sample module for saving data to files to be loaded later. Fulfills the use
-# case where a user may want to "save their game" for continuing later.
-# Replaces the need for a simple database.
-#
-# -----
-# Use:
-#
-# Given a "Cat" object:
-#
-#   class Cat(object):
-#       def __init__(self, name):
-#           self.name = name
-#           self.age = 1
-#           self.happiness = 5
-#
-#   my_cat = Cat('Pamina')
-#
-#
-# It could be saved thus:
-#
-#   my_cat_dict = {
-#       'type': 'Cat',
-#       'name': my_cat.name,
-#       'age': my_cat.age,
-#       'happiness': my_cat.happiness,
-#   }
-#   write_to_file(my_cat_dict)
-#
-#
-# And loaded thus:
-#
-#   my_cat_dict = get_from_file()
-#   my_cat = Cat(my_cat_dict['name'])
-#   my_cat.age = my_cat_dict['age']
-#   my_cat.happiness = my_cat_dict['happiness']
+"""
+
+Sample module for saving data to files to be loaded later. Fulfills the use
+case where a user may want to "save their game" for continuing later.
+Replaces the need for a simple database.
+
+Use:
+====
+
+Given a "Cat" object:
+---------------------
+
+    class Cat(object):
+        def __init__(self, name):
+            self.name = name
+            self.age = 1
+            self.happiness = 5
+
+    my_cat = Cat('Pamina')
+
+
+It could be saved thus:
+-----------------------
+
+    my_cat_dict = {
+        'type': 'Cat',
+        'name': my_cat.name,
+        'age': my_cat.age,
+        'happiness': my_cat.happiness,
+    }
+    write_to_file(my_cat_dict)
+
+
+And loaded thus:
+----------------
+
+    my_cat_dict = get_from_file()
+    my_cat = Cat(my_cat_dict['name'])
+    my_cat.age = my_cat_dict['age']
+    my_cat.happiness = my_cat_dict['happiness']
+
+"""
 
 
 
