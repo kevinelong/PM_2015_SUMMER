@@ -2,6 +2,7 @@ __author__ = 'rachel'
 
 from random import randrange, choice, shuffle
 
+
 def did_player_win(codewords, digits):
     """
     This method is shared by the Game and ComputerPlayer classes because it can check whether a human
@@ -13,8 +14,8 @@ def did_player_win(codewords, digits):
     else:
         return False
 
-class Game(object):
 
+class Game(object):
     def __init__(self, guesser="human", digits=3):
         """
         Each game stores the number of guesses as an attribute. You will be able to choose
@@ -77,8 +78,8 @@ class Game(object):
 
         return sorted(codewords)
 
-class ComputerPlayer(object):
 
+class ComputerPlayer(object):
     def __init__(self, digits):
         self.digits = digits
         self.possible_numbers = []
@@ -92,7 +93,7 @@ class ComputerPlayer(object):
         minimum = [1]
         maximum = [1]
 
-        for x in range(digits-1):
+        for x in range(digits - 1):
             minimum.append(0)
         minimum = ''.join(map(str, minimum))
         minimum = int(minimum)
@@ -134,6 +135,9 @@ class ComputerPlayer(object):
 
         # TODO: Figure out if there is a way to do this part without so much nested looping.
 
+        # If the human player says "Bagels," all numbers containing any of those digits are
+        # removed from the list of possible numbers.
+
         if codewords == ["Bagels"]:
             new_possibilities = []
             for number in self.possible_digit_combinations:
@@ -144,18 +148,39 @@ class ComputerPlayer(object):
                     if number not in new_possibilities:
                         new_possibilities.append(number)
             self.possible_digit_combinations = new_possibilities
+            print self.possible_digit_combinations
 
-        print self.possible_digit_combinations
+        # If one of the codewords is "Pico," all numbers NOT containing any of those digits
+        # are removed from the list of possible numbers.
+
+        # TODO: Figure out why this new code is (sometimes) causing an infinite loop when you win.
+
+        elif codewords is not None:
+            if "Pico" in codewords:
+                new_possibilities = []
+                for number in self.possible_digit_combinations:
+                    for digit in self.last_guess:
+                        if digit in number:
+                            if number not in new_possibilities:
+                                new_possibilities.append(number)
+                self.possible_digit_combinations = new_possibilities
+                print self.possible_digit_combinations
+
+        # Next up: if the list of codewords is "Pico Pico Pico" (or to the length of self.digits)
+        # make it so anything that doesn't have ALL of those digits is thrown out. This is much like
+        # the did_player_win function.
 
         current_guess = choice(self.possible_digit_combinations)
-        if len(self.possible_digit_combinations) > 2:
+        # Changed this next line from if len ... > 2. Did this fix the infinite loop? Or is it a mistake?
+        if len(self.possible_digit_combinations) > self.digits:
             while current_guess in self.previous_guesses:
                 current_guess = choice(self.possible_digit_combinations)
 
         self.previous_guesses.append(current_guess)
         self.last_guess = current_guess
 
-        # Next up: eliminate duplicate guesses
+        # TODO: Deal with humans who accidentally or on purpose make the list of possibilities zero.
+
 
 class SmarterComputerPlayer(ComputerPlayer):
     """
