@@ -80,25 +80,40 @@ def compare_computer_guess(computer_player):
     return guess_response
 
 def computer_guessing_game():
-    number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
-            Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))
-    new_game = bagels.Game("computer", number_of_digits)
-    computer_player = bagels.ComputerPlayer(number_of_digits)
+    try:
+        number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
+                Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))
+        new_game = bagels.Game("computer", number_of_digits)
+        computer_player = bagels.ComputerPlayer(number_of_digits)
+    except ValueError:
+        print "Okay, whatever, 3 digits is good."
+        new_game = bagels.Game("computer", 3)
+        computer_player = bagels.ComputerPlayer(3)
     computer_player.computer_guess()
     keywords = []
-    # This is not triggering the win condition sometimes I think? It's trying to guess again. Why?
     while bagels.did_player_win(keywords, new_game.digits) is False:
-        print "So I haven't won yet."
         computer_player.number_of_guesses += 1
         keywords = compare_computer_guess(computer_player)
         try:
-            print "Now I'm going to guess."
             computer_player.computer_guess(keywords)
         except IndexError:
             raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
             print "Come back when you're ready to play for real."
             sys.exit()
     print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
+
+def human_guessing_game():
+    try:
+        number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
+            The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
+            And you can't pick more than 9 digits. You just can't, okay? >> """))
+        new_game = bagels.Game("human", number_of_digits)
+    except ValueError:
+        print "Okay, whatever, 3 digits is good."
+        new_game = bagels.Game("human", 3)
+    while True:
+        guess()
+
 
 # A new game is created when this file is run from the console.
 
@@ -113,11 +128,9 @@ if __name__ == '__main__':
     game_type = raw_input \
         ("Please type 1 if you want me to pick the number for you to guess and 2 if you want to pick one for me. >> ")
     if game_type == "1":
-        number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
-            The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
-            And you can't pick more than 9 digits. You just can't, okay? >> """))
-        new_game = bagels.Game("human", number_of_digits)
-        while True:
-            guess()
+        human_guessing_game()
     elif game_type == "2":
         computer_guessing_game()
+    else:
+        raw_input("Okay, so you're bad at decisions. I knew that. You can guess this time. >> ")
+        human_guessing_game()

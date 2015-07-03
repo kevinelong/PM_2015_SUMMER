@@ -203,5 +203,3 @@ class ComputerPlayer(object):
                     new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
         print self.possible_digit_combinations
-
-        # TODO: Deal with humans who accidentally or on purpose make the list of possibilities zero.
