@@ -131,6 +131,7 @@ print "We will get back to you within 24hrs."
 print customer_list
 print party_list
 
+def
 
 def search_customer_list(customer_list):
 	while True:
@@ -142,8 +143,14 @@ def search_customer_list(customer_list):
 							"Enter 4 to exit the search option.\n"
 							":  \n"
 		if choice == "1":
-			search.customer_list()
-		elif Last Name =="2":
+			search1 = customer_list[0]
+		elif choice =="2":
+			search2 = customer_list[1]
+		elif choice =="3":
+			search3 = customer_list[3]
+		else:
+			exit()
+
 
 
 		else:
