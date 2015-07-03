@@ -131,6 +131,9 @@ class ComputerPlayer(object):
         This method allows the computer to guess the number chosen by a human player.
         """
 
+        if did_player_win(codewords or [], self.digits) is True:
+            return
+
         # TODO: Unit tests for this. Length of possible digit combinations should get predictably
         # shorter with certain keywords.
 

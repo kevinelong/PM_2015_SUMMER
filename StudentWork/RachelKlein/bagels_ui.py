@@ -66,7 +66,7 @@ def print_directions():
     raw_input("Then you use my wacky code to keep guessing until you get it right! >>")
 
 
-def compare_computer_guess():
+def compare_computer_guess(computer_player):
     """
     Prompts the user for input on how well the computer did on its last guess.
     """
@@ -78,6 +78,27 @@ def compare_computer_guess():
          "and \'Fermi\' every time a digit is right AND in the right place. >> ")
     guess_response = guess_response.split()
     return guess_response
+
+def computer_guessing_game():
+    number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
+            Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))
+    new_game = bagels.Game("computer", number_of_digits)
+    computer_player = bagels.ComputerPlayer(number_of_digits)
+    computer_player.computer_guess()
+    keywords = []
+    # This is not triggering the win condition sometimes I think? It's trying to guess again. Why?
+    while bagels.did_player_win(keywords, new_game.digits) is False:
+        print "So I haven't won yet."
+        computer_player.number_of_guesses += 1
+        keywords = compare_computer_guess(computer_player)
+        try:
+            print "Now I'm going to guess."
+            computer_player.computer_guess(keywords)
+        except IndexError:
+            raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
+            print "Come back when you're ready to play for real."
+            sys.exit()
+    print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
 
 # A new game is created when this file is run from the console.
 
@@ -99,20 +120,4 @@ if __name__ == '__main__':
         while True:
             guess()
     elif game_type == "2":
-        number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
-            Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))
-        new_game = bagels.Game("computer", number_of_digits)
-        computer_player = bagels.ComputerPlayer(number_of_digits)
-        computer_player.computer_guess()
-        keywords = []
-        # This is not triggering the win condition sometimes I think? It's trying to guess again. Why?
-        while bagels.did_player_win(keywords, new_game.digits) is False:
-            computer_player.number_of_guesses += 1
-            keywords = compare_computer_guess()
-            try:
-                computer_player.computer_guess(keywords)
-            except IndexError:
-                raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
-                print "Come back when you're ready to play for real."
-                sys.exit()
-        print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
+        computer_guessing_game()
