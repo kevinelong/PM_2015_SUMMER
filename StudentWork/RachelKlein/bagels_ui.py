@@ -109,5 +109,10 @@ if __name__ == '__main__':
         while bagels.did_player_win(keywords, new_game.digits) is False:
             computer_player.number_of_guesses += 1
             keywords = compare_computer_guess()
-            computer_player.computer_guess(keywords)
+            try:
+                computer_player.computer_guess(keywords)
+            except IndexError:
+                raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
+                print "Come back when you're ready to play for real."
+                sys.exit()
         print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
