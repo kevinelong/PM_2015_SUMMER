@@ -105,8 +105,9 @@ if __name__ == '__main__':
         computer_player = bagels.ComputerPlayer(number_of_digits)
         computer_player.computer_guess()
         keywords = []
+        # This is not triggering the win condition sometimes I think? It's trying to guess again. Why?
         while bagels.did_player_win(keywords, new_game.digits) is False:
-            new_game.number_of_guesses += 1
+            computer_player.number_of_guesses += 1
             keywords = compare_computer_guess()
             computer_player.computer_guess(keywords)
-        print "Yay! I won! And it only took me {} guesses.".format(new_game.number_of_guesses)
+        print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)

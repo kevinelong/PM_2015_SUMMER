@@ -1,6 +1,6 @@
 __author__ = 'rachel'
 
-from random import randrange, choice, shuffle
+from random import randrange, choice
 
 
 def did_player_win(codewords, digits):
@@ -82,6 +82,7 @@ class Game(object):
 class ComputerPlayer(object):
     def __init__(self, digits):
         self.digits = digits
+        self.number_of_guesses = 0
         self.possible_numbers = []
         self.possible_digit_combinations = []
         self.last_guess = []
@@ -139,16 +140,7 @@ class ComputerPlayer(object):
         # removed from the list of possible numbers.
 
         if codewords == ["Bagels"]:
-            new_possibilities = []
-            for number in self.possible_digit_combinations:
-                for digit in self.last_guess:
-                    if digit in number:
-                        break
-                else:
-                    if number not in new_possibilities:
-                        new_possibilities.append(number)
-            self.possible_digit_combinations = new_possibilities
-            print self.possible_digit_combinations
+            self.bagels()
 
         # If one of the codewords is "Pico," all numbers NOT containing any of those digits
         # are removed from the list of possible numbers.
@@ -156,15 +148,10 @@ class ComputerPlayer(object):
         # TODO: Figure out why this new code is (sometimes) causing an infinite loop when you win.
 
         elif codewords is not None:
-            if "Pico" in codewords:
-                new_possibilities = []
-                for number in self.possible_digit_combinations:
-                    for digit in self.last_guess:
-                        if digit in number:
-                            if number not in new_possibilities:
-                                new_possibilities.append(number)
-                self.possible_digit_combinations = new_possibilities
-                print self.possible_digit_combinations
+            if len(codewords) == self.digits and set(codewords) == set(["Pico"]):
+                self.all_pico()
+            elif "Pico" in codewords:
+                self.pico()
 
         # Next up: if the list of codewords is "Pico Pico Pico" (or to the length of self.digits)
         # make it so anything that doesn't have ALL of those digits is thrown out. This is much like
@@ -172,6 +159,7 @@ class ComputerPlayer(object):
 
         current_guess = choice(self.possible_digit_combinations)
         # Changed this next line from if len ... > 2. Did this fix the infinite loop? Or is it a mistake?
+        # Infinite loop NOT fixed. :(
         if len(self.possible_digit_combinations) > self.digits:
             while current_guess in self.previous_guesses:
                 current_guess = choice(self.possible_digit_combinations)
@@ -179,10 +167,38 @@ class ComputerPlayer(object):
         self.previous_guesses.append(current_guess)
         self.last_guess = current_guess
 
+    def bagels(self):
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            for digit in self.last_guess:
+                if digit in number:
+                    break
+            else:
+                if number not in new_possibilities:
+                    new_possibilities.append(number)
+        self.possible_digit_combinations = new_possibilities
+        print self.possible_digit_combinations
+
+    def pico(self):
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            for digit in self.last_guess:
+                if digit in number:
+                    if number not in new_possibilities:
+                        new_possibilities.append(number)
+        self.possible_digit_combinations = new_possibilities
+        print self.possible_digit_combinations
+
+    def all_pico(self):
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            for digit in self.last_guess:
+                if digit not in number:
+                    break
+            else:
+                if number not in new_possibilities:
+                    new_possibilities.append(number)
+        self.possible_digit_combinations = new_possibilities
+        print self.possible_digit_combinations
+
         # TODO: Deal with humans who accidentally or on purpose make the list of possibilities zero.
-
-
-class SmarterComputerPlayer(ComputerPlayer):
-    """
-    A computer player with a somewhat smarter playing algorithm.
-    """
