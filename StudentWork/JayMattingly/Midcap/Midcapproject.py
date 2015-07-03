@@ -2,6 +2,8 @@ import time
 import webbrowser
 import cPickle as pickle
 
+username = "mattija"
+userpassword = 124578985
 
 #**************************************************************************************#
 #                         File path information                                        #
@@ -12,13 +14,9 @@ import cPickle as pickle
 pickle_file = '/home/jay/PycharmProjects/PM_2015_SUMMER/StudentWork/JayMattingly/PMSchoolWork/test.pickle'
 
 
-progress_report_dict = {
-    'james': {'gender': "male or female", 'age': 24, 'weight': 164, 'height': 72},
-    'smith': {'gender': "male or female", 'age': 24, 'weight': 164, 'height': 72},
-    'gordon': {'gender': "male or female", 'age': 24, 'weight': 164, 'height': 72},
-    'munster': {'gender': "male or female", 'age': 24, 'weight': 164, 'height': 72},
-    'robinson': {'gender': "male or female", 'age': 24, 'weight': 164, 'height': 72}
-}
+progress_report_dict = [
+    {'fname': 'james', 'gender': "gender", 'age': 24, 'weight': 164, 'height': 72}
+]
 
 #****************************************************************************************#
 #                           Used to save progress report,                                #
@@ -38,8 +36,9 @@ def get_from_file():
 
 def search_report():
     search_name = raw_input("Input the user's last name of which you'd like to review.")
-    if search_name in progress_report_dict:
-        print "{}'s current profile {}".format(search_name, progress_report_dict[search_name])
+    for n in progress_report_dict:
+        if search_name in progress_report_dict["fname"]:
+            print "{}'s current profile {}".format(search_name, progress_report_dict["fname"])
 
 
 
@@ -68,7 +67,39 @@ def heart_rate():
     return
 
 def add_client_profile():
-    pass
+    fname = raw_input("Enter your client's first name\n"
+                      ":")
+    # lname = raw_input("Enter your client's last name\n"
+    #                   ":")
+    gender = raw_input("M. Male\n"
+                       "F. Female\n"
+                       ":")
+    age = raw_input("Birth year?\n"
+                    ":")
+    weight = raw_input("Weight(lbs)?\n"
+                       ":")
+    height = raw_input("Height(centimeters)?\n"
+                       ":")
+    contact_entry = {"fname": fname, "gender": gender, "age": age, "weight": weight, "height": height}
+
+    choice = str.lower(raw_input("Who you like to add this contact? Yes or No?\n"
+                       ""))
+    if choice == 'yes' or 'y':
+        progress_report_dict.append(contact_entry)
+        request = raw_input("Contact added successfully!\n" \
+              "Would you like to add another contact?\n" \
+              "Y or N?\n" \
+              ":").lower()
+        if request == 'y':
+            add_client_profile()
+        else:
+            my_progress()
+    else:
+        print "Add contact cancelled!"
+        time.sleep(2)
+        my_progress()
+
+
 
 def my_progress():
     decision = raw_input("What would you like to do?\n"
@@ -97,7 +128,8 @@ def my_progress():
         print get_from_file()
         my_progress()
     elif decision == 'a':
-        pass
+        add_client_profile()
+        my_progress()
 
     else:
         print "\n"
@@ -177,30 +209,45 @@ def response_1():
         print "That is an invalid entry, please re-enter your selection."
         response_1()
 
-while True:
-    print """
 
-                Welcome to my little fitness helper!
-                Where you can track all your clients
-                    in one handy little app!
+# def app_starter():
+#     print "Please enter you credentials here."
+#     userinputname = raw_input("Username\n"
+#                               ":")
+#     userinputpass = int(raw_input("Password\n"
+#                               ":"))
+    # if (userinputname, userinputpass) == (username, userpassword):
+    while True:
+        print """
+
+                    Welcome to my little fitness helper!
+                    Where you can track all your clients
+                        in one handy little app!
 
 
-                copyright javiair.mattingly.llc
-        """
-    status = raw_input(str("Input F to continue.\n"
-                           "Input C to view element\n"
-                           "Input E to close application\n"
-                           "\n"
-                           ":")).lower()
-    if status.lower() in 'f':
-        response_1()
-    elif status.lower() in 'c':
-        webbrowser.open('https://github.com/kevinelong/PM_2015_SUMMER/blob/master/StudentWork/JayMattingly/Midcap/Midcapproject.py')
-    elif status.lower() in "e":
-        print "Saving application data...\n" \
-              "Done!\n" \
-              "Good bye!"
-        exit()
-    else:
-        print "That is an invalid entry, please re-enter your selection."
-        time.sleep(2)
+                    copyright javiair.mattingly.llc
+            """
+        status = raw_input(str("Input F to continue.\n"
+                               "Input C to view element\n"
+                               "Input E to close application\n"
+                               "\n"
+                               ":")).lower()
+        if status.lower() in 'f':
+            response_1()
+        elif status.lower() in 'c':
+            webbrowser.open('https://github.com/kevinelong/PM_2015_SUMMER/blob/master/StudentWork/JayMattingly/Midcap/Midcapproject.py')
+        elif status.lower() in "e":
+            print "Saving application data...\n" \
+                  "Done!\n" \
+                  "Good bye!"
+            exit()
+        else:
+            print "That is an invalid entry, please re-enter your selection."
+            time.sleep(2)
+else:
+    print "You're username or password is invalid. Please try again."
+    time.sleep(1)
+    app_starter()
+
+# app_starter()
+
