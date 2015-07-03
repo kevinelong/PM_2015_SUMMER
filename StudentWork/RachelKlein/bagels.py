@@ -203,3 +203,13 @@ class ComputerPlayer(object):
                     new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
         print self.possible_digit_combinations
+
+    def fermi(self):
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            for x in range(0, digits):
+                if self.last_guess[x] == self.possible_digit_combinations[x]:
+                    if number not in new_possibilities:
+                        new_possibilities.append(number)
+                else:
+                    break
