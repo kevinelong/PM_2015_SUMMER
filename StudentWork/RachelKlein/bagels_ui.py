@@ -49,14 +49,6 @@ def you_win():
     print "You win! That was awesome! It took you {} guesses.".format(new_game.number_of_guesses)
 
 
-def save_user_info():
-    """
-    Saves information on how many guesses a certain user takes on average to guess a number
-    as well as any other relevant information.
-    """
-    pass
-
-
 def print_directions():
     """
     The user can choose to get the rules of the game when they start.
@@ -69,7 +61,8 @@ def print_directions():
     raw_input("If no digits are right, I'll say \'Bagels.\' >> ")
     raw_input("If you guess one digit right but it's in the wrong place, I'll say \'Pico\'. >> ")
     raw_input("If that happens twice, I'll say it twice. But I won't tell you which ones I mean. >> ")
-    raw_input("If you get any digit right AND it's in the right place, I'll say \'Fermi\'. >> ")
+    raw_input("If you get any digit right AND it's in the right place, I'll say \'Fermi\' "
+              "(could also happen twice). >> ")
     raw_input("Then you use my wacky code to keep guessing until you get it right! >>")
 
 
@@ -82,7 +75,7 @@ def compare_computer_guess():
     guess_response = raw_input \
         ("Okay, how did I do? Remember, type \'Bagels\' if none of the digits are right,\n"
          "\'Pico\' every time I got a digit right but it's in the wrong place,\n"
-         "and \'Fermi\' if a digit is right AND in the right place. >> ")
+         "and \'Fermi\' every time a digit is right AND in the right place. >> ")
     guess_response = guess_response.split()
     return guess_response
 
@@ -112,8 +105,14 @@ if __name__ == '__main__':
         computer_player = bagels.ComputerPlayer(number_of_digits)
         computer_player.computer_guess()
         keywords = []
+        # This is not triggering the win condition sometimes I think? It's trying to guess again. Why?
         while bagels.did_player_win(keywords, new_game.digits) is False:
-            new_game.number_of_guesses += 1
+            computer_player.number_of_guesses += 1
             keywords = compare_computer_guess()
-            computer_player.computer_guess(keywords)
-        print "Yay! I won! And it only took me {} guesses.".format(new_game.number_of_guesses)
+            try:
+                computer_player.computer_guess(keywords)
+            except IndexError:
+                raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
+                print "Come back when you're ready to play for real."
+                sys.exit()
+        print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)

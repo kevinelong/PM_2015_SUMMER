@@ -20,6 +20,13 @@ import time
 #         self.strength = strength
 #         self.agility = agility
 
+
+inventory = ['cigarette lighter', '$20 bill', '.45 caliber Colt']
+
+
+def add_to_inventory(item):
+    inventory.append(item)
+
 print """
 ____________________________________________________________________________________________________________________________________________________________________________________________
 8 888888888o.          ,o888888o.     8 8888      88 8 888888888o   8 8888         8 8888888888                 ,o888888o.    8 888888888o.      ,o888888o.       d888888o.      d888888o.
@@ -67,8 +74,8 @@ def print_character():
         print attribute, " : ", my_character[attribute]
 
 
-my_character = {'name': '', 'strength': 10, 'agility': 10, 'perception': 10, 'intuition': 10, 'luck': 10, 'health': 100,
-                'points': 30}
+my_character = {'Name': '', 'Strength': 10, 'Agility': 10, 'Perception': 10, 'Intuition': 10, 'Luck': 10, 'Health': 100,
+                'Points': 50}
 
 running = True
 
@@ -79,7 +86,7 @@ Let's assign points to your character. Each attribute will affect game play in d
 displaying special options during scenes, which will aid you in solving mysteries, identifying clues and
 character interaction.
 """
-time.sleep(5)
+raw_input('Press Enter to continue...')
 
 print """
 Below is a description of each attribute:
@@ -107,14 +114,14 @@ while running:
         pass
 
 
-class Action(object):
-    def __init__(self):
-        self.speak = "With whom do you wish to speak?  "
-        self.hit = "Who do you wish to hit?  "
-        self.take = "What do you wish to take?  "
-        self.use = "What would you like to use?  "
-        self.open = "What would you like to open?  "
-        self.help = "Here is the list of valid commands: "
+# class Action(object):
+#     def __init__(self):
+#         self.speak = "With whom do you wish to speak?  "
+#         self.hit = "Who do you wish to hit?  "
+#         self.take = "What do you wish to take?  "
+#         self.use = "What would you like to use?  "
+#         self.open = "What would you like to open?  "
+#         self.help = "Here is the list of valid commands: "
 
 
 class Scene(object):
@@ -132,7 +139,6 @@ class Death(Scene):
 class Office(Scene):
     def enter(self):
         return 'office_building'
-
     print """
 The year is 1944 and you live in the greatest city on Earth - Chicago. You've managed to avoid the draft (for now) and
 have been scrapping by for years as a private investigator. The pre-war years were a goldmine, filled with jilted
@@ -142,22 +148,20 @@ is different. You're on your last dime and haven't had a real case in two months
 lights are about to go out and the landlord will be coming down on you any day now. You've always heard stories about
 the Cook County Almshouse - it looks like you'll be getting a firsthand tour real soon.
 """
-    raw_input("Press Enter to continue...  ").lower()
+    raw_input("Press Enter to continue...  ")
 
     print """
 That's why the knock on the door is surprising but welcome, like Christmas come early. You open the door and are greeted
 with a confident and cool woman, maybe in her late forties. She is smartly dressed in a freshly pressed dress and a
 button up, waist-cinching jacket.  Her dark hair is pulled up in a tight bun nested beneath a glamorous pillbox hat. She
-looks you up and down, regards your disheveled state and says dryly, "Are you going to let me in or should I make an
+looks you up and down, regarding your disheveled state and says dryly, "Are you going to let me in or should I make an
 appointment - seeing as how you are obviously a very busy individual." Normally you would not be inclined to entertain
 such behavior, but a customer is a customer and your confidence is as threadbare as your cheap suit. You mumble a
-greeting and open the door wide; the woman breezes right past you and looks intently around your office.
+greeting and open the door wide. The woman breezes right past you and looks intently around your office.
 """
-
 
 def dialogue_tree():
     tree_input = raw_input("""
-
 What's your next move, ace?
 
 A.) "Say there - you wanna drink?"
@@ -167,7 +171,7 @@ C.) "Why don't you have a seat and tell me what brings you to my office today."
 
     if tree_input == 'a':
         print """
-"I suppose. What do you have?
+"I suppose. What do you have?"
 
 You open the drawer to your woefully stocked liquor cabinet and produce a second-rate bottle of scotch whiskey.
 
@@ -176,27 +180,106 @@ seemingly grateful.
 """
         if my_character['intuition'] >= 30:
             print """
-As she takes a pull from the glass, you notice that her hands shake. You stare for another half second - despite her
-outwards appearance she doesn't seem as well-collected as you previously believed.
+Your high Intuition has given you an unexpected insight: As she takes a pull from the glass, you notice that her hands
+shake. You stare for another half second - despite her outward appearance she doesn't seem as well-collected as you
+previously believed.
 
 "Look, I deal with all sorts of cases and have seen just about everything under the sun. There's no need to be
 nervous."
 
+She glares at you and her demeanor shifts from cool to frosty. The nervousness immediately vanishes; the mask of control
+that had momentarily slipped off is now back on, firmly in place.
+
 "I am certainly not nervous. I am here because I have need of your services. Will you assist me or not?"
 
 "Of course. Of course I will." Your slow nod seems to reassure her a bit but you already get the suspicion
-that your new client is already up to no good. She turns to you and says:
+that your new client is already up to no good.
 """
-        return tree_input == 'c'
+        # append inventory list with Clue # 1 - Mrs. Sternwood is not to be trusted.
+        dialogue_tree()
 
-    elif tree_input == 'b':
+    elif tree_input == 'b' or 'c':
         print """
-My name is Martha Sternwood.
+"My name is Martha Sternwood. I represent the interests of my late husband, Earl Sternwood, an executive accountant with
+U.S. Steel. He was murdered and robbed last night, his body left in an alley off West Lexington Street in Lawndale."
+
+Your ears perk up like a mut being called in for supper. If Mrs. Sternwood's recently departed spouse actually brushed
+elbows with the types you've seen at all those fancy restaurants and clubs in the Loop, than she may think your time is
+worth more than it actually is.
+
+"Lawndale, huh? That's an awful dangerous neighborhood for a glorified bookkeeper to be traipsing around in."
 """
-    elif tree_input == 'c':
+        raw_input("Press Enter to continue...  ")
         print """
-My name is Martha Sternwood.
+"Executive accountant, detective. He was head of accounts receivable for one of the largest corporations in the world.
+He handled hundreds of thousands of dollars in invoices every day, from all across the world. He was an important man
+in an important company... and I believe his murder wasn't a simple mugging."
+
+Her words hang in the air for a bit, the suspicion in her voice as palpable as the burn of the cheap scotch down a dry
+throat.
+
+"Any particular reason why you don't think the cops are doing their job, Mrs. Sternwood? Or even U.S. Steel, for that
+matter - hell, I'm willing to bet that they have a small army of guys like me on retainer, just waiting for the chance
+to make a name for themselves."
+
+"No doubt, detective. Let's just say I suspect that Mr. Sternwood stumbled across an account that he shouldn't have. The
+weekend before he died, he confided in me that he found a dummy account that was receiving vast sums of money from
+illegal loans. He told me he wanted to go to the police but suspected he was being followed. He wouldn't tell me who he
+thought was following him. I didn't doubt what he said about the account but, I admit, I thought that he was being
+paranoid about being stalked. When I received the call that Earl..."
+
+She tears up a bit, shakes her head and downs the last of the scotch in her glass.
 """
+        raw_input("Press Enter to continue...  ")
+
+        print """
+"When the police called, Earl had been dead several hours. His wallet, money - everything had been taken. The only
+reason they identified him as quickly as they did is because a coworker of his happened to be passing by. A coworker who
+had just happened to walk down a dark alley, pass through police tape and pulled aside an officer to tell them who they
+had. And, oddly enough, not only did the police not question the man, they immediately labeled the case a mugging gone
+wrong and rushed the body to the morgue."
+
+"I see. So you think that maybe someone at U.S. Steel had something to do with this? Someone who didn't want the
+information your husband had out in the open? That doesn't explain the police's reaction to the crime though, nor why
+your husband was where he was found."
+
+"I'm not presuming anything," Mrs. Sternwood says as she eyes you levelly. "That's your job, detective. I want you to
+find my husband's killer and bring that person to justice. I am willing to pay you one thousand dollars for your
+efforts."
+
+The case sounded a lot like chasing ghosts - there were no leads, no evidence you've seen or heard of yet, and
+apparently no witnesses. Just the hollow suspicions of a grieving widow, held together by the paranoia of her late
+husband. But one thousand dollars... that would keep you set for the better part of a year and was a hell of a sight
+better than the change that rattled in your pocket.
+
+"Sounds tricky," you say as you cross behind your desk. "I'll need an advance. To cover expenses, of course."
+"""
+        raw_input("Press Enter to continue...  ")
+        print """
+"Will one hundred dollars do?"
+
+She doesn't hesitate for a moment - she produces the money and hands it to you.
+
+"I assume this means you accept my case, detective?"
+
+"Yeah, I guess it does." You pocket the money, raise your glass to Mrs. Sternwood, and down the scotch. That cheap
+scotch of yours has never tasted quite as good as it does now.
+
+"Excellent. Here is the address of the crime scene - I expect you go there promptly."
+
+She turns to leave, stops short of the door and turns around to face you.
+
+"And detective... I hope you understand that I expect results. Do not underestimate my resolve in finding the person who
+did this to Earl and me. You will find the man who murdered my husband. I'll be in touch soon to check on your
+progress."
+
+With those parting words, she whisks right out the door, just as quickly as she entered your life.
+
+One thousand dollars... you'd gladly have done much more than solve some second-rate mystery for that kind of dough.
+You slip on your cracked, leather shoulder holster, check the rounds in your trusty Colt .45, grab your jacket and head
+out the door of your office.
+"""
+
     else:
         print "Please enter the letter that corresponds with the dialogue you wish to choose."
         dialogue_tree()
@@ -204,12 +287,14 @@ My name is Martha Sternwood.
 
 dialogue_tree()
 
+raw_input("Press Enter to continue...  ")
 
 class OfficeBuilding(Scene):
     def enter(self):
-        print ("*more text*")
         return 'city_street'
+    print """
 
+"""
 
 class CityStreet(Scene):  # random encounter
     def enter(self):
@@ -389,14 +474,6 @@ def play(game_map):
     while True:
         next_scene_name = current_scene.enter()
         current_scene = game_map.next_scene(next_scene_name)
-
-
-inventory = ['cigarette lighter', '$20 bill', '.45 caliber Colt']
-
-
-def add_to_inventory(item):
-    inventory.append(item)
-
 
 game_map = Map('office')
 play(game_map)
