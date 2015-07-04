@@ -116,8 +116,6 @@ class ComputerPlayer(object):
         # Now we need to eliminate any numbers (lists of digits at this point) that duplicate any
         # digits.
 
-        # TODO: Make a unit test for this.
-
         temporary_list = []
 
         for list_of_digits in self.possible_digit_combinations:
@@ -134,11 +132,6 @@ class ComputerPlayer(object):
         if did_player_win(codewords or [], self.digits) is True:
             return
 
-        # TODO: Unit tests for this. Length of possible digit combinations should get predictably
-        # shorter with certain keywords.
-
-        # TODO: Figure out if there is a way to do this part without so much nested looping.
-
         # If the human player says "Bagels," all numbers containing any of those digits are
         # removed from the list of possible numbers.
 
@@ -148,21 +141,15 @@ class ComputerPlayer(object):
         # If one of the codewords is "Pico," all numbers NOT containing any of those digits
         # are removed from the list of possible numbers.
 
-        # TODO: Figure out why this new code is (sometimes) causing an infinite loop when you win.
-
         elif codewords is not None:
             if len(codewords) == self.digits and set(codewords) == set(["Pico"]):
                 self.all_pico()
+
             elif "Pico" in codewords:
                 self.pico()
 
-        # Next up: if the list of codewords is "Pico Pico Pico" (or to the length of self.digits)
-        # make it so anything that doesn't have ALL of those digits is thrown out. This is much like
-        # the did_player_win function.
-
         current_guess = choice(self.possible_digit_combinations)
-        # Changed this next line from if len ... > 2. Did this fix the infinite loop? Or is it a mistake?
-        # Infinite loop NOT fixed. :(
+
         if len(self.possible_digit_combinations) > self.digits:
             while current_guess in self.previous_guesses:
                 current_guess = choice(self.possible_digit_combinations)
@@ -180,7 +167,6 @@ class ComputerPlayer(object):
                 if number not in new_possibilities:
                     new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
-        print self.possible_digit_combinations
 
     def pico(self):
         new_possibilities = []
@@ -190,7 +176,6 @@ class ComputerPlayer(object):
                     if number not in new_possibilities:
                         new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
-        print self.possible_digit_combinations
 
     def all_pico(self):
         new_possibilities = []
@@ -202,14 +187,14 @@ class ComputerPlayer(object):
                 if number not in new_possibilities:
                     new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
-        print self.possible_digit_combinations
 
     def fermi(self):
         new_possibilities = []
         for number in self.possible_digit_combinations:
-            for x in range(0, digits):
+            for x in range(0, self.digits):
                 if self.last_guess[x] == self.possible_digit_combinations[x]:
                     if number not in new_possibilities:
                         new_possibilities.append(number)
                 else:
                     break
+        self.possible_digit_combinations = new_possibilities

@@ -3,6 +3,8 @@ import bagels
 import sys
 from time import sleep
 
+# TODO: Fix the scope problem with new_game due to making new human_guessing_game method.
+# Tried making new_game a global variable with value None and it did not help - does not get reassigned.
 
 def guess():
     """
@@ -43,9 +45,8 @@ def results_of_guess(codewords, game):
 
 def you_win():
     """
-    Does something cool and possibly bagel-related when the human player wins.
+    Provides feedback to user when they win the game.
     """
-    # TODO: Insert cooler reward here!
     print "You win! That was awesome! It took you {} guesses.".format(new_game.number_of_guesses)
 
 
@@ -63,7 +64,7 @@ def print_directions():
     raw_input("If that happens twice, I'll say it twice. But I won't tell you which ones I mean. >> ")
     raw_input("If you get any digit right AND it's in the right place, I'll say \'Fermi\' "
               "(could also happen twice). >> ")
-    raw_input("Then you use my wacky code to keep guessing until you get it right! >>")
+    raw_input("Then you use my wacky code to keep guessing until you get it right! >> ")
 
 
 def compare_computer_guess(computer_player):
@@ -78,6 +79,7 @@ def compare_computer_guess(computer_player):
          "and \'Fermi\' every time a digit is right AND in the right place. >> ")
     guess_response = guess_response.split()
     return guess_response
+
 
 def computer_guessing_game():
     try:
@@ -101,6 +103,7 @@ def computer_guessing_game():
             print "Come back when you're ready to play for real."
             sys.exit()
     print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
+
 
 def human_guessing_game():
     try:
