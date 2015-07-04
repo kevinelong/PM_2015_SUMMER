@@ -56,7 +56,4 @@ print "Your favorite color is %r, and your favorite food is %r" %(color, food)
 favorite_Band =raw_input("What is your favorite band? ")
 print "Your favorite band is %r"% favorite_Band
 
-from sys import argv
 
-script, user_name = argv
-prompt = '> '
