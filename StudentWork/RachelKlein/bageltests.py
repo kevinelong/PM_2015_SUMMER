@@ -9,8 +9,8 @@ def possibilities_list_test():
     assert len(test_computer_player.possible_digit_combinations) == 648
 
 # Tests that the "bagels" method reduces the number of possibilities to the appropriate number.
-# Unfortunately since the computer's guess is random it's hard to predict the exact number (if 0 is one of
-# the digits in the guess it will rule out fewer possibilities since 0 cannot be the leading digit).
+# If 0 is one of the digits in the guess it will rule out fewer possibilities since 0 cannot
+# be the leading digit.
 
 def bagels_test():
     test_computer_player = bagels.ComputerPlayer(3)

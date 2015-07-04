@@ -104,20 +104,6 @@ def computer_guessing_game():
             sys.exit()
     print "Yay! I won! And it only took me {} guesses.".format(computer_player.number_of_guesses)
 
-
-def human_guessing_game():
-    try:
-        number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
-            The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
-            And you can't pick more than 9 digits. You just can't, okay? >> """))
-        new_game = bagels.Game("human", number_of_digits)
-    except ValueError:
-        print "Okay, whatever, 3 digits is good."
-        new_game = bagels.Game("human", 3)
-    while True:
-        guess()
-
-
 # A new game is created when this file is run from the console.
 
 if __name__ == '__main__':
@@ -131,7 +117,16 @@ if __name__ == '__main__':
     game_type = raw_input \
         ("Please type 1 if you want me to pick the number for you to guess and 2 if you want to pick one for me. >> ")
     if game_type == "1":
-        human_guessing_game()
+        try:
+            number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
+                The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
+                And you can't pick more than 9 digits. You just can't, okay? >> """))
+            new_game = bagels.Game("human", number_of_digits)
+        except ValueError:
+            print "Okay, whatever, 3 digits is good."
+            new_game = bagels.Game("human", 3)
+        while True:
+            guess()
     elif game_type == "2":
         computer_guessing_game()
     else:
