@@ -3,24 +3,24 @@ import bagels
 import sys
 from time import sleep
 
-# TODO: Fix the scope problem with new_game due to making new human_guessing_game method.
-# Tried making new_game a global variable with value None and it did not help - does not get reassigned.
-
 def guess():
     """
     This method prompts the user to guess a new number. It then converts the guess from
     a string to a list of digits that can be compared to the computer's chosen number.
     """
-    current_guess = int(raw_input("Okay, I'm thinking of my number! What do you think it is??? "))
-    list_of_digits = map(int, str(current_guess))
-    if len(list_of_digits) != new_game.digits:
-        print "Hey, you're not guessing the right number of digits. " \
-              "Your guess should be {} digits long.".format(new_game.digits)
-    elif len(set(list_of_digits)) < len(list_of_digits):
-        print "Remember, there are no repeating digits in this number!"
-    else:
-        current_codewords = new_game.compare_guess(list_of_digits)
-        results_of_guess(current_codewords, new_game)
+    try:
+        current_guess = int(raw_input("Okay, I'm thinking of my number! What do you think it is??? "))
+        list_of_digits = map(int, str(current_guess))
+        if len(list_of_digits) != new_game.digits:
+            print "Hey, you're not guessing the right number of digits. " \
+                  "Your guess should be {} digits long.".format(new_game.digits)
+        elif len(set(list_of_digits)) < len(list_of_digits):
+            print "Remember, there are no repeating digits in this number!"
+        else:
+            current_codewords = new_game.compare_guess(list_of_digits)
+            results_of_guess(current_codewords, new_game)
+    except ValueError:
+        print "That's not a real guess, silly!"
 
 
 def results_of_guess(codewords, game):
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     raw_input(
         "Hi! It's your computer! Care for some Bagels? And by \'Bagels\' I of course mean the fun logic game. >> ")
     need_to_learn = raw_input \
-        ("Well, you're going to one way or another. :D Do you need to learn the rules? y/n??? >> ")
+        ("Actually I don't care whether you do or not. :D Do you need to learn the rules? y/n??? >> ")
     if need_to_learn.lower() == "y" or need_to_learn.lower() == "yes":
         print_directions()
     raw_input("Okay then, press enter if you're ready! I am so ready!!! >> ")
@@ -135,4 +135,13 @@ if __name__ == '__main__':
         computer_guessing_game()
     else:
         raw_input("Okay, so you're bad at decisions. I knew that. You can guess this time. >> ")
-        human_guessing_game()
+        try:
+            number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
+                The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
+                And you can't pick more than 9 digits. You just can't, okay? >> """))
+            new_game = bagels.Game("human", number_of_digits)
+        except ValueError:
+            print "Okay, whatever, 3 digits is good."
+            new_game = bagels.Game("human", 3)
+        while True:
+            guess()
