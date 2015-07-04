@@ -78,7 +78,11 @@ def compare_computer_guess(computer_player):
          "\'Pico\' every time I got a digit right but it's in the wrong place,\n"
          "and \'Fermi\' every time a digit is right AND in the right place. >> ")
     guess_response = guess_response.split()
-    return guess_response
+    computer_friendly_guess = []
+    for x in guess_response:
+        x.lower()
+        computer_friendly_guess.append(x)
+    return computer_friendly_guess
 
 
 def computer_guessing_game():

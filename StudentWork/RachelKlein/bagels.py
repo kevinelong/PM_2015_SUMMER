@@ -9,7 +9,7 @@ def did_player_win(codewords, digits):
     or a computer player has won the game.
     """
 
-    if len(codewords) == digits and set(codewords) == set(["Fermi"]):
+    if len(codewords) == digits and set(codewords) == set(["fermi"]):
         return True
     else:
         return False
@@ -135,17 +135,17 @@ class ComputerPlayer(object):
         # If the human player says "Bagels," all numbers containing any of those digits are
         # removed from the list of possible numbers.
 
-        if codewords == ["Bagels"]:
+        if codewords == ["bagels"]:
             self.bagels()
 
         # If one of the codewords is "Pico," all numbers NOT containing any of those digits
         # are removed from the list of possible numbers.
 
         elif codewords is not None:
-            if len(codewords) == self.digits and set(codewords) == set(["Pico"]):
+            if len(codewords) == self.digits and set(codewords) == set(["pico"]):
                 self.all_pico()
 
-            elif "Pico" in codewords:
+            elif "pico" in codewords:
                 self.pico()
 
         current_guess = choice(self.possible_digit_combinations)
@@ -198,3 +198,4 @@ class ComputerPlayer(object):
                 else:
                     break
         self.possible_digit_combinations = new_possibilities
+        print self.possible_digit_combinations
