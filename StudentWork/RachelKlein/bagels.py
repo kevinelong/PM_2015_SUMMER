@@ -53,7 +53,6 @@ class Game(object):
         return final_number
 
     def compare_guess(self, human_guess):
-
         """
         This method takes the human player's guess and compares the digits and indices
         to those in the random number the computer chose. It returns the code words "Bagel,"
@@ -83,7 +82,6 @@ class ComputerPlayer(object):
         self.possible_numbers = []
         self.possible_digit_combinations = []
         self.last_guess = []
-        self.previous_guesses = []
 
         # This part makes a list of all the numbers the computer can possibly guess based on
         # the number of digits there are in the number.
@@ -146,13 +144,7 @@ class ComputerPlayer(object):
 
         current_guess = choice(self.possible_digit_combinations)
 
-        # This part keeps the computer player from guessing the same number multiple times.
-
-        if len(self.possible_digit_combinations) > self.digits:
-            while current_guess in self.previous_guesses:
-                current_guess = choice(self.possible_digit_combinations)
-
-        self.previous_guesses.append(current_guess)
+        self.possible_digit_combinations.remove(current_guess)
         self.last_guess = current_guess
 
     def bagels(self):

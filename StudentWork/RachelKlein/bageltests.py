@@ -40,6 +40,12 @@ def fermi_test():
 def did_player_win_test():
     assert bagels.did_player_win(["fermi", "fermi", "fermi"], 3) is True
 
+def removing_duplicates_test():
+    test_computer_player = bagels.ComputerPlayer(3)
+    assert len(test_computer_player.possible_digit_combinations) == 648
+    test_computer_player.computer_guess()
+    assert len(test_computer_player.possible_digit_combinations) == 647
+
 possibilities_list_test()
 bagels_test()
 all_pico_test()
