@@ -39,9 +39,11 @@ def results_of_guess(codewords, game):
         you_win()
         sys.exit()
     else:
+
         # Rather than display codewords in the order they're originally added to the list,
-        # we want to list any Picos first and then any Fermis. This is the traditional Bagels
-        # order and it makes it harder for the human player to guess.
+        # we want to list any "Pico" responses first and then any "Fermi" responses. This is
+        # the traditional Bagels order and it makes it harder for the human player to guess.
+
         codewords.sort(reverse=True)
         print ", ".join(codewords)
 
@@ -90,6 +92,9 @@ def compare_computer_guess(computer_player):
 
 
 def computer_guessing_game():
+    """
+    The whole process of a computer player guessing a number is contained in this method.
+    """
     try:
         number_of_digits = int(raw_input("""Do you want me to guess a 3 digit number? 4? 5?
                 Less than 3 isn't fun. And you can't pick more than 9 digits. You just can't, okay? >> """))

@@ -22,6 +22,7 @@ class Game(object):
         whether the human player or the computer player will be the guesser and it will
         change how the game is played.
         """
+
         self.digits = digits
         self.number_of_guesses = 0
         if guesser == "human":
@@ -73,11 +74,7 @@ class Game(object):
         if len(codewords) == 0:
             codewords.insert(0, "Bagels")
 
-        # Sorting the list so it's harder for the human to tell which digits the computer
-        # is talking about with the keywords.
-
-        return sorted(codewords)
-
+        return codewords
 
 class ComputerPlayer(object):
     def __init__(self, digits):
@@ -126,20 +123,16 @@ class ComputerPlayer(object):
 
     def computer_guess(self, codewords=None):
         """
-        This method allows the computer to guess the number chosen by a human player.
+        This method allows the computer to guess the number chosen by a human player. Right now the
+        algorithm is not as sophisticated as it could be but it is definitely a big improvement over
+        random guessing.
         """
 
         if did_player_win(codewords or [], self.digits) is True:
             return
 
-        # If the human player says "Bagels," all numbers containing any of those digits are
-        # removed from the list of possible numbers.
-
         if codewords == ["bagels"]:
             self.bagels()
-
-        # If one of the codewords is "Pico," all numbers NOT containing any of those digits
-        # are removed from the list of possible numbers.
 
         elif codewords is not None:
             if len(codewords) == self.digits and set(codewords) == set(["pico"]):
@@ -153,6 +146,8 @@ class ComputerPlayer(object):
 
         current_guess = choice(self.possible_digit_combinations)
 
+        # This part keeps the computer player from guessing the same number multiple times.
+
         if len(self.possible_digit_combinations) > self.digits:
             while current_guess in self.previous_guesses:
                 current_guess = choice(self.possible_digit_combinations)
@@ -161,6 +156,11 @@ class ComputerPlayer(object):
         self.last_guess = current_guess
 
     def bagels(self):
+        """
+        If the human player responds "Bagels" to the computer player's guess, the computer player will
+        rule out any numbers that contain any of the digits in that guess.
+        """
+
         new_possibilities = []
         for number in self.possible_digit_combinations:
             for digit in self.last_guess:
@@ -172,6 +172,11 @@ class ComputerPlayer(object):
         self.possible_digit_combinations = new_possibilities
 
     def pico(self):
+        """
+        If the human player's response contains the word "Pico," the computer player will rule out any
+        numbers that don't have at least one digit in common with their last guess.
+        """
+
         new_possibilities = []
         for number in self.possible_digit_combinations:
             for digit in self.last_guess:
@@ -181,6 +186,12 @@ class ComputerPlayer(object):
         self.possible_digit_combinations = new_possibilities
 
     def all_pico(self):
+        """
+        If the human player's response is to type "Pico" as many times as there are digits in the number
+        being guessed, the computer player will rule out anything that doesn't have all three of those
+        digits.
+        """
+
         new_possibilities = []
         for number in self.possible_digit_combinations:
             for digit in self.last_guess:
@@ -192,6 +203,11 @@ class ComputerPlayer(object):
         self.possible_digit_combinations = new_possibilities
 
     def fermi(self):
+        """
+        If the human player's response contains the word "Fermi," the computer player will rule out any
+        numbers that don't have at least one digit in common and in the same place as in their last guess.
+        """
+
         new_possibilities = []
         for number in self.possible_digit_combinations:
             for x in range(0, self.digits):
