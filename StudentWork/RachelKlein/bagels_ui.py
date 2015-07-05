@@ -76,13 +76,9 @@ def compare_computer_guess(computer_player):
     guess_response = raw_input \
         ("Okay, how did I do? Remember, type \'Bagels\' if none of the digits are right,\n"
          "\'Pico\' every time I got a digit right but it's in the wrong place,\n"
-         "and \'Fermi\' every time a digit is right AND in the right place. >> ")
+         "and \'Fermi\' every time a digit is right AND in the right place. >> ").lower()
     guess_response = guess_response.split()
-    computer_friendly_guess = []
-    for x in guess_response:
-        x.lower()
-        computer_friendly_guess.append(x)
-    return computer_friendly_guess
+    return guess_response
 
 
 def computer_guessing_game():

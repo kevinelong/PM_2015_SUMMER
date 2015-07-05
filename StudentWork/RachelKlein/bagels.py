@@ -9,9 +9,7 @@ def did_player_win(codewords, digits):
     or a computer player has won the game.
     """
 
-    if len(codewords) == digits and set(codewords) == set(["Fermi"]):
-        return True
-    elif len(codewords) == digits and set(codwrods) == set(["fermi"]):
+    if len(codewords) == digits and set(codewords) == set(["fermi"]):
         return True
     else:
         return False

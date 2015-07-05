@@ -16,7 +16,7 @@ def bagels_test():
     test_computer_player = bagels.ComputerPlayer(3)
     assert len(test_computer_player.possible_digit_combinations) == 648
     test_computer_player.computer_guess()
-    test_computer_player.computer_guess(["Bagels"])
+    test_computer_player.computer_guess(["bagels"])
     if 0 in test_computer_player.last_guess:
         assert len(test_computer_player.possible_digit_combinations) == 210
     else:
@@ -28,12 +28,18 @@ def all_pico_test():
     test_computer_player = bagels.ComputerPlayer(3)
     assert len(test_computer_player.possible_digit_combinations) == 648
     test_computer_player.computer_guess()
-    test_computer_player.computer_guess(["Pico", "Pico", "Pico"])
+    test_computer_player.computer_guess(["pico", "pico", "pico"])
     if 0 in test_computer_player.last_guess:
         assert len(test_computer_player.possible_digit_combinations) == 4
     else:
         assert len(test_computer_player.possible_digit_combinations) == 6
 
+# Tests that the function that decides whether the player won is still working.
+
+def did_player_win_test():
+    assert bagels.did_player_win(["fermi", "fermi", "fermi"], 3) is True
+
 possibilities_list_test()
 bagels_test()
 all_pico_test()
+did_player_win_test()
