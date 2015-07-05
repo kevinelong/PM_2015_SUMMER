@@ -145,6 +145,9 @@ class ComputerPlayer(object):
             if len(codewords) == self.digits and set(codewords) == set(["pico"]):
                 self.all_pico()
 
+            elif "fermi" in codewords:
+                self.fermi()
+
             elif "pico" in codewords:
                 self.pico()
 
@@ -192,10 +195,7 @@ class ComputerPlayer(object):
         new_possibilities = []
         for number in self.possible_digit_combinations:
             for x in range(0, self.digits):
-                if self.last_guess[x] == self.possible_digit_combinations[x]:
+                if self.last_guess[x] == number[x]:
                     if number not in new_possibilities:
                         new_possibilities.append(number)
-                else:
-                    break
         self.possible_digit_combinations = new_possibilities
-        print self.possible_digit_combinations

@@ -98,6 +98,7 @@ def computer_guessing_game():
         computer_player = bagels.ComputerPlayer(3)
     computer_player.computer_guess()
     codewords = []
+    
     while bagels.did_player_win(codewords, new_game.digits) is False:
         computer_player.number_of_guesses += 1
         codewords = compare_computer_guess(computer_player)
