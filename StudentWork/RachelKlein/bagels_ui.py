@@ -98,10 +98,21 @@ def computer_guessing_game():
         computer_player = bagels.ComputerPlayer(3)
     computer_player.computer_guess()
     codewords = []
-    
+
     while bagels.did_player_win(codewords, new_game.digits) is False:
         computer_player.number_of_guesses += 1
         codewords = compare_computer_guess(computer_player)
+
+        # Making sure the computer can read user codewords if they use commas.
+
+        codewords_sans_commas = []
+        for word in codewords:
+            if "," in word:
+                word = word.replace(',', '')
+                codewords_sans_commas.append(word)
+            else:
+                codewords_sans_commas.append(word)
+        codewords = codewords_sans_commas
         try:
             computer_player.computer_guess(codewords)
         except IndexError:
