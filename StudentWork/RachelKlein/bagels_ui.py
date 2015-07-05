@@ -29,8 +29,7 @@ def results_of_guess(codewords, game):
     their guess. It will also show how many guesses the human player has used so far.
     """
 
-    # If the list codewords is as long as the number of digits in the chosen number and
-    # all the slots contain "Fermi", the human user wins!
+    # Before giving feedback on the latest guess, the computer checks to see if the human won.
 
     lowercase_codewords = []
     for word in codewords:
@@ -40,6 +39,10 @@ def results_of_guess(codewords, game):
         you_win()
         sys.exit()
     else:
+        # Rather than display codewords in the order they're originally added to the list,
+        # we want to list any Picos first and then any Fermis. This is the traditional Bagels
+        # order and it makes it harder for the human player to guess.
+        codewords.sort(reverse=True)
         print ", ".join(codewords)
 
         if new_game.number_of_guesses == 1:
