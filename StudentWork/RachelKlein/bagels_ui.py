@@ -31,7 +31,12 @@ def results_of_guess(codewords, game):
 
     # If the list codewords is as long as the number of digits in the chosen number and
     # all the slots contain "Fermi", the human user wins!
-    if bagels.did_player_win(codewords, new_game.digits):
+
+    lowercase_codewords = []
+    for word in codewords:
+        lowercase_codewords.append(word.lower())
+
+    if bagels.did_player_win(lowercase_codewords, new_game.digits):
         you_win()
         sys.exit()
     else:
@@ -92,12 +97,12 @@ def computer_guessing_game():
         new_game = bagels.Game("computer", 3)
         computer_player = bagels.ComputerPlayer(3)
     computer_player.computer_guess()
-    keywords = []
-    while bagels.did_player_win(keywords, new_game.digits) is False:
+    codewords = []
+    while bagels.did_player_win(codewords, new_game.digits) is False:
         computer_player.number_of_guesses += 1
-        keywords = compare_computer_guess(computer_player)
+        codewords = compare_computer_guess(computer_player)
         try:
-            computer_player.computer_guess(keywords)
+            computer_player.computer_guess(codewords)
         except IndexError:
             raw_input("Hey, you either forgot your number or you're cheating. That's impossible! >> ")
             print "Come back when you're ready to play for real."
