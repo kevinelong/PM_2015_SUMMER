@@ -240,16 +240,18 @@ class ComputerPlayer(object):
         self.possible_digit_combinations = new_possibilities
 
     def multiple_fermis(self, number_of_fermis):
-    """
-    If the human player's response contains the word "Fermi" multiple times, the computer player will rule out
-    any numbers that don't have at least that number of digits in common and in the same place as in their
-    last guess.
-    """
-
+        """
+        If the human player's response contains the word "Fermi" multiple times, the computer player will rule out
+        any numbers that don't have at least that number of digits in common and in the same place as in their
+        last guess.
+        """
         new_possibilities = []
         for number in self.possible_digit_combinations:
+            digits_in_common = 0
             for x in range(0, self.digits):
                 if self.last_guess[x] == number[x]:
-                    if number not in new_possibilities:
-                        new_possibilities.append(number)
+                    digits_in_common += 1
+            if digits_in_common == number_of_fermis:
+                if number not in new_possibilities:
+                    new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities

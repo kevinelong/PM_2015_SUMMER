@@ -41,6 +41,13 @@ def multiple_pico_test():
     test_computer_player.computer_guess(["pico", "pico"])
     assert len(test_computer_player.possible_digit_combinations) <= 120
 
+def multiple_fermi_test():
+    test_computer_player = bagels.ComputerPlayer(3)
+    assert len(test_computer_player.possible_digit_combinations) == 648
+    test_computer_player.computer_guess()
+    test_computer_player.computer_guess(["fermi", "fermi"])
+    assert len(test_computer_player.possible_digit_combinations) <= 21
+
 # Tests that the function that decides whether the player won is still working.
 
 def did_player_win_test():
@@ -60,3 +67,4 @@ bagels_test()
 all_pico_test()
 did_player_win_test()
 multiple_pico_test()
+multiple_fermi_test()
