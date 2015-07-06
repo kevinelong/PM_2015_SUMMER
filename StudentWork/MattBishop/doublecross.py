@@ -1,34 +1,63 @@
 from sys import exit
+# To be implemented through a scenario challenge
 import random
 import time
 
+# What you begin the game with
 inventory = ['quarter', 'dime', 'nickel']
-# This list will be a part of the 'lose' function, one of two ways of losing the game
+# This list will be a part of the check against being framed and losing the game
+clues = []
+# This list will be a part of the 'check_lose' function, one of two ways of losing the game
 evidence_planted = []
 
-
+# Adds helpful objects throughout story; some will be conditional to gaining clues
 def add_to_inventory(item):
     inventory.append(item)
-
-
+# You can lose items in various ways; a resulting loss may prevent access to clues
 def remove_inventory_item(item):
     inventory.remove(item)
+# A function to add clues throughout investigation
+def clues_found(item):
+    clues.append(item)
+    print "These are your clues: {}.".format(clues)
 
 # The function that will be called each time the program plants evidence against the player
 def framed(item):
     evidence_planted.append(item)
 
-# One way to lose the game
+# You can remove planted evidence with successful attribute checks
+def dispose_frame(item):
+    evidence_planted.remove(item)
+
+# If your character makes a wrong decision without the appropriate attributes, they can be killed
 def death():
     print "Looks like this is the end of the road. Thanks for playing!"
     exit(1)
-# And the other way to lose
+
+# A late game, periodic check to see if the computer has planted compelling evidence to warrant a loss
+def check_lose():
+    if evidence_planted > clues:
+        print """
+*text*
+"""
+    lose()
+
+# And another way to lose (through encounters)
 def lose():
     print """
 Looks like you were outsmarted this time, ace. You'll have loads of time to consider all of your mistakes in the can.
 """
     print "Thanks for playing!"
     exit(1)
+
+# This occurs at the end scene
+def win():
+    print """
+*text*
+"""
+    print "Thanks for playing!"
+    exit(1)
+
 
 print """
 ____________________________________________________________________________________________________________________________________________________________________________________________
@@ -70,6 +99,7 @@ def add_character_points():
             my_character['points'] -= amount
     else:
         print "\nThat attribute doesn't exist!\n"
+
 
 # to see a list of assigned attributes, remaining points
 def print_character():
@@ -191,8 +221,6 @@ that had momentarily slipped off is now back on, firmly in place.
 "Of course. Of course I will." Your slow nod seems to reassure her a bit but you already get the suspicion
 that your new client is already up to no good.
 """
-        add_to_inventory("clue1 - Mrs. Sternwood is not to be trusted...")
-        print "You now have {}.".format(inventory)
         dialogue_tree()
 
     elif tree_input == 'b' or tree_input == 'c':
@@ -273,8 +301,7 @@ progress."
 With those parting words, she whisks right out the door, just as quickly as she entered your life.
 
 One thousand dollars... you'd gladly have done much more than solve some second-rate mystery for that kind of dough.
-You slip on your cracked, leather shoulder holster, check the rounds in your trusty Colt .45, grab your jacket and head
-out the door of your office.
+There's no time to waste - you slip on your coat and head out the door.
 """
 
         add_to_inventory('$50 dollar bill')
@@ -419,6 +446,10 @@ You decide that restraint is the better part of valor... or some other such nons
 "Why don't you just cough over the dough, tough guy?"
 """
                 dialogue_tree()
+            else:
+                print "Please enter yes or no to make a selection."
+                dialogue_tree()
+
         elif my_character['strength'] < 40:
             print """
 ... and maybe it's not entirely in your best interest to upset him. He seems a bit... unstable.
@@ -598,45 +629,209 @@ raw_input("Press Enter to continue...  ")
 
 class CrimeScene(Scene):
     def enter(self):
-        print ("*more text*")
-        return 'police_station'
-
-
-class PoliceStation(Scene):
-    def enter(self):
-        print ("*more text*")
-        return 'hospital'
-
-
-class Hospital(Scene):
-    def enter(self):
-        print ("*more text*")
         return 'skylark_lounge'
+
+    print """
+You arrive at the scene of the crime just as the sun is beginning to sink behind the sprawling neighborhood of Lawndale.
+Though primarily Russian, Lawndale is strewn with every kind of first and second generation transplants imaginable,
+creating a strange stew of language and culture. And, better yet, whenever a violent crime is committed its residents
+are suddenly stricken deaf and dumb - nobody heard anything and no one talks. Sternwood was an outsider, not one of
+them; what did the death of one man from the other side of the tracks matter to them?
+
+You round the corner into the alley to be greeted by a wall of tape and three patrolmen. Seems like a pretty strong
+presence, considering the scene is half a day old. You also notice, even from here, the body has been removed.
+
+Gaining access will be tricky, at best.
+"""
+
+
+def dialogue_tree():
+    tree_input = raw_input("""
+What's your next move, ace?
+
+A.) Wait it out.
+B.) Attempt to create a diversion.
+C.) ... Suppose it doesn't hurt to ask, does it?
+""").lower()
+
+    if tree_input == 'a':
+        print """
+Seeing as you have no legal means to enter the crime scene, you decide to wait it out and hope you'll be able to find
+something that a half dozen or so other seasoned and trained law enforcement officials couldn't. Fat chance, you
+suppose, but you've got nothing to go on at the moment. You could wait for the report typed out by the lead CSI and go
+from there, but that could be days. Best to strike when the iron is hottest, or, in this case, best before it cools
+completely.
+
+You wait for a few hours; no one goes in, nothing comes out. The locals were steering clear, as well. What few
+passerby there were gave the alley a wide berth. There were no curious onlookers, no reporters. This is perhaps the
+most bizarre crime scene you've run across. Usually there is a hive of activity around a suspected homicide but this...
+were they police officers collecting evidence, or merely guards preventing access? It just didn't make sense.
+
+The police officers finally pack up and leave, plodding their way back to their squad cars. You watch them go, round
+back in the alley and step under the still-hanging police tape. You use the last few minutes of daylight to search the
+scene.
+"""
+
+        raw_input("Press Enter to continue...  ")
+
+        print """
+It's difficult to determine what has been removed apart from the body but, as you walk a little further, your eye
+catches the glint of metal on the ground. You crouch down and look - your stomach sinks as you come face to face with an
+empty shell casing.
+
+How can this be? Such an important piece of evidence couldn't have possibly been overlooked. This can't be explained by
+sloppy police work; this was intentionally left. But why?
+
+You look behind you to make sure you aren't being watched. As far as you can tell, you are alone. Removing evidence from
+a crime scene isn't the best idea and, even if you did, you'd have to eventually explain how you come across the casing
+if it was ever used in court. Best to leave it, though you do recognize the caliber of the shell - it came from a .45.
+
+There are other inconsistencies - no trace of fingerprint powder and the blood pattern is messy, like the body was
+turned a few times before being carted off. This, of course, is not standard procedure. You also spy a small collection
+of items near the side of the alley: a candy wrapper, a couple of coins, and a matchbook. Was the content of the
+victim's pockets emptied out and discarded? What was it, exactly, that someone was searching for? You need to figure out
+who the lead detective was on this case!
+
+You look closer at the matchbook - it's for a bar, the Skylark Lounge. You've never heard of it, but it's as good as
+place as any to keep looking.
+"""
+
+    elif tree_input == 'b':
+        print """
+You don't have the time to waste on these bozos - you need to get inside that crime scene. You figure the press wasn't
+tipped off about this yet - perhaps it's time that changed.
+
+You find a nearby payphone and call up the Tribune (collect, of course). You tell them that a 'high-profile' murder
+had occurred in Lawndale, a member of the upper-crust who, having slummed it for a while, wound up dead. Then you call
+the Daily News. And then the Daily Times, the Herald-American, the Sun, Chicago's American and every other tabloid and
+rag you can think of. Your job done, you find a nice wall to lean on and wait for the carnage to ensue.
+
+In about half an hour, a small army of reporters and their assistants descend on the crime scene. The police officers
+look truly afraid as they walk out slowly to greet the mob. The reporters are ravenous for details and their shouts
+drown out everything else. The officers are thoroughly distracted.
+
+You step underneath the police tape to use what little time you have to look around before the goon squad comes
+back.
+
+It's difficult to determine what has been removed apart from the body but, as you walk a little further, your eye
+catches the glint of metal on the ground. You crouch down and look - your stomach sinks as you come face to face with an
+empty shell casing.
+"""
+        raw_input("Press Enter to continue...  ")
+        print """
+How can this be? Such an important piece of evidence couldn't have possibly been overlooked. This can't be explained by
+sloppy police work; this was intentionally left. But why?
+
+You look behind you to make sure you aren't being watched. As far as you can tell, the officers are still distracted.
+Removing evidence from a crime scene isn't the best idea and, even if you did, you'd have to eventually explain how you
+come across the casing if it was ever used in court. Best to leave it, though you do recognize the caliber of the shell
+- it came from a .45.
+
+There are other inconsistencies - no trace of fingerprint powder and the blood pattern is messy, like the body was
+turned a few times before being carted off. This, of course, is not standard procedure. You also spy a small collection
+of items near the side of the alley: a candy wrapper, a couple of coins, and a matchbook. Was the content of the
+victim's pockets emptied out and discarded? What was it, exactly, that someone was searching for? You need to figure out
+who the lead detective was on this case!
+
+You look closer at the matchbook - it's for a bar, the Skylark Lounge. You've never heard of it, but it's as good as
+place as any to keep looking. You slip away, unseen...
+"""
+
+    elif tree_input == 'c':
+        print """
+You walk right up to the officers. "Say, fellas - I was hired as a private investigator by the widow of the deceased. Do
+you mind if I come in and have a look around? For the investigation?"
+"""
+        if my_character['luck'] >= 40:
+            print """
+Your extraordinary luck gives you an advantage in this situation: It appears the officer is about to tell you off, but
+just then a woman runs screaming past the alley, followed by a man. The man notices the police officers in the alley,
+stops like a deer in the headlights, and scrambles in the opposite direction. Of course all three officers abandon the
+crime scene, in hot pursuit of the man. What appeared to be an impossible situation before has suddenly turned to your
+favor. You step underneath the police tape to use what little time you have to look around before the goon squad comes
+back.
+
+It's difficult to determine what has been removed apart from the body but, as you walk a little further, your eye
+catches the glint of metal on the ground. You crouch down and look - your stomach sinks as you come face to face with an
+empty shell casing.
+
+How can this be? Such an important piece of evidence couldn't have possibly been overlooked. This can't be explained by
+sloppy police work; this was intentionally left. But why?
+"""
+            raw_input("Press Enter to continue...  ")
+            print """
+You look behind you to make sure you aren't being watched. As far as you can tell, you are alone. Removing evidence from
+a crime scene isn't the best idea and, even if you did, you'd have to eventually explain how you come across the casing
+if it was ever used in court. Best to leave it, though you do recognize the caliber of the shell - it came from a .45.
+
+There are other inconsistencies - no trace of fingerprint powder and the blood pattern is messy, like the body was
+turned a few times before being carted off. This, of course, is not standard procedure. You also spy a small collection
+of items near the side of the alley: a candy wrapper, a couple of coins, and a matchbook. Was the content of the
+victim's pockets emptied out and discarded? What was it, exactly, that someone was searching for? You need to figure out
+who the lead detective was on this case!
+
+You look closer at the matchbook - it's for a bar, the Skylark Lounge. You've never heard of it, but it's as good as
+place as any to keep looking.
+"""
+    else:
+        print "Please enter the letter that corresponds with the dialogue you wish to choose."
+        dialogue_tree()
+
+
+dialogue_tree()
+
+raw_input("Press Enter to continue...  ")
 
 
 class SkylarkLounge(Scene):
     def enter(self):
-        print ("*more text*")
         return 'bar_stool'
+
+    print """
+Luckily for you the Skylark Lounge is a mere twelve blocks away. The bad news, however, is that you will have to stroll
+through one of the meanest neighborhoods in Chicago, where the kids have to form gangs just to get the respect to walk
+down the street. You figured you didn't stick out like a sore thumb but, not being a community member yourself, you are
+(at best) an unwanted presence. It was just that 'at worst' part you didn't really care to think about as make your way
+to the Lounge. Lawndale was the quintessential working class immigrant neighborhood, all frame cottages and brick
+two-flats with corner and 'middle of the block stores' dashed in haphazardly. Kids play war in the front yards while
+groups of men sit on their porches, regarding you with a forthright vigilance. It was all just a silent message you
+read loud and clear but, still, you begin to sweat bullets. It makes you as jumpy as a puppet on a string being such
+an easy target. These people, if it was their will, could easily swallow you up and no one would be the wiser. You
+certainly have no intentions of adding fuel to the fire; you give the men a little nod to acknowledge your respect or
+their turf. Thankfully you don't notice anyone following you as you keep your eyes on the sidewalk and keep moving.
+
+The entrance to the Lounge is unassuming and low-key. There are no young punks outside nor is there any loud music
+pouring out. In fact you probably would have walked right by it and never had known it was there if not for the half lit
+neon sign above the entrance.
+
+Despite outward appearances...
+"""
 
 
 class BarStool(Scene):  # random encounter
     def enter(self):
-        print ("*more text*")
-        return 'hotel_albatross'
+        return 'office_return'
 
+    print ("*more text*")
+    clues_found("")
+
+class OfficeReturn(Scene):
+    def enter(self):
+        print ("*more_text*")
+        return 'hotel_albatross'
+    framed('murder_weapon')
 
 class HotelAlbatross(Scene):
     def enter(self):
         print ("*more_text*")
         return 'hotel_room'
-
+    clues_found("")
 
 class HotelRoom(Scene):
     def enter(self):
         print ("*more text*")
         return 'tenement_building'
-
+    framed('wallet')
 
 class TenementBuilding(Scene):
     def enter(self):
@@ -644,7 +839,7 @@ class TenementBuilding(Scene):
         return 'tenement_hallway'
 
 
-class TenementHallway(Scene):  # random encounter
+class TenementHallway(Scene):
     def enter(self):
         print ("*more text*")
         return 'apartment_403'
@@ -654,19 +849,22 @@ class Apartment403(Scene):
     def enter(self):
         print ("*more text*")
         return 'train_station'
-
+    clues_found("")
+    framed('contracts')
 
 class TrainStation(Scene):
     def enter(self):
         print ("*more text*")
         return 'lawyer_office_building'
+    clues_found("")
 
 
-class LawyerOfficeBuilding(Scene):  # random encounter
+class LawyerOfficeBuilding(Scene):
     def enter(self):
         print ("*more text*")
         return 'secretary_office'
-
+    framed("")
+    check_lose()
 
 class SecretaryOffice(Scene):
     def enter(self):
@@ -678,13 +876,14 @@ class LawyerOffice(Scene):
     def enter(self):
         print ("*more text*")
         return 'entrance_casino'
+    clues_found("")
 
-
-class EntranceCasino(Scene):  # random encounter
+class EntranceCasino(Scene):
     def enter(self):
         print ("*more text*")
         return 'casino_floor'
-
+    framed("")
+    check_lose()
 
 class CasinoFloor(Scene):
     def enter(self):
@@ -702,7 +901,8 @@ class PenthouseSuite(Scene):
     def enter(self):
         print ("*more text*")
         return 'ending'
-
+    framed("")
+    check_lose()
 
 class Ending(Scene):
     def enter(self):
@@ -716,10 +916,9 @@ class Map(object):
         'office_building': OfficeBuilding(),
         'city_street': CityStreet(),
         'crime_scene': CrimeScene(),
-        'police_station': PoliceStation(),
-        'hospital': Hospital(),
         'skylark_lounge': SkylarkLounge(),
         'bar_stool': BarStool(),
+        'office_return': OfficeReturn(),
         'hotel_albatross': HotelAlbatross(),
         'hotel_room': HotelRoom(),
         'tenement_building': TenementBuilding(),
