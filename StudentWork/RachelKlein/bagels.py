@@ -133,13 +133,22 @@ class ComputerPlayer(object):
             self.bagels()
 
         elif codewords is not None:
+
+            number_of_picos = codewords.count("pico")
+            number_of_fermis = codewords.count("fermi")
+
             if len(codewords) == self.digits and set(codewords) == set(["pico"]):
                 self.all_pico()
 
             elif len(codewords) == self.digits:
                 self.all_pico()
                 self.fermi()
-                print self.possible_digit_combinations
+
+            elif number_of_fermis > 1:
+                self.multiple_fermis(number_of_fermis)
+
+            elif number_of_picos > 1:
+                self.multiple_picos(number_of_picos)
 
             elif "fermi" in codewords:
                 self.fermi()
@@ -199,11 +208,43 @@ class ComputerPlayer(object):
                     new_possibilities.append(number)
         self.possible_digit_combinations = new_possibilities
 
+    def multiple_picos(self, number_of_picos):
+        """
+        If the human player types in "Pico" multiple times but not as many times as there are digits,
+        the computer player will rule out any number that doesn't have that number of digits in common.
+        """
+
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            digits_in_common = 0
+            for digit in self.last_guess:
+                if digit in number:
+                    digits_in_common += 1
+            if digits_in_common == number_of_picos:
+                if number not in new_possibilities:
+                    new_possibilities.append(number)
+        self.possible_digit_combinations = new_possibilities
+
     def fermi(self):
         """
         If the human player's response contains the word "Fermi," the computer player will rule out any
         numbers that don't have at least one digit in common and in the same place as in their last guess.
         """
+
+        new_possibilities = []
+        for number in self.possible_digit_combinations:
+            for x in range(0, self.digits):
+                if self.last_guess[x] == number[x]:
+                    if number not in new_possibilities:
+                        new_possibilities.append(number)
+        self.possible_digit_combinations = new_possibilities
+
+    def multiple_fermis(self, number_of_fermis):
+    """
+    If the human player's response contains the word "Fermi" multiple times, the computer player will rule out
+    any numbers that don't have at least that number of digits in common and in the same place as in their
+    last guess.
+    """
 
         new_possibilities = []
         for number in self.possible_digit_combinations:
