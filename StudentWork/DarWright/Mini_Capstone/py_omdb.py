@@ -44,7 +44,8 @@ class Search(object):
         """
         search by title
         """
-        self.m_title = self.m_title + title
+        self.m_title = ''
+        self.m_title = u'?t=' + title
         self.build_url()
 
     def imdbid(self, imdbid):
@@ -80,7 +81,7 @@ class Search(object):
         GET the info from the url
         """
         response = requests.get(self.url)
-        if response == 'Response [200]':
+        if response == '<Response [200]>':
             raise TimeoutError('Web service timed out')
         else:
             self.parse_response(response)

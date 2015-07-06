@@ -27,11 +27,10 @@ class UI(object):
         if choice == 1:
             title = raw_input("Enter the name of the movie:  ")
             self.movie_title = title
-            title = title.decode(sys.stdin.encoding)
-            title = title.replace(' ', '+')
-            self.check_year()
-            result_choice = self.full_or_common()
-            self.plot_choice()
+            title = self.set_title(title)
+            self.get_year_input()
+            result_choice = self.get_result_list_input()
+            self.get_plot_choice_input()
             self.search.set_response_details(result_choice)
             self.search.title(title)
             self.print_results()
@@ -39,10 +38,9 @@ class UI(object):
         elif choice == 2:
             title = raw_input("Enter the name of the TV Show:  ")
             self.movie_title = title
-            title = title.decode(sys.stdin.encoding)
-            title = title.replace(' ', '+')
-            result_choice = self.full_or_common()
-            self.plot_choice()
+            title = self.set_title(title)
+            result_choice = self.get_result_list_input()
+            self.get_plot_choice_input()
             self.search.set_response_details(result_choice)
             self.search.title(title)
             self.print_results()
@@ -50,12 +48,11 @@ class UI(object):
         elif choice == 3:
             title = raw_input("Enter the name of the TV Show: ").decode(sys.stdin.encoding)
             self.movie_title = title
-            title = title.decode(sys.stdin.encoding)
-            title = title.replace(' ', '+')
-            season = self.check_season_number()
-            episode = self.check_episode_number()
-            result_choice = self.full_or_common()
-            self.plot_choice()
+            title = self.set_title(title)
+            season = self.get_season_number_input()
+            episode = self.get_episode_number_input()
+            result_choice = self.get_result_list_input()
+            self.get_plot_choice_input()
             self.search.set_response_details(result_choice)
             self.search.episode(title, season, episode)
             self.print_results()
@@ -63,9 +60,9 @@ class UI(object):
         elif choice == 4:
             imdb_id = raw_input("Enter the IMDB ID number:  ")
             self.imdb_num = imdb_id
-            result_choice = self.full_or_common()
+            result_choice = self.get_result_list_input()
             self.movie_title = 'None'
-            self.plot_choice()
+            self.get_plot_choice_input()
             self.search.set_response_details(result_choice)
             self.search.imdbid(imdb_id)
             self.print_results()
@@ -73,33 +70,38 @@ class UI(object):
         elif choice == 9:
             exit()
 
-    def check_season_number(self):
+    def set_title(self, title):
+        title = title.decode(sys.stdin.encoding)
+        title = title.replace(' ', '+')
+        return title
+
+    def get_season_number_input(self):
         season = raw_input("Enter the number of the season: ")
         try:
             season = int(season)
         except ValueError:
             print "Not a valid number, please try again.\n"
-            self.check_season_number()
+            self.get_season_number_input()
         season = str(season)
         return season
 
-    def check_episode_number(self):
+    def get_episode_number_input(self):
         episode = raw_input("Enter the number of the episode: ")
         try:
             episode = int(episode)
         except ValueError:
             print "Not a valid number, please try again.\n"
-            self.check_episode_number()
+            self.get_episode_number_input()
         episode = str(episode)
         return episode
 
-    def check_year(self):
+    def get_year_input(self):
         check = raw_input("Do you know the year the movie was released? y/n> ").lower()
         if check == 'y':
             movie_year = raw_input("Please enter the year: ")
             self.search.year = '&y=' + movie_year
 
-    def plot_choice(self):
+    def get_plot_choice_input(self):
         choice = raw_input("There are two options available for the Plot listing:\n"
                            "1. Full plot\n"
                            "2. Short plot\n"
@@ -109,7 +111,7 @@ class UI(object):
         if choice == 1:
             self.search.plot = '&plot=full'
 
-    def full_or_common(self):
+    def get_result_list_input(self):
         """
         sets the results set to be printed/returned
             1 = full list with tomatoes
