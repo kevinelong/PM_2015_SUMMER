@@ -136,6 +136,11 @@ class ComputerPlayer(object):
             if len(codewords) == self.digits and set(codewords) == set(["pico"]):
                 self.all_pico()
 
+            elif len(codewords) == self.digits:
+                self.all_pico()
+                self.fermi()
+                print self.possible_digit_combinations
+
             elif "fermi" in codewords:
                 self.fermi()
 

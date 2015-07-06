@@ -40,6 +40,9 @@ def fermi_test():
 def did_player_win_test():
     assert bagels.did_player_win(["fermi", "fermi", "fermi"], 3) is True
 
+# Tests that the last computer player's guess is removed from the list of possible future
+# guesses.
+
 def removing_duplicates_test():
     test_computer_player = bagels.ComputerPlayer(3)
     assert len(test_computer_player.possible_digit_combinations) == 648
