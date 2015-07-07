@@ -141,7 +141,7 @@ class UI(object):
                 print "Possible suggestions: "
                 for each in suggestions:
                     print each + "   "
-            time.sleep(5)
+            time.sleep(15)
             self.main_menu()
         else:
             for each in self.search.response_list:
