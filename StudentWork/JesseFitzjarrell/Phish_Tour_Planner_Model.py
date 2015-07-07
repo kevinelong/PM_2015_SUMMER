@@ -8,7 +8,7 @@ My first real Python file, let's do it.
 
 
 phish_show_dictionary = {'Bend_night_1':'7/21 Les Schwab Amphitheatre, Bend, OR',
-                   'Bend_night_2':'7/22 Les Schwab Amphitheatre, Bend, OR',
+                   'Bend_night 2':'7/22 Les Schwab Amphitheatre, Bend, OR',
                    'Mountain View':'7/24 Shoreline Amphitheatre, Mountain View, CA',
                    'Los Angeles': '7/25 Forum, Los Angeles, CA',
                    'Austin': '7/28 Austin360 Amphitheater, Austin, TX',
@@ -19,7 +19,7 @@ phish_show_dictionary = {'Bend_night_1':'7/21 Les Schwab Amphitheatre, Bend, OR'
                     'Kansas City, MO':'8/5 Starlight Theatre, Kansas City, MO',
                     'Cuyahoga Falls, OR':'8/7 Blossom, Cuyahoga Falls, OH',
                     'East Troy, WI Night 1':'8/8 Alpine Valley, East Troy, WI',
-                    'East Troy, WINight2':'8/9 Alpine Valley, East Troy, WI',
+                    'East Troy, WINight 2':'8/9 Alpine Valley, East Troy, WI',
                     'Philadelphia, PA Night 1':'8/11 The Mann, Philadelphia, PA',
                     'Philadelphia, PA Night 2':'8/12 The Mann, Philadelphia, PA',
                     'Raleigh, NC':'8/14 Walnut Creek Amphitheater, Raleigh, NC',

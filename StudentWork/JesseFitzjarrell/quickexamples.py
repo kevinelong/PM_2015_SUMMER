@@ -5,10 +5,15 @@ Jesse Fitzjarrell
 6-29-15
 """
 
+#import statements
+from googlemaps import GoogleMaps
 
+#create Googlemaps object
+mapservice = GoogleMaps()
 
-def vacation_spots (places_to_eat, vacation_location):
-    print "I really like to eat at %d pizzas, when I am in %s" % (places_to_eat, vacation_location)
+#get directions from google
+directions = mapservice.directions("Portland", "Bend")
 
-
-vacation_spots(10*2, "Kona")
+#print each step in directions to console
+for step in directions['directions']["routes"][0]['steps']:
+    print step['descriptionHtml']
