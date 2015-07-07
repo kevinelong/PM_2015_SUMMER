@@ -15,8 +15,24 @@ h1, h2 {
 .level-3, .level-5 {
 	background-color: darkgrey;
 }
-
-.row div {
+.row > div {
 	border: 2px solid black;
 	padding: 20px;
+}
+.header-container div:nth-child(2) {
+	 margin: 30px 0 0;
+}
+.header-container img {
+	width: 220px;
+}
+.col-left {
+	float: left;
+	width: 20%;
+}
+.col-right {
+	float: left;
+	width: 70%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
 }
