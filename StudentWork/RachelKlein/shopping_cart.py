@@ -3,6 +3,15 @@
 STORE_INVENTORY = dict()
 CART_VIEW = dict()
 
+def user_is_eighteen():
+    age = int(raw_input("What is your age?"))
+    if age < 18:
+        print "You can not purchase this item!"
+    elif age:
+        KeyError
+        print "I don't recognize this input, please try again."
+    else:
+        cart.menu()
 
 class Cart(object):
     def __init__(self):
@@ -105,4 +114,5 @@ class Item(object):
 item = Item("01", "beer", 9.99, 200)
 item2 = Item("02", "20 tacos", 19.99, 100)
 cart = Cart()
+user_is_eighteen()
 cart.menu()

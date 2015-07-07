@@ -25,21 +25,24 @@ progress_report_dict = [
 #                                                                                        #
 #****************************************************************************************#
 
-def write_to_file(progress_report_dict):
+def write_to_file(progress_report_dict):            #saves entries to file
     with open(pickle_file, 'w') as prd_file:
         pickle.dump(progress_report_dict, prd_file)
 
-def get_from_file():
+def get_from_file():                                #retrieves file to be continued
     with open(pickle_file) as prd_file:
         loaded_obj = pickle.load(prd_file)
     return loaded_obj
 
 def search_report():
-    search_name = raw_input("Input the user's last name of which you'd like to review.")
-    for n in progress_report_dict:
-        if search_name in progress_report_dict["fname"]:
-            print "{}'s current profile {}".format(search_name, progress_report_dict["fname"])
-
+    search_name = raw_input("Input the user's first name of which you'd like to review.")
+    for i in progress_report_dict:
+        if search_name == i["fname"]:
+            print 'name: {}\n' \
+                  'gender: {}\n' \
+                  'age: {}\n' \
+                  'weight: {}\n' \
+                  'height: {}'.format(i['fname'],i['gender'],i['age'],i['weight'],i['height'])
 
 
 #****************************************************************************************#
@@ -52,7 +55,8 @@ def search_report():
 def heart_rate():
     age = raw_input("Input age of individual\n"
                     ":")
-    m_rate = 220 - int(age)  #need to fix. breaks with string
+    age = try_catch_int(age)        #catches if input i
+    m_rate = 220 - age  #need to fix. breaks with string
     lower_range = m_rate * 0.5
     upper_range = m_rate * 0.8
     print "Maximum heart rate is {}\n".format(m_rate)
@@ -82,7 +86,7 @@ def add_client_profile():
                        ":")
     contact_entry = {"fname": fname, "gender": gender, "age": age, "weight": weight, "height": height}
 
-    choice = str.lower(raw_input("Who you like to add this contact? Yes or No?\n"
+    choice = str.lower(raw_input("Would you like to add this contact? Yes or No?\n"
                        ""))
     if choice == 'yes' or 'y':
         progress_report_dict.append(contact_entry)
@@ -174,6 +178,13 @@ def change_report(name):
         print "That is an invalid entry, please re-enter your selection.\n"
         change_report(name)
 
+def try_catch_int(num):
+    try:
+        num = int(num)
+    except ValueError:
+        print "You must enter your age in numeric characters!"
+    return num
+
 #****************************************************************************************#
 #                                   User Interface                                       #
 #                                   Gives choices                                        #
@@ -217,37 +228,37 @@ def response_1():
 #     userinputpass = int(raw_input("Password\n"
 #                               ":"))
     # if (userinputname, userinputpass) == (username, userpassword):
-    while True:
-        print """
+while True:
+    print """
 
-                    Welcome to my little fitness helper!
-                    Where you can track all your clients
-                        in one handy little app!
+                Welcome to my little fitness helper!
+                Where you can track all your clients
+                    in one handy little app!
 
 
-                    copyright javiair.mattingly.llc
-            """
-        status = raw_input(str("Input F to continue.\n"
-                               "Input C to view element\n"
-                               "Input E to close application\n"
-                               "\n"
-                               ":")).lower()
-        if status.lower() in 'f':
-            response_1()
-        elif status.lower() in 'c':
-            webbrowser.open('https://github.com/kevinelong/PM_2015_SUMMER/blob/master/StudentWork/JayMattingly/Midcap/Midcapproject.py')
-        elif status.lower() in "e":
-            print "Saving application data...\n" \
-                  "Done!\n" \
-                  "Good bye!"
-            exit()
-        else:
-            print "That is an invalid entry, please re-enter your selection."
-            time.sleep(2)
+                copyright javiair.mattingly.llc
+        """
+    status = raw_input(str("Input F to continue.\n"
+                           "Input C to view element\n"
+                           "Input E to close application\n"
+                           "\n"
+                           ":")).lower()
+    if status.lower() in 'f':
+        response_1()
+    elif status.lower() in 'c':
+        webbrowser.open('https://github.com/kevinelong/PM_2015_SUMMER/blob/master/StudentWork/JayMattingly/Midcap/Midcapproject.py')
+    elif status.lower() in "e":
+        print "Saving application data...\n" \
+              "Done!\n" \
+              "Good bye!"
+        exit()
+    else:
+        print "That is an invalid entry, please re-enter your selection."
+        time.sleep(2)
 else:
     print "You're username or password is invalid. Please try again."
     time.sleep(1)
-    app_starter()
+# app_starter()
 
 # app_starter()
 
