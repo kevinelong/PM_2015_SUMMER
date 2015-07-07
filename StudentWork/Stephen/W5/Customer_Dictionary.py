@@ -6,7 +6,6 @@ import cPickle as pickle
 pickle_file = '/home/stephen/Desktop/party_reg_save/'
 
 customer_list = []
-# locations = ["Portland", "Vancouver"]
 party_list = []
 
 
@@ -20,7 +19,7 @@ class Customer(object):
 		self.email = email
 
 	def __repr__(self):
-	  return self.fname + " " + self.lname
+		return self.fname + " " + self.lname
 
 	def set_fname(self, fname="john"):
 		self.fname = fname
@@ -64,23 +63,24 @@ def add():
 		exit()
 # 	I would like to add a choice to change a particular entry, but for now I will make this just exit out of the add option.
 add()
-print customer_list
 
 
 
 
 class Party(object):
-	def __init__(self, location, date, time, party, qty_guests, primary_guest):
+	def __init__(self, party, location, date, time, qty_guests, primary_guest):
+		self.party = party
 		self.location = location
 		self.date = date
 		self.time = time
-		self.party = party
 		self.qty_guests = qty_guests
 		self.primary_guest = primary_guest
 
 	def __repr__(self):
-		return self.location +" " + self.date +" " + self.time + " " + self.party + " " + self.qty_guests + " " + self.primary_guest
+		return  self.party + " " + self.location +" " + self.date +" " + self.time + " "+self.qty_guests + " " + self.primary_guest
 
+	def set_party(self, party ="party"):
+		self.party = party
 
 	def set_location(self, location ):
 		self.location = location
@@ -93,85 +93,75 @@ class Party(object):
 	def set_time(self, time= "time from datetime"):
 		self.time = time
 
-	def set_party(self, party ="party"):
-		self.party = party
-
 	def set_qty_guests(self, qty_guests= 5):
 		self.qty_guests = qty_guests
 
 	def set_primary_guest(self, primary_guest ="name"):
 		self.primary_guest = primary_guest
 
-def add_party(location, date, time, party, qty_guests, primary_guest):
-	party = Party(location, date, time, party, qty_guests, primary_guest)
+def add_party(party, location, date, time, qty_guests, primary_guest):
+	party = Party(party, location, date, time, qty_guests, primary_guest)
 	party_list.append(party)
 
 def new_party():
+	party = raw_input("Choose a party type. \n\nOpen Studio\nMessy Madness\nAdvanced Artistry\nPrivate Party\n: ")
 	location = raw_input("Please enter the location you wish to use \n Portland\nVancouver\n:    ")
 	date = raw_input("Enter the Date for your party\n :  ")
 	time = raw_input("Please enter the time for your party to start:   ")
-	party = raw_input("What type of party would you like? \n\nOpen Studio\nMessy Madness\nAdvanced Artistry\nPrivate Party\n  : ")
-	qty_guests = raw_input("How many guest are attending? :  ")
+	qty_guests = raw_input('How many guest are attending? :  ')
 	primary_guest = raw_input("Is there a Guest of Honor? Put in their name here\n: ")
 	print "This is the information you entered, is it correct?\n Please enter yes or no."
+	print party
 	print location
 	print date
 	print time
-	print party
 	print qty_guests
 	print primary_guest
 	choice = raw_input("")
 	if choice == "yes" or choice == "y":
-		add_party(location, date, time, party, qty_guests, primary_guest)
+		add_party(party, location, date, time, qty_guests, primary_guest)
 	elif choice == "no" or choice =="n":
 		exit()
 
 new_party()
+print "Thanks for booking your party with AAC :)"
+print "Your party has been information has been added to our list."
+print "We will get back to you within 24hrs."
+
+print customer_list
 print party_list
 
+def
+
+def search_customer_list(customer_list):
+	while True:
+		choice = raw_input("Customer Search:\n")
+							"====================\n"
+							"Enter 1 to lookup by First Name.\n"
+							"Enter 2 to lookup by Last Name.\n""
+							"Enter 3 to lookup by Phone Number.\n"
+							"Enter 4 to exit the search option.\n"
+							":  \n"
+		if choice == "1":
+			search1 = customer_list[0]
+		elif choice =="2":
+			search2 = customer_list[1]
+		elif choice =="3":
+			search3 = customer_list[3]
+		else:
+			exit()
 
 
 
+		else:
+			print "That is not an option. Lets try again."
+
+
+def get_customer_by_name(customer_list, party_list):
+	if customer_list != 0:
+		print customer_list[0]
+		print party_list[0]
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-	#
-	# def get_location_choices(self, portland, vancouver):
-	# 	return ['Portland', 'Vancouver']
-	#
-
-	# class Locations(object):
-	# 	def portland(self, portland):
-	# 		self.portland = portland
-	# 	def vancouver(self, vancouver):
-	# 		self.vancouver = vancouver
-
-
-
-
-
-
-		 # choice = raw_input("Thanks for choosing the Company to book your party with.\n Please choose the location you are interested in having your party at" \n Portland = Portland \n Vancouver = Vancouver)
-
-	# def new_party():
-	# 	location = raw_input("Please choose the location you are interested in having your party at  ")
-	#
-	# def add():
-	# 	fname =
-	# 	lname = raw_input("Enter the last name of your new Contact: ")
-	# 	address = raw_input("Please enter your address here:   ")
-	# 	phone = raw_input("Enter the phone number of your new Contact here: ")
-	# 	email = raw_input("Enter the email of your new Contact:  ")
-
-
+get_customer_by_name(customer_list, party_list)
