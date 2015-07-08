@@ -1,0 +1,38 @@
+h1, h2 {
+	color: white;
+	text-align: center;
+	text-shadow: 2px 2px #000;
+}
+
+.level-1 {
+	background-color: lightgrey;
+}
+
+.level-2, .level-4 {
+	background-color: grey;
+}
+
+.level-3, .level-5 {
+	background-color: darkgrey;
+}
+.row > div {
+	border: 2px solid black;
+	padding: 20px;
+}
+.header-container div:nth-child(2) {
+	 margin: 30px 0 0;
+}
+.header-container img {
+	width: 220px;
+}
+.col-left {
+	float: left;
+	width: 20%;
+}
+.col-right {
+	float: left;
+	width: 70%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+}

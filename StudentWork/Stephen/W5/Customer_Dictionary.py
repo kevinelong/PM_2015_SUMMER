@@ -36,6 +36,27 @@ class Customer(object):
 		"""
 	def set_email(self, email= "words@server.org"):
 		self.email = email
+
+# """
+# This is a new search method then what I was trying below
+# """
+# 	def search():
+# 	    lname = ""
+# 	    try:
+# 	        lname = raw_input("Please enter the last name of the person you wish to look up.: ")
+# 	        print ""
+# 	        print phonebook[lname.lower()]["fname","lname"]
+# 	        print phonebook[lname.lower()]["phone"]
+# 	        print phonebook[lname.lower()]["email"]
+# 	        print ""
+# 	    except:
+# 	        print "That name does not show up in your contacts"
+#
+
+
+
+
+
 	"""
 	create a new user here
 	"""
@@ -131,37 +152,42 @@ print "We will get back to you within 24hrs."
 print customer_list
 print party_list
 
-def
-
-def search_customer_list(customer_list):
-	while True:
-		choice = raw_input("Customer Search:\n")
-							"====================\n"
-							"Enter 1 to lookup by First Name.\n"
-							"Enter 2 to lookup by Last Name.\n""
-							"Enter 3 to lookup by Phone Number.\n"
-							"Enter 4 to exit the search option.\n"
-							":  \n"
-		if choice == "1":
-			search1 = customer_list[0]
-		elif choice =="2":
-			search2 = customer_list[1]
-		elif choice =="3":
-			search3 = customer_list[3]
-		else:
-			exit()
 
 
 
-		else:
-			print "That is not an option. Lets try again."
-
-
-def get_customer_by_name(customer_list, party_list):
-	if customer_list != 0:
-		print customer_list[0]
-		print party_list[0]
 
 
 
-get_customer_by_name(customer_list, party_list)
+
+# def search_customer_list(customer_list):
+# 	while True:
+# 		choice = raw_input("Customer Search:\n")
+# 							"====================\n"
+# 							"Enter 1 to lookup by First Name.\n"
+# 							"Enter 2 to lookup by Last Name.\n""
+# 							"Enter 3 to lookup by Phone Number.\n"
+# 							"Enter 4 to exit the search option.\n"
+# 							":  \n"
+# 		if choice == "1":
+# 			search1 = customer_list[0]
+# 		elif choice =="2":
+# 			search2 = customer_list[1]
+# 		elif choice =="3":
+# 			search3 = customer_list[3]
+# 		else:
+# 			exit()
+#
+#
+#
+# 		else:
+# 			print "That is not an option. Lets try again."
+
+#
+# def get_customer_by_name(customer_list, party_list):
+# 	if customer_list != 0:
+# 		print customer_list[0]
+# 		print party_list[0]
+#
+#
+#
+# get_customer_by_name(customer_list, party_list)
