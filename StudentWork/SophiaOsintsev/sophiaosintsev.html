@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+@import url(http://fonts.googleapis.com/css?family=Stalemate);
+@import url(http://fonts.googleapis.com/css?family=Marko+One);
+@import url(http://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+body {
+	margin: 0;
+	padding: 0; 
+    background-image: url(https://farm3.staticflickr.com/2779/4030158041_bcf39106ce_o_d.jpg)
+}
+
+#page {
+	margin: 0 auto;
+	width: 980px; 
+}
+
+/* Navigation Bar */
+header {
+    padding: 10px 0px;
+    width: 100%;
+    height: 40px;
+    border-top: 10px white solid; 
+}
+
+nav {
+	width: 100%;
+	}
+
+    nav ul {
+        padding: 30px 150px;
+        display: block;
+        float: right;
+    }
+
+        nav ul li {
+            display: inline;
+            margin-left: 50px;
+            margin-right: 0; 
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 22px;
+                font-family: 'Patrick Hand SC', cursive; 
+            }
+
+h1 {
+    color: white;
+	padding-bottom: 0px;
+	font-family: 'Stalemate', cursive; ;
+	font-size: 50px; 
+}
+
+h3 { 
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 30px;
+    color: white 
+}
+
+p {
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 22px;
+    line-height: 1;
+    color: white
+}
+
+section {
+	padding: 100px 0px 10px 0px;
+	min-height: 300px;
+}
+
+/*Home Page */
+#home {
+    padding: 100px 0px 0px 0px;
+    border-bottom: 2px #ccc dotted; 
+    text-align: center;
+    height: 450px; 
+}
+
+#sophia {
+    font-family: 'Stalemate', cursive;
+    font-size: 70px;
+    color: white;
+    margin-bottom: 20px; 
+}
+
+#short_bio {
+    font-family: 'Marko One', serif;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px; 
+}
+ 
+#quote {
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 30px;
+    color: white; 
+}
+
+/* About */
+#bio { 
+    height: 500px; 
+    border-bottom: 2px #ccc dotted; 
+}
+
+/* Portlfolio */
+#portfolio { 
+    height: 500px; 
+    border-bottom: 2px #ccc dotted; 
+} 
+
+/* Contact*/
+#contact { 
+    height: 500px; 
+    border-bottom: 2px #ccc dotted; 
+}
+
+#socialmedia {
+    width: 980;
+    text-align: center; 
+}
+ 
+ #socialmedia img { 
+    padding: 20px; 
+}
+
+footer {
+    border-bottom: 10px white solid;
+    margin: 0 auto; 
+}
+
+.scrollup {
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 50px;
+    right: 70px;
+    display: none;
+    background: url("Up_arrow_32.png") no-repeat;
+ }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+
+<body>
+    <header>
+    <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+<div id="page">
+    <section id="home">
+        <div id="sophia"> Hello, I'm Sophia. </div>
+        <div id="short_bio">Here will be a short description.</div>
+        <div id="quote">Here I might have a cool quote</div>
+    </section>
+
+    <section id="bio">
+        <h1>Bio</h1>
+    <div id="biotext" class="left-2">
+        <p>
+            Hello, my name is 
+            <strong>Sophia Osintsev</strong>
+            . Here I will have my bio,
+        </p>
+        <p>
+            Here I will have some more of my bio, and maybe some 
+            <br>
+            more, and some more...ok you get the point.
+        </p>
+    </div>
+    </section>
+    
+    <section id="portfolio">
+        <h1>Portfolio</h1>
+    <div id="My Work" class="left-2">
+        <h3>My Work</h3>
+    <p>
+        My work description and links will go here 
+        <br>
+        I will most my work here
+    </p>
+    </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+    <div id="socialmedia">
+        <a href="mailto:sofica05@gmail.com">
+            <img src="Email_new_envelope_closed_back_hand_drawn_outline_64.png" alt="email">
+        </a>
+        <a href="http://www.linkedin.com">
+            <img src="Linkedin_logo_64.png" alt="linkedin">
+        </a>
+        <a href="http://www.instagram.com">
+            <img src="Instagram_hand_drawn_logo_64.png" alt="instagram">
+        </a>
+    </div>
+    </section>
+</div>
+<a href="#" class="scrollup" style="display: inline;">Scroll</a>
+<footer> </footer>
+</body>
+</html>
