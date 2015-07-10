@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var num  = 1;
+    var fizz = 3;
+    var buzz = 5;
+    var upTo = 1000;
+
+
+    while (num < upTo)
+    {
+        var check = false;
+        if (num % fizz === 0) { document.write ("Fizz"); check = true; }
+        if (num % buzz === 0) { document.write ("Buzz"); check = true; }
+        if (check === false)   { document.write (num); }
+        document.write ("<br>");
+        num += 1;
+    }
+</script>
+
+<script>
+
+    var evenOrOdd = function(num) {
+        if (num % 2 === 0) {document.write ("Your number is an even number.")}
+            else {document.write ("Your number is odd.")}
+    };
+
+    evenOrOdd(12)
+
+</script>
+
+</body>
