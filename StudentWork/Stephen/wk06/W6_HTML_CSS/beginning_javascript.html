@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background-color:darkslategray;
+        }
+        p{
+            color:honeydew;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<h1>
+    This Stephen's Web page
+</h1>
+<h2>
+    I love Oregon
+</h2>
+<p>
+    Oregon is the best place to live in the USA.
+</p>
+
+
+
+
+
+
+<script>
+    var today = new Date();
+    var nowHour = today.getHours();
+    if (nowHour > 17) {
+        //it is the evening so lets do somthing fun!
+        document.write('Good Evening');
+        console.log('the hour is now', nowHour);
+    }else {
+
+        document.write('This is so Very Totally Really Awesome Cool!');
+    }
+    //document.write('This is My totally cool new web page ')
+    var header1 = $('h1');
+    header1.on('mouseover', function() {
+        header1.fadeOut(1000);
+    });
+
+</script>
+
+
+</body>
+
+
+</html>
