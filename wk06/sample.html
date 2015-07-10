@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<h1>Hello and welcome to my webpage!</h1>
+<h2>This is a happy day and I am glad that you are here.</h2>
+<h3>Take a look around and enjoy...</h3>
+
+<script>
+
+    var today = new Date();
+    var nowHour = today.getHours();
+    if (nowHour > 17) {
+        // it is the evening so lets do something fun
+        document.write('Good evening!');
+        console.log('the hour is now', nowHour);
+    } else {
+        // it is not the evening time, at least I don't think
+        document.write('This is so very cool!');
+    }
+
+    var header1 = $('h1');
+    header1.on('mouseover', function() {
+        header1.fadeOut(1500);
+    });
+
+
+</script>
+
+
+</body>
+</html>
