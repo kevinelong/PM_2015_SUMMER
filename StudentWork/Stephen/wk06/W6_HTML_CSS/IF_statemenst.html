@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+var timeOFDay = 5;
+var loc = 'Arizona';
+var today = new Date();
+var nowHour = today.getHours();
+
+
+if (nowHour > 12 && loc === 'Oregon') {
+    console.log('Good Afternoon, Welcome to the web, there is so much you have missed since you were last here.')
+}else if (nowHour < 12 ){
+    console.log('Good morning, Welcome to the web, there is so much you have missed since you were last here.')
+}else if (loc === 'Arizona' || loc === 'Washington'){
+
+}
+
+//if (KingNumber > 10) {
+//    console.log('King is greater then 10');
+//}else if (KingNumber < 10) {
+//    console.log('King is less than 10');
+//}else if (KingNumber === 10)  {
+//    console.log ('King is something else!');
+//}
+
+</script>
+
+
+
+
+</body>
+</html>
