@@ -25,8 +25,8 @@ def guess():
 
 def results_of_guess(codewords, game):
     """
-    This method will show the human player keywords based on how the computer player has evaluated
-    their guess. It will also show how many guesses the human player has used so far.
+    This method shows the human player keywords based on how the computer player has evaluated
+    their guess. It also shows how many guesses the human player has used so far.
     """
 
     # Before giving feedback on the latest guess, the computer checks to see if the human won.
@@ -45,7 +45,7 @@ def results_of_guess(codewords, game):
         # the traditional Bagels order and it makes it harder for the human player to guess.
 
         codewords.sort(reverse=True)
-        print ", ".join(codewords)
+        print " ".join(codewords)
 
         if new_game.number_of_guesses == 1:
             print "So far, you've made 1 guess."
