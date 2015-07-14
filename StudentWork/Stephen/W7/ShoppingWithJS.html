@@ -10,6 +10,20 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+
+
+
+
+
+    <style>
+
+        ol{
+           background-color: greenyellow;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            lighting-color: yellow;
+        }
+
+    </style>
 </head>
 
 
@@ -22,34 +36,61 @@
     <div>
         <ol>
             <li>
-               Vitimins
+               Vitamins
             </li>
 
             <li>
-                Garbage
-            </li>
-                Address
-            <li>
-                City
-            </li>
-                State
-            <li>
-                Zip
+                Garbage bags
             </li>
 
             <li>
-
+                Backed Bean
             </li>
 
             <li>
+                Havarti
+            </li>
 
+            <li>
+                Coconut Milk
+            </li>
+
+            <li>
+                Kale
             </li>
         </ol>
     </div>
 
 
 
+<script>
 
+
+
+    var clickerone = $('button');
+    clickerone.on('click', function() {
+        if ($(this).hasClass('clickable')) {
+            $(this).css('background-color', 'black');
+//            //            $(this).hasClass);
+//            $(this).removeClass();
+        }
+
+
+    });
+    var firstClick = true;
+//    The line below works for fadeing out the full list while the one above does not work (yet).
+
+    var header1 = $('li');
+    header1.on('click', function() {
+        if (firstClick === true) {
+            header1.fadeOut(1000).fadeIn(1500);
+            firstClick = false;
+        }
+    });
+
+
+
+</script>
 
 
 
