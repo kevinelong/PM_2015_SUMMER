@@ -8,16 +8,17 @@
 </head>
 <body>
     <p>&nbsp;</p>
-    <div id="second" style="opacity: 1">work damn you!</div>
+    <div id="second" style="opacity: 1" clicked="none">work damn you!</div>
 
 </body>
 <script>
 
     $('div').on('click', function() {
-        if($(this).css('opacity') == "1"){
-            $(this).css({ opacity: "0", display: "" });
+        if($(this).css('opacity') == "1" && $(this).attr('clicked') === "none"){
+            $(this).css({ opacity: "0", display: ""});
+            $(this).attr("clicked", "first");
         }
-        else if ($(this).css('opacity') == "0"){
+        else if ($(this).css('opacity') == "0" && $(this).attr('clicked') === "first"){
             $(this).css({opacity: "1", display: ""});
         }
     });
