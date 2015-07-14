@@ -17,4 +17,10 @@ $('div').on('click', function() {
         $(this).attr("clicked", "first");
         $(this).fadeIn("slow");
     }
+    //$(this).on('mouseover', function() {
+    //    $(this).css("background-color", "yellow");
+    //});
+    $(this).hover(function () {
+        $('#right').css("background-color", "#FFF");
+    });
 });
