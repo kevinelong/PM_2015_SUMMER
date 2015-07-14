@@ -4,7 +4,17 @@
 
 var shoppingList = ['eggs', 'milk', 'yogurt', 'turkey', 'corn', 'cereal']
 
-for (var i = 0; i < shoppingList.length; i++){
-    document.write('<div class="list" onclick="toggle_visibility(id)" style="display: block" id="'
-        + shoppingList[i] + '">' + shoppingList[i] + '</div>');
+for (var i = 0; i < shoppingList.length; i++) {
+    document.write('<div class="list" clicked="none" style="opacity: 1" ' + shoppingList[i] + '">' + shoppingList[i] + '</div>');
+}
 
+
+$('div').on('click', function() {
+    if($(this).css('opacity') == "1" && $(this).attr('clicked') === "none"){
+        $(this).fadeOut("slow", function(){
+            $(this).css({display: "", "text-decoration": "line-through"});
+        });
+        $(this).attr("clicked", "first");
+        $(this).fadeIn("slow");
+    }
+});
