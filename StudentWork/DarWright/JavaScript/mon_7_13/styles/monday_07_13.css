@@ -7,7 +7,7 @@ body {
     color: azure;
     font-size: xx-large;
     background-color: blue;
-    display:block;
+    display: block;
     padding: 50px;
     border-radius: 25px;
     text-align: center;
@@ -15,3 +15,4 @@ body {
     right: 500px;
     top: 150px;
     text-decoration: none;
+}
