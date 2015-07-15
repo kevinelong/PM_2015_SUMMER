@@ -20,7 +20,21 @@ $('div').on('click', function() {
     //$(this).on('mouseover', function() {
     //    $(this).css("background-color", "yellow");
     //});
-    $(this).hover(function () {
-        $('#right').css("background-color", "#FFF");
-    });
+
+
+});
+
+//$('div').on('mouseover', function() {
+//    console.log('mousey!');
+//});
+
+
+
+
+//$(this).hover(function () {
+//    $('#right').css("background-color", "#FFF");
+//});
+
+$('div').mouseover(function() {
+    $(this).css("background-color", "yellow");
 });
