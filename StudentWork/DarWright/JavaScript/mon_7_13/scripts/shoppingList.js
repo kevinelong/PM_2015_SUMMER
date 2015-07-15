@@ -8,7 +8,6 @@ for (var i = 0; i < shoppingList.length; i++) {
     document.write('<div class="list" clicked="none" style="opacity: 1" ' + shoppingList[i] + '">' + shoppingList[i] + '</div>');
 }
 
-
 $('div').on('click', function() {
     if($(this).css('opacity') == "1" && $(this).attr('clicked') === "none"){
         $(this).fadeOut("slow", function(){
@@ -17,24 +16,8 @@ $('div').on('click', function() {
         $(this).attr("clicked", "first");
         $(this).fadeIn("slow");
     }
-    //$(this).on('mouseover', function() {
-    //    $(this).css("background-color", "yellow");
-    //});
-
-
 });
 
-//$('div').on('mouseover', function() {
-//    console.log('mousey!');
-//});
-
-
-
-
-//$(this).hover(function () {
-//    $('#right').css("background-color", "#FFF");
-//});
-
 $('div').mouseover(function() {
-    $(this).css("background-color", "yellow");
+    $(this).css({"background-color": "lightcyan", "color": "black"});
 });
