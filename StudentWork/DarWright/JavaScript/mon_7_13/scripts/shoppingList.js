@@ -21,3 +21,4 @@ $('div').on('click', function() {
 $('div').mouseover(function() {
     $(this).css({"background-color": "lightcyan", "color": "black"});
 });
+

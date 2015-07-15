@@ -1,0 +1,64 @@
+.form {
+    box-shadow: 10px 10px 5px #888888;
+    color: black;
+    font-size: medium;
+    background-color: tomato;
+    display: block;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    left: 75px;
+    right: 500px;
+    top: 150px;
+    width: 70%;
+    text-decoration: none;
+}
+
+.labels {
+    text-align: left;
+}
+
+.inputs {
+    text-align: right;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+input {
+    font-size: medium;
+}
+
+tr.hidden {
+    display: none;
+}
+
+input[type=checkbox] {
+    /* All browsers except webkit*/
+    transform: scale(1.5);
+
+    /* Webkit browsers*/
+    -webkit-transform: scale(1.5);
+}
+
+table {
+    padding: 5px;
+}
+
+td {
+    padding: 5px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+/*input[type=checkbox]:checked ~ #shippingAddress tr.hide {*/
+    /*display: block;*/
+/*}*/
