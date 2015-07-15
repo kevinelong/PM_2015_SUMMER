@@ -79,12 +79,16 @@ class ComputerPlayer(object):
     def __init__(self, digits):
         self.digits = digits
         self.number_of_guesses = 0
-        self.possible_numbers = []
         self.possible_digit_combinations = []
         self.last_guess = []
+        self.possible_digit_combinations = self.get_possibilities_list(digits)
 
-        # This part makes a list of all the numbers the computer can possibly guess based on
-        # the number of digits there are in the number.
+    def get_possibilities_list(self, digits):
+        """
+        Given the number of digits the computer will be guessing, return a list
+        of all possible digit combinations
+        """
+        possible_digit_combinations = []
 
         minimum = [1]
         maximum = [1]
@@ -99,31 +103,31 @@ class ComputerPlayer(object):
         maximum = ''.join(map(str, maximum))
         maximum = int(maximum)
 
-        self.possible_numbers = range(minimum, maximum)
+        possible_numbers = range(minimum, maximum)
 
         # The possible numbers are then made into lists of digits so it's easier to loop through
         # them and find the digits you have just guessed.
 
-        for x in self.possible_numbers:
+        for x in possible_numbers:
             x = (map(int, str(x)))
-            self.possible_digit_combinations.append(x)
+            possible_digit_combinations.append(x)
 
         # Now we need to eliminate any numbers (lists of digits at this point) that duplicate any
         # digits.
 
         temporary_list = []
-
-        for list_of_digits in self.possible_digit_combinations:
+        for list_of_digits in possible_digit_combinations:
             if len(set(list_of_digits)) == self.digits:
                 temporary_list.append(list_of_digits)
 
-        self.possible_digit_combinations = temporary_list
+        possible_digit_combinations = temporary_list
+        return possible_digit_combinations
 
     def computer_guess(self, codewords=None):
         """
-        This method allows the computer to guess the number chosen by a human player. Right now the
-        algorithm is not as sophisticated as it could be but it is definitely a big improvement over
-        random guessing.
+        This method allows the computer to guess the number chosen by a human
+        player. Right now the algorithm is not as sophisticated as it could be
+        but it is definitely a big improvement over random guessing.
         """
 
         if did_player_win(codewords or [], self.digits) is True:
@@ -179,8 +183,9 @@ class ComputerPlayer(object):
 
     def pico(self):
         """
-        If the human player's response contains the word "Pico," the computer player will rule out any
-        numbers that don't have at least one digit in common with their last guess.
+        If the human player's response contains the word "Pico," the computer
+        player will rule out any numbers that don't have at least one digit in
+        common with their last guess.
         """
 
         new_possibilities = []
@@ -193,9 +198,9 @@ class ComputerPlayer(object):
 
     def all_pico(self):
         """
-        If the human player's response is to type "Pico" as many times as there are digits in the number
-        being guessed, the computer player will rule out anything that doesn't have all three of those
-        digits.
+        If the human player's response is to type "Pico" as many times as there
+        are digits in the number being guessed, the computer player will rule
+        out anything that doesn't have all three of those digits.
         """
 
         new_possibilities = []
@@ -210,8 +215,9 @@ class ComputerPlayer(object):
 
     def multiple_picos(self, number_of_picos):
         """
-        If the human player types in "Pico" multiple times but not as many times as there are digits,
-        the computer player will rule out any number that doesn't have that number of digits in common.
+        If the human player types in "Pico" multiple times but not as many
+        times as there are digits, the computer player will rule out any number
+        that doesn't have that number of digits in common.
         """
 
         new_possibilities = []
@@ -227,8 +233,9 @@ class ComputerPlayer(object):
 
     def fermi(self):
         """
-        If the human player's response contains the word "Fermi," the computer player will rule out any
-        numbers that don't have at least one digit in common and in the same place as in their last guess.
+        if the human player's response contains the word "Fermi," the computer
+        player will rule out any numbers that don't have at least one digit in
+        common and in the same place as in their last guess.
         """
 
         new_possibilities = []
@@ -241,8 +248,9 @@ class ComputerPlayer(object):
 
     def multiple_fermis(self, number_of_fermis):
         """
-        If the human player's response contains the word "Fermi" multiple times, the computer player will rule out
-        any numbers that don't have at least that number of digits in common and in the same place as in their
+        If the human player's response contains the word "Fermi" multiple
+        times, the computer player will rule out any numbers that don't have at
+        least that number of digits in common and in the same place as in their
         last guess.
         """
         new_possibilities = []

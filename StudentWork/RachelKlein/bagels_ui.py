@@ -3,7 +3,7 @@ import bagels
 import sys
 from time import sleep
 
-def guess():
+def guess(new_game):
     """
     This method prompts the user to guess a new number. It then converts the guess from
     a string to a list of digits that can be compared to the computer's chosen number.
@@ -23,7 +23,7 @@ def guess():
         print "That's not a real guess, silly!"
 
 
-def results_of_guess(codewords, game):
+def results_of_guess(codewords, game, new_game):
     """
     This method shows the human player keywords based on how the computer player has evaluated
     their guess. It also shows how many guesses the human player has used so far.
@@ -53,7 +53,7 @@ def results_of_guess(codewords, game):
             print "So far, you've made {} guesses.".format(new_game.number_of_guesses)
 
 
-def you_win():
+def you_win(game):
     """
     Provides feedback to user when they win the game.
     """
@@ -131,38 +131,50 @@ def computer_guessing_game():
 
 # A new game is created when this file is run from the console.
 
+
+def regular_game():
+    try:
+        number_of_digits = int(raw_input(
+            "Do you want to guess a 3 digit number? 4? 5? "
+            "The more digits you pick, the harder it is to guess. Less than "
+            "3 isn't fun. And you can't pick more than 9 digits. You just "
+            "can't, okay? >> "))
+        new_game = bagels.Game("human", number_of_digits)
+    except ValueError:
+        print "Okay, whatever, 3 digits is good."
+        new_game = bagels.Game("human", 3)
+    while True:
+        guess(new_game)
+
+
 if __name__ == '__main__':
     raw_input(
-        "Hi! It's your computer! Care for some Bagels? And by \'Bagels\' I of course mean the fun logic game. >> ")
-    need_to_learn = raw_input \
-        ("Actually I don't care whether you do or not. :D Do you need to learn the rules? y/n??? >> ")
+        "Hi! It's your computer! Care for some Bagels? And by 'Bagels' "
+        "I of course mean the fun logic game. >> ")
+    need_to_learn = raw_input(
+        "Actually I don't care whether you do or not. :D Do you need to "
+        "learn the rules? y/n??? >> ")
     if need_to_learn.lower() == "y" or need_to_learn.lower() == "yes":
         print_directions()
     raw_input("Okay then, press enter if you're ready! I am so ready!!! >> ")
-    game_type = raw_input \
-        ("Please type 1 if you want me to pick the number for you to guess and 2 if you want to pick one for me. >> ")
+    game_type = raw_input(
+        "Please type 1 if you want me to pick the number for you to guess "
+        "and 2 if you want to pick one for me. >> ")
     if game_type == "1":
-        try:
-            number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
-                The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
-                And you can't pick more than 9 digits. You just can't, okay? >> """))
-            new_game = bagels.Game("human", number_of_digits)
-        except ValueError:
-            print "Okay, whatever, 3 digits is good."
-            new_game = bagels.Game("human", 3)
-        while True:
-            guess()
+        regular_game(new_game)
     elif game_type == "2":
         computer_guessing_game()
     else:
         raw_input("Okay, so you're bad at decisions. I knew that. You can guess this time. >> ")
         try:
-            number_of_digits = int(raw_input("""Do you want to guess a 3 digit number? 4? 5?
-                The more digits you pick, the harder it is to guess. Less than 3 isn't fun.
-                And you can't pick more than 9 digits. You just can't, okay? >> """))
+            number_of_digits = int(raw_input(
+                "Do you want to guess a 3 digit number? 4? 5? The more digits "
+                "you pick, the harder it is to guess. Less than 3 isn't fun. "
+                "And you can't pick more than 9 digits. You just can't, okay? "
+                ">> "))
             new_game = bagels.Game("human", number_of_digits)
         except ValueError:
             print "Okay, whatever, 3 digits is good."
             new_game = bagels.Game("human", 3)
         while True:
-            guess()
+            guess(new_game)
