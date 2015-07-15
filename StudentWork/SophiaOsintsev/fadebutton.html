@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fade Button</title>
+    <style>
+
+    #button {
+        align = center;
+        background-color: cadetblue;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 100px;
+        height: 400px;
+        width: 600px;
+        font-size: 30px;
+        font-family: serif;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+
+<script>
+ var clickedButton = false;
+
+    $(document).ready(function() {
+
+        $('button').click(function () {
+            if(clickedButton === false){
+                $(this).fadeOut(1000).fadeIn(500);
+                clickedButton = true;
+            }
+        });
+    });
+
+</script>
+<div>
+    <button id="button"> Click ME!!!</button>
+</div>
+
+
+
+</body>
+</html>
