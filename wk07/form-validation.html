@@ -55,8 +55,8 @@
     };
 
     function validateForm() {
-        username = document.loginForm.username.value;
-        password = document.loginForm.password.value;
+        var username = document.loginForm.username.value;
+        var password = document.loginForm.password.value;
         if (users[username] === undefined) {
             alert('User ' + username + ' is not a current user!');
             return false;

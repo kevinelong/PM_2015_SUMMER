@@ -30,9 +30,9 @@
 <div id="first">Click Me!</div>
 
 <script>
-    unchangeable = [];
+    var unchangeable = [];
     $('div').on('click', function() {
-        thisId = $(this).attr('id');
+        var thisId = $(this).attr('id');
         if (unchangeable.indexOf(thisId) === -1) {
             $(this).fadeOut(1500).fadeIn(1500);
             unchangeable.push(thisId);
