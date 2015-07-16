@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+
+    var myHotel = {
+        rooms: 13,
+        booked: 11,
+        owner: 'Reina',
+        roomTypes: ['suite', 'double', 'single'],
+        petFriendly: true,
+        checkAvailabilityNumber: function() {
+            // returns how many are available
+            return this.rooms - this.booked;
+        },
+        checkAvailability: function() {
+            // returns boolean if there is space avail
+            return this.rooms > this.booked;
+        }
+    };
+/*
+    myHotel.floors = 3;
+    myHotel.booked = myHotel.rooms;
+    console.log(myHotel.checkAvailability());*/
+
+
+    function Hotel (name, rooms, booked) {
+        this.name = name;
+        this.rooms = rooms;
+        this.booked = booked;
+        this.checkAvailability = function() {
+            return this.rooms > this.booked;
+        };
+        this.guests = 12;
+    }
+
+    myNewHotel = new Hotel('The Reina Hotel', 300, 0);
+
+
+    var myYetAnotherHotel = new Object();
+    myYetAnotherHotel.name = "The best hotel of your life";
+    myYetAnotherHotel.rooms = 3;
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
