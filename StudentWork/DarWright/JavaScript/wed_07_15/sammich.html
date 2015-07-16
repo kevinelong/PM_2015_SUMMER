@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/sammich.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/sammich.css">
+</head>
+<body>
+
+    <form name="orderform" class="form">
+        <h1>Sammich maker!</h1>
+        <table class="ingredients">
+            <tr>
+                <th></th>
+                <th>Bread Type</th>
+                <th>Price $$</th>
+            </tr>
+            <tr class="bread">
+                <td class="radio">
+                    <input type="radio" name="bread" align="left" value="1">
+                </td>
+                <td>
+                    white
+                </td>
+                <td class="price">
+                    1.00
+                </td>
+            </tr>
+            <tr class="bread">
+                <td class="radio">
+                    <input type="radio" name="bread" id="wheat" align="left" value="1">
+                </td>
+                <td>
+                    wheat
+                </td>
+                <td class="price">
+                    1.00
+                </td>
+            </tr>
+            <tr class="meats">
+                <th></th>
+                <th>Meats!</th>
+                <th>Price $$</th>
+            </tr>
+            <tr>
+                <td class="radio">
+                    <input type="checkbox" name="meats" align="left" value="1.50">
+                </td>
+                <td>
+                    ham
+                </td>
+                <td class="price">
+                    1.50
+                </td>
+            </tr>
+            <tr class="meats">
+                <td class="radio">
+                    <input type="checkbox" name="meats" align="left">
+                </td>
+                <td>
+                    turkey
+                </td>
+                <td class="price">
+                    1.50
+                </td>
+            </tr>
+            <tr class="meats">
+                <td class="radio">
+                    <input type="checkbox" name="meats" align="left">
+                </td>
+                <td>
+                    beef
+                </td>
+                <td class="price">
+                    1.50
+                </td>
+            </tr>
+            <tr class="meats">
+                <td class="radio">
+                    <input type="checkbox" name="meats" align="left">
+                </td>
+                <td>
+                    Vegan Turkey
+                </td>
+                <td class="price">
+                    1.50
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Cheese!</th>
+                <th>Price $$</th>
+            </tr>
+            <tr class="cheese">
+                <td class="radio">
+                    <input type="checkbox" name="cheese" align="left">
+                </td>
+                <td>
+                    Cheddar
+                </td>
+                <td class="price">
+                    1.25
+                </td>
+            </tr>
+
+            <!--<tr>-->
+                <!--<th></th>-->
+                <!--<th></th>-->
+                <!--<th>Subtotal</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td></td>-->
+                <!--<td></td>-->
+                <!--<td name="subtotal">0</td>-->
+            <!--</tr>-->
+        </table>
+        <button type="submit" class="btn" onclick="calcTotal()">Submit</button>
+    </form>
+
+</body>
+</html>
