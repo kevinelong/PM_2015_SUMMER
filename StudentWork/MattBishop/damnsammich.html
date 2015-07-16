@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Order a damn sammich.</title>
+</head>
+<h1>Fill out the form below to make a damn sammich:</h1>
+<body>
+<form action='#' method='post' name= 'submitForm'>
+<fieldset>
+    <h2>Sandwiches start at $5. This includes your choice of bread and protein. Add cheese for .50, add veggies for .25. Condiments are free!</h2>
+<div id="breadChoice">
+<p>Choose your bread (please choose 1 option):</p>
+<input type="radio" name="choiceBread" value="white">White Bread<br>
+<input type="radio" name="choiceBread" value="wheat">Wheat Bread<br>
+<input type="radio" name="choiceBread" value="rye">Rye Bread<br>
+</div>
+<div id="proteinChoice">
+<p>Choose your protein (please choose 1 option):</p>
+<input type="radio" name="choiceProtein" value="ham">Ham<br>
+<input type="radio" name="choiceProtein" value="turkey">Turkey<br>
+<input type="radio" name="choiceProtein" value="pastrami">Pastrami<br>
+<input type="radio" name="choiceProtein" value="fieldRoast">Field Roast<br>
+<input type="radio" name="choiceProtein" value="no">Naw, I'm good.<br>
+</div>
+<div id="upChargeChoice", onclick="updateTotal(e)">
+<p>Do you want cheese on that?:</p>
+<input type="checkbox" name="choiceCheese" value=".50">Cheddar<br>
+<input type="checkbox" name="choiceCheese" value=".50">Swiss<br>
+<input type="checkbox" name="choiceCheese" value=".50">Provolone<br>
+<input type="checkbox" name="choiceCheese" value="0">No cheese.<br>
+<p>Veggies?:</p>
+<input type="checkbox" name="choiceVeg" value=".25">Lettuce<br>
+<input type="checkbox" name="choiceVeg" value=".25">Tomato<br>
+<input type="checkbox" name="choiceVeg" value=".25">Onion<br>
+<input type="checkbox" name="choiceVeg" value=".25">Sauerkraut<br>
+<input type="checkbox" name="choiceVeg" value=".25">Peppers<br>
+<input type="checkbox" name="choiceVeg" value="0">No veggies.<br>
+</div>
+<div id="condimentChoice">
+<p>Condiments?:</p>
+<input type="checkbox" name="choiceCondiment" value="mayo">Mayo<br>
+<input type="checkbox" name="choiceCondiment" value="mustard">Mustard<br>
+<input type="checkbox" name="choiceCondiment" value="thousandIsland">Thousand Island<br>
+<input type="checkbox" name="choiceCondiment" value="veganaise">Veganaise<br>
+<input type="checkbox" name="choiceCondiment" value="no">No condiments.<br>
+</div>
+<br>
+<br>
+<p>
+<label>Total: $ <input type="text" name="total" class="num" size="6" value="5.00" readonly="readonly" /></label>
+</p>
+<button>Submit</button>
+    </fieldset>
+</form>
+
+<script>
+
+function attachCheckboxHandlers() {
+    var el = document.getElementById('upChargeChoice');
+    var tops = el.getElementsByTagName('input');
+    for (var i=0, len=tops.length; i<len; i++) {
+        if ( tops[i].type === 'checkbox' ) {
+            tops[i].onclick = updateTotal;
+        }
+    }
+}
+
+function updateTotal(e) {
+    var form = this.form;
+    var val = parseFloat( form.elements['total'].value );
+    if ( this.checked ) {
+        val += parseFloat(this.value);
+    } else {
+        val -= parseFloat(this.value);
+    }
+
+    // format val with correct number of decimal places
+    // and use it to update value of total text box
+    form.elements['total'].value = formatDecimal(val);
+}
+
+// format val to n number of decimal places
+// modified version of Danny Goodman's (JS Bible)
+function formatDecimal(val, n) {
+    n = n || 2;
+    var str = "" + Math.round ( parseFloat(val) * Math.pow(10, n) );
+    while (str.length <= n) {
+        str = "0" + str;
+    }
+    var pt = str.length - n;
+    return str.slice(0,pt) + "." + str.slice(pt);
+}
+
+
+
+//    var sandwichCreated = [
+//            'choiceBread',
+//            'choiceProtein',
+//            'choiceCheese',
+//            'choiceVeg',
+//            'choiceCondiment'
+//    ];
+
+//    var createSandwich = {};
+//
+//    createSandwich.choiceBread = condimentChoice(value);
+//    createSandwich.choiceProtein = 'value';
+//    createSandwich.choiceCheese = 'value';
+//    createSandwich.choiceVeg = 'value';
+//    createSandwich.choiceCondiment = 'value';
+//    createSandwich.sandwichCreated = function() {
+//        console.log('value');
+//    };
+attachCheckboxHandlers();
+</script>
+</body>
+</html>
