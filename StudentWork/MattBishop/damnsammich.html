@@ -11,39 +11,39 @@
     <h2>Sandwiches start at $5. This includes your choice of bread and protein. Add cheese for .50, add veggies for .25. Condiments are free!</h2>
 <div id="breadChoice">
 <p>Choose your bread (please choose 1 option):</p>
-<input type="radio" name="choiceBread" value="white">White Bread<br>
-<input type="radio" name="choiceBread" value="wheat">Wheat Bread<br>
-<input type="radio" name="choiceBread" value="rye">Rye Bread<br>
+<label><input type="radio" name="choiceBread" value="white">White Bread</label><br>
+<label><input type="radio" name="choiceBread" value="wheat">Wheat Bread</label><br>
+<label><input type="radio" name="choiceBread" value="rye">Rye Bread</label><br>
 </div>
 <div id="proteinChoice">
 <p>Choose your protein (please choose 1 option):</p>
-<input type="radio" name="choiceProtein" value="ham">Ham<br>
-<input type="radio" name="choiceProtein" value="turkey">Turkey<br>
-<input type="radio" name="choiceProtein" value="pastrami">Pastrami<br>
-<input type="radio" name="choiceProtein" value="fieldRoast">Field Roast<br>
-<input type="radio" name="choiceProtein" value="no">Naw, I'm good.<br>
+<label><input type="radio" name="choiceProtein" value="ham">Ham</label><br>
+<label><input type="radio" name="choiceProtein" value="turkey">Turkey</label><br>
+<label><input type="radio" name="choiceProtein" value="pastrami">Pastrami</label><br>
+<label><input type="radio" name="choiceProtein" value="fieldRoast">Field Roast</label><br>
+<label><input type="radio" name="choiceProtein" value="no">Naw, I'm good.</label><br>
 </div>
-<div id="upChargeChoice", onclick="updateTotal(e)">
+<div id="upChargeChoice" onclick="updateTotal()">
 <p>Do you want cheese on that?:</p>
-<input type="checkbox" name="choiceCheese" value=".50">Cheddar<br>
-<input type="checkbox" name="choiceCheese" value=".50">Swiss<br>
-<input type="checkbox" name="choiceCheese" value=".50">Provolone<br>
-<input type="checkbox" name="choiceCheese" value="0">No cheese.<br>
+<label><input type="checkbox" name="choiceCheese" value=".50">Cheddar</label><br>
+<label><input type="checkbox" name="choiceCheese" value=".50">Swiss</label><br>
+<label><input type="checkbox" name="choiceCheese" value=".50">Provolone</label><br>
+<label><input type="checkbox" name="choiceCheese" value="0">No cheese.</label><br>
 <p>Veggies?:</p>
-<input type="checkbox" name="choiceVeg" value=".25">Lettuce<br>
-<input type="checkbox" name="choiceVeg" value=".25">Tomato<br>
-<input type="checkbox" name="choiceVeg" value=".25">Onion<br>
-<input type="checkbox" name="choiceVeg" value=".25">Sauerkraut<br>
-<input type="checkbox" name="choiceVeg" value=".25">Peppers<br>
-<input type="checkbox" name="choiceVeg" value="0">No veggies.<br>
+<label><input type="checkbox" name="choiceVeg" value=".25">Lettuce</label><br>
+<label><input type="checkbox" name="choiceVeg" value=".25">Tomato</label><br>
+<label><input type="checkbox" name="choiceVeg" value=".25">Onion</label><br>
+<label><input type="checkbox" name="choiceVeg" value=".25">Sauerkraut</label><br>
+<label><input type="checkbox" name="choiceVeg" value=".25">Peppers</label><br>
+<label><input type="checkbox" name="choiceVeg" value="0">No veggies.</label><br>
 </div>
 <div id="condimentChoice">
 <p>Condiments?:</p>
-<input type="checkbox" name="choiceCondiment" value="mayo">Mayo<br>
-<input type="checkbox" name="choiceCondiment" value="mustard">Mustard<br>
-<input type="checkbox" name="choiceCondiment" value="thousandIsland">Thousand Island<br>
-<input type="checkbox" name="choiceCondiment" value="veganaise">Veganaise<br>
-<input type="checkbox" name="choiceCondiment" value="no">No condiments.<br>
+<label><input type="checkbox" name="choiceCondiment" value="mayo">Mayo</label><br>
+<label><input type="checkbox" name="choiceCondiment" value="mustard">Mustard</label><br>
+<label><input type="checkbox" name="choiceCondiment" value="thousandIsland">Thousand Island</label><br>
+<label><input type="checkbox" name="choiceCondiment" value="veganaise">Veganaise</label><br>
+<label><input type="checkbox" name="choiceCondiment" value="no">No condiments.</label><br>
 </div>
 <br>
 <br>
@@ -66,7 +66,7 @@ function attachCheckboxHandlers() {
     }
 }
 
-function updateTotal(e) {
+function updateTotal() {
     var form = this.form;
     var val = parseFloat( form.elements['total'].value );
     if ( this.checked ) {
@@ -92,26 +92,6 @@ function formatDecimal(val, n) {
     return str.slice(0,pt) + "." + str.slice(pt);
 }
 
-
-
-//    var sandwichCreated = [
-//            'choiceBread',
-//            'choiceProtein',
-//            'choiceCheese',
-//            'choiceVeg',
-//            'choiceCondiment'
-//    ];
-
-//    var createSandwich = {};
-//
-//    createSandwich.choiceBread = condimentChoice(value);
-//    createSandwich.choiceProtein = 'value';
-//    createSandwich.choiceCheese = 'value';
-//    createSandwich.choiceVeg = 'value';
-//    createSandwich.choiceCondiment = 'value';
-//    createSandwich.sandwichCreated = function() {
-//        console.log('value');
-//    };
 attachCheckboxHandlers();
 </script>
 </body>
