@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Panda Lovers!</title>
+    <style>
+        body {
+            background: grey;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Let's look at this panda!</h1>
+<h2>Panda's are commonly black and white.</h2>
+<h3>I like pandas!</h3>
+<div>
+    <table id="table_01">
+        <thead>This is a bunch of panda related things!</thead>
+    </table>
+</div>
+
+<script>
+    var today = new Date();
+    var nowHour = today.getHours();
+    if (nowHour > 6) {
+        document.write('Good Evening!');
+        console.log('the hour is now, nowHour');
+    } else {
+        document.write('Good morning!')
+    }
+
+    var header1 = $('h1');
+    header1.on('mouseover', function() {
+        header1.fadeOut(1500);
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    background: lightsteelblue;
+}
+
+#fixedheader {
+    top:0;
+    left:0;
+    width:100%;
+    color:black;
+    background:slategrey;
+    padding:20px;
+    font-family: Neutron sans-serif;
+    font-size: large;
+    font-weight:800;
+    border-bottom: solid;
+    border-color: whitesmoke;
+}
+head.nav {
+    color: white;
+    font-family: Neutron sans-serif;
+}
+
+header {
+    color: black;
+    text-align: right;
+}
+
+h1, h2 {
+    color: black;
+    text-align: center;
+    font-family: Neutron sans-serif;
+
+}
+
+#photo {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto 30px;
+    border-radius: 30%;
+}
+
+ul {
+    display: block;
+    color: black;
+}
+
+
+
+
+p {
+    margin-left: 100px;
+    margin-right: 250px;
+}
+
+#synopsis {
+    border-style: solid;
+    background: tan;
+}

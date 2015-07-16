@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+//    var fizzFunction = function(num) {
+//        if (num % 3 === 0 && num % 5 === 0) {
+//            console.log('FizzBuzz');
+//        } else if (num % 5 === 0) {
+//            console.log('Buzz');
+//        } else if (num % 3 === 0) {
+//            console.log('Fizz');
+//        }
+//
+//    }
+
+//    fizzFunction(18);
+
+//    var evenFunction = function(num1) {
+//        if (num1 % 2 === 0) {
+//            console.log('Even')
+//        }else if (num1 % 2 !== 0) {
+//            console.log("Odd");
+//        }
+//    }
+//
+//    evenFunction(220);
+
+    var reverseFunction = function(str) {
+            return str.split('').reverse().join('');
+        }
+
+    var palinDrone = function(input) {
+        if (input === reverseFunction(input)) {
+            console.log('True');
+        } else if (input !== reverseFunction(input)) {
+            console.log('False');
+        }
+    }
+    palinDrone('dad');
+</script>
+
+</body>
+</html>

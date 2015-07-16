@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+
+
+    <style>
+
+        ol{
+           background-color: greenyellow;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            lighting-color: yellow;
+        }
+
+    </style>
+</head>
+
+
+
+
+
+
+
+<body>
+<div>
+    <div>
+        Vitamins
+    </div>
+
+    <div>
+        Garbage bags
+    </div>
+
+    <div>
+        Backed Bean
+    </div>
+
+    <div>
+        Havarti
+    </div>
+
+    <div>
+        Coconut Milk
+    </div>
+
+    <div>
+        Kale
+    </div>
+</div>
+
+
+
+<script>
+
+
+
+//    var clickerone = $('button');
+//    clickerone.on('click', function() {
+//        if ($(this).hasClass('clickable')) {
+//            $(this).css('background-color', 'black');
+//                        $(this).hasClass);
+//            $(this).removeClass();
+//        }
+//
+//
+    });
+    var firstClick = true;
+//    The line below works for fadeing out the full list while the one above does not work (yet).
+
+    var jsShoppingList = $('div');
+    jsShoppingList.on('click', function() {
+        if (firstClick === true) {
+            jsShoppingList.fadeOut(1000).fadeIn(1500);
+            firstClick = false;
+        }
+    });
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function fizzBuzz() {
+        var a;
+        a = document.getElementById("numb2").value;
+
+        if (a % 3 === 0 && a % 5 === 0){
+            //console.log('Testing');
+            document.getElementById('fizzbuzzResults').innerHTML = "Fizzbuzz!!";
+        }
+        else if (a % 3 === 0){
+            document.getElementById('fizzbuzzResults').innerHTML = "Fizz!!";
+        }
+        else if ( a % 5 === 0){
+            document.getElementById('fizzbuzzResults').innerHTML = "Buzz!!";
+        }
+        else {
+            document.getElementById('fizzbuzzResults').innerHTML = "NoNoNO, no fizzbuzz here!!";
+        }
+    }
+
+    function myFunction() {
+        var x, text;
+
+        // Get the value of the input field with id="numb"
+        x = document.getElementById("numb").value;
+
+        // If x is Not a Number or less than one or greater than 10
+        if (isNaN(x) || x < 1 || x > 10) {
+            text = "Input not valid";
+        } else {
+            text = "Input OK";
+        }
+        document.getElementById("demo").innerHTML = text;
+
+    }
+
+</script>
+
+
+<!--<h1>JavaScript Can Validate Input</h1>-->
+
+<!--<p>Please input a number between 1 and 10:</p>-->
+
+<!--<input id="numb" type="number">-->
+
+<!--<button type="button" onclick="myFunction()">Submit</button>-->
+
+<!--<p id="demo"></p>-->
+
+
+<p>Fizzbuzz!</p>
+<p>If the number is divisible by 3, list Fizz, if it is divisible by 5 list Buzz,
+and if divisible by both, list Fizzbuzz!</p>
+
+<p>
+    <label for="numb2">Enter a number:</label>
+    <input id="numb2" type="number" name="input_box">
+<button id="fizzbuzz" type="submit" onclick=fizzBuzz()>Submit</button>
+</p>
+<p id="fizzbuzzResults"></p>
+
+
+
+</body>
+</html>

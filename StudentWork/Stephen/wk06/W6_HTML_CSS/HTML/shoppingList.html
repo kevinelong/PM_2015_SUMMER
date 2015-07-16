@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title></title>
+
+
+
+    <style>
+        button{
+            background-color:antiquewhite;
+            text-align:center;
+            font-size: 200%;
+            border-style:ridge;
+            border-radius: 5cm;
+            text-emphasis-color: #222222;
+
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<script>
+    var shoppingList = ['corn','eggs','milk','yougert','turkey'];
+
+    for (var i = 0; i<shoppingList.length; i++) {
+
+
+        document.write('<div ><button class="clickable">' + shoppingList[i] +'</button></div>');
+    }
+
+
+    var clickerone = $('button');
+    clickerone.on('click', function() {
+        if ($(this).hasClass('clickable')) {
+            $(this).css('background-color', 'black');
+//            //            $(this).hasClass);
+//            $(this).removeClass();
+        }
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

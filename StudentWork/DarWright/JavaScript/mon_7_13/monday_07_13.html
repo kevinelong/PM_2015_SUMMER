@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/monday_07_13.css">
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <p>&nbsp;</p>
+    <div id="second" style="opacity: 1" clicked="none">work damn you!</div>
+
+</body>
+<script>
+
+    $('div').on('click', function() {
+        if($(this).css('opacity') == "1" && $(this).attr('clicked') === "none"){
+            $(this).css({ opacity: "0", display: ""});
+            $(this).attr("clicked", "first");
+        }
+        else if ($(this).css('opacity') == "0" && $(this).attr('clicked') === "first"){
+            $(this).css({opacity: "1", display: ""});
+        }
+    });
+
+</script>
+</html>

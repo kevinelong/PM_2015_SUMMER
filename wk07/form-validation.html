@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        .outer {
+            background-color: seashell;
+            border: 2px sandybrown solid;
+            border-radius: 20px;
+            margin-right: 20%;
+            margin-left: 20%;
+            text-align: center;
+            padding: 20px;
+        }
+        input {
+            font-size: 30px;
+            margin: 10px
+        }
+        .cat-img {
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            margin-top: 3%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<img src="tattly_gemma_correll_red_yarn_press_design_01_grande.jpg" class="cat-img">
+<div class="outer">
+<h1>Login</h1>
+
+    <form name="loginForm" onsubmit="return validateForm()">
+        <div>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="password">password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+<script>
+
+    var users = {
+        'reina': 'password123'
+    };
+
+    function validateForm() {
+        var username = document.loginForm.username.value;
+        var password = document.loginForm.password.value;
+        if (users[username] === undefined) {
+            alert('User ' + username + ' is not a current user!');
+            return false;
+        } else if (users[username] !== password) {
+            alert('Incorrect password!');
+            return false;
+        }
+        return true; // everything validated!
+    }
+
+</script>
+</body>
+</html>
