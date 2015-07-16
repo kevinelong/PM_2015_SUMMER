@@ -1,0 +1,9 @@
+.container {
+    width: 400px;
+    font-size: 2em;
+    border: solid #5fffbf 2px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    background-color: peachpuff;
+}

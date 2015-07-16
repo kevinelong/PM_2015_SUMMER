@@ -75,6 +75,7 @@ class Game(object):
 
         return codewords
 
+
 class ComputerPlayer(object):
     def __init__(self, digits):
         self.digits = digits
