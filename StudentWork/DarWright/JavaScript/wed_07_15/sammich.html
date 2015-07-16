@@ -57,7 +57,7 @@
             </tr>
             <tr class="meats">
                 <td class="radio">
-                    <input type="checkbox" name="meats" align="left">
+                    <input type="checkbox" name="meats" align="left" value="1.50">
                 </td>
                 <td>
                     turkey
@@ -68,7 +68,7 @@
             </tr>
             <tr class="meats">
                 <td class="radio">
-                    <input type="checkbox" name="meats" align="left">
+                    <input type="checkbox" name="meats" align="left" value="1.50">
                 </td>
                 <td>
                     beef
@@ -79,13 +79,13 @@
             </tr>
             <tr class="meats">
                 <td class="radio">
-                    <input type="checkbox" name="meats" align="left">
+                    <input type="checkbox" name="meats" align="left" value="2.50">
                 </td>
                 <td>
                     Vegan Turkey
                 </td>
                 <td class="price">
-                    1.50
+                    2.50
                 </td>
             </tr>
             <tr>
@@ -95,7 +95,7 @@
             </tr>
             <tr class="cheese">
                 <td class="radio">
-                    <input type="checkbox" name="cheese" align="left">
+                    <input type="checkbox" name="cheese" align="left" value="1.25">
                 </td>
                 <td>
                     Cheddar
@@ -116,8 +116,17 @@
                 <!--<td name="subtotal">0</td>-->
             <!--</tr>-->
         </table>
-        <button type="submit" class="btn" onclick="calcTotal()">Submit</button>
+        <button type="submit" class="btn" onclick="getTotal()">Submit</button>
+
+
     </form>
+
+<script>
+    function getTotal(){
+        var total = calcTotal();
+        alert('Your total is: ' + total)
+    }
+</script>
 
 </body>
 </html>
