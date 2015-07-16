@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="WebformJS.js"></script>
+
+
+
+	<form name="a">
+      <fieldset>
+    	  <legend><b>Fill in your billing address.</b></legend>
+    	  <dl>
+    	    <dt><label id="lname" for="n1">First name</label> and <label id="lsurname" for="n2">Last name</label></dt>
+    	      <dd><input type="text" name="name" id="n1">
+    	      <input type="text" name="surname" id="n2"></dd>
+    	    <dt><label id="laddress" for="address">Address</label></dt>
+    	    <dd><input type="text" name="address" size="40"
+                        10	      onfocus="highLabel('a1', '#ccf')" onblur="highLabel('a1', '')"></dd>
+    	    <dt><label id="lcity">City</label>, <label id="lstate">State (two-letter abbreviation)</label>, and <label id="lzip">Zip</label></dt>
+    	      <dd><input type="text" name="city">,
+    	      <input type="text" name="state" size="4" maxlength="2">
+    	      <input type="text" name="zip" size="12" maxlength="10"></dd>
+    	    <dt><label id="lphone">Phone (area code and number)</label> and <label id="lemail">Email</label></dt>
+          <dd><input type="text" name="phone" size="18">
+    	      <input type="text" name="email" size="35"></dd>
+    	  </dl>
+    	  <p><input type="button" onclick=" validate(this.form, billing_address_check)
+	  &amp;&amp; alert('All required fields are OK!')" value="Validate the Billing Address"></p>
+	  </fieldset>
+	</form>
+
+</body>
+</html>

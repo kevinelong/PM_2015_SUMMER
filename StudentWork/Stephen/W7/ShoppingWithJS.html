@@ -33,33 +33,31 @@
 
 
 <body>
+<div>
     <div>
-        <ol>
-            <li>
-               Vitamins
-            </li>
-
-            <li>
-                Garbage bags
-            </li>
-
-            <li>
-                Backed Bean
-            </li>
-
-            <li>
-                Havarti
-            </li>
-
-            <li>
-                Coconut Milk
-            </li>
-
-            <li>
-                Kale
-            </li>
-        </ol>
+        Vitamins
     </div>
+
+    <div>
+        Garbage bags
+    </div>
+
+    <div>
+        Backed Bean
+    </div>
+
+    <div>
+        Havarti
+    </div>
+
+    <div>
+        Coconut Milk
+    </div>
+
+    <div>
+        Kale
+    </div>
+</div>
 
 
 
@@ -67,23 +65,23 @@
 
 
 
-    var clickerone = $('button');
-    clickerone.on('click', function() {
-        if ($(this).hasClass('clickable')) {
-            $(this).css('background-color', 'black');
-//            //            $(this).hasClass);
+//    var clickerone = $('button');
+//    clickerone.on('click', function() {
+//        if ($(this).hasClass('clickable')) {
+//            $(this).css('background-color', 'black');
+//                        $(this).hasClass);
 //            $(this).removeClass();
-        }
-
-
+//        }
+//
+//
     });
     var firstClick = true;
 //    The line below works for fadeing out the full list while the one above does not work (yet).
 
-    var header1 = $('li');
-    header1.on('click', function() {
+    var jsShoppingList = $('div');
+    jsShoppingList.on('click', function() {
         if (firstClick === true) {
-            header1.fadeOut(1000).fadeIn(1500);
+            jsShoppingList.fadeOut(1000).fadeIn(1500);
             firstClick = false;
         }
     });
