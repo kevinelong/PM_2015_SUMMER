@@ -2,17 +2,45 @@
  * Created by rachel on 7/10/15.
  */
 
-var shoppingList = ['this', 'that', 'the other thing', 'more stuff', 'where will it end', 'baubles', 'trinkets', 'etc', 'and of course pickles'];
+$(document).ready(function () {
 
-for (var i = 0; i < shoppingList.length; i++) {
-    document.write('<div class="container">' + shoppingList[i] + '</div>');
-}
+    var shoppingList = ['this', 'that', 'the other thing', 'more stuff', 'where will it end', 'baubles', 'trinkets', 'etc', 'and of course pickles'];
 
-$('div').on('click', function(e) {
-    $(this).fadeOut(1000);
-}
-);
+    for (var i = 0; i < shoppingList.length; i++) {
+        $("#test").append('<div class="container list">' + shoppingList[i] + '</div>');
+    }
 
-$('button').on('click', function(e) {
-    $('div').fadeIn(500);
+    $(".container").on('click', function (e) {
+        if ($(this).hasClass("list")) {
+            $(this).fadeOut(1000, function(){
+                $(this).css("text-decoration", "line-through");
+            }).fadeIn(1000);
+            $(this).removeClass("list");
+        }
+    });
+
+    $('#mybutton').click(function() {
+    location.reload();
+
+    });
+
+    $(".default-button").on('click', function (e) {
+        if (!$("div").hasClass("list")) {
+                $(this).css("text-decoration", "");
+            }
+        });
+
+    //var text = $("#item").val();
+    //console.log(text);
+
+    //$("test").append("item");
+
+    //$("#addstuff").submit(function (e) {
+    //   shoppingList.append($this.val());
+    //    console.log("Hi!");
+    //});
+
+
+
 });
+
