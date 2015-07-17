@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sandwichs by Reina</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="orderForm.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="outer">
+
+    <h1>Welcome to Reina's Sandwich Shoppe!</h1>
+    <h2>Please make your sandwich choices, we will begin your order just as soon as you are done</h2>
+</div>
+
+<div class="outer second">
+
+    <form name="sandwichForm">
+
+        <label for="bread">Bread</label>
+        <input name="bread" id="bread" type="text">
+
+        <label for="meat">Meat</label>
+        <input name="meat" id="meat" type="text">
+
+        <label for="veggies">Veggies</label>
+        <input name="veggies" id="veggies" type="text">
+
+        <button onclick="calculatePrice(sandwichForm)">Order</button>
+
+    </form>
+
+</div>
+
+<div class="outer third price"></div>
+<script>
+
+    $('.outer').hide();
+    $('.outer').slideDown(1000);
+
+</script>
+</body>
+</html>
