@@ -135,6 +135,7 @@ function submitSandwich() {
 
     customerSandwich = new Sandwich(bread, meat, cheese, veggie);
     var sandwichPrice = customerSandwich.getSandwichPrice();
+    // Converting the sandwich price to dollars.
     sandwichPrice /= 100;
 
     var sandwichStuff = document.forms[0];
@@ -142,11 +143,16 @@ function submitSandwich() {
     for (i = 0; i < sandwichStuff.length; i++) {
         if (sandwichStuff[i].checked) {
             sandwichText = sandwichText + sandwichStuff[i].value + " ";
+            }
         }
-    }
+
+    //if (document.registrationForm.calorie_count.checked === true) {
+    //    var sandwichCalories = customerSandwich.getSandwichCalories();
+    //    sandwichText = sandwichText + "which is " + sandwichCalories + " calories."
+    //}
 
     if (sandwichText != "") {
-        alert("Ye ordered a sandwich with: " + sandwichText + ". That will be " + sandwichPrice);
+        alert("Ye ordered a sandwich with: " + sandwichText + ". That will be $" + sandwichPrice + ".");
         return true;
     }
     return false;
@@ -164,6 +170,7 @@ function Sandwich(bread, meat, cheese, veggie) {
     }
 
     this.getSandwichCalories = function() {
-        return this.bread.calories + this.meat.calories + this.cheese.calories + this.veggie.calories;
+        var sandwichCalories = this.bread.calories + this.meat.calories + this.cheese.calories + this.veggie.calories;
+        return sandwichCalories;
     }
 }
