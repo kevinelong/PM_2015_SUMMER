@@ -4,6 +4,9 @@
 
 function getTask() {
     var item = window.prompt('Add item: ');
+    if !(item) {
+        
+    }
     addTask(item)
 }
 
