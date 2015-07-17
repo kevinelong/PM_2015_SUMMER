@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<!-- This link for bootstrap-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- This link for CSS-->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<!-- This link for jquery-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+<head>
+    <title>DOM Practice Page</title>
+</head>
+<body>
+<form >
+<fieldset>
+<legend>Shopping List</legend>
+    Food:<br>
+<input type='text' name='food' value=''>
+<br>
+    Household:<br>
+<input type='text' name='household' value=''>
+<br><br>
+    <button onsubmit=myFunction></fieldset>
+</form>
+
+
+<input type='text' id='todoItem'/>
+
+<input type='submit' value='add item to list' id='add'/>
+
+
+
+
+</body>
+
+
+<script >
+    function myFunction() {
+        var x = document.forms.namedItem("myCarForm").innerHTML;
+        document.getElementById("demo").innerHTML = x;
+    }
+//
+//   document.getElementById('add').onclick = function() {
+//       var text = document.getElementById('todoItem').value;
+//       var li ='<li>' + text + '</li>';
+//       document.getElementById('list').appendChild(li);
+//   }
+
+
+
+//    var node = document.createElement('li');
+//    var testnode=document.createTextNode(nextItem);
+//    node.appendChild(textnode);
+//    document.getElementById('demo').appendChild(node);
+
+
+
+
+
+    //  var element = document.getElementsByTagName('li');
+    //  var firstLi = element[0];
+    //  var firstLi = element,item(0);
+    //  console.log(firstLi)
+    //
+    //  var element = document.querySelectorAll('.hot');
+    //  console
+    //
+
+
+//    var ulNode = document.getElementsByTagName('ul').item(0);
+//    console.log(ulNode.firstChild);
+//    console.log(ulNode.lastChild);
+
+//    var listItems = document.getElementsByTagName('li');
+//    console.log(listItems.length; i++) {
+//        var listItem  = listItems[i];
+//        listItem.className = 'yum';
+
+
+//    console.log(figsNode.nodeValue);
+//    console.log(figsNode.textContent);
+//    console.log(figsNode.innerText);
+//    console.log(figsNode.innerHTML);
+
+//    var pizza = document.createElement('li');
+//    pizza.className ='hot';
+//
+
+</script>
+
+</html>
