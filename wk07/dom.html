@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM</title>
+    <style>
+        .hot {
+            color: red;
+        }
+        .cold {
+            color: blue;
+        }
+        .yum {
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page">
+    <h1 id="header">List King</h1>
+    <h2>Buy groceries</h2>
+    <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+</div>
+</body>
+<script>
+
+    // Getting elements on the page
+
+    // getElementById
+    var element = document.getElementById('four');
+//    console.log(element);
+
+    // querySelector
+    var element = document.querySelector('.hot');  // returns the first found
+//    console.log(element);
+
+    // getElementByClassName
+    var element = document.getElementsByClassName('hot');
+//    console.log(element);
+
+    // getElementByTagName
+    var element = document.getElementsByTagName('li');
+//    var firstLi = element[0];  // gets the first li
+//    var firstLi = element.item(0);  // gets the first li
+//    console.log(firstLi);
+
+    // querySelectorAll
+    var element = document.querySelectorAll('.hot');  // returns all
+//    console.log(element);
+
+    // change the class of fresh figs from hot to cold
+    var figsNode = document.getElementById('one');
+    figsNode.className = 'cold';
+
+    // traversing the DOM
+//    console.log(figsNode.parentNode);  // ul
+//    console.log(figsNode.firstChild);  // em
+
+    // notice how these can return shocking results, see book page 209
+    var ulNode = document.getElementsByTagName('ul')[0];
+//    console.log(ulNode.firstChild);  // fresh figs
+//    console.log(ulNode.lastChild); // balsamic
+
+    // looping through elements
+    var listItems = document.getElementsByTagName('li');  // all li tags
+//    console.log(listItems.length);  // 4
+    for (var i = 0; i < listItems.length; i++) {
+        var listItem = listItems[i];  // singular list item
+//        listItem.className = 'yum';  // replaces the current class with 'yum'
+    }
+
+    // can we just loop through the ulNode? no.
+//    console.log(ulNode.length);
+//    for (var i = 0; i < ulNode.length; i++) {
+//        console.log(ulNode[i]);
+//    }
+
+//    console.log(figsNode.firstChild.firstChild.nodeValue);  // null because this is not a text node!
+//    console.log(figsNode.textContent);  // use
+//    console.log(figsNode.innerText);  // avoid, not available in FireFox
+//    console.log(figsNode.innerHTML);
+
+    // changing or adding content to the page
+    // 1) element.innerHTML
+    // 2) document.write()
+    // 3) dom manipulation
+    var pizza = document.createElement('li');
+    pizza.className = 'hot';
+    var pizzaText = document.createTextNode('pizza');
+    pizza.appendChild(pizzaText);
+    ulNode.appendChild(pizza);
+
+//    console.log(window.prompt());
+
+
+</script>
+
+</html>
