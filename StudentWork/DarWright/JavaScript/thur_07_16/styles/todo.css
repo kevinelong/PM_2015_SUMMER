@@ -1,0 +1,124 @@
+.important {
+    box-shadow: 10px 10px 5px #888888;
+    font-size: 33px;
+    background-color: lightskyblue;
+    display: block;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    /*position: relative;*/
+    left: 75px;
+    right: 500px;
+    top: 150px;
+    width: 50%;
+    text-decoration: none;
+    border-style: groove;
+    margin: auto;
+    color: red;
+}
+.semi_important {
+    box-shadow: 10px 10px 5px #888888;
+    font-size: 33px;
+    background-color: lightskyblue;
+    display: block;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    /*position: relative;*/
+    left: 75px;
+    right: 500px;
+    top: 150px;
+    width: 50%;
+    text-decoration: none;
+    border-style: groove;
+    margin: auto;
+    color: purple;
+}
+.list {
+    box-shadow: 10px 10px 5px #888888;
+    color: black;
+    font-size: 33px;
+    background-color: lightskyblue;
+    display: block;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    /*position: relative;*/
+    left: 75px;
+    right: 500px;
+    top: 150px;
+    width: 50%;
+    text-decoration: none;
+    border-style: groove;
+    margin: auto;
+}
+
+.listName {
+    box-shadow: 10px 10px 5px #888888;
+    color: black;
+    font-size: 33px;
+    background-color: lightskyblue;
+    display: block;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    left: 75px;
+    right: 500px;
+    top: 150px;
+    width: 80%;
+    text-decoration: none;
+    border-style: groove;
+    margin: auto;
+}
+.center {
+    margin: auto;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+.btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #d25bf0;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin: auto;
+}
+
+.btn2 {
+    -webkit-border-radius: 20;
+    -moz-border-radius: 20;
+    border-radius: 20px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #d25bf0;
+    padding: 2px 3px 2px 3px;
+    text-decoration: none;
+    /*margin: auto;*/
+}
+
+.btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+input[type=checkbox] {
+    /* All browsers except webkit*/
+    transform: scale(1.9);
+
+    /* Webkit browsers*/
+    -webkit-transform: scale(1.5);
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 5: Document Object Model - Initial Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="css/c05.css">-->
+  </head>
+  <style>
+    .hot {
+      color: red;
+    }
+    .cold {
+      color: blue;
+    }
+  </style>
+  <body>
+    <div id="page">
+      <h1 id="header">List King</h1>
+      <h2>Buy groceries</h2>
+      <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four" class="test">balsamic vinegar</li>
+      </ul>
+    </div>
+  </body>
+
+
+  <script>
+    //get element by ID
+//    var element = document.getElementById('four');
+    //css selector returns the FIRST one
+//    var ele2 = document.querySelector('li.hot');
+
+    // class name
+//    var ele2 = document.getElementsByClassName('hot')
+
+    //get by tag name
+//    var ele2 = document.getElementsByTagName('li');
+
+    // css slector all - returns all of them
+//    var ele2 = document.querySelectorAll('li.hot');
+//
+//
+//    console.log(ele2)
+
+    var figsNode = document.getElementById('one');
+    figsNode.className = 'cold';
+//    figsNode.removeAttribute('class');
+
+//  console.log(figsNode.parentNode);
+//  console.log(figsNode.firstChild);
+
+    var ulNode = document.getElementsByTagName('ul')[0];
+//    console.log(ulNode);
+//    console.log(ulNode.firstChild);
+
+    console.log(figsNode.nodeValue);
+    console.log(figsNode.textContent); //use this one for most browsers
+    console.log(figsNode.innerText); //firefox do not like it
+    console.log(figsNode.innerHTML);
+
+//    figsNode.innerHTML = '<script>alert('haha!')'
+
+
+  var pizza = document.createElement('li');
+    pizza.className=('hot');
+    var pizzaText = document.createTextNode('pizza');
+    pizza.appendChild(pizzaText);
+
+    ulNode.appendChild(pizza);
+
+//   var item = window.prompt('Add item: ');
+//      console.log(item);
+
+
+      while (true) {
+          var item = window.prompt('Add item: ');
+          console.log(item);
+          if !(item){
+              break;
+          }
+      }
+
+
+
+
+
+  </script>
+
+</html>

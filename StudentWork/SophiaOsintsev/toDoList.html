@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <!--<link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">-->
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
+        body {
+            background-image: url(https://articulate-heroes.s3.amazonaws.com/6505.graphic_5f00_notepad_2d00_with_2d00_pencilq8e2eu.png);
+            font-family: 'Indie Flower', cursive;
+
+        }
+        .title {
+            margin-top: 90px;
+            margin-left: 200px;
+            font-size: 50px;
+            font-family: 'Indie Flower', cursive;
+            text-align: left;
+            color: black;
+            font-weight: bold;
+        }
+        input[type="checkbox"]{
+            margin-left: 100px;
+            visibility: hidden;
+
+        }
+        input[type="checkbox"]:checked + label{
+            text-decoration: line-through;
+        }
+        /*input[type="checkbox"]:checked + label::after {*/
+            /*font-family: FontAwesome;*/
+            /*content: "\f14a";*/
+            /*margin-left: 20px;*/
+        /*}*/
+        label {
+            cursor: pointer;
+            font-size: 40px;
+            line-height: 1;
+        }
+        /*/!*label::after {*!/*/
+            /*font-family: FontAwesome;*/
+            /*content: "\f14a";*/
+        /*/!*}*!/*/
+    </style>
+</head>
+<body>
+<!--Challenge: To do list.-->
+<!--Adding new items-->
+<!--Changing classes based on user feedback-->
+<!--Indicate done items-->
+    <div>
+    <div class=title>To Do List</div>
+        <ol style="list-style-type:none">
+            <li>
+                <input type="checkbox" id="check-1">
+                <label for="check-1">Sleep</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check-2">
+                <label for="check-2">Eat</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check-3">
+                <label for="check-3">Sleep</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check-4">
+                <label for="check-4">Work</label>
+            </li>
+            <li>
+                <input type="checkbox" id="check-5">
+                <label for="check-5">Sleep</label>
+            </li>
+        </ol>
+    </div>
+</body>
+
+<script>
+    var checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+    checkbox.id = "id";
+
+    var label = document.createElement('label');
+    label.htmlFor = "id";
+    label.appendChild(document.createTextNode('Sleep'));
+
+    var position = document.getElementsByTagName('ol')[0];
+    position.appendChild(checkbox);
+    position.appendChild(label);
+
+</script>
+</html>

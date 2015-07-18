@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+    <meta charset="UTF-8">
+    <!-- This link for bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- This link for CSS-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <!-- This link for jquery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <title>Are Cars better then Dogs</title>
+</head>
+<body>
+<h1> Are cars better then dogs?</h1>
+
+<form name='Poll Form'>
+    Yes
+    <input type="radio" name='vote' value='yes'>
+    No
+    <input type="radio" name='vote' value='no'>
+    Undesided
+    <input type="radio" name='vote' value='undesided'>
+
+    <button onclick='registerVote('Poll Form')'>Vote!</button>
+
+</form>
+
+
+
+<script>
+
+    function Poll(question) {
+
+        this.yays = 0;
+        this.nays = 0;
+        this.undesided = 0;
+        this.getResults = function {
+            if (this.yays > this.nays) {
+                 return 'yays'';
+            }else if (this.nays > this.yays) {
+                return 'nays';
+            }else {
+                return 'tie');
+            }
+
+        };
+
+    }
+
+    var myPoll = new Poll('Are cars better than dogs?');
+
+function registerVote(form) {
+    var userVote = form.vote.value;
+    if (userVote === 'yes') {
+        myPoll.yays ++;
+    } else if (userVote === 'no') {
+        myPoll.nays ++;
+    }else {
+        myPoll.undesided ++;
+    }
+}
+
+</script>
+
+
+
+</body>
+</html>

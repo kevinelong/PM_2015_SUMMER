@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .hot {
+        color: red;
+    }
+</style>
+<body>
+
+<div id="outer">
+    <div class="myClass" id="1">Events are fun!</div>
+    <div class="myClass" id="2">Events are fun!</div>
+    <div class="myClass" id="3">Events are fun!</div>
+    <div class="myClass" id="4">Events are fun!</div>
+    <div class="myClass" id="5">Events are fun!</div>
+</div>
+
+</body>
+<script>
+
+    function changeColorHot() {
+        var myDiv = document.getElementById('1');
+        myDiv.className = 'hot';
+    }
+    function changeColorCold() {
+        var myDiv = document.getElementById('1');
+        myDiv.className = 'cold';
+    }
+    function changeColor(color) {
+        var myDiv = document.getElementById('1');
+        myDiv.className = color;
+    }
+
+    var myDiv = document.getElementById('1');
+
+//    // using dom event handlers
+//    myDiv.onmouseover = changeColorHot;
+//
+//    // using event listeners
+//    myDiv.addEventListener('mouseout', changeColorCold, false);
+
+      // passing variables to the function
+//    myDiv.addEventListener('mouseover', function() {
+//                changeColor('hot');
+//            }, false);
+
+    // the event object
+    function logTarget(e) {
+        console.log(e.target);
+        e.target.firstChild.nodeValue = 'So much fun!';
+    }
+    function changeText(event, text) {
+        if (!event) {
+            event = window.event;   // IE support
+        }
+        elem = event.target || event.srcElement;  // IE support
+        elem.firstChild.nodeValue = text;
+    }
+//    myDiv.addEventListener('mouseover', logTarget, false);
+    var outerDiv = document.getElementById('outer');
+    outerDiv.addEventListener('mouseover', function(e) {
+        changeText(e, 'Hello World!');
+    }, false);    // note that IE-8 and older use .attachEvent instead
+
+</script>
+</html>

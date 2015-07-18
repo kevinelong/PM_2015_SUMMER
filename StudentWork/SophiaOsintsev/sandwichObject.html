@@ -1,0 +1,149 @@
+<!--Challenge: Build an object to represent a Sandwich. A sandwich constructor! -->
+<!--Do it all 4 ways that are described on page 113. 4 attributes and 4 methods. Get the price!-->
+<!--Form will check off what you want. and then you will submit it, then the page will show you the price!-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Handlee);
+
+    body {
+        margin-left:auto;
+        margin-right:auto;
+        max-width: 500px;
+        background: lightgray;
+        padding: 25px 15px 25px 10px;
+        font: 16px;
+        font-family: 'Handlee', cursive;
+        color: dimgray;
+        border:10px solid orange;
+    }
+
+    h1 {
+        font-size: 25px;
+        padding: 0px 0px 10px 40px;
+        display: block;
+        border-bottom:10px solid orange;
+        margin: 10px 15px 30px 10px;;
+        color: orange;
+    }
+
+    label {
+        font: 16px;
+        font-family: 'Handlee', cursive;
+        font-weight: bold;
+    }
+    form {
+        display: block;
+        font-size: 16px;
+    }
+
+
+    button {
+        background: orange;
+        border: 12px;
+        padding: 10px 25px 10px 25px;
+        font: 16px;
+        font-weight: bold;
+        font-family: 'Handlee', cursive;
+
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Sandwich Order</title>
+</head>
+<body>
+<h1> Sandwich Order Form </h1>
+<form action='#' method='post' name= 'submitForm'>
+    <div id="getPrice" onclick="updateTotal()">
+        <p>
+            <label for="breadChoice">What kind of bread would you like?</label>
+            <br>
+            <input type="checkbox" name="breadChoice" value="1.00"> Wheat $1.00
+            <br>
+            <input type="checkbox" name="breadChoice" value="1.00"> White $1.00
+        </p>
+        <p>
+            <label for="meatChoice">Choose your meat:</label>
+            <br>
+            <input type="checkbox" name="meat" value="1.50"> Turkey $1.50
+            <br>
+            <input type="checkbox" name="meat" value="1.50"> Ham $1.50
+            <br>
+            <input type="checkbox" name="meat" value="1.50"> Salami $1.50
+            <br>
+            <input type="checkbox" name="meat" value="1.50"> Grilled Chicken $1.50
+            <br>
+            <input type="checkbox" name="meat" value="1.50"> Bacon $1.50
+        </p>
+        <p>
+            <label for="vegetableChoice">Choose your vegetables: </label>
+            <br>
+            <input type="checkbox" name="vegetable" value="0.25"> Tomato $ .25
+            <br>
+            <input type="checkbox" name="vegetable" value="0.25"> Lettuce $ .25
+            <br>
+            <input type="checkbox" name="vegetable" value="0.25"> Spinach $ .25
+            <br>
+            <input type="checkbox" name="vegetable" value="0.25"> Onion $ .25
+            <br>
+            <input type="checkbox" name="vegetable" value="0.25"> Pickle $ .25
+        </p>
+        <p>
+            <label for="condimentChoice">Choose your condiments: </label>
+            <br>
+            <input type="checkbox" name="condiment" value="0.50"> Mayo $ .50
+            <br>
+            <input type="checkbox" name="condiment" value="0.50"> Mustard $ .50
+        </p>
+        <p>
+            <label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00" readonly="readonly" /></label>
+        </p>
+        <p>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </p>
+    </div>
+</form>
+
+<script>
+    function checkbox() {
+        var el = document.getElementById("getPrice");
+        var tops = el.getElementsByTagName('input');
+        for (var i=0, len=tops.length; i<len; i++) {
+            if ( tops[i].type === 'checkbox' ) {
+                tops[i].onclick = updateTotal;
+            }
+        }
+    }
+    function updateTotal() {
+        var form = this.form;
+        var val = parseFloat( form.elements['total'].value );
+        if ( this.checked ) {
+            val += parseFloat(this.value);
+        } else {
+            val -= parseFloat(this.value);
+        }
+        // format val with correct number of decimal places
+        // and use it to update value of total text box
+        form.elements['total'].value = formatDecimal(val);
+    }
+    // format val to n number of decimal places
+    // modified version of Danny Goodman's (JS Bible)
+    function formatDecimal(val, n) {
+        n = n || 2;
+        var str = "" + Math.round ( parseFloat(val) * Math.pow(10, n) );
+        while (str.length <= n) {
+            str = "0" + str;
+        }
+        var pt = str.length - n;
+        return str.slice(0,pt) + "." + str.slice(pt);
+    }
+    checkbox();
+</script>
+</body>
+</html>
+
+
