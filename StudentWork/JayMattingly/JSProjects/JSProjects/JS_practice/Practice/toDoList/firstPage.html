@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Planner</title>
+</head>
+<body>
+ <div>
+        <h2><strong>Must Planner:</strong></h2>
+        <ol class="important">
+        </ol>
+    </div>
+    <div>
+        <h2><strong>Want Planner:</strong></h2>
+        <ul class="extras">
+        </ul>
+    </div>
+      <!--Adds task text-->
+    <p class="whiteText">Add a task!
+        <input id="taskAdder" type="text" name="tasks" size="15" maxlength="20" />
+    </p>
+
+    <select name="catigories" id="dropDown">
+        <option selected disabled>Add Tasks to:</option>
+        <option value="need">Must Planner</option>
+        <option value="want">Want Planner</option>
+    </select>
+    <br>
+    <br>
+    <button class="btn btn-primary" id="selection"><strong>Commit</strong></button>
+
+<script>
+    var onSelection = document.getElementById('selection');
+    onSelection.onclick = addTask;
+
+    function addTask(taskAdder) {
+        var importance = document.getElementById('dropDown').value;
+        var taskAdder = document.getElementById('taskAdder').value;
+        if (importance === 'need') {
+            var addMust = document.createElement('li');
+            var addText = document.createTextNode(taskAdder);
+            addMust.appendChild(addText);
+            var mustPosition = document.getElementsByTagName('ol')[0];
+            mustPosition.appendChild(addMust);
+            document.getElementById('taskAdder').value = '';
+        }else if (importance !== 'need') {
+            var addWant = document.createElement('li');
+            var addText = document.createTextNode(taskAdder);
+            addWant.appendChild(addText);
+            var mustPosition = document.getElementsByTagName('ul')[0];
+            mustPosition.appendChild(addWant);
+            document.getElementById('taskAdder').value = '';
+
+        }
+
+    }
+</script>
+</body>
+</html>
