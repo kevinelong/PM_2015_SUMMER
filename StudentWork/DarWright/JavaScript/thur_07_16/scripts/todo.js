@@ -4,8 +4,12 @@
 
 function getTask() {
     var item = window.prompt('Add item: ');
-    if !(item) {
-        
+    if (!item) {
+        alert('No blanks allowed!');
+        getTask();
+    }
+    else if (item === null){
+        removeTask("null");
     }
     addTask(item)
 }
