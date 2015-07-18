@@ -6,6 +6,9 @@ body, h1, p, form, input, label, table, tbody, tfoot, th, tr, td, select {
     margin: 0;
     font-size: 18px;
 }
+select {
+    background-color: lightgray;
+}
 
 
 header {
