@@ -3,84 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>My Amazing Goals</title>
-    <style>
-    h1 {
-        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-        font-weight: bold;
-        color: #996699;
-    }
-    li {
-        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    }
-    div {
-        border: 5px solid #996699;
-        border-radius: 25px;
-        width: 500px;
-        background-color: #CCCCCC;
-    }
-    .undone {
-        color: magenta;
-    }
-    .done {
-        color: #006699;
-        text-decoration: line-through;
-    }
-    </style>
+    <link rel="stylesheet" href="todo.css">
+
 </head>
 <body>
 <h1>TO DO!!!</h1>
-<div>
+<div id="goals">
     <ul>
-        <li class="undone">Climb every mountain</li>
-        <li class="undone">Ford every stream</li>
-        <li class="undone">Follow every rainbow</li>
+        <li class="undone" id="example">Example goal! Click this to mark it as "done."</li>
+        <li class="undone" id="example">Another example! Double-click a goal to make it go away.</li>
     </ul>
-<!--</div>-->
-    <!--<br><br>-->
-    <!--<input type="text">-->
-    <!--<button onclick="addGoal()">Add Something New</button>-->
-<!--</div>-->
+</div>
 
-<script>
+    <br><br>
+    <input type="text" id="textbox">
 
-    function addGoal() {
-        var newGoal = document.createElement('li');
-        var newGoalText = document.createTextNode(promptGoal);
-        newGoal.appendChild(newGoalText);
-        newGoal.className = "undone";
-        var position = document.getElementsByTagName('ul')[0];
-        position.appendChild(newGoal);
-    }
+    <select name="priority_choice" id="priority_menu">
+        <option value="high">High Priority</option>
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+    </select>
 
-    function missionAccomplished() {
-        var listItems = document.getElementsByTagName('li');
-        for (i = 0; i < listItems.length; i++) {
-            listItemText = listItems[i].firstChild.nodeValue;
-            if (listItemText === promptDoneGoal) {
-                listItems[i].className = "done";
-                alert("Done! Booyah!!!")
-            }
-        }
-    }
+    <button id="newbutton">Add Something New</button>
 
-    while (true) {
-        var promptGoal = window.prompt(
-                "Go ahead, add some of your own fabulous goals! (If you're done press enter.)");
-        if (promptGoal === "" || promptGoal === null) {
-            break;
-        }
-        addGoal();
-    }
-    while (true) {
-        var promptDoneGoal = window.prompt(
-                "Okay, so what items on the list have you accomplished today? (If you're done press enter.");
-        if (promptDoneGoal === "" || promptGoal === null) {
-            break;
-        }
-        missionAccomplished()
-    }
-
-</script>
-
+<script src="todo.js"></script>
 </body>
 </html>
