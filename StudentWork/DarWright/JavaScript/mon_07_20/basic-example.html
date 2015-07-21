@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 7: Introducing jQuery - Basic Example</title>
+
+  </head>
+  <style>
+        /*.drizzle {*/
+          /*background-color: honeydew;*/
+            /*color: purple;*/
+            /*margin-right: 800px;*/
+        /*}*/
+        /*body {*/
+          /*background-color: black;*/
+          /*color: white;*/
+        /*}*/
+      /*.cold {*/
+          /*font-size: 30px;*/
+          /*background-color: blue;*/
+      /*}*/
+      /*.hot {*/
+          /*border: 2px solid crimson;*/
+          /*background-color: red;*/
+      /*}*/
+      li {
+          border: 3px solid black;
+          margin: 2px;
+      }
+  </style>
+  <body>
+        <div id="page">
+            <h1 id="header">List</h1>
+            <h2>Buy groceries</h2>
+            <ul>
+                <li id="one" class="hot"><em>fresh</em> figs</li>
+                <li id="two" class="hot">pine nuts</li>
+                <li id="three" class="hot">honey</li>
+                <li id="four">balsamic vinegar</li>
+            </ul>
+        </div>
+    </body>
+
+<script src="../scripts/jquery-2.1.4.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        var honey = $('#three');
+        honey.addClass('drizzle');
+        honey.hide().delay(2000).fadeIn(1000).delay(10);
+
+//        var list = $('ul');
+        var hot = $('.hot');
+//        console.log(list.html());
+//        console.log(list.text());
+//        console.log(hot.text());
+//        console.log(hot.html());
+
+//        hot.html('<em>Our class is awesome!</em>');
+//        hot.text('<em>Our class is awesome!</em>');
+
+//        hot.html('<font color ="red"');
+
+        var iceCream = '<li id="iceCream"><em>cold</em> ice cream</li>';
+        var ul = $('ul');
+
+//        ul.prepend(iceCream);
+//        ul.before(iceCream);
+
+//        ul.attr('flavor', 'yum');
+
+//        ul.prepend(iceCream).attr('flavor', 'yum');
+
+//        ul.css({'background-color': '#c5a996', 'border': '1px solid #fff'});
+
+//        hot.each(function() {
+//            $(this).text($(this).text().toUpperCase());
+//        });
+
+        honey.on('click', function(){
+            $(this).addClass('cold');
+        });
+
+        var li = $('li');
+
+//        li.on('hover', function() {
+//            $(this).removeClass('hot');
+//        });
+//
+//        li.on('mouseout', function() {
+//            $(this).addClass('cold');
+//        });
+
+
+//        ul.children().css('color:', 'purple');
+
+//        honey.on('mouseover', function(e) {
+//            console.log(e.type);
+//            console.log(e.timeStamp);
+//            console.log(e.pageX, e.pageY);
+//            var pagex = e.pageX;
+//            $(this).css('background-color', 'gray');
+//        });
+
+//        li.hide().each(function(index){
+//            $(this).delay(700 * index).fadeIn(1000);
+//        });
+
+        // animation!!
+
+        li.on('click', function() {
+            $(this).animate({
+                opacity: 0.0,
+                paddingLeft: '+=80'
+            }, 500, function () {
+                $(this).remove();
+            });
+        });
+
+//        $('input:checkbox')
+
+    });
+
+</script>
+
+</html>

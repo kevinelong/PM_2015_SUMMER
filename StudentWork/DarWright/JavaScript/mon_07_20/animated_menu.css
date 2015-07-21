@@ -1,0 +1,32 @@
+body {
+    background-image: url("http://stabyourself.net/images/screenshots/mari0-1.png");
+
+}
+
+h1 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+
+
+}
+
+
+section {
+    width: 80%;
+    height: 80%;
+    background: lightgray;
+    margin: auto;
+    padding: 10px;
+}
+div#left {
+    width: 50%;
+    height: 200px;
+    background: lightsteelblue;
+    float: left;
+}
+div#right {
+    margin-left: 50%;
+    height: 200px;
+    background: lightcyan;
+}
