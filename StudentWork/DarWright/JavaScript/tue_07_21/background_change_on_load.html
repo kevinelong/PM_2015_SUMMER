@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../scripts/jquery-2.1.4.min.js"></script>
+    <script src="../scripts/jquery-ui.min.js"></script>
+</head>
+
+<style>
+    body {
+        background-color: green;
+        padding-top: 100px;
+    }
+    main {
+
+        width: 500px;
+        height: 300px;
+        margin: auto;
+        text-align: center;
+        background-color: red;
+    }
+</style>
+
+<body id="body">
+
+    <main id="main">
+        <p>&nbsp;</p>
+        <p>This is text.</p>
+    </main>
+
+<script>
+
+    $('#main').ready(function(){
+       console.log('loading stuff');
+        $('#main').animate({
+           backgroundColor: '#0000FF',
+            color: '#FFFFFF',
+            fontSize: "40px",
+            paddingLeft: '+=150',
+            paddingTop: '+=50',
+            paddingRight: '+=150',
+            paddingBottom: '-=50'
+        }, 3000);
+
+    });
+
+
+
+
+//    $('document').load(function(){
+//        console.log('loading');
+//        $(this).animate({
+//            backgroundColor: '#0000FF',
+//            color: 'white'
+//        }, 1000);//end of animate
+//    }); //end doc load
+
+//    $(window).load(function(){
+//        console.log('loading');
+//        var check = $(this);
+//        console.log(check);
+//        $(this).animate({
+//            backgroundColor: '#0000FF',
+//            color: 'white'
+//        }, 1000);//end of animate
+//    }); //end doc load
+
+</script>
+</body>
+</html>
