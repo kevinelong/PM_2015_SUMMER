@@ -1,13 +1,21 @@
 h1, h2 {
     color: darkslateblue;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+}
+
+.input-div {
+    text-align: center;
+}
+
+#order-display {
+    width: 500px;
 }
 
 .unselected {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     background-color: cadetblue;
-    width: 500px;
-    padding: 20px;
+    padding: 10px;
     border: 3px darkblue solid;
     color: darkblue;
     list-style-type: none;
@@ -20,8 +28,7 @@ h1, h2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-weight: bold;
     background-color: deepskyblue;
-    width: 500px;
-    padding: 20px;
+    padding: 10px;
     border: 3px mediumblue solid;
     color: mediumblue;
     list-style-type: none;
