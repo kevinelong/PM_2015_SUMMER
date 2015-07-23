@@ -4,36 +4,43 @@
 
     <meta charset="UTF-8">
     <title>TODO LIST</title>
+    <link href='http://fonts.googleapis.com/css?family=League+Script' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-<div class="outer">
-    <h1>My Todos</h1>
-
-    <input type="text" id="itemInput">
-
-    <input type="checkbox" id="important">
-    <label for="important">important</label>
-
-    <button id="addItemButton">Add</button>
-
-    <div id="list"></div>
-</div>
-<div class="outer done">
-    <h3>Completed Todos</h3>
-    <div id="doneList"></div>
+<div class="title">
+    Todo Manager <em>your helpful home</em>
 </div>
 
-<img src="" id="showTagsMenu">
+<nav>
+    <a href="index.html" class="current"><img src="home.svg"></a>
+    <a href="tags.html"><img src="sm-cog.svg"></a>
+</nav>
 
-<div class="outer tags-menu" id="tags">
-    tags will go here
-</div>
+<section id="content">
+    <div id="container">
+        <div class="outer">
+            <h1>My Todos</h1>
 
+            <input type="text" id="itemInput">
 
+            <input type="checkbox" id="important">
+            <label for="important">important</label>
+
+            <button id="addItemButton">Add</button>
+
+            <div id="list"></div>
+        </div>
+        <div class="outer done">
+            <h3>Completed Todos</h3>
+            <div id="doneList"></div>
+        </div>
+    </div>
+</section>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="todo.js"></script>
 </html>

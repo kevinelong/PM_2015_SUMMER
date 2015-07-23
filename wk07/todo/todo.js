@@ -37,17 +37,44 @@ function completeItem(event) {
     doneList.appendChild(item);
 }
 
-// add button event listener
-var button = document.getElementById('addItemButton');
-button.addEventListener('click', function() {
-    var itemText = document.getElementById('itemInput').value;
+function clickAddButton() {
+    var item = document.getElementById('itemInput');
+    var itemText = item.value;
     var important = document.getElementById('important').checked;
     addNewItem(itemText, important);
-});
+
+    // add focus to the text input box
+    item.focus();
+}
+
+var button = $('#addItemButton');
+var itemList = $('#list');
+var itemInput = $('#itemInput');
+var navAnchor = $('nav a');
+
+// add button event listener to add new item
+button.on('click', clickAddButton);
 
 // complete item event listener
-var itemList = document.getElementById('list');
-itemList.addEventListener('click', function(e) {
-   completeItem(e);
+itemList.on('click', function (e) {
+    completeItem(e);
 });
 
+// watch for return key to be pressed when input box is in focus
+itemInput.on('keyup', function (e) {
+    if (e.keyCode === 13) {
+        clickAddButton();
+    }
+});
+
+// use ajax to load the next page
+navAnchor.on('click', function (e) {
+    e.preventDefault();
+    var url = this.href;
+
+    $('nav a.current').removeClass('current');
+    $(this).addClass('current');
+
+    $('#container').remove();
+    $('#content').load(url + ' #content').hide().fadeIn(1000);
+});
