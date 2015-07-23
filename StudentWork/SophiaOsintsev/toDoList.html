@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
+        body {
+            background-image: url(https://articulate-heroes.s3.amazonaws.com/6505.graphic_5f00_notepad_2d00_with_2d00_pencilq8e2eu.png);
+            font-family: 'Indie Flower', cursive;
+
+        }
+        h1 {
+            margin-top: 90px;
+            margin-left: 200px;
+            font-size: 50px;
+            font-family: 'Indie Flower', cursive;
+            text-align: left;
+            color: black;
+            font-weight: bold;
+        }
+
+        #textbox {
+            margin-top: -10px;
+            height: 30px;
+            width: 230px;
+            margin-left: 200px;
+            background-color: transparent;
+            font-size: 20px;
+            font-family: 'Indie Flower', cursive;
+
+        }
+        button {
+            background: transparent;
+            border: 1px solid #cdcdcd;
+            display: inline-block;
+            margin-left: 240px;
+            font-size: 30px;
+            font-family: 'Indie Flower', cursive;
+            cursor: pointer;
+
+        }
+
+        #toDoList li{
+            margin-left: 42px;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.3s;
+        }
+
+        #toDoList p{
+            line-height: 1;
+            margin-top: 10px;
+            margin-left: 42px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        #toDoList li.complete{
+            opacity:0.3;
+            transition: all 0.3s;
+
+        }
+
+        #toDoList li.complete p{
+            text-decoration: line-through;
+        }
+
+        #controls{
+            margin-left: 90px;
+            margin-top:60px;
+        }
+        #controls p {
+            margin-left: 90px;
+            color: #715A09;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        #clearAllTasks {
+            margin-left: 90px;
+            background: transparent;
+            color:#715A09;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Indie Flower', cursive;
+            transition: all 0.3s;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--Challenge: To do list.-->
+<!--Adding new items-->
+<!--Changing classes based on user feedback-->
+<!--Indicate done items-->
+    <h1>To Do List</h1>
+
+    <section id="task-form">
+    <input id="textbox" type="text" placeholder="Enter an item here">
+    <button id="createTask">Add to List</button>
+    </section>
+    <section id="toDoList">
+        <ul id="list" style="list-style-type:none">
+        </ul>
+        <div id="controls">
+            <p>**Single Click to mark complete</p>
+            <p>**Double Click to remove from list</p>
+            <button id="clearAllTasks">Clear All Tasks</button>
+        </div>
+    </section>
+</body>
+
+<script>
+
+$('button#createTask').on('click', function() {
+
+    var addItem = $("#textbox").val();
+    $('<li>' + '<p>' + addItem + '</p>' + '</li>').appendTo('#list');
+    $("#textbox").val("");
+
+    if (addItem.length == 0) {
+        alert('Please enter a task');
+    };
+
+    $('#controls').fadeIn();
+});
+
+    $(document).on('click','li',function(){
+        $(this).toggleClass('complete');
+    });
+
+    $(document).on('dblclick','li',function(){
+        $(this).remove();
+    });
+
+    $('button#clearAllTasks').on('click', function(){
+        $('#list li').remove();
+        $('#controls').fadeOut();
+    });
+
+
+</script>
+
+
+</html>

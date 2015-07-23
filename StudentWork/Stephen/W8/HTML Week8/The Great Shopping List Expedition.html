@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- The Bootstrap link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- The CSS link-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <!-- Jquery Script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--Google Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+    <meta charset="UTF-8">
+    <title>The Great Shopping List Expedition</title>
+<style>
+
+    body{
+        background-color:aliceblue;
+
+    }
+    form{
+        margin: 0 auto;
+        width: 400px;
+        padding:1em;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+    }form div+div {
+             margin-top: 1em;
+
+         }
+    label{
+        /*To make sure that all labels have the same size and are properly aligned */
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+    }
+    input, textarea{
+        font: 1em sans-serif;
+        width: 300px;
+        -moz-box-sizing:border-box;
+        box-sizing: border-box;
+    }
+    input:focus, textarea:focus {
+        border-color: #000;
+    }
+    textarea {
+        vertical-align: top;
+        height: 5em;
+        resize: vertical;
+    }
+    .button {
+        padding-left: 90px;
+    }
+    button {
+        margin-left: .5emx;
+    }
+
+</style>
+</head>
+
+
+<body>
+<form>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required="required"/><br />
+    </div>
+<div>
+    <label for="mail">Email:</label>
+    <input type="email" id="mail" required="required"/><br />
+</div>
+<div>
+    <label for="msg">Message:</label>
+    <textarea id="msg"></textarea>
+
+</div>
+<div class="button">
+    <button type="submit"> Send your message</button>
+</div>
+    <ol class="userInfo"></ol>
+</form>
+<script>
+    var submitButton = document.getElementById('submit');
+    submitButton.onclick =addFormName;
+
+    function addFormName(name) {
+        var name = document.getElementById('name').value;
+             if ('name' === true) {
+                 var userInfo = document.createElement('li');
+                 var addNewName = document.createTextNode(name);
+                 addFormName.appendChild(addNewLine);
+                 document.getElementById('name').value = '';
+
+        }
+
+    }
+
+</script>
+</body>
+</html>

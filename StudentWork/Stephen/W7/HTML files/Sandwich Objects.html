@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <!-- This link for bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- This link for CSS-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <!-- This link for jquery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+
+    <title>
+        Sandwich Deli
+    </title>
+
+
+<style>
+    body {
+        background: limegreen;
+        font-family: Helvetica;
+    }
+    h1 {
+        font-family: Arial;
+        font-style: italic;
+        color: #b92c28;
+        background-color: peru;
+        padding: 2%;
+
+        text-align: center;
+        
+    }
+    p {
+        background-color: #eb9316;
+        font-family: Helvetica;
+        text-align: center;
+        padding: 1% ;
+    }
+
+</style>
+
+
+
+
+
+</head>
+
+
+
+<body>
+<h1>
+    This is my Sandwich Shoppe
+</h1>
+    <p>Please fill out the form below to order the sandwich of your dreams</p>
+
+   Bread
+    <form name='breadType'>
+        <input type="checkbox">
+        Whole_wheat
+        <input type="checkbox">
+        Rye
+        <input type="checkbox">
+        Gluten_Free
+        <input type="checkbox">
+        White
+        <input type="checkbox">
+
+    <button onsubmit='Sandwichmaker('breadType')'>Submit </button>
+
+</form>
+
+
+
+<script>
+       var breadprice= {
+        Whole_wheat:1.00,
+        Rye:1.50,
+        Gluten_Free:3.00,
+        White:.50,
+        getbreadprices: function() {
+            return this.Whole_wheat
+
+        }
+    };
+
+    function breadChoice(cost) {
+        this.Whole_wheat = true;
+        this.Rye = true;
+        this.Gluten_Free = true;
+        this.White = true;
+        this.getResults = function() {
+            if (this.Whole_wheat === true  ) {
+                return 'Whole_wheat ';
+            }else if(this.Rye === true) {
+                return 'Rye added';
+            }else if(this.Gluten_Free === true) {
+                return 'Gluten_Free was added';
+            }else if(this.White === true) {
+                return 'White was added'
+            }
+
+        };
+
+    }
+
+
+
+    var sandwich = new breadChoice('Choose Your Bread.');
+
+function breadType(form) {
+
+    var breadchoice = form.bread.choice;
+        if (breadchoice === 'Whole_wheat') {
+
+        }
+}
+
+</script>
+
+
+
+</body>
+
+</html>

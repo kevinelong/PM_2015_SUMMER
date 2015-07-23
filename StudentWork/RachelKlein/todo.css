@@ -1,0 +1,33 @@
+h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-weight: bold;
+    color: #996699;
+}
+
+li {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+div {
+    border: 5px solid #996699;
+    border-radius: 25px;
+    width: 500px;
+    background-color: #CCCCCC;
+}
+
+.done {
+    color: #006699;
+    text-decoration: line-through;
+}
+
+.high {
+    color: #996699;
+}
+
+.medium {
+    color: purple;
+}
+
+.low {
+    color: magenta;
+}

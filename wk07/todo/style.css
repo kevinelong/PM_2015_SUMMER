@@ -1,0 +1,65 @@
+h1 {
+    color: tomato;
+}
+h3 {
+    color: tomato;
+}
+
+.outer {
+    border: 2px sandybrown solid;
+    background-color: seashell;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding: 20px;
+}
+
+.item {
+    text-align: left;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.important {
+    color: red;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+.done {
+    margin-top: 5px;
+}
+
+nav {
+    text-align: right;
+    background-color: lightskyblue;
+    border-radius: 8px;
+    padding: 10px;
+}
+nav a {
+    margin: 3px;
+}
+
+img {
+    /*gives all images consistent size*/
+    height: 20px;
+    padding-bottom: 3px;
+}
+
+.current img {
+    /*represents currently selected nav item*/
+    border-bottom: 3px sandybrown solid;
+}
+
+.title {
+    font-family: 'League Script', cursive;
+    color: black;
+    font-size: 40px;
+}
+.title em {
+    font-size: 13px;
+}

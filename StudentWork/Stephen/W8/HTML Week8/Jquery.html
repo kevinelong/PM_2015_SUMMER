@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+
+Jquery grocery list
+
+    </title>
+
+    <!-- This link for bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- This link for CSS-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <!-- This link for jquery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="page">
+    <h1 id="header">
+        Shopping List Pal
+    </h1>
+    <h2>
+        By Groseries
+    </h2>
+    <ul>
+        <li id ="one" class="hot"><em>fresh</em>figs</li>
+        <li id ="two" class="hot">pine nuts</li>
+        <li id ="three" class="hot">honey</li>
+        <li id ="four">Balsamic Viniger</li>
+
+    </ul>
+    <div id="newItemButton"><button href="#" id="showForm">new item</button></div>
+    <form id="newItemForm">
+        <input type="text" id="idtemDescription" placeholder="Add description..." />
+        <input type="submit" id="addButton" value="add" />
+    </form>
+
+
+</div>
+
+
+
+<script>
+    $(function(){
+        var $newItemButton = $('#newItemButton');
+        var $newItemForm = $("#newItemForm");
+        var $textInput = $("#text:Input");
+
+        $newItemButton.show();
+        $newItemForm.hide();
+
+        $("#showForm").on("click", function () {
+            $newItemButton.hide();
+            $newItemForm.show();
+
+        });
+
+        $newItemForm.on('submit', function(e)){
+            e.preventDefault();
+            var newText = $("input:text").val();
+            $("li:last").after("<li>" + newText + "</li">);
+            $newItemForm.hide();
+            $newItemButton.show();
+            $textInput.val("");
+        });
+
+
+
+
+
+    });
+</script>
+</body>
+</html>

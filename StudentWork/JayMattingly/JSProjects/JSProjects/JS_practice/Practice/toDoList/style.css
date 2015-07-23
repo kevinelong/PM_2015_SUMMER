@@ -1,0 +1,35 @@
+body {
+    background-image: url("images/notepad.jpg");
+    background-size: 100%;
+}
+
+p {
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 150%;
+}
+
+h1, h2 {
+    padding-left: 400px;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+}
+
+.whiteText {
+    color: white;
+    text-align: center;
+}
+
+.important, .extras {
+    padding-left: 600px;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 150%;
+}
+
+.btn {
+    text-align: center;
+}
+input {
+    background-color: transparent;
+}

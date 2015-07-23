@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery learning is fun</title>
+<style>
+    /*.drizzle {*/
+        /*background-color: honeydew;*/
+        /*color: goldenrod;*/
+        /*margin-right: 500px;*/
+    /*}*/
+    /*body {*/
+        /*background-color: black;*/
+    /*}*/
+    /*.cold {*/
+        /*font-size: 30px;*/
+    /*}*/
+    /*.hot {*/
+        /*background-color: crimson;*/
+    /*}*/
+    li {
+        border: 3px solid black;
+        margin: 2px;
+    }
+
+</style>
+</head>
+<body>
+<div id="page">
+    <h1 id="header">List</h1>
+    <h2>Buy groceries</h2>
+    <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        var honey = $('#three');
+//        honey.addClass('drizzle');
+//        honey.hide().delay(2000).fadeIn(4000);
+
+        var hot = $('.hot'); // returns multiple
+        // console.log(hot.html()); // returns the first
+        // console.log(hot.text()); // returns all
+
+//        hot.html('<em>Our class is awesome</em>');
+//        hot.text('<em>Our class is awesome</em>');
+//        hot.html('<font color="red">');
+
+//        var iceCream = '<li id="iceCream"><em>cold</em> ice cream</li>';
+        var ul = $('ul');
+//        ul.prepend(iceCream); // inserts as the first child
+//        ul.before(iceCream); // inserts before the ul tag, a sibling to the ul
+
+        // attributes
+//        ul.attr('flavor', 'yummy'); // adds a new attribute to the ul tag
+        //ul.prepend(iceCream).attr('flavor', 'yummy'); // chaining!
+//        ul.css({
+//            'background-color': '#c5a996',
+//            'border': '1px solid #fff'
+//        }); // not ideal to do this here, ideally your css will be in your .css file
+
+//        hot.each(function() {
+//            console.log(this);
+//            $(this).text($(this).text().toUpperCase());
+//        }); // does something to each element returned by hot
+//        $.each(hot, function(i, v){
+//            console.log(v);
+//        });  // same as the above, seems more difficult, be aware, but not necessary to be able to do it
+
+//        honey.on('click', function() {
+//            $(this).addClass('cold');
+//        });
+        var li = $('li');
+//        li.on('mouseover', function() {
+//            $(this).removeClass('hot');
+//        });
+//        li.on('mouseout', function() {
+//            $(this).addClass('hot');
+//        });
+
+//        ul.children('.hot').each(function(){}); // calls a function for each li that is a child of this ul
+        // gets all children of the ul tag that also have the hot class and does something to each of them
+
+//        honey.on('mouseover', function(e) {
+////            console.log(e.type);
+////            console.log(e.timeStamp);
+////            console.log(e.pageX, e.pageY);
+//            var pagex = e.pageX;
+//            console.log(pagex);
+//            $(this).css('background-color', pagex.toString(16));
+//        }); // this would be cool.... ollie....
+//
+//        li.hide().each(function(index) {
+//            $(this).delay(700 * index).fadeIn(700);
+//        }); // check this out! it's awesome!
+
+        // animation!!!!!
+        li.on('click', function() {
+            $(this).animate({
+                //opacity: 0.0,
+                //paddingLeft: '+=80',
+                marginLeft: 100
+            }, 500, function () {
+                $(this).animate({
+                    marginBottom: 100,
+                }, 500, function() {
+                    $(this).animate({
+                        marginLeft: 0,
+                        marginBottom: 0
+                    }, 500);
+                });
+            });
+        });
+
+        $('input:checkbox')
+
+    }); // closing ready
+
+
+</script>
+
+</body>
+</html>
