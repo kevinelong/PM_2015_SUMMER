@@ -36,11 +36,10 @@ function completeItem(event) {
     doneList.appendChild(item);
 
     // remove it from the todosArray and add it to the completesArray
-    var itemText = item.currentText;
+    var itemText = item.textContent;
     var index = todosArray.indexOf(itemText);
     todosArray.splice(index, 1);
     completesArray.push(itemText);
-    console.log(completesArray);
 }
 
 function clickAddButton() {
@@ -83,7 +82,7 @@ function loadTodosPage() {
     });
     // add completes back to page
     completesArray.forEach(function(item, i, a) {
-        addNewItem(item, 'donelist');
+        addNewItem(item, 'doneList');
     });
     addTodosListeners();
 }
