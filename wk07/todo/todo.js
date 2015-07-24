@@ -18,7 +18,7 @@ function addNewItem(item, list) {
 }
 
 function completeItem(event) {
-    var item = $(event.target);
+    var item = $(event.target)[0];
 
     // remove item from parent and add to done list
     item.remove();

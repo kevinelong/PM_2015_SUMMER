@@ -63,3 +63,10 @@ img {
 .title em {
     font-size: 13px;
 }
+
+.welcome {
+    font-family: 'Poiret One', cursive;
+}
+.welcome .small {
+    font-size: 10px;
+}
