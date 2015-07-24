@@ -10,30 +10,19 @@ function addNewItem(item, list) {
     }
 
     // add item to list on page
-    var itemElement = document.createElement('div');
-    var itemTextElement = document.createTextNode(item);
-    itemElement.appendChild(itemTextElement);
-    var position = document.getElementById(list);
-    position.appendChild(itemElement);
-
-    // give the div styling
-    itemElement.className = 'item';
+    var itemElement = $('<div class=\"item\">' + item + '</div>');
+    $('#' + list).append(itemElement);
 
     // clear the input fields
-    var inputField = document.getElementById('itemInput');
-    inputField.value = '';
+    $('#itemInput').val('');
 }
 
 function completeItem(event) {
-    var item = event.target;
+    var item = $(event.target);
 
-    // remove item from parent
-    var parentItem = item.parentNode;
-    parentItem.removeChild(item);
-
-    // add it to done list
-    var doneList = document.getElementById('doneList');
-    doneList.appendChild(item);
+    // remove item from parent and add to done list
+    item.remove();
+    $('#doneList').append(item);
 
     // remove it from the todosArray and add it to the completesArray
     var itemText = item.textContent;
@@ -43,7 +32,7 @@ function completeItem(event) {
 }
 
 function clickAddButton() {
-    var item = document.getElementById('itemInput');
+    var item = $('#itemInput')[0];  // get the first, should only be one
     var itemText = item.value;
     addNewItem(itemText, 'list');
 
