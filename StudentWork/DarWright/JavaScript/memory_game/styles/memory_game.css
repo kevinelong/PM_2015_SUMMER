@@ -1,10 +1,22 @@
+div#wrapper {
+    background: #70af00;;
+    width:840px;
+    height:650px;
+    padding:0px;
+    margin:0px auto;
+}
+
 div#game_board{
     background: #70af00;;
-    border:#663399 1px solid;
     width:800px;
-    height:620px;
-    padding:24px;
+    height:610px;
+    /*padding:24px;*/
     margin:10px auto;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+
 }
 div#game_board > div{
     background-color: black;
@@ -14,7 +26,23 @@ div#game_board > div{
     float:left;
     margin:10px;
     padding:10px;
-    font-size:18px;
     cursor:pointer;
 }
+
+div#left {
+    position: absolute; left: 0; top: 600px; width: 50%;
+    text-align: center;
+}
+
+div#right {
+    float:right;
+    text-align: left;
+    position: absolute; right: 0; top: 600px; width: 50%;
+}
+
+p{
+
+    font-size: 24px;
+}
+
 
