@@ -8,7 +8,8 @@
 
 var wordList = ["orange", "cerulean", "sienna", "peach", "umber", "plum", "maroon",
     "vermillion", "goldenrod", "fern", "razzmatazz"];
-var wordsOnPage = [];
+// TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
+// already on the screen
 
 // Display words from list on screen (randomly selected)
 
@@ -16,8 +17,13 @@ var wordCounter = 0;
 while (wordCounter < wordList.length) {
     var currentWordIndex = Math.floor((Math.random() * 10) + 1);
     var currentWord = wordList[currentWordIndex];
-    $('#wordsonpage').append('<div>' + currentWord + '</div>');
-    wordsOnPage.push(currentWord);
+    console.log(currentWord);
+    newDiv = ('<div>' + currentWord + '</div>');
+    $('#wordsonpage').append(newDiv);
+    // TODO: Figure out why class name is coming back as "undefined" - why isn't this line working?
+    // Not working even for a string...
+    $(newDiv).addClass(currentWord);
+    console.log(newDiv.className);
     wordCounter += 1;
     // TODO: Figure out how to put a delay between words appearing. setTimeout?
 }
@@ -32,10 +38,10 @@ function checkText(e) {
     var inArray = wordsOnPage.indexOf(inputTextValue);
     if (inArray > -1) {
         // TODO: Remove (most recent instance of) correct word from screen
-        // Will I need to do a loop? Backwards loop?
-        // Needs to be removed from wordsOnPage array AND page? Is wordsOnPage even necessary?
+        // This part is working - it's the assignment of class (above) that isn't.
         var correctWord = $('#typing').val();
-        console.log(wordsOnPage);
+        var wordClass = '.' + correctWord;
+        $(wordClass).remove();
         $('#typing').val('');
     }
 }
