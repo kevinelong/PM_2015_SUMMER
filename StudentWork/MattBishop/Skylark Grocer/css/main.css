@@ -1,0 +1,66 @@
+
+/*Logo*/
+#logo {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 10px 0;
+}
+
+#top {
+    border-bottom: solid green;
+}
+
+/*Top navigation*/
+header li {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+    letter-spacing: 0.5em;
+    width: 570px;
+    padding: 10px;
+    margin: 15px 120px 0 120px;
+    text-align: center;
+    display: inline;
+    background-color: #1C5F1C;
+    border-radius: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+#whatMatters {
+    margin-top: 40px;
+}
+
+#easyShopping {
+    margin-top: 40px;
+}
+
+/*Footer*/
+li {
+font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 0.5em;
+    width: 570px;
+    padding: 10px;
+    margin: 0 80px 0 80px;
+    text-align: center;
+    display: inline;
+    background-color: #55AA55;
+    border-radius: 10px;
+}
+
+/**************************************
+PAGE: SHOPPING
+**************************************/
+
+img.small {
+    width: 120px;
+    height: 100px;
+}
+
+#shoppingTag1 {}
+#shoppingTag2 {}

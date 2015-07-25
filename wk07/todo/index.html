@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>TODO LIST</title>
+    <link href='http://fonts.googleapis.com/css?family=League+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="title">
+    Todo Manager <em>your helpful home</em>
+</div>
+
+<nav>
+    <a href="index.html" id="homeAnchor" class="current"><img src="home.svg"></a>
+    <a href="tags.html" id="tagsAnchor"><img src="sm-cog.svg"></a>
+</nav>
+
+<section id="content">
+    <div id="container">
+        <div class="outer">
+            <h1>My Todos</h1>
+
+            <input type="text" id="itemInput">
+
+            <button id="addItemButton">Add</button>
+
+            <div id="list"></div>
+        </div>
+        <div class="outer done">
+            <h3>Completed Todos</h3>
+            <div id="doneList"></div>
+        </div>
+    </div>
+</section>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="todo.js"></script>
+</html>

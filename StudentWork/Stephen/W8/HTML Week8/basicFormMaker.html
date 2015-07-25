@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- The Bootstrap link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- The CSS link-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <!-- Jquery Script-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--Google Fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Basic List Maker</title>
+</head>
+
+<body>
+<ul id="myList">
+    <li>maple syrup</li>
+    <li>Honey</li>
+</ul>
+
+<button onclick="myFunction()" id="addButton">Add your item to the list </button>
+
+<script>
+function myFunction() {
+        var node = document.createElement('LI');
+        var textnode = document.createTextNode('water');
+        node.appendChild(textnode);
+        document.getElementById('myList').appendChild(node);
+}
+
+</script>
+
+</body>
+</html>

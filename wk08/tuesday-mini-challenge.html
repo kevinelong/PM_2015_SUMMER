@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #main {
+            background-color: red;
+            margin-right: 20%;
+            margin-left: 20%;
+            margin-top: 15%;
+            text-align: center;
+            padding: 10%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">Hello World!</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        var main = $('#main');
+        main.animate({backgroundColor: 'blue'}, 1000);
+    });
+</script>
+
+</body>
+</html>

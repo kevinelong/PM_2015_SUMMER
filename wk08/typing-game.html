@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn To Type</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Current Score: </td>
+        <td id="score">0</td>
+    </tr>
+</table>
+<div id="words"></div>
+<input id="typing">
+
+<script>
+
+    var speed = 5000;
+    var score = 0;
+    var wordsDiv = document.getElementById('words');
+    var typingInput = document.getElementById('typing');
+    var scoreDiv = document.getElementById('score');
+    typingInput.addEventListener('input', checkWord, false);
+
+    function getFirstWord() {
+        return document.getElementsByClassName('word')[0].textContent;
+    }
+
+    function checkWord() {
+        // given the text currently in the input box, check to see if it matches the top most word
+        var currentText = typingInput.value;
+        var isMatch = currentText.endsWith(getFirstWord());
+        if (isMatch) {
+            removeFirstWord();
+            typingInput.value = '';
+            scoreOne();
+        }
+    }
+
+    function scoreOne() {
+        score += 1;
+        scoreDiv.textContent = score;
+        speed -= 50;
+    }
+
+    function removeFirstWord() {
+        var allWordsDivs = document.getElementsByClassName('word');
+        var firstWord = allWordsDivs[0];
+        wordsDiv.removeChild(firstWord);
+    }
+
+    function getRandomWord() {
+        var wordsArray = ['cow', 'moose', 'otter', 'cat', 'duck', 'mouse', 'orange', 'computer'];
+        return wordsArray[Math.floor(Math.random() * wordsArray.length)];
+    }
+
+    function addNewWord() {
+        var randomWord = getRandomWord();
+        var newWordText = document.createTextNode(randomWord);
+        var newWordDiv = document.createElement('div');
+        newWordDiv.className = 'word';
+        newWordDiv.appendChild(newWordText);
+        wordsDiv.appendChild(newWordDiv);
+    }
+
+    function getRandomInteger(min, max) {
+        var range = max - min;
+        return Math.floor(Math.random() * range) + min
+    }
+
+    function tooManyWords() {
+        return document.getElementsByClassName('word').length > 10;
+    }
+
+    function gameOver() {
+        document.write('<h1>GAME OVER!</h1><h2>Score: ' + score + '</h2>');
+    }
+
+    function addWordsRandomly() {
+        setTimeout(function() {
+            if (tooManyWords()) {
+                gameOver();
+            }
+            addNewWord();
+            addWordsRandomly();
+        }, getRandomInteger(100, speed));
+    }
+    addWordsRandomly();
+
+
+</script>
+
+</body>
+</html>
