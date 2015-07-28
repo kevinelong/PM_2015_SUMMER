@@ -23,6 +23,7 @@
 <br>
 <br>
 <button onclick="myFunction()" id="addButton">Add your item to the list </button>
+<button onclick="clearList()" id="clearList">** CLEAR LIST** </button>
 
 <script>
 function myFunction() {
@@ -31,8 +32,13 @@ function myFunction() {
         var textnode = document.createTextNode(inputText);
         node.appendChild(textnode);
         document.getElementById('myList').appendChild(node);
+        document.getElementById('newLI').value = null;
 }
-
+function clearList() {
+    var removeEl = document.getElementsById('ul');
+    var containerEl = removeEl.parentNode;
+    containerEl.removeChild(removeEl);
+}
 </script>
 
 </body>
