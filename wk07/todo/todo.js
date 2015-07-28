@@ -10,41 +10,29 @@ function addNewItem(item, list) {
     }
 
     // add item to list on page
-    var itemElement = document.createElement('div');
-    var itemTextElement = document.createTextNode(item);
-    itemElement.appendChild(itemTextElement);
-    var position = document.getElementById(list);
-    position.appendChild(itemElement);
-
-    // give the div styling
-    itemElement.className = 'item';
+    var itemElement = $('<div class=\"item\">' + item + '</div>');
+    $('#' + list).append(itemElement);
 
     // clear the input fields
-    var inputField = document.getElementById('itemInput');
-    inputField.value = '';
+    $('#itemInput').val('');
 }
 
 function completeItem(event) {
-    var item = event.target;
+    var item = $(event.target)[0];
 
-    // remove item from parent
-    var parentItem = item.parentNode;
-    parentItem.removeChild(item);
-
-    // add it to done list
-    var doneList = document.getElementById('doneList');
-    doneList.appendChild(item);
+    // remove item from parent and add to done list
+    item.remove();
+    $('#doneList').append(item);
 
     // remove it from the todosArray and add it to the completesArray
-    var itemText = item.currentText;
+    var itemText = item.textContent;
     var index = todosArray.indexOf(itemText);
     todosArray.splice(index, 1);
     completesArray.push(itemText);
-    console.log(completesArray);
 }
 
 function clickAddButton() {
-    var item = document.getElementById('itemInput');
+    var item = $('#itemInput')[0];  // get the first, should only be one
     var itemText = item.value;
     addNewItem(itemText, 'list');
 
@@ -83,7 +71,7 @@ function loadTodosPage() {
     });
     // add completes back to page
     completesArray.forEach(function(item, i, a) {
-        addNewItem(item, 'donelist');
+        addNewItem(item, 'doneList');
     });
     addTodosListeners();
 }
