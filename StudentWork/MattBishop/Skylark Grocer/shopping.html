@@ -6,40 +6,46 @@
     <title>Skylark Grocer Online Shopping Form.</title>
 </head>
 <h1>Welcome to the Skylark Grocer online ordering form.</h1>
+
 <body>
-<form action='#' method='post' name= 'submitForm'>
-<fieldset>
-<h2>Some of our most popular weekly specials are below. Check back soon for more deals!</h2>
-<div id="itemChoice" onclick="updateTotal()">
-<p id="shoppingTag1">Local meat, dairy, eggs and bread:</p>
-<img src="img/beef.jpg" id="beef" class="small" alt="Filet">
-<label><input type="checkbox" id="choice1" value="8.99">9 oz. Filet (each)</label><br>
-<img src="img/swiss.jpg" class="small" alt="Swiss cheese">
-<label><input type="checkbox"  value="4.99">Locally sourced Swiss cheese</label><br>
-<img src="img/eggs.jpg" class="small" alt="Eggs">
-<label><input type="checkbox"  value="4.99">Farm fresh eggs, 1 dozen</label><br>
-<img src="img/bread.png" class="small" alt="Fresh baked bread">
-<label><input type="checkbox"  value="3.99">Fresh baked bread</label><br>
-<br>
-<p id="shoppingTag2">Fresh produce, local sundries:</p>
-<img src="img/green-bean.jpg" class="small" alt="Green beans">
-<label><input type="checkbox" value="1.99">Fresh green beans (price per pd.)</label><br>
-<img src="img/raspberries.jpg" class="small" alt="Local raspberries">
-<label><input type="checkbox" value="2.99">Local raspberries (price per pd.)</label><br>
-<img src="img/chocolate.jpeg" class="small" alt="Fair trade chocolate">
-<label><input type="checkbox" value="3.00">Fair trade chocolate</label><br>
-<img src="img/coffee.jpg" class="small" alt="Fair trade chocolate">
-<label><input type="checkbox" value="7.99">Fair trade coffee (price per pd.)</label><br>
-<img src="img/wine.png" class="small" alt="Pinot noir">
-<label><input type="checkbox" value="9.99">Local Pinot Noir</label><br>
-</div>
-<br>
-<p>
-<label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00" readonly="readonly" /></label>
-</p>
-<button>Check Out</button>
-</fieldset>
+<form action='#' method='post' name='submitForm'>
+    <fieldset>
+        <h2>Some of our most popular weekly specials are below. Check back soon for more deals!</h2>
+
+        <div id="itemChoice" onclick="updateTotal()">
+            <p id="shoppingTag1">Local meat, dairy, eggs and bread:</p>
+            <img src="img/beef.jpg" class="small" alt="Filet">
+            <div><input type="checkbox" value="8.99" id="filet"><label>9 oz. Filet</label></div><br>
+            <img src="img/swiss.jpg" class="small" alt="Swiss cheese">
+            <div><input type="checkbox" value="4.99" id="cheese"><label>Locally sourced Swiss cheese</label></div><br>
+            <img src="img/eggs.jpg" class="small" alt="Eggs">
+            <div><input type="checkbox" value="4.99" id="eggs"><label>Farm fresh eggs, 1 dozen</label></div><br>
+            <img src="img/bread.png" class="small" alt="Fresh baked bread">
+            <div><input type="checkbox" value="3.99" id="bread"><label>Fresh baked bread</label></div><br>
+            <br>
+
+            <p id="shoppingTag2">Fresh produce, local sundries:</p>
+            <img src="img/green-bean.jpg" class="small" alt="Green beans">
+            <div><input type="checkbox" value="1.99" id="green_beans"><label>Fresh green beans (pd.)</label></div><br>
+            <img src="img/raspberries.jpg" class="small" alt="Local raspberries">
+            <div><input type="checkbox" value="2.99" id="raspberries"><label>Local raspberries (pd.)</label></div><br>
+            <img src="img/chocolate.jpeg" class="small" alt="Fair trade chocolate">
+            <div><input type="checkbox" value="3.00" id="chocolate"><label>Fair trade chocolate</label></div><br>
+            <img src="img/coffee.jpg" class="small" alt="Fair trade chocolate">
+            <div><input type="checkbox" value="7.99" id="coffee"><label>Fair trade coffee (pd.)</label></div><br>
+            <img src="img/wine.png" class="small" alt="Pinot Noir">
+            <div><input type="checkbox" value="9.99" id="wine"><label>Local Pinot Noir</label></div><br>
+        </div>
+        <br>
+
+        <p>
+            <label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00"
+                                   readonly="readonly"/></label>
+        </p>
+        <button onclick= 'checkOut()'>Check Out</button>
+    </fieldset>
 </form>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
