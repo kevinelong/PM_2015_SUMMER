@@ -13,10 +13,9 @@
     <input id="textbox" type="text" placeholder="Enter an item here">
     <button id="addItem">Add to List</button>
 </form>
-</center>
-<center>
+
     <select id="aisleSelect" name="selectAisle">
-        <option value="0">Choose an aisle</option>
+        <option value="uncategorized">Choose an aisle</option>
         <option value="baby">Baby Care</option>
         <option value="baked">Baked Goods</option>
         <option value="bakingSupplies">Baking Supplies</option>
@@ -41,9 +40,14 @@
         <option value="snacks">Snacks & Sweets</option>
         <option value="soup">Soup</option>
     </select>
-</center>
-<div class="accordion">
 
+<div id="categories" class="accordion">
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#uncategorized-list">Uncategorized</a>
+
+        <div id="uncategorized-list" class="accordion-section-content">
+        </div>
+    </div>
     <div class="accordion-section">
         <a class="accordion-section-title" href="#baby-list">Baby Care</a>
 
@@ -207,112 +211,15 @@
 
 </div><!--end .accordion-->
 
-<!--<ul id="accordion">-->
-    <!--<li>-->
-        <!--<a href="#baby-list" class="heading">Baby Care</a>-->
-        <!--<ul id="baby-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#baked-list" class="heading">Baked Goods</a>-->
-        <!--<ul id="baked-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#bakingSupplies-list" class="heading">Baking Supplies</a>-->
-        <!--<ul id="bakingSupplies-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#basicCookingIng-list" class="heading">Basic Cooking Ingredients</a>-->
-        <!--<ul id="basicCookingIng-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#beverages-list" class="heading">Beverages</a>-->
-        <!--<ul id="beverages-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#canned-list" class="heading">Canned Foods</a>-->
-        <!--<ul id="canned-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#cereal-list" class="heading">Cereal/Breakfast</a>-->
-        <!--<ul id="cereal-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#condiments-list" class="heading">Condiments & Salad Dressings</a>-->
-        <!--<ul id="condiments-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#dairy-list" class="heading">Dairy, Eggs & Milk</a>-->
-        <!--<ul id="dairy-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#deli-list" class="heading">Deli</a>-->
-        <!--<ul id="deli-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#ethnic-list" class="heading">Ethnic Foods</a>-->
-        <!--<ul id="ethnic-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#frozen-list" class="heading">Frozen Foods</a>-->
-        <!--<ul id="frozen-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#health-list" class="heading">Health & Beauty</a>-->
-        <!--<ul id="health-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#herbs-list" class="heading">Herbs & Spices</a>-->
-        <!--<ul id="herbs-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#household-list" class="heading">Household Products</a>-->
-        <!--<ul id="household-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#meat-list" class="heading">Recent Entries</a>-->
-        <!--<ul id="meat-list">Meat Fish & Seafood</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#natural-list" class="heading">Natural/Organic Foods</a>-->
-        <!--<ul id="natural-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#other-list" class="heading">Other</a>-->
-        <!--<ul id="other-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#pasta-list" class="heading">Pasta, Rice & Beans</a>-->
-        <!--<ul id="pasta-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#pet-list" class="heading">Pet Supplies</a>-->
-        <!--<ul id="pet-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#produce-list" class="heading">Produce</a>-->
-        <!--<ul id="produce-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#snacks-list" class="heading">Snacks & Sweets</a>-->
-        <!--<ul id="snacks-list"></ul>-->
-    <!--</li>-->
-    <!--<li>-->
-        <!--<a href="#soup-list" class="heading">Soup</a>-->
-        <!--<ul id="soup-list"></ul>-->
-    <!--</li>-->
-<!--</ul>-->
-
 <section>
-    <!--<ul id="list" style="list-style-type:none">-->
-    <!--</ul>-->
-    <center>
+
     <div id="controls">
         <p>*Single Click to mark complete</p>
         <p>**Double Click to remove from list</p>
         <button id="clearAllItems">Clear All Items</button>
     </div>
-    </center>
 </section>
+</center>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="shoppingList.js"></script>

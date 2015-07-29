@@ -1,14 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Handlee);
-@import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(http://fonts.googleapis.com/css?family=Montez);
 
 body {
-    font-family: 'Handlee', cursive;
     background-image: url("white-wood-background.jpg");
+    background-size: 100%;
 }
 
 h1 {
-    margin-top: 67px;
+    margin-top: 50px;
     font-size: 60px;
     font-family: 'Montez', cursive;
     text-align: center;
@@ -33,13 +32,13 @@ h1 {
     font-size: 18px;
     font-family: 'Handlee', cursive;
     margin-top: 5px;
+    color: #363636;
 }
 
 #addItem {
     background: transparent;
     border: 1px solid #cdcdcd;
     height: 40px;
-    /*display: inline-block;*/
     margin-top: -50px;
     font-size: 25px;
     color: #977173;
@@ -54,13 +53,8 @@ li{
     transition: all 0.3s;
     list-style-type: none;
     font-size: 30px;
-}
-
-#shoppingList p{
-    line-height: 40%;
-    margin-left: 42px;
-    cursor: pointer;
-    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Handlee', cursive;
 }
 
 li.complete{
@@ -70,59 +64,65 @@ li.complete{
 }
 
 #controls{
-    /*margin-left: 90px;*/
-    margin-top:60px;
+    margin-top: 40px;
 }
 
 #controls p {
     text-align: center;
     color: #977173;
-    font-style: italic;
     font-size: 20px;
+    font-family: 'Handlee', cursive;
 }
 
 #clearAllItems {
     background: transparent;
     border: 1px solid #cdcdcd;
-    display: center;
     font-size: 30px;
-    font-family: 'Handlee', cursive;
+    font-family: 'Montez', cursive;
     cursor: pointer;
     text-align: center;
-    color:#977173;
-    text-transform: uppercase;
     transition: all 0.3s;
+    text-shadow: 0px 1px 0px #151515;
+    color: #363636;
 }
+#clearAllItems:hover {
+     background: #977173;
+     text-decoration:none;
+ }
 
 .accordion, .accordion * {
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-    border-radius: 25px;
+
+    /*border-radius: 25px;*/
 }
 
 .accordion {
-    overflow:hidden;
-    border-radius:3px;
-    width:960px;
-    margin:0 auto;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 960px;
+    margin: 0 auto;
     margin-top: 10px;
 
 }
 
 .accordion-section {
-    float:left;
-    width:240px;
+    float: left;
+    width: 480px;
+    display: none;
 }
 
 .accordion-section-title {
-    width:100%;
-    padding:15px;
-    display:inline-block;
-    transition:all linear 0.15s;
-    font-size:1.200em;
-    text-shadow:0px 1px 0px #151515;
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    transition: all linear 0.15s;
+    font-size: 35px;
+    text-shadow: 0px 1px 0px #151515;
     color: #363636;
+    text-align: center;
+    font-family: 'Montez', cursive;
 }
 
 .accordion-section-title.active, .accordion-section-title:hover {
@@ -133,4 +133,8 @@ li.complete{
 .accordion-section-content {
     padding:15px;
     display:none;
+}
+
+a {
+    text-decoration: none;
 }
