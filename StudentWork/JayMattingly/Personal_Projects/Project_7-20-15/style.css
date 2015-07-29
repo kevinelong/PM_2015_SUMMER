@@ -1,0 +1,248 @@
+/*page background*/
+
+body {
+    background-image: url("images/killerbackground.jpg");
+
+
+}
+
+/*list items, heading, text, images, anchors*/
+
+h1 {
+    font-family: 'Julee', cursive;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+    color: red;
+    padding-bottom: 100px;
+}
+
+h2 {
+    font-family: 'Julee', cursive;
+    color: red;
+    background-color: transparent;
+}
+
+#menuExtras.h3 {
+    /*text-align: center;*/
+    color: red;
+    font-weight: bold;
+}
+
+h3.review {
+    color: red;
+    font-family: 'Indie Flower', cursive;
+}
+
+#HCB_comment_box {
+    color: red;
+    font-family: 'Indie Flower', cursive;
+}
+.date, .author {
+    color: white;
+    font-size: 15px;
+}
+
+.hcb-flag, .author-name, .hcb-like {
+    color: red;
+    font-size: 20px;
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+
+
+h4 {
+    color: white;
+    font-family: 'Indie Flower', cursive;
+}
+
+li {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+em {
+    display: inline-block;
+    color: lightgray;
+}
+
+
+.resize {
+    width: 200px;
+    height: auto;
+}
+
+
+/*Menu seperate here*/
+
+.fMenu {
+    float: left;
+    background-color: transparent;
+    font-size: larger;
+    font-family: 'Indie Flower', cursive;
+
+}
+
+.dMenu {
+    float: right;
+    background-color: transparent;
+    font-size: larger;
+    font-family: 'Indie Flower', cursive;
+
+
+}
+
+
+.list-group-item {
+    background: transparent;
+    border-style: none;
+}
+
+#menuExtras {
+    color: white;
+    margin-left: 20px;
+    text-align: left;
+    font-size: 60px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.container {
+    text-align: center;
+}
+
+nav {
+    background: transparent;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+.item {
+    padding-left: 200px;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    padding-top: 100px;
+}
+
+textarea#msg {
+    color: #000;
+}
+
+#addComment {
+    background-color: black;
+    color: red;
+    border: ridge;
+    border-color: grey;
+    font-family: 'Indie Flower', cursive;
+    font-size: 25px;
+}
+
+/* carousel */
+#quote-carousel
+{
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+}
+
+/* Control buttons  */
+#quote-carousel .carousel-control
+{
+    background: none;
+    color: #222;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+/* Previous button  */
+#quote-carousel .carousel-control.left
+{
+    left: -12px;
+}
+/* Next button  */
+#quote-carousel .carousel-control.right
+{
+    right: -12px !important;
+}
+/* Changes the position of the indicators */
+#quote-carousel .carousel-indicators
+{
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+/* Changes the color of the indicators */
+#quote-carousel .carousel-indicators li
+{
+    background: #c0c0c0;
+}
+#quote-carousel .carousel-indicators .active
+{
+    background: #333333;
+}
+#quote-carousel img
+{
+    width: 250px;
+    height: 100px
+}
+/* End carousel */
+
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+.item blockquote img {
+    margin-bottom: 10px;
+}
+
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #quote-carousel
+    {
+        margin-bottom: 0;
+        padding: 0 40px 30px 40px;
+    }
+
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;
+    }
+    #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0px 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #quote-carousel .carousel-indicators li.active {
+        margin: 0px 5px;
+        width: 20px;
+        height: 20px;
+    }
+}
