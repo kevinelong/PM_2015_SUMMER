@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery Shopping List</title>
+
+    <link rel="stylesheet" href="shoppinglist.css">
+</head>
+<body>
+<h1>Grocery Shopping List</h1>
+<center>
+<form action="#">
+    <input id="textbox" type="text" placeholder="Enter an item here">
+    <button id="addItem">Add to List</button>
+</form>
+</center>
+<center>
+    <select id="aisleSelect" name="selectAisle">
+        <option value="0">Choose an aisle</option>
+        <option value="baby">Baby Care</option>
+        <option value="baked">Baked Goods</option>
+        <option value="bakingSupplies">Baking Supplies</option>
+        <option value="basicCookingIng">Basic Cooking Ingredients</option>
+        <option value="beverages">Beverages</option>
+        <option value="canned">Canned Foods</option>
+        <option value="cereal">Cereal/Breakfast</option>
+        <option value="condiments">Condiments & Dressings</option>
+        <option value="dairy">Dairy, Eggs & Milk</option>
+        <option value="deli">Deli</option>
+        <option value="ethnic">Ethnic Foods</option>
+        <option value="frozen">Frozen Foods</option>
+        <option value="health">Health & Beauty</option>
+        <option value="herbs">Herbs & Spices</option>
+        <option value="household">Household Products</option>
+        <option value="meat">Meat Fish & Seafood</option>
+        <option value="natural">Natural/Organic Foods</option>
+        <option value="other">Other</option>
+        <option value="pasta">Pasta, Rice & Beans</option>
+        <option value="pet">Pet Supplies</option>
+        <option value="produce">Produce</option>
+        <option value="snacks">Snacks & Sweets</option>
+        <option value="soup">Soup</option>
+    </select>
+</center>
+<div class="accordion">
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#baby-list">Baby Care</a>
+
+        <div id="baby-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#baked-list">Baked Goods</a>
+
+        <div id="baked-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#bakingSupplies-list">Baking Supplies</a>
+
+        <div id="bakingSupplies-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#basicCookingIng-list">Basic Cooking Ingredients</a>
+
+        <div id="basicCookingIng-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#beverages-list">Beverages</a>
+
+        <div id="beverages-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#canned-list">Canned Foods</a>
+
+        <div id="canned-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#cereal-list">Cereal/Breakfast</a>
+
+        <div id="cereal-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#condiments-list">Condiments & Dressings</a>
+
+        <div id="condiments-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#dairy-list">Dairy, Eggs & Milk</a>
+
+        <div id="dairy-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#deli-list">Deli</a>
+
+        <div id="deli-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#ethnic-list">Ethnic Foods</a>
+
+        <div id="ethnic-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#frozen-list">Frozen Foods</a>
+
+        <div id="frozen-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#health-list">Health & Beauty</a>
+
+        <div id="health-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#herbs-list">Herbs & Spices</a>
+
+        <div id="herbs-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#household-list">Household Products</a>
+
+        <div id="household-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#meat-list">Meat Fish & Seafood</a>
+
+        <div id="meat-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#natural-list">Natural/Organic Foods</a>
+
+        <div id="natural-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#other-list">Other</a>
+
+        <div id="other-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#pasta-list">Pasta, Rice & Beans</a>
+
+        <div id="pasta-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#pet-list">Pet Supplies</a>
+
+        <div id="pet-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#produce-list">Produce</a>
+
+        <div id="produce-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#snacks-list">Snacks & Sweets</a>
+
+        <div id="snacks-list" class="accordion-section-content">
+        </div>
+    </div>
+
+    <div class="accordion-section">
+        <a class="accordion-section-title" href="#soup-list">Soup</a>
+
+        <div id="soup-list" class="accordion-section-content">
+        </div>
+    </div>
+
+</div><!--end .accordion-->
+
+<!--<ul id="accordion">-->
+    <!--<li>-->
+        <!--<a href="#baby-list" class="heading">Baby Care</a>-->
+        <!--<ul id="baby-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#baked-list" class="heading">Baked Goods</a>-->
+        <!--<ul id="baked-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#bakingSupplies-list" class="heading">Baking Supplies</a>-->
+        <!--<ul id="bakingSupplies-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#basicCookingIng-list" class="heading">Basic Cooking Ingredients</a>-->
+        <!--<ul id="basicCookingIng-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#beverages-list" class="heading">Beverages</a>-->
+        <!--<ul id="beverages-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#canned-list" class="heading">Canned Foods</a>-->
+        <!--<ul id="canned-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#cereal-list" class="heading">Cereal/Breakfast</a>-->
+        <!--<ul id="cereal-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#condiments-list" class="heading">Condiments & Salad Dressings</a>-->
+        <!--<ul id="condiments-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#dairy-list" class="heading">Dairy, Eggs & Milk</a>-->
+        <!--<ul id="dairy-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#deli-list" class="heading">Deli</a>-->
+        <!--<ul id="deli-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#ethnic-list" class="heading">Ethnic Foods</a>-->
+        <!--<ul id="ethnic-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#frozen-list" class="heading">Frozen Foods</a>-->
+        <!--<ul id="frozen-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#health-list" class="heading">Health & Beauty</a>-->
+        <!--<ul id="health-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#herbs-list" class="heading">Herbs & Spices</a>-->
+        <!--<ul id="herbs-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#household-list" class="heading">Household Products</a>-->
+        <!--<ul id="household-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#meat-list" class="heading">Recent Entries</a>-->
+        <!--<ul id="meat-list">Meat Fish & Seafood</ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#natural-list" class="heading">Natural/Organic Foods</a>-->
+        <!--<ul id="natural-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#other-list" class="heading">Other</a>-->
+        <!--<ul id="other-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#pasta-list" class="heading">Pasta, Rice & Beans</a>-->
+        <!--<ul id="pasta-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#pet-list" class="heading">Pet Supplies</a>-->
+        <!--<ul id="pet-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#produce-list" class="heading">Produce</a>-->
+        <!--<ul id="produce-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#snacks-list" class="heading">Snacks & Sweets</a>-->
+        <!--<ul id="snacks-list"></ul>-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--<a href="#soup-list" class="heading">Soup</a>-->
+        <!--<ul id="soup-list"></ul>-->
+    <!--</li>-->
+<!--</ul>-->
+
+<section>
+    <!--<ul id="list" style="list-style-type:none">-->
+    <!--</ul>-->
+    <center>
+    <div id="controls">
+        <p>*Single Click to mark complete</p>
+        <p>**Double Click to remove from list</p>
+        <button id="clearAllItems">Clear All Items</button>
+    </div>
+    </center>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="shoppingList.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</body>
+
+
+</html>
