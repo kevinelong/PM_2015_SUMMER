@@ -13,32 +13,40 @@ var wordList = ["orange", "cerulean", "sienna", "peach", "umber", "plum", "maroo
 
 // Display words from list on screen (randomly selected)
 
-var wordCounter = 0;
-while (wordCounter < wordList.length) {
+var listOfCurrentWords = [];
+
+function addWord() {
     var currentWordIndex = Math.floor((Math.random() * 10) + 1);
     var currentWord = wordList[currentWordIndex];
+    listOfCurrentWords.push(currentWord);
     console.log(currentWord);
-    newDiv = ('<div>' + currentWord + '</div>');
-    $('#wordsonpage').append(newDiv);
-    // TODO: Figure out why class name is coming back as "undefined" - why isn't this line working?
-    // Not working even for a string...
-    $(newDiv).addClass(currentWord);
+    newDiv = ('<div class="' + currentWord + '">' + currentWord + '</div>');
     console.log(newDiv.className);
-    wordCounter += 1;
-    // TODO: Figure out how to put a delay between words appearing. setTimeout?
+    $('#wordsonpage').append(newDiv);
 }
 
-// Capture textbox input as user types and clear textbox when word match found in array
+
+
+var wordCounter = 0;
+var wordTiming = setInterval(function() {
+    wordCounter += 1;
+    if(wordCounter === wordList.length){
+        clearInterval(wordTiming);
+}
+    addWord();
+}, 2000);
+
+
+// Captures textbox input as user types and clears textbox when word match found in array
 
 // Is this next line the best/clearest way to begin checking for text input?
 window.onkeyup = checkText;
 var inputTextValue;
 function checkText(e) {
     inputTextValue = e.target.value;
-    var inArray = wordsOnPage.indexOf(inputTextValue);
+    var inArray = listOfCurrentWords.indexOf(inputTextValue);
+    // If word is typed correctly, any instances of that word on screen are removed
     if (inArray > -1) {
-        // TODO: Remove (most recent instance of) correct word from screen
-        // This part is working - it's the assignment of class (above) that isn't.
         var correctWord = $('#typing').val();
         var wordClass = '.' + correctWord;
         $(wordClass).remove();
