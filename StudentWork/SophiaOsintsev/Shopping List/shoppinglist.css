@@ -1,0 +1,136 @@
+@import url(http://fonts.googleapis.com/css?family=Handlee);
+@import url(http://fonts.googleapis.com/css?family=Satisfy);
+@import url(http://fonts.googleapis.com/css?family=Montez);
+
+body {
+    font-family: 'Handlee', cursive;
+    background-image: url("white-wood-background.jpg");
+}
+
+h1 {
+    margin-top: 67px;
+    font-size: 60px;
+    font-family: 'Montez', cursive;
+    text-align: center;
+    color: #363636;
+    font-weight: bold;
+}
+
+#textbox {
+    margin-top: -50px;
+    height: 40px;
+    width: 230px;
+    text-align: center;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Handlee', cursive;
+}
+
+#aisleSelect {
+    height: 40px;
+    width: 230px;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: 'Handlee', cursive;
+    margin-top: 5px;
+}
+
+#addItem {
+    background: transparent;
+    border: 1px solid #cdcdcd;
+    height: 40px;
+    /*display: inline-block;*/
+    margin-top: -50px;
+    font-size: 25px;
+    color: #977173;
+    font-family: 'Handlee', cursive;
+    cursor: pointer;
+}
+
+li{
+    margin-left: 42px;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s;
+    list-style-type: none;
+    font-size: 30px;
+}
+
+#shoppingList p{
+    line-height: 40%;
+    margin-left: 42px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+li.complete{
+    opacity:0.3;
+    transition: all 0.3s;
+
+}
+
+#controls{
+    /*margin-left: 90px;*/
+    margin-top:60px;
+}
+
+#controls p {
+    text-align: center;
+    color: #977173;
+    font-style: italic;
+    font-size: 20px;
+}
+
+#clearAllItems {
+    background: transparent;
+    border: 1px solid #cdcdcd;
+    display: center;
+    font-size: 30px;
+    font-family: 'Handlee', cursive;
+    cursor: pointer;
+    text-align: center;
+    color:#977173;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    border-radius: 25px;
+}
+
+.accordion {
+    overflow:hidden;
+    border-radius:3px;
+    width:960px;
+    margin:0 auto;
+    margin-top: 10px;
+
+}
+
+.accordion-section {
+    float:left;
+    width:240px;
+}
+
+.accordion-section-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    transition:all linear 0.15s;
+    font-size:1.200em;
+    text-shadow:0px 1px 0px #151515;
+    color: #363636;
+}
+
+.accordion-section-title.active, .accordion-section-title:hover {
+    background: #977173;
+    text-decoration:none;
+}
+
+.accordion-section-content {
+    padding:15px;
+    display:none;
+}
