@@ -26,14 +26,26 @@ $(document).ready(function() {
 
 
     $("button#addItem").on("click", function () {
-
         var addItem = $("#textbox").val();
         var select = $("#aisleSelect").val();
-        console.log(select);
-        $("#" + select + "-list").append("<div id='list'><li class='" + select + "'> " + addItem + "</li></div>");
+        var listItem = $("#" + select + "-list");
+        console.log(listItem)
+        if (listItem) {
+            listItem.append("<div id='list'><li class='" + select + "'> " + addItem + "</li></div>");
+        }
+        if (listItem != undefined) {
+            $("#categories").prepend(listItem.parent());
+            $(listItem.parent()).show();
+        }
+
+        $("#textbox").keypress(function (e) {
+            if (e.which == 13) {
+                $("button#addItem").submit();
+            }
+        });
 
         $("#textbox").val("");
-        console.log(addItem);
+
         if (addItem.length == 0) {
             alert('Please enter an item!');
         }
@@ -52,6 +64,7 @@ $(document).ready(function() {
 
     $('button#clearAllItems').on('click', function () {
         $('div li').remove();
+        $('#categories').remove();
         $('#controls').fadeOut();
     });
 });
