@@ -1,13 +1,7 @@
-var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'mango', 'tangerine', 'brass', 'tumbleweed', 'sienna', 'peach', 'apricot', 'almond', 'gold', 'banana', 'sunglow', 'goldenrod', 'dandelion', 'olive', 'lemon', 'canary', 'asparagus', 'lime', 'fern', 'shamrock', 'cerulean', 'cornflower', 'orchid', 'violet', 'eggplant', 'cerise', 'jungle', 'pacific', 'denim', 'manatee', 'plum', 'timberwolf', 'maroon'];
+var colorValues = ['CD4A4A', 'CC6666', 'BC5D58', 'FF5349', 'FD5E53', 'FD7C6E', 'FDBCB4', 'FF6E4A'];
 
-Mahogany	CD4A4A	205,74,74
-Fuzzy Wuzzy Brown	CC6666	204,102,102
-Chestnut	BC5D58	188,93,88
-Red Orange	FF5349	255,83,73
-Sunset Orange	FD5E53	253,94,83
-Bittersweet	FD7C6E	253,124,110
-Melon	FDBCB4	253,188,180
-Outrageous Orange	FF6E4A	255,110,74
+
+
 Vivid Tangerine	FFA089	255,160,137
 Burnt Sienna	EA7E5D	234,126,93
 Brown	B4674D	180,103,77

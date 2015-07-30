@@ -22,24 +22,37 @@ var listOfCurrentWords = [];
 $('#wordsonpage')[0].style.width = window.innerWidth;
 $('#wordsonpage')[0].style.height = window.innerHeight;
 
+// TODO: Break this code up into smaller functions to add color, determine position, etc.
 function addWord() {
-    var currentWordIndex = Math.floor((Math.random() * wordList.length - 1) + 1);
+    var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
     listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
     newDiv.innerHTML = currentWord;
+
+// TODO: Make it so words don't overlap each other or the textbox/directions.
     var offsetTop = Math.floor((Math.random() * 500) + 1);
-    console.log(offsetTop);
     var offsetLeft = Math.floor((Math.random() * 500) + 1);
-    console.log(offsetLeft);
     $(newDiv).css({position: "absolute"});
     newDiv.style.top = offsetTop + "px";
     newDiv.style.left = offsetLeft + "px";
+
+    wordColor = chooseColor();
+    $(newDiv).css({color: wordColor});
+    console.log(newDiv.color);
+
     $('#wordsonpage').append(newDiv);
 }
 
-
+function chooseColor() {
+    // TODO: Add more colors! (See colors.js file)
+    var colorValues = ['CD4A4A', 'CC6666', 'BC5D58', 'FF5349', 'FD5E53', 'FD7C6E', 'FDBCB4', 'FF6E4A'];
+    var colorIndex = Math.floor((Math.random() * (colorValues.length - 1)) + 1);
+    chosenColor = "#" + colorValues[colorIndex];
+    console.log(chosenColor);
+    return chosenColor;
+}
 
 var wordCounter = 0;
 var wordTiming = setInterval(function() {
@@ -75,7 +88,7 @@ function checkText(e) {
 
 // Keep score of words user typed correctly
 
-// Listening event for reset button (other buttons also?)
+// Listening event for reset button (other buttons also, to seletct level, etc?)
 
 // * Advanced Features * //
 
