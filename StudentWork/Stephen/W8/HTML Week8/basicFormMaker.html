@@ -48,10 +48,7 @@
     <h1>Shopping List</h1>
     <p>Create a Cool Shopping List Here</p>
 </div>
-<ul id="myList">
-    <li>maple syrup</li>
-    <li>honey</li>
-</ul>
+<ul id="myList"><li>maple syrup</li><li>honey</li></ul>
 <br>
 <br>
 
@@ -72,10 +69,9 @@ function myFunction() {
         document.getElementById('newLI').value = null;
 
 }
-function clearList() {
-    var removeEl = document.getElementsById('myList');
-    var containerEl = removeEl.parentNode;
-    containerEl.removeChild(removeEl);
+function clearList(){
+    var list = document.getElementById("myList");
+    list.removeChild(list.childNode[0]);
 }
 </script>
 
