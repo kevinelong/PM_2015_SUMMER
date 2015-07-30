@@ -6,8 +6,12 @@
 
 // Create word list (10 values right now for testing purposes)
 
-var wordList = ["orange", "cerulean", "sienna", "peach", "umber", "plum", "maroon",
-    "vermillion", "goldenrod", "fern", "razzmatazz"];
+var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'mango', 'tangerine', 'brass',
+    'tumbleweed', 'sienna', 'peach', 'apricot', 'almond', 'gold', 'banana', 'sunglow', 'goldenrod', 'dandelion',
+    'olive', 'lemon', 'canary', 'asparagus', 'lime', 'fern', 'shamrock', 'cerulean', 'cornflower', 'orchid', 'violet',
+    'eggplant', 'cerise', 'jungle', 'pacific', 'denim', 'manatee', 'plum', 'timberwolf', 'maroon', 'vermillion',
+    'razzmatazz', 'umber'];
+
 // TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
 // already on the screen
 
@@ -15,13 +19,23 @@ var wordList = ["orange", "cerulean", "sienna", "peach", "umber", "plum", "maroo
 
 var listOfCurrentWords = [];
 
+$('#wordsonpage')[0].style.width = window.innerWidth;
+$('#wordsonpage')[0].style.height = window.innerHeight;
+
 function addWord() {
-    var currentWordIndex = Math.floor((Math.random() * 10) + 1);
+    var currentWordIndex = Math.floor((Math.random() * wordList.length - 1) + 1);
     var currentWord = wordList[currentWordIndex];
     listOfCurrentWords.push(currentWord);
-    console.log(currentWord);
-    newDiv = ('<div class="' + currentWord + '">' + currentWord + '</div>');
-    console.log(newDiv.className);
+    var newDiv = document.createElement('div');
+    newDiv.classList.add(currentWord);
+    newDiv.innerHTML = currentWord;
+    var offsetTop = Math.floor((Math.random() * 500) + 1);
+    console.log(offsetTop);
+    var offsetLeft = Math.floor((Math.random() * 500) + 1);
+    console.log(offsetLeft);
+    $(newDiv).css({position: "absolute"});
+    newDiv.style.top = offsetTop + "px";
+    newDiv.style.left = offsetLeft + "px";
     $('#wordsonpage').append(newDiv);
 }
 
@@ -55,10 +69,7 @@ function checkText(e) {
 }
 
 
-// Compare to list of words currently on screen, return boolean of whether there's a match
-// (See if I can make the entire word match, not just the end.)
-
-// Remove word from screen if there is a match or if user didn't type it in time
+// Remove word from screen if user didn't type it in time
 
 // Create penalty for player if word on screen too long/hits right side of screen
 
