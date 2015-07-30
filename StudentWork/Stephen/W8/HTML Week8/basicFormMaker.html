@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- The CSS link-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <!-- Jquery Script-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <!--Google Fonts-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
@@ -71,9 +70,11 @@ function myFunction() {
 }
 function clearList(){
     var list = document.getElementById("myList");
-    list.removeChild(list.childNode[0]);
+    console.log(list.childNodes.length);
+    list.removeChild(list.childNodes[list.childNodes.length -1]);
 }
 </script>
-
+<!-- Jquery Script-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 </html>
