@@ -29,6 +29,7 @@ function addWord() {
     listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
+    newDiv.classList.add("childDiv");
     newDiv.innerHTML = currentWord;
 
 // TODO: Make it so words don't overlap each other or the textbox/directions.
@@ -62,6 +63,16 @@ function chooseColor() {
     chosenColor = "#" + colorValues[colorIndex];
     return chosenColor;
 }
+
+// I think the syntax on this is right but how do I get it to continually animate all the child divs?
+// Not working at all currently but it is also not throwing any errors.
+
+$('.childDiv').animate({
+    right: 0
+}), 500, function() {
+    $(this).remove();
+};
+
 
 
 var wordCounter = 0;
