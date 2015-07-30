@@ -2,27 +2,37 @@
 @import url(http://fonts.googleapis.com/css?family=Montez);
 
 body {
-    background-image: url("white-wood-background.jpg");
+    background: url("Element_Lace2.png") left top no-repeat, url("white-wood-background.jpg");
     background-size: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 h1 {
     margin-top: 50px;
-    font-size: 60px;
+    font-size: 80px;
     font-family: 'Montez', cursive;
     text-align: center;
-    color: #363636;
+    color: #151515;
     font-weight: bold;
+    text-shadow: 0px 1px 0px #717171;
 }
 
 #textbox {
-    margin-top: -50px;
+    margin-top: 5px;
     height: 40px;
     width: 230px;
     text-align: center;
     background-color: transparent;
     font-size: 20px;
     font-family: 'Handlee', cursive;
+    text-shadow: 0px 1px 0px #444444;
+}
+
+#textbox::-webkit-input-placeholder {
+    color: #272727;
+    text-shadow: 0px 1px 0px #444444;
 }
 
 #aisleSelect {
@@ -31,8 +41,9 @@ h1 {
     background-color: transparent;
     font-size: 18px;
     font-family: 'Handlee', cursive;
-    margin-top: 5px;
-    color: #363636;
+    margin-top: 15px;
+    color: #151515;
+    text-shadow: 0px 1px 0px #444444;
 }
 
 #addItem {
@@ -41,9 +52,15 @@ h1 {
     height: 40px;
     margin-top: -50px;
     font-size: 25px;
-    color: #977173;
-    font-family: 'Handlee', cursive;
+    text-shadow: 0px 1px 0px #717171;
+    color: #363636;
+    font-family: 'Montez', cursive;
     cursor: pointer;
+}
+
+#addItem:hover {
+    background: #4471b3;
+    text-decoration:none;
 }
 
 li{
@@ -69,9 +86,10 @@ li.complete{
 
 #controls p {
     text-align: center;
-    color: #977173;
+    color: #444444;
     font-size: 20px;
     font-family: 'Handlee', cursive;
+    text-shadow: 0px 1px 0px black;
 }
 
 #clearAllItems {
@@ -82,11 +100,11 @@ li.complete{
     cursor: pointer;
     text-align: center;
     transition: all 0.3s;
-    text-shadow: 0px 1px 0px #151515;
-    color: #363636;
+    text-shadow: 0px 1px 0px #717171;
+    color: #151515;
 }
 #clearAllItems:hover {
-     background: #977173;
+     background: #4471b3;
      text-decoration:none;
  }
 
@@ -119,15 +137,16 @@ li.complete{
     display: inline-block;
     transition: all linear 0.15s;
     font-size: 35px;
-    text-shadow: 0px 1px 0px #151515;
-    color: #363636;
+    text-shadow: 0px 1px 0px #717171;
+    color: #000000;
     text-align: center;
     font-family: 'Montez', cursive;
 }
 
 .accordion-section-title.active, .accordion-section-title:hover {
-    background: #977173;
+    background: #4471b3;
     text-decoration:none;
+    color: white;
 }
 
 .accordion-section-content {
