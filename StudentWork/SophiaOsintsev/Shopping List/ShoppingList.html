@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Grocery Shopping List</title>
+    <title>Shopping List</title>
 
     <link rel="stylesheet" href="shoppinglist.css">
 </head>
 <body>
-<h1>Grocery Shopping List</h1>
-<center>
-<form action="#">
-    <input id="textbox" type="text" placeholder="Enter an item here">
-    <button id="addItem">Add to List</button>
-</form>
+<!--<img id="doily" src="Element_Lace2.png">-->
+<h1>Shopping List</h1>
 
     <select id="aisleSelect" name="selectAisle">
         <option value="uncategorized">Choose an aisle</option>
@@ -40,6 +36,12 @@
         <option value="snacks">Snacks & Sweets</option>
         <option value="soup">Soup</option>
     </select>
+
+<form action="#">
+    <input id="textbox" type="text" placeholder="Enter an item here">
+    <button id="addItem">Add to List</button>
+</form>
+
 
 <div id="categories" class="accordion">
     <div class="accordion-section">
@@ -219,11 +221,12 @@
         <button id="clearAllItems">Clear All Items</button>
     </div>
 </section>
-</center>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="shoppingList.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 
 </body>
 
