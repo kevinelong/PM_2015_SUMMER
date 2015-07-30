@@ -74,6 +74,7 @@ $('.childDiv').animate({
 };
 
 
+// Delays new words appearing on page by two seconds and stops when there are as many words as values in the list.
 
 var wordCounter = 0;
 var wordTiming = setInterval(function() {
@@ -90,6 +91,7 @@ var wordTiming = setInterval(function() {
 // Is this next line the best/clearest way to begin checking for text input?
 window.onkeyup = checkText;
 var inputTextValue;
+var numberCorrect = 0;
 function checkText(e) {
     inputTextValue = e.target.value;
     var inArray = listOfCurrentWords.indexOf(inputTextValue);
@@ -99,17 +101,23 @@ function checkText(e) {
         var wordClass = '.' + correctWord;
         $(wordClass).remove();
         $('#typing').val('');
+        // Augments the amount in the "words you got correct" textbox
+        numberCorrect +=1;
+        $('#correct').val(numberCorrect);
     }
 }
 
+// Listening event for reset button (other buttons also, to select level, etc?)
 
-// Remove word from screen if user didn't type it in time
+$('#reset').click(function() {
+    location.reload();
+});
+
+// Remove word from screen if user didn't type it in time - make this final part of the animation
 
 // Create penalty for player if word on screen too long/hits right side of screen
+// Maybe if ANYTHING hits the right side of the screen they lose, and if they type all words that pop up they win that level?
 
-// Keep score of words user typed correctly
-
-// Listening event for reset button (other buttons also, to seletct level, etc?)
 
 // * Advanced Features * //
 

@@ -1,5 +1,7 @@
 /*Want input box to be centered on the bottom of the page. Possibly also larger and more obvious.*/
 /*Want background to be black so colors will show up better.*/
+/*Also change background color to black, other text colors to white. Weed out anything that looks bad when printed
+with console.log*/
 
 input {
 }
