@@ -36,7 +36,7 @@
 <div class="container">
     <div class="row">
         <div class='col-md-offset-2 col-md-8 text-center'>
-            <h2>Featured Quotes</h2>
+            <h2 id="fQuote" style="color: whitesmoke; font-weight: bolder;">Featured Posts!</h2>
         </div>
     </div>
     <div class='row'>
@@ -57,12 +57,11 @@
                         <blockquote>
                             <div class="row">
                                 <div class="col-sm-3 text-center">
-                                    <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
-                                    <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+                                    <img class="img-circle" src="images/spacesloth.jpg" style="width: 100px;height:100px;">
                                 </div>
                                 <div class="col-sm-9">
-                                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-                                    <small>Someone famous</small>
+                                    <p>I love Killer Burger!</p>
+                                    <small>Lil Johnny</small>
                                 </div>
                             </div>
                         </blockquote>
@@ -72,11 +71,11 @@
                         <blockquote>
                             <div class="row">
                                 <div class="col-sm-3 text-center">
-                                    <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                                    <img class="img-circle" src="images/BurgerEater5bm.jpg" style="width: 100px;height:100px;">
                                 </div>
                                 <div class="col-sm-9">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
-                                    <small>Someone famous</small>
+                                    <p>Burger so big, I had to have a helmet!</p>
+                                    <small>Sally Mayeye</small>
                                 </div>
                             </div>
                         </blockquote>
@@ -86,11 +85,11 @@
                         <blockquote>
                             <div class="row">
                                 <div class="col-sm-3 text-center">
-                                    <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                                    <img class="img-circle" src="images/killerburger.jpg" style="width: 100px;height:100px;">
                                 </div>
                                 <div class="col-sm-9">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                                    <small>Someone famous</small>
+                                    <p>This place murders my hunger like no other!</p>
+                                    <small>Jessie Harker</small>
                                 </div>
                             </div>
                         </blockquote>
@@ -104,82 +103,36 @@
         </div>
     </div>
 </div>
-<!--<div id="carousel" class="carousel slide" data-ride="carousel">-->
-    <!--&lt;!&ndash; Indicators &ndash;&gt;-->
-    <!--<ol class="carousel">-->
-        <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
-        <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
-        <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
-    <!--</ol>-->
-
-    <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-    <!--<div class="carousel-inner" role="listbox">-->
-        <!--<div class="item active col-md-4 col-md-offset-5">-->
-            <!--<img src="images/BurgerEater5bm.jpg" style="max-width:100%" alt="image01">-->
-        <!--</div>-->
-        <!--<div class="item col-md-4 col-md-offset-5">-->
-            <!--<img src="images/outside.jpeg" style="max-width:100%" alt="image02">-->
-        <!--</div>-->
-        <!--<div class="item col-md-4 col-md-offset-5">-->
-            <!--<img src="images/diningroom.jpeg" style="max-width:100%" alt="image02">-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-<div class="col-md-3 col-md-offset-3">
-    <!-- begin wwww.htmlcommentbox.com -->
-    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-    <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};}
-    (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"),
-            h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src",
-            h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=502&num=10&ts=1438136618605");
-        if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-        <!-- end www.htmlcommentbox.com -->
+<div class="row" id="addComment">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="input-group">
+            <input type="text" id="userComment" class="form-control input-sm chat-input" placeholder="Write your message here..." />
+	    <span class="input-group-btn" onclick="addComment()">
+            <a href="#" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-comment"></span> Add Comment</a>
+        </span>
+        </div>
+    </div>
+    <!--<div class="col-md-4 col-md-offset-4" style="border: ridge; border-radius: 5%; border-color: white;">-->
+        <!--<div class="header">Comments!</div>-->
         <!--<form action="comments" method="post">-->
             <!--<div>-->
                 <!--<label for="name"><h3 class="review">(Optional) Name:</h3></label>-->
-                <!--<input  type="text" id="name" />-->
+                <!--<input  type="text" id="name" placeholder="Captain Jack Sparrow"/>-->
             <!--</div>-->
             <!--<div>-->
                 <!--<label for="email"><h3 class="review">Email:</h3></label>-->
-                <!--<input form="email" id="email" />-->
+                <!--<input form="email" id="email" placeholder="cjsparrow@theblackpearl.com"/>-->
             <!--</div>-->
             <!--<div>-->
                 <!--<div>-->
                     <!--<label for="msg"><h3 class="review">How was your experience?</h3></label>-->
-                    <!--<textarea style="width: 500px; height: 200px;" id="msg">Comments. . .</textarea>-->
+                    <!--<textarea style="width: 300px; height: 100px;" id="msg" placeholder="Comments. . ."></textarea>-->
                     <!--<input type="button" id="addComment" value="Add Flavor!">-->
                 <!--</div>-->
             <!--</div>-->
         <!--</form>-->
-</div>
-<!--</div>-->
-<!--<div class="container">-->
-    <!--<div class="col-md-6 col-md-offset-3">-->
-        <!--<p>-->
-            <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-            <!--Mauris at est interdum, facilisis quam sed, iaculis arcu.-->
-
-            <!--Nulla sit amet risus ac nunc pretium fermentum.-->
-            <!--Nulla non augue sed lacus malesuada elementum.-->
-            <!--Nam accumsan lacus et lorem rhoncus mattis.-->
-
-            <!--Fusce dapibus turpis vel mi sodales, at ullamcorper elit posuere.-->
-            <!--Quisque a est ullamcorper, condimentum erat id, mollis lorem.-->
-            <!--Sed aliquam elit ac elit tempor, nec varius mi vulputate.-->
-
-            <!--Suspendisse bibendum ipsum in erat faucibus tristique non sed purus.-->
-            <!--Sed porta quam feugiat sapien elementum interdum.-->
-            <!--Proin dictum massa in felis vestibulum aliquet.-->
-            <!--Nunc ut urna vel tellus mollis venenatis.-->
-            <!--Suspendisse posuere mauris dapibus rutrum laoreet.-->
-
-            <!--Vivamus non sapien sollicitudin justo sollicitudin hendrerit.-->
-            <!--Donec porta risus in volutpat ultrices.-->
-            <!--Quisque sit amet lectus venenatis, auctor eros at, blandit eros.-->
-        <!--</p>-->
     <!--</div>-->
-<!--</div>-->
+</div>
 
 
 <script src="index.js"></script>

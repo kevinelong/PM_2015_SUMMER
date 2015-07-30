@@ -23,7 +23,7 @@ h2 {
     background-color: transparent;
 }
 
-#menuExtras.h3 {
+#menuExtras h3 {
     /*text-align: center;*/
     color: red;
     font-weight: bold;
@@ -34,22 +34,16 @@ h3.review {
     font-family: 'Indie Flower', cursive;
 }
 
-#HCB_comment_box {
+.locations h3 {
+    text-align: center;
     color: red;
-    font-family: 'Indie Flower', cursive;
-}
-.date, .author {
-    color: white;
-    font-size: 15px;
 }
 
-.hcb-flag, .author-name, .hcb-like {
+.header {
+    text-align: center;
     color: red;
-    font-size: 20px;
-    font-family: 'Nothing You Could Do', cursive;
+    font-weight: bold;
 }
-
-
 
 h4 {
     color: white;
@@ -94,6 +88,18 @@ em {
 
 }
 
+strong {
+    font-size: 20px;
+}
+
+
+
+.locations h2 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
 
 .list-group-item {
     background: transparent;
@@ -127,8 +133,8 @@ p {
     height: 100%;
 }
 
-form {
-    padding-top: 100px;
+form #email {
+    width: 300px;
 }
 
 textarea#msg {
@@ -136,12 +142,10 @@ textarea#msg {
 }
 
 #addComment {
-    background-color: black;
-    color: red;
+    padding-top: 100px;
+    padding-bottom: 100px;
     border: ridge;
-    border-color: grey;
     font-family: 'Indie Flower', cursive;
-    font-size: 25px;
 }
 
 /* carousel */
