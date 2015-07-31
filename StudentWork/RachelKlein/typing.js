@@ -4,7 +4,7 @@
 
 // * Basic Functionality * //
 
-// Create word list (10 values right now for testing purposes)
+// List of words to be typed
 
 var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'mango', 'tangerine', 'brass',
     'tumbleweed', 'sienna', 'peach', 'apricot', 'almond', 'gold', 'banana', 'sunglow', 'goldenrod', 'dandelion',
@@ -13,26 +13,24 @@ var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'm
     'razzmatazz', 'umber'];
 
 // TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
-// already on the screen
+// already on the screen - use alreadyOnScreen variable below and compare to -1
 
 // Display words from list on screen (randomly selected)
 
 var listOfCurrentWords = [];
 
-$('#wordsonpage')[0].style.width = window.innerWidth;
-$('#wordsonpage')[0].style.height = window.innerHeight;
-
-// TODO: Break this code up into smaller functions to add color, determine position, etc.
 function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
+    var alreadyOnScreen = listOfCurrentWords.indexOf(currentWord);
+
     listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
-    newDiv.classList.add("childDiv");
     newDiv.innerHTML = currentWord;
 
 // TODO: Make it so words don't overlap each other or the textbox/directions.
+// FURTHER TODO: Make this part its own function. choosePosition or something similar.
     var offsetTop = Math.floor((Math.random() * 500) + 1);
     var offsetLeft = Math.floor((Math.random() * 500) + 1);
     $(newDiv).css({position: "absolute"});
@@ -43,7 +41,16 @@ function addWord() {
     $(newDiv).css({color: wordColor});
 
     $('#wordsonpage').append(newDiv);
+
+    $(newDiv).animate({
+        left: window.innerWidth
+    }, 5000, function() {
+        $(newDiv).remove();
+    });
+
 }
+
+// Randomly chooses a color for each new word.
 
 function chooseColor() {
     // These values are based on Crayola colors, of course.
@@ -64,16 +71,6 @@ function chooseColor() {
     return chosenColor;
 }
 
-// I think the syntax on this is right but how do I get it to continually animate all the child divs?
-// Not working at all currently but it is also not throwing any errors.
-
-$('.childDiv').animate({
-    right: 0
-}), 500, function() {
-    $(this).remove();
-};
-
-
 // Delays new words appearing on page by two seconds and stops when there are as many words as values in the list.
 
 var wordCounter = 0;
@@ -88,7 +85,6 @@ var wordTiming = setInterval(function() {
 
 // Captures textbox input as user types and clears textbox when word match found in array
 
-// Is this next line the best/clearest way to begin checking for text input?
 window.onkeyup = checkText;
 var inputTextValue;
 var numberCorrect = 0;
@@ -106,6 +102,15 @@ function checkText(e) {
         $('#correct').val(numberCorrect);
     }
 }
+
+// Animating words moving across screen - the goal is to make them hit the right side of the screen
+
+// I think the syntax on this is right but how do I get it to continually animate all the child divs?
+// Not working at all currently but it is also not throwing any errors.
+
+// Also I checked and the childDiv class IS getting applied.
+
+
 
 // Listening event for reset button (other buttons also, to select level, etc?)
 
