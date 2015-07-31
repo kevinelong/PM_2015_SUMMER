@@ -5,19 +5,52 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- The CSS link-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <!-- Jquery Script-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <!--Google Fonts-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Basic List Maker</title>
+
+    <style>
+
+        body{
+            background-color: aliceblue;
+            padding: 15mm;
+
+        }
+        .jumbotron {
+            background-color: slategray;
+            background-size: cover;
+        padding-left: 5mm;
+            font-family: 'Cookie', cursive;
+            font-size: larger;
+        }
+        h1 {
+            font-size: larger;
+        }
+
+        li{
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            text-align: left 2mm;
+            font-size: larger;
+        }
+
+    </style>
+
+
+
 </head>
-<ul id="myList">
-    <li>maple syrup</li>
-    <li>Honey</li>
-</ul>
+<body>
+
+<div class="jumbotron">
+
+    <h1>Shopping List</h1>
+    <p>Create a Cool Shopping List Here</p>
+</div>
+<ul id="myList"><li>maple syrup</li><li>honey</li></ul>
 <br>
 <br>
+
 <label id="newListItem">add new items here:</label>
 <input type="text" id="newLI">
 <br>
@@ -33,13 +66,15 @@ function myFunction() {
         node.appendChild(textnode);
         document.getElementById('myList').appendChild(node);
         document.getElementById('newLI').value = null;
+
 }
-function clearList() {
-    var removeEl = document.getElementsById('ul');
-    var containerEl = removeEl.parentNode;
-    containerEl.removeChild(removeEl);
+function clearList(){
+    var list = document.getElementById("myList");
+    console.log(list.childNodes.length);
+    list.removeChild(list.childNodes[list.childNodes.length -1]);
 }
 </script>
-
+<!-- Jquery Script-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </body>
 </html>
