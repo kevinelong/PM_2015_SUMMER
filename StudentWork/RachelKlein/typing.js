@@ -19,38 +19,63 @@ var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'm
 
 var listOfCurrentWords = [];
 
+function isAlreadyOnScreen(word) {
+    return listOfCurrentWords.indexOf(word);
+}
+
 function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
-    var alreadyOnScreen = listOfCurrentWords.indexOf(currentWord);
+    alreadyThere = isAlreadyOnScreen(currentWord);
+    //if (alreadyThere > -1) {
+    //
+    //}
+
+    // Creates a new div with a class the same as the word
+    // (the class will later be used to remove the word from the screen)
 
     listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
     newDiv.innerHTML = currentWord;
 
-// TODO: Make it so words don't overlap each other or the textbox/directions.
-// FURTHER TODO: Make this part its own function. choosePosition or something similar.
+    // Creates a randomized position for each new word within the wordsOnPage div
+
     var offsetTop = Math.floor((Math.random() * 500) + 1);
     var offsetLeft = Math.floor((Math.random() * 500) + 1);
     $(newDiv).css({position: "absolute"});
     newDiv.style.top = offsetTop + "px";
     newDiv.style.left = offsetLeft + "px";
 
+    // Assigns a randomly chosen color to the new word
+
     wordColor = chooseColor();
     $(newDiv).css({color: wordColor});
 
     $('#wordsonpage').append(newDiv);
 
+    // Animates word going slowly to the right of the screen, then disappearing and being removed
+    // from the array of words on the screen if it has not been typed by that point
+
     $(newDiv).animate({
         left: window.innerWidth
-    }, 5000, function() {
+    }, 10000, function() {
         $(newDiv).remove();
+        failedWord = newDiv.innerHTML;
+        removeWord(failedWord);
     });
 
 }
 
-// Randomly chooses a color for each new word.
+// Method to take a list out of the current available words (i.e. words that will give you points if you type them)
+// if the word has already been typed or has reached the right part of the screen.
+
+function removeWord(word) {
+    wordIndex = listOfCurrentWords.indexOf(word);
+    listOfCurrentWords.splice(wordIndex, 1);
+}
+
+// Method that randomly chooses a color for each new word.
 
 function chooseColor() {
     // These values are based on Crayola colors, of course.
@@ -100,17 +125,13 @@ function checkText(e) {
         // Augments the amount in the "words you got correct" textbox
         numberCorrect +=1;
         $('#correct').val(numberCorrect);
+        removeWord(correctWord);
+
+        // TODO: Figure out why removing the correctly typed word (and removing textbox value) isn't always working.
+        // Is it just slowness due to the animation?
+
     }
 }
-
-// Animating words moving across screen - the goal is to make them hit the right side of the screen
-
-// I think the syntax on this is right but how do I get it to continually animate all the child divs?
-// Not working at all currently but it is also not throwing any errors.
-
-// Also I checked and the childDiv class IS getting applied.
-
-
 
 // Listening event for reset button (other buttons also, to select level, etc?)
 
@@ -118,16 +139,11 @@ $('#reset').click(function() {
     location.reload();
 });
 
-// Remove word from screen if user didn't type it in time - make this final part of the animation
-
-// Create penalty for player if word on screen too long/hits right side of screen
-// Maybe if ANYTHING hits the right side of the screen they lose, and if they type all words that pop up they win that level?
-
-
 // * Advanced Features * //
-
-// Animate words to move across screen
 
 // Set level that will affect animation speed
 
 // Create win condition
+
+// Create penalty for player if word on screen too long/hits right side of screen
+// Maybe if ANYTHING hits the right side of the screen they lose, and if they type all words that pop up they win that level?
