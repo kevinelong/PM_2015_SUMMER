@@ -13,7 +13,7 @@ var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'm
     'razzmatazz', 'umber'];
 
 // TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
-// already on the screen - use alreadyOnScreen variable below and compare to -1
+// already on the screen - use alreadyOnScreen function below
 
 // Display words from list on screen (randomly selected)
 
@@ -26,10 +26,6 @@ function isAlreadyOnScreen(word) {
 function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
-    alreadyThere = isAlreadyOnScreen(currentWord);
-    //if (alreadyThere > -1) {
-    //
-    //}
 
     // Creates a new div with a class the same as the word
     // (the class will later be used to remove the word from the screen)
@@ -37,6 +33,7 @@ function addWord() {
     listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
+    newDiv.classList.add('wordsToType');
     newDiv.innerHTML = currentWord;
 
     // Creates a randomized position for each new word within the wordsOnPage div
@@ -59,7 +56,7 @@ function addWord() {
 
     $(newDiv).animate({
         left: window.innerWidth
-    }, 10000, function() {
+    }, 10000, 'linear', function() {
         $(newDiv).remove();
         failedWord = newDiv.innerHTML;
         removeWord(failedWord);
@@ -72,6 +69,7 @@ function addWord() {
 
 function removeWord(word) {
     wordIndex = listOfCurrentWords.indexOf(word);
+    console.log("Before: " + listOfCurrentWords);
     listOfCurrentWords.splice(wordIndex, 1);
 }
 
@@ -129,11 +127,16 @@ function checkText(e) {
 
         // TODO: Figure out why removing the correctly typed word (and removing textbox value) isn't always working.
         // Is it just slowness due to the animation?
+        // Is it at all related to the machine I'm currently using? Need other tester(s).
+        // Actually seems like after you get a few words correct, listOfCurrentWords becomes 1 value only? (or less
+        // than it should be anyway...
+        // Is this happening because I am splicing things out and pushing them in almost simultaneously?
+        // Is it something to do with splicing, changing indices??
 
     }
 }
 
-// Listening event for reset button (other buttons also, to select level, etc?)
+// Listening event for reset button
 
 $('#reset').click(function() {
     location.reload();
@@ -141,7 +144,7 @@ $('#reset').click(function() {
 
 // * Advanced Features * //
 
-// Set level that will affect animation speed
+// Set level that will affect animation speed (with more listening events and buttons that feed in values).
 
 // Create win condition
 

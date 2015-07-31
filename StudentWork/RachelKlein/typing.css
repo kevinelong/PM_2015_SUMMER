@@ -19,3 +19,16 @@ body {
 h1, p {
     color: white;
 }
+
+h1 {
+    font-family: 'Special Elite', cursive;
+}
+
+.wordsToType {
+    font-family: 'PT Mono', monospace;
+}
+
+p {
+    font-family: monospace;
+    font-size: 1.25em;
+}
