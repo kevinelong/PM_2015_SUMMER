@@ -11,6 +11,11 @@ with console.log*/
     right: 0;
 }
 
+#credits {
+    position: fixed;
+    top: 500px;
+}
+
 body {
     overflow: hidden;
     background-color: black;
