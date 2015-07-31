@@ -2,50 +2,61 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link href="css/main.css" rel="stylesheet">
+    <!--<link href="css/main.css" rel="stylesheet">-->
+
     <title>Skylark Grocer Online Shopping Form.</title>
+
 </head>
 <h1>Welcome to the Skylark Grocer online ordering form.</h1>
 
-<body>
-<form action='#' method='post' name='submitForm'>
-    <fieldset>
+<!--<body>-->
+<!--<form action='#' method='post' name='submitForm'>-->
+    <!--<fieldset>-->
         <h2>Some of our most popular weekly specials are below. Check back soon for more deals!</h2>
 
-        <div id="itemChoice" onclick="updateTotal()">
+        <!--<div id="itemChoice" onclick="updateTotal()">-->
             <p id="shoppingTag1">Local meat, dairy, eggs and bread:</p>
             <img src="img/beef.jpg" class="small" alt="Filet">
-            <div><input type="checkbox" value="8.99" id="filet"><label>9 oz. Filet</label></div><br>
+            <button class = "addCart" id="9 oz. Filet" value="8.99" ><label>Add to cart</label></button><br>
+            <button class = "removeCart" id="9 oz. Filet" value="8.99" ><label class="label">Remove from cart</label></button><br>
             <img src="img/swiss.jpg" class="small" alt="Swiss cheese">
-            <div><input type="checkbox" value="4.99" id="cheese"><label>Locally sourced Swiss cheese</label></div><br>
+            <button class = "addCart" value="4.99" id="Locally sourced swiss cheese"><label>Add to Cart</label></button><br>
+            <button class = "removeCart" value="4.99" id="cheese"><label class="label">Remove from cart</label></button><br>
+            <div><input class="boxes" type="checkbox" value="4.99" id="cheese"><label class="label">Locally sourced Swiss cheese</label></div><br>
             <img src="img/eggs.jpg" class="small" alt="Eggs">
-            <div><input type="checkbox" value="4.99" id="eggs"><label>Farm fresh eggs, 1 dozen</label></div><br>
+            <div><input class="boxes" type="checkbox" value="4.99" id="eggs"><label class="label">Farm fresh eggs, 1 dozen</label></div><br>
             <img src="img/bread.png" class="small" alt="Fresh baked bread">
-            <div><input type="checkbox" value="3.99" id="bread"><label>Fresh baked bread</label></div><br>
+            <div><input class="boxes" type="checkbox" value="3.99" id="bread"><label class="label">Fresh baked bread</label></div><br>
             <br>
 
             <p id="shoppingTag2">Fresh produce, local sundries:</p>
             <img src="img/green-bean.jpg" class="small" alt="Green beans">
-            <div><input type="checkbox" value="1.99" id="green_beans"><label>Fresh green beans (pd.)</label></div><br>
+            <div><input type="checkbox" value="1.99" id="green_beans"><label class="label">Fresh green beans (pd.)</label></div><br>
             <img src="img/raspberries.jpg" class="small" alt="Local raspberries">
-            <div><input type="checkbox" value="2.99" id="raspberries"><label>Local raspberries (pd.)</label></div><br>
+            <div><input type="checkbox" value="2.99" id="raspberries"><label class="label">Local raspberries (pd.)</label></div><br>
             <img src="img/chocolate.jpeg" class="small" alt="Fair trade chocolate">
-            <div><input type="checkbox" value="3.00" id="chocolate"><label>Fair trade chocolate</label></div><br>
+            <div><input type="checkbox" value="3.00" id="chocolate"><label class="label">Fair trade chocolate</label></div><br>
             <img src="img/coffee.jpg" class="small" alt="Fair trade chocolate">
-            <div><input type="checkbox" value="7.99" id="coffee"><label>Fair trade coffee (pd.)</label></div><br>
+            <div><input type="checkbox" value="7.99" id="coffee"><label class="label">Fair trade coffee (pd.)</label></div><br>
             <img src="img/wine.png" class="small" alt="Pinot Noir">
-            <div><input type="checkbox" value="9.99" id="wine"><label>Local Pinot Noir</label></div><br>
-        </div>
+            <div><input type="checkbox" value="9.99" id="wine"><label class="label">Local Pinot Noir</label></div><br>
+        <!--</div>-->
         <br>
 
-        <p>
-            <label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00"
-                                   readonly="readonly"/></label>
-        </p>
-        <button onclick= 'checkOut()'>Check Out</button>
-    </fieldset>
-</form>
+        <!--<p>-->
+            <!--<label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00"-->
+                                   <!--readonly="readonly"/></label>-->
+        <!--</p>-->
+
+<!--Insert CSS modal-->
+<button onclick= 'checkOut()'>Check Out</button>
+    <!--</fieldset>-->
+<!--</form>-->
+<div id="cartItems">
+
+</div>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>

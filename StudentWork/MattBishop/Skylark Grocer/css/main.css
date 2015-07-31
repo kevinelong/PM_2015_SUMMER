@@ -55,6 +55,7 @@ a:active {
 }
 
 /*Top navigation*/
+
 header li {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 12px;
@@ -73,10 +74,12 @@ header li {
 
 #whatMatters {
     margin-top: 40px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 #easyShopping {
     margin-top: 40px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /*Footer*/
@@ -88,6 +91,8 @@ font-family: Verdana, Geneva, sans-serif;
     width: 570px;
     padding: 10px;
     margin: 0 120px 0 120px;
+    position: relative;
+    top: 30px;
     text-align: center;
     display: inline;
     background-color: #55AA55;
@@ -95,7 +100,9 @@ font-family: Verdana, Geneva, sans-serif;
 }
 
 #bottom {
- border-top: solid green;
+    border-top: solid green;
+    position: relative;
+    top: 20px;
   }
 /**************************************
 PAGE: SHOPPING
@@ -108,3 +115,19 @@ img.small {
 
 #shoppingTag1 {}
 #shoppingTag2 {}
+
+/*bottom icons*/
+.social-icon {
+  width: 40px;
+  height: 35px;
+  margin: 10px 5px 10px 0;
+  ;
+}
+
+#icon_align {
+    position: relative;
+    top: 40px;
+    display: block;
+
+
+}
