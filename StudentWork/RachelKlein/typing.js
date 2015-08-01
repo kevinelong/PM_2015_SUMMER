@@ -12,16 +12,7 @@ var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'm
     'eggplant', 'cerise', 'jungle', 'pacific', 'denim', 'manatee', 'plum', 'timberwolf', 'maroon', 'vermillion',
     'razzmatazz', 'umber'];
 
-// TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
-// already on the screen - use alreadyOnScreen function below
-
 // Display words from list on screen (randomly selected)
-
-var listOfCurrentWords = [];
-
-function isAlreadyOnScreen(word) {
-    return listOfCurrentWords.indexOf(word);
-}
 
 function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
@@ -30,7 +21,6 @@ function addWord() {
     // Creates a new div with a class the same as the word
     // (the class will later be used to remove the word from the screen)
 
-    listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
     newDiv.classList.add('wordsToType');
@@ -58,19 +48,8 @@ function addWord() {
         left: window.innerWidth
     }, 10000, 'linear', function() {
         $(newDiv).remove();
-        failedWord = newDiv.innerHTML;
-        removeWord(failedWord);
     });
 
-}
-
-// Method to take a list out of the current available words (i.e. words that will give you points if you type them)
-// if the word has already been typed or has reached the right part of the screen.
-
-function removeWord(word) {
-    wordIndex = listOfCurrentWords.indexOf(word);
-    console.log("Before: " + listOfCurrentWords);
-    listOfCurrentWords.splice(wordIndex, 1);
 }
 
 // Method that randomly chooses a color for each new word.
@@ -106,33 +85,28 @@ var wordTiming = setInterval(function() {
 }, 2000);
 
 
-// Captures textbox input as user types and clears textbox when word match found in array
+// Calls checkText function as user types
 
 window.onkeyup = checkText;
 var inputTextValue;
 var numberCorrect = 0;
+
 function checkText(e) {
     inputTextValue = e.target.value;
-    var inArray = listOfCurrentWords.indexOf(inputTextValue);
-    // If word is typed correctly, any instances of that word on screen are removed
-    if (inArray > -1) {
-        var correctWord = $('#typing').val();
-        var wordClass = '.' + correctWord;
-        $(wordClass).remove();
-        $('#typing').val('');
-        // Augments the amount in the "words you got correct" textbox
-        numberCorrect +=1;
-        $('#correct').val(numberCorrect);
-        removeWord(correctWord);
-
-        // TODO: Figure out why removing the correctly typed word (and removing textbox value) isn't always working.
-        // Is it just slowness due to the animation?
-        // Is it at all related to the machine I'm currently using? Need other tester(s).
-        // Actually seems like after you get a few words correct, listOfCurrentWords becomes 1 value only? (or less
-        // than it should be anyway...
-        // Is this happening because I am splicing things out and pushing them in almost simultaneously?
-        // Is it something to do with splicing, changing indices??
-
+    // Finding all the words currently on the page
+    var words = document.getElementsByClassName('wordsToType');
+    console.log(words);
+    var typedWord = $('#typing').val();
+    for (var i = 0; i < words.length; i++) {
+        // If a word is correct, it gets removed from the page
+        if (words[i].innerHTML === typedWord) {
+            var wordClass = '.' + typedWord;
+            $(wordClass).remove();
+            $('#typing').val('');
+            // Augments the amount in the "words you got correct" textbox
+            numberCorrect +=1;
+            $('#correct').val(numberCorrect);
+        }
     }
 }
 
@@ -149,4 +123,5 @@ $('#reset').click(function() {
 // Create win condition
 
 // Create penalty for player if word on screen too long/hits right side of screen
-// Maybe if ANYTHING hits the right side of the screen they lose, and if they type all words that pop up they win that level?
+
+// Add your own words

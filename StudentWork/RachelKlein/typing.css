@@ -13,7 +13,7 @@ with console.log*/
 
 #credits {
     position: fixed;
-    top: 500px;
+    bottom: 0;
 }
 
 body {
