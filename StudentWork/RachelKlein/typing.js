@@ -2,7 +2,8 @@
  * Created by rachel on 7/22/15.
  */
 
-// * Basic Functionality * //
+// Typey Typey is my Javascript-based version of the game Typespeed. Enjoy!
+
 
 // List of words to be typed
 
@@ -18,8 +19,7 @@ function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
 
-    // Creates a new div with a class the same as the word
-    // (the class will later be used to remove the word from the screen)
+    // Creates a new div containing the randomly selected word
 
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
@@ -34,7 +34,7 @@ function addWord() {
     newDiv.style.top = offsetTop + "px";
     newDiv.style.left = offsetLeft + "px";
 
-    // Assigns a randomly chosen color to the new word
+    // Assigns a color to the new word
 
     wordColor = chooseColor();
     $(newDiv).css({color: wordColor});
@@ -55,7 +55,10 @@ function addWord() {
 // Method that randomly chooses a color for each new word.
 
 function chooseColor() {
+
     // These values are based on Crayola colors, of course.
+    // Taken from http://www.colourlovers.com/web/blog/2008/04/22/all-120-crayon-names-color-codes-and-fun-facts
+
     var colorValues = ['CD4A4A', 'CC6666', 'BC5D58', 'FF5349', 'FD5E53', 'FD7C6E', 'FDBCB4', 'FF6E4A', 'FFA089',
         'EA7E5D', 'B4674D', 'A5694F', 'FF7538', 'FF7F49', 'DD9475', 'FF8243', 'FFA474', '9F8170', 'CD9575',
         'EFCDB8', 'D68A59', 'DEAA88', 'FAA76C', 'FFCFAB', 'FFBD88', 'FDD9B5', 'FFA343', 'EFDBC5', 'FFB653',
@@ -73,7 +76,8 @@ function chooseColor() {
     return chosenColor;
 }
 
-// Delays new words appearing on page by two seconds and stops when there are as many words as values in the list.
+// Adds new words to the page with a delay of two seconds
+// and stops adding them when there are as many words as values in the list.
 
 var wordCounter = 0;
 var wordTiming = setInterval(function() {
@@ -90,6 +94,8 @@ var wordTiming = setInterval(function() {
 window.onkeyup = checkText;
 var inputTextValue;
 var numberCorrect = 0;
+
+// Compares user input with words currently on screen
 
 function checkText(e) {
     inputTextValue = e.target.value;
@@ -116,12 +122,8 @@ $('#reset').click(function() {
     location.reload();
 });
 
-// * Advanced Features * //
+// * More Features * //
 
-// Set level that will affect animation speed (with more listening events and buttons that feed in values).
+// Add ability to set level when game is started (different list of words will be chosen)
 
-// Create win condition
-
-// Create penalty for player if word on screen too long/hits right side of screen
-
-// Add your own words
+// Create penalty for player if word hits right side of screen
