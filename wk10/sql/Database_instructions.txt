@@ -1,0 +1,4 @@
+To create the TSQL2012 DB open the TSQL2012.sql in a SQL Engine editor and follow the instructions in it.
+
+To create the SOSAMPLE database, you will have to restore the DB, which is different for each ENGINE, and you will have to look up the directions. Sorry!
+
