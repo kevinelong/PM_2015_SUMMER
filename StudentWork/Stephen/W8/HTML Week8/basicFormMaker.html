@@ -3,6 +3,7 @@
 <head>
     <!-- The Bootstrap link-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The CSS link-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
@@ -47,16 +48,22 @@
     <h1>Shopping List</h1>
     <p>Create a Cool Shopping List Here</p>
 </div>
-<ul id="myList"><li>maple syrup</li><li>honey</li></ul>
+<ul id="myList"><li>Humus</li><li>Tzatziki</li></ul>
 <br>
 <br>
 
 <label id="newListItem">add new items here:</label>
 <input type="text" id="newLI">
 <br>
-<br>
 <button onclick="myFunction()" id="addButton">Add your item to the list </button>
-<button onclick="clearList()" id="clearList">** CLEAR LIST** </button>
+
+
+<br>
+<br>
+<br>
+<button onclick="clearList()" id="clearList">** CLEAR LAST ITEM** </button>
+<br>
+
 
 <script>
 function myFunction() {
