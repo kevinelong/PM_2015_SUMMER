@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Typey Typey</title>
+    <link href='http://fonts.googleapis.com/css?family=Special+Elite|PT+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="typing.css">
 </head>
 <body>
 
-<!--Add h1 in crayon font to replace this silly p-->
-<p>Welcome to my fun typing game!</p>
-<p>See how many words you can type in this box before they hit the right side of the screen.</p>
+<div>
+    <h1>Typey Typey: A Fun Game!</h1>
+    <p>See how many words you can type in the text box<br>before they hit the right side of the screen.</p>
 
-<div id="wordsonpage"></div>
-<div id="test">Hi!</div>
+    <div id="wordsonpage"></div>
 
-<input type="text" id="typing">
+    <p>Text goes here:</p>
+    <input type="text" id="typing"><br>
 
-<p>Number of words you typed right: </p>
-<input type="text" id="correct">
-<button id="reset">Reset Game</button>
+    <p>Number of words you typed right: </p>
+    <input type="text" id="correct">
+    <button id="reset">Reset Game</button>
+</div>
+
+<img src="slinky_rainbow.jpg" alt="Rainbow Slinky" style="width:304px;height:228px;">
+
+<div id="credits">
+<p>Based on the game <a href="https://www.youtube.com/watch?v=ENF_q-rRrcU&t=30s">Typespeed</a>.</p>
+<p>Thanks to <a href="http://www.colourlovers.com/web/blog/2008/04/22/all-120-crayon-names-color-codes-and-fun-facts">Colour Lovers</a>
+    for the Crayola-inspired color scheme.</p>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="typing.js"></script>

@@ -2,7 +2,8 @@
  * Created by rachel on 7/22/15.
  */
 
-// * Basic Functionality * //
+// Typey Typey is my Javascript-based version of the game Typespeed. Enjoy!
+
 
 // List of words to be typed
 
@@ -12,31 +13,17 @@ var wordList = ['mahogany', 'chestnut', 'melon', 'sepia', 'orange', 'copper', 'm
     'eggplant', 'cerise', 'jungle', 'pacific', 'denim', 'manatee', 'plum', 'timberwolf', 'maroon', 'vermillion',
     'razzmatazz', 'umber'];
 
-// TODO: Make it so word list values on screen choose randomly from this list but do not duplicate anything that's
-// already on the screen - use alreadyOnScreen variable below and compare to -1
-
 // Display words from list on screen (randomly selected)
-
-var listOfCurrentWords = [];
-
-function isAlreadyOnScreen(word) {
-    return listOfCurrentWords.indexOf(word);
-}
 
 function addWord() {
     var currentWordIndex = Math.floor((Math.random() * (wordList.length - 1)) + 1);
     var currentWord = wordList[currentWordIndex];
-    alreadyThere = isAlreadyOnScreen(currentWord);
-    //if (alreadyThere > -1) {
-    //
-    //}
 
-    // Creates a new div with a class the same as the word
-    // (the class will later be used to remove the word from the screen)
+    // Creates a new div containing the randomly selected word
 
-    listOfCurrentWords.push(currentWord);
     var newDiv = document.createElement('div');
     newDiv.classList.add(currentWord);
+    newDiv.classList.add('wordsToType');
     newDiv.innerHTML = currentWord;
 
     // Creates a randomized position for each new word within the wordsOnPage div
@@ -47,7 +34,7 @@ function addWord() {
     newDiv.style.top = offsetTop + "px";
     newDiv.style.left = offsetLeft + "px";
 
-    // Assigns a randomly chosen color to the new word
+    // Assigns a color to the new word
 
     wordColor = chooseColor();
     $(newDiv).css({color: wordColor});
@@ -59,26 +46,19 @@ function addWord() {
 
     $(newDiv).animate({
         left: window.innerWidth
-    }, 10000, function() {
+    }, 10000, 'linear', function() {
         $(newDiv).remove();
-        failedWord = newDiv.innerHTML;
-        removeWord(failedWord);
     });
 
-}
-
-// Method to take a list out of the current available words (i.e. words that will give you points if you type them)
-// if the word has already been typed or has reached the right part of the screen.
-
-function removeWord(word) {
-    wordIndex = listOfCurrentWords.indexOf(word);
-    listOfCurrentWords.splice(wordIndex, 1);
 }
 
 // Method that randomly chooses a color for each new word.
 
 function chooseColor() {
+
     // These values are based on Crayola colors, of course.
+    // Taken from http://www.colourlovers.com/web/blog/2008/04/22/all-120-crayon-names-color-codes-and-fun-facts
+
     var colorValues = ['CD4A4A', 'CC6666', 'BC5D58', 'FF5349', 'FD5E53', 'FD7C6E', 'FDBCB4', 'FF6E4A', 'FFA089',
         'EA7E5D', 'B4674D', 'A5694F', 'FF7538', 'FF7F49', 'DD9475', 'FF8243', 'FFA474', '9F8170', 'CD9575',
         'EFCDB8', 'D68A59', 'DEAA88', 'FAA76C', 'FFCFAB', 'FFBD88', 'FDD9B5', 'FFA343', 'EFDBC5', 'FFB653',
@@ -96,7 +76,8 @@ function chooseColor() {
     return chosenColor;
 }
 
-// Delays new words appearing on page by two seconds and stops when there are as many words as values in the list.
+// Adds new words to the page with a delay of two seconds
+// and stops adding them when there are as many words as values in the list.
 
 var wordCounter = 0;
 var wordTiming = setInterval(function() {
@@ -108,42 +89,41 @@ var wordTiming = setInterval(function() {
 }, 2000);
 
 
-// Captures textbox input as user types and clears textbox when word match found in array
+// Calls checkText function as user types
 
 window.onkeyup = checkText;
 var inputTextValue;
 var numberCorrect = 0;
+
+// Compares user input with words currently on screen
+
 function checkText(e) {
     inputTextValue = e.target.value;
-    var inArray = listOfCurrentWords.indexOf(inputTextValue);
-    // If word is typed correctly, any instances of that word on screen are removed
-    if (inArray > -1) {
-        var correctWord = $('#typing').val();
-        var wordClass = '.' + correctWord;
-        $(wordClass).remove();
-        $('#typing').val('');
-        // Augments the amount in the "words you got correct" textbox
-        numberCorrect +=1;
-        $('#correct').val(numberCorrect);
-        removeWord(correctWord);
-
-        // TODO: Figure out why removing the correctly typed word (and removing textbox value) isn't always working.
-        // Is it just slowness due to the animation?
-
+    // Finding all the words currently on the page
+    var words = document.getElementsByClassName('wordsToType');
+    console.log(words);
+    var typedWord = $('#typing').val();
+    for (var i = 0; i < words.length; i++) {
+        // If a word is correct, it gets removed from the page
+        if (words[i].innerHTML === typedWord) {
+            var wordClass = '.' + typedWord;
+            $(wordClass).remove();
+            $('#typing').val('');
+            // Augments the amount in the "words you got correct" textbox
+            numberCorrect +=1;
+            $('#correct').val(numberCorrect);
+        }
     }
 }
 
-// Listening event for reset button (other buttons also, to select level, etc?)
+// Listening event for reset button
 
 $('#reset').click(function() {
     location.reload();
 });
 
-// * Advanced Features * //
+// * More Features * //
 
-// Set level that will affect animation speed
+// Add ability to set level when game is started (different list of words will be chosen)
 
-// Create win condition
-
-// Create penalty for player if word on screen too long/hits right side of screen
-// Maybe if ANYTHING hits the right side of the screen they lose, and if they type all words that pop up they win that level?
+// Create penalty for player if word hits right side of screen
