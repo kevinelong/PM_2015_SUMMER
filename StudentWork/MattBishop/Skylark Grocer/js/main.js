@@ -1,45 +1,7 @@
-//Main Page
 
-//Shopping List
-
-
-//function attachCheckboxHandlers() {
-//    var el = document.getElementById('itemChoice');
-//    var items = el.getElementsByTagName('input');
-//    for (var i = 0, len = items.length; i < len; i++) {
-//        if (items[i].type === 'checkbox') {
-//            items[i].onclick = updateTotal;
-//        }
-//    }
-//}
-//
-//function updateTotal() {
-//    var form = this.form;
-//    var val = parseFloat(form['total'].value);
-//    if (this.checked) {
-//        val += parseFloat(this.value);
-//    } else {
-//        val -= parseFloat(this.value);
-//    }
-//
-//    // format val with correct number of decimal places
-//    // and use it to update value of total text box
-//    form.elements['total'].value = formatDecimal(val);
-//}
-//
-////format val to n number of decimal places
-////modified version of Danny Goodman's (JS Bible)
-//function formatDecimal(val, n) {
-//    n = n || 2;
-//    var str = "" + Math.round(parseFloat(val) * Math.pow(10, n));
-//    while (str.length <= n) {
-//        str = "0" + str;
-//    }
-//    var pt = str.length - n;
-//    return str.slice(0, pt) + "." + str.slice(pt);
-//}
-//
-//attachCheckboxHandlers();
+/**************************************
+PAGE: SHOPPING
+**************************************/
 
 var cart = [];
 var total = 0;
@@ -73,7 +35,6 @@ var removeItems = document.getElementsByClassName("removeCart");
 
 function checkOut() {
     console.log(cart);
-    //window.open("checkout.html");
     var html = "<ol>";
     var finalTotal = "<p>" + checkOutTotal() + "</p>";
     for (var i=0; i<cart.length; i++){
@@ -89,4 +50,7 @@ function checkOutTotal() {
     return total;
 }
 
+/**************************************
+PAGE: RECIPES
+**************************************/
 

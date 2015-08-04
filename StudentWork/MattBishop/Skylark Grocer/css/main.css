@@ -1,23 +1,82 @@
+/**************************************
+PAGE: MAIN
+**************************************/
+
 body {
     background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-wall-Seamless-Pattern-For-Website-Background.jpg")
 }
 
-a:link {
-    color: white;
+/*Logo*/
+
+#logo {
+    margin-left: 42.5%;
 }
 
-
-a:visited {
-    color: white;
+#topBorder {
+    border-bottom: solid green;
+    margin-bottom: 25px;
 }
 
-a:hover {
-    color: white;
+/*Search Bar*/
+
+#searchBar {
+    float: right;
+    position: relative;
+    bottom: 90px;
+    right: 100px;
+    border: solid green;
+    border-radius: 10%;
 }
 
-a:active {
+#searchButton {
+    float: right;
+    position: relative;
+    bottom: 90px;
+    left: 140px;
+    background-color: #55AA55;
     color: white;
+    border-radius: 20%;
 }
+
+/*Top navigation*/
+
+.navLinksHeader {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: lighter;
+    letter-spacing: 0.5em;
+    width: 150px;
+    padding: 10px;
+    display: inline;
+    background-color: #1C5F1C;
+    border-radius: 10px;
+}
+
+#navLinks {
+    text-align: center;
+}
+
+#navStore {
+    margin: auto 40px auto 40px;
+}
+
+#navRecipes {
+    margin: auto 40px auto 40px;
+}
+
+#navBlog {
+    margin: auto 40px auto 40px;
+}
+
+#navContact {
+    margin: auto 40px auto 40px;
+}
+
+.navLinksStyle {
+    color: white;
+    text-decoration: none;
+}
+
 
 /*Carousel*/
 
@@ -42,92 +101,221 @@ a:active {
     font: 16px;
 }
 
-
-/*Logo*/
-#logo {
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 10px 0;
+/*Info*/
+#whatMattersHeader {
+    margin: 40px 0 10px 10px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
-#top {
-    border-bottom: solid green;
+#whatMattersText {
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
 }
 
-/*Top navigation*/
+#easyShoppingHeader {
+    margin: 40px 0 10px 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
 
-header li {
+#easyShoppingText {
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+}
+
+/*NavLinksBottom*/
+.navLinksBottom {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 12px;
     font-weight: lighter;
     letter-spacing: 0.5em;
     width: 570px;
     padding: 10px;
-    position: relative;
-    top: 20px;
-    margin: 0 120px 0 120px;
-    text-align: center;
-    display: inline;
-    background-color: #1C5F1C;
-    border-radius: 10px;
-}
-
-#whatMatters {
-    margin-top: 40px;
-    font-family: 'Noto Sans', sans-serif;
-}
-
-#easyShopping {
-    margin-top: 40px;
-    font-family: 'Noto Sans', sans-serif;
-}
-
-/*Footer*/
-li {
-font-family: Verdana, Geneva, sans-serif;
-    font-size: 12px;
-    font-weight: lighter;
-    letter-spacing: 0.5em;
-    width: 570px;
-    padding: 10px;
-    margin: 0 120px 0 120px;
-    position: relative;
-    top: 30px;
-    text-align: center;
     display: inline;
     background-color: #55AA55;
     border-radius: 10px;
 }
 
-#bottom {
+#navLinksFooter {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#navHome {
+    margin: auto 60px auto 60px;
+}
+
+#navEmployment {
+    margin: auto 60px auto 60px;
+}
+
+#navContactUs {
+    margin: auto 60px auto 60px;
+}
+
+#navAbout {
+    margin: auto 60px auto 60px;
+}
+
+
+footer {
+  font-size: 1em;
+  text-align: center;
+  clear: both;
+  padding-top: 50px;
+  color: #6d899f;
+}
+
+#footerBorder {
     border-top: solid green;
-    position: relative;
-    top: 20px;
-  }
+    margin-bottom: 20px;
+}
+
+/*social icons*/
+.social-icon {
+  width: 30px;
+  height: 30px;
+  margin: 10px 10px;
+}
+
+/**************************************
+PAGE: ABOUT
+**************************************/
+
+#googleMap {
+    margin: auto;
+    border: solid green;
+    width:500px;
+    height:380px;
+}
+
+.aboutHeader {
+    margin: 40px 0 10px 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.aboutText {
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+}
+
+#produceCollage {
+    margin: 10px 0 20px 17.5%;
+    border: solid green;
+}
+
+#findUsHeader {
+    margin: 40px 0 10px 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/**************************************
+PAGE: CONTACT
+**************************************/
+
+#contactHeader {
+    margin: 40px 0 10px 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.contactText {
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+}
+
+.contactInfo {
+    width: 30px;
+    height: 30px;
+}
+
+.contactLinks {
+    text-decoration: none;
+    color: #6d899f;
+    margin: 0 15px;
+    font-size: large;
+}
+
+#formStyle {
+    display: inline-block;
+    font-family: 'Noto Sans', sans-serif;
+    margin-left: 10px;
+    padding: 2%;
+    border: solid green;
+}
+
+.inputForm, .textAreaForm {
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.textAreaForm {
+    height: 8em;
+}
+
+.radioForm {
+    margin: 5px 0;
+}
+
+#submitForm {
+    margin-top: 5px;
+    background-color: #55AA55;
+    color: white;
+    border-radius: 20%;
+}
 /**************************************
 PAGE: SHOPPING
 **************************************/
+.headerShopping {
+    font-family: 'Lora', serif;
+    margin: 40px 0 25px 0;
+}
 
 img.small {
-    width: 120px;
+    margin: 5px 0 5px 45%;
+    width: 130px;
     height: 100px;
 }
 
-#shoppingTag1 {}
-#shoppingTag2 {}
-
-/*bottom icons*/
-.social-icon {
-  width: 40px;
-  height: 35px;
-  margin: 10px 5px 10px 0;
-  ;
+#shoppingTag1 {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 40px 0;
+    text-align: center;
 }
 
-#icon_align {
+.productDescriptor {
+    font-family: 'Open Sans', sans-serif;
+    font-size: large;
+    text-align: center
+}
+
+.addCart {
+    margin: 5px 0 5px 42%;
+    background-color: #55AA55;
+    color: white;
+    border-radius: 20%;
     position: relative;
-    top: 40px;
-    display: block;
+    top: 30px;
+}
 
+.removeCart {
+    margin: 5px 0 5px 50%;
+    background-color: #55AA55;
+    color: white;
+    border-radius: 20%;
 
 }
+
+#shoppingTag2 {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 40px 0;
+    text-align: center;
+}
+
+#shoppingTotal {
+    margin: 10px 0 0 47%;
+}
+
+

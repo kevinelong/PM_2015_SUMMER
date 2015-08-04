@@ -4,39 +4,80 @@
     <meta charset="UTF-8">
     <link href="css/main.css" rel="stylesheet">
     <title>Skylark Grocer - The Best Green Grocer In Town</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="top">
-    <img id="logo" src="img/logo2.gif" alt="skylark grocery">
-</div>
+
+    <a href="main.html"><img id="logo" src="img/logo2.gif" alt="skylark grocery"></a>
+    <!-- Search Box -->
+    <form action="http://www.google.com">
+        <input id="searchBar" type="search" name="search" />
+        <input id="searchButton" type="submit" value="Search" />
+    </form>
+
+<div id="topBorder"></div>
+
 <header>
 <nav>
-    <ul>
-        <li id="nav_store"><a href="store.html">our store</a></li>
-        <li id="nav_recipes"><a href="recipes.html">recipes</a></li>
-        <li id="nav_blog"><a href="blog.html">blog</a></li>
-        <li id="nav_contact"><a href="contact.html">contact us</a></li>
+    <ul id="navLinks">
+        <li id="navStore" class="navLinksHeader"><a class="navLinksStyle" href="about.html">our store</a></li>
+        <li id="navRecipes" class="navLinksHeader"><a class="navLinksStyle" href="recipes.html">recipes</a></li>
+        <li id="navBlog" class="navLinksHeader"><a class="navLinksStyle" href="blog.html">blog</a></li>
+        <li id="navContact" class="navLinksHeader"><a class="navLinksStyle" href="contact.html">contact us</a></li>
     </ul>
 </nav>
 </header>
-<footer id="bottom">
-<ul>
-    <li>Home</li>
-    <li>Employment</li>
-    <li>Contact Us</li>
-    <li>About</li>
+
+<h1 id="contactHeader">Get in touch.</h1>
+<p class="contactText">Questions, comments, concerns? We love hearing from our guests and encourage everyone to reach
+out and let us know how we're doing. Have a product you'd like to see in our stores? Have a product you'd like to sell?
+Or how about just telling us about an outstanding job one of our associates helped you with? We're waiting to hear from
+you!</p>
+
+<img class="contactInfo" src="img/phone.png">
+<a class="contactLinks" href="tel:555-6425">503-555-5555</a>
+
+<img class="contactInfo" src="img/mail.png">
+<a class="contactLinks" href="mailto:example@example.com">example@example.com</a>
+
+
+<p class="contactText">If you prefer you can fill out the form below to get in touch. You can also sign up for our
+mailing list below!</p><br>
+
+<form id="formStyle">
+   Name:<br>
+   <input class="inputForm" type="text" name="name"><br>
+   Address (optional):<br>
+   <input class="inputForm" type="text" name="address"><br>
+   Phone number (optional):<br>
+   <input class="inputForm" type="text" name="phone"><br>
+   Email:<br>
+   <input class="inputForm" type="text" name="email"><br>
+   What can we help with today?<br>
+   <textarea class="textAreaForm"></textarea><br>
+   Would you like to sign up for mailing list?<br>
+   <input class="radioForm" type="radio" name="radioY" value="yes" checked>Yes<br>
+   <input class="radioForm" type="radio" name="radioN" value="no">No<br>
+   <button id="submitForm" type="submit">Send</button>
+</form>
+
+<ul id="navLinksFooter">
+    <li id="navHome" class="navLinksBottom"><a class="navLinksStyle" href="main.html">Home</a></li>
+    <li id="navEmployment" class="navLinksBottom"><a class="navLinksStyle" href="employment.html">Employment</a></li>
+    <li id="navContactUs" class="navLinksBottom"><a class="navLinksStyle" href="contact.html">Contact Us</a></li>
+    <li id="navAbout" class="navLinksBottom"><a class="navLinksStyle" href="about.html">About</a></li>
 </ul>
 
-<div id="icon_align">
+<footer>
+<div id="footerBorder"></div>
+<div>
+<p>&copy; 2015 Skylark Grocery</p>
 <a href="http://twitter.com"><img src="img/twitter.png" alt="Twitter Logo" class="social-icon"></a>
-    <a href="http://facebook.com"><img src="img/facebook.png" alt="Facebook Logo" class="social-icon"></a>
-    <a href="http://instagram.com"><img src="img/instagram.png" alt="Instagram Logo" class="social-icon"></a>
+<a href="http://facebook.com"><img src="img/facebook.png" alt="Facebook Logo" class="social-icon"></a>
+<a href="http://instagram.com"><img src="img/instagram.png" alt="Instagram Logo" class="social-icon"></a>
 </div>
+
 </footer>
 </body>
 <script src="js/main.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>>
 </html>

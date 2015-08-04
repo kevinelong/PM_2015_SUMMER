@@ -2,59 +2,111 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <!--<link href="css/main.css" rel="stylesheet">-->
-
-    <title>Skylark Grocer Online Shopping Form.</title>
-
+    <link href="css/main.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans' rel='stylesheet' type='text/css'>
+    <title>Skylark Grocer Online Shopping Form</title>
 </head>
-<h1>Welcome to the Skylark Grocer online ordering form.</h1>
+<body>
+<div id="topBorder">
+    <a href="main.html"><img id="logo" src="img/logo2.gif" alt="skylark grocery"></a>
+    <!-- Search Box -->
+    <form action="http://www.google.com">
+        <input id="searchBar" type="search" name="search" />
+        <input id="searchButton" type="submit" value="Search" />
+    </form>
+</div>
+<header>
+<nav>
+    <ul id="navLinks">
+        <li id="navStore" class="navLinksHeader"><a class="navLinksStyle" href="about.html">our store</a></li>
+        <li id="navRecipes" class="navLinksHeader"><a class="navLinksStyle" href="recipes.html">recipes</a></li>
+        <li id="navBlog" class="navLinksHeader"><a class="navLinksStyle" href="blog.html">blog</a></li>
+        <li id="navContact" class="navLinksHeader"><a class="navLinksStyle" href="contact.html">contact us</a></li>
+    </ul>
+</nav>
+</header>
+<h1 class="headerShopping">Welcome to the Skylark Grocer online ordering form.</h1>
 
-<!--<body>-->
-<!--<form action='#' method='post' name='submitForm'>-->
-    <!--<fieldset>-->
-        <h2>Some of our most popular weekly specials are below. Check back soon for more deals!</h2>
 
-        <!--<div id="itemChoice" onclick="updateTotal()">-->
+        <h2 class="headerShopping">Some of our most popular weekly specials are below. Check back soon for more deals!</h2>
+
             <p id="shoppingTag1">Local meat, dairy, eggs and bread:</p>
-            <img src="img/beef.jpg" class="small" alt="Filet">
-            <button class = "addCart" id="9 oz. Filet" value="8.99" ><label>Add to cart</label></button><br>
-            <button class = "removeCart" id="9 oz. Filet" value="8.99" ><label class="label">Remove from cart</label></button><br>
-            <img src="img/swiss.jpg" class="small" alt="Swiss cheese">
-            <button class = "addCart" value="4.99" id="Locally sourced swiss cheese"><label>Add to Cart</label></button><br>
-            <button class = "removeCart" value="4.99" id="cheese"><label class="label">Remove from cart</label></button><br>
-            <div><input class="boxes" type="checkbox" value="4.99" id="cheese"><label class="label">Locally sourced Swiss cheese</label></div><br>
-            <img src="img/eggs.jpg" class="small" alt="Eggs">
-            <div><input class="boxes" type="checkbox" value="4.99" id="eggs"><label class="label">Farm fresh eggs, 1 dozen</label></div><br>
-            <img src="img/bread.png" class="small" alt="Fresh baked bread">
-            <div><input class="boxes" type="checkbox" value="3.99" id="bread"><label class="label">Fresh baked bread</label></div><br>
-            <br>
 
-            <p id="shoppingTag2">Fresh produce, local sundries:</p>
-            <img src="img/green-bean.jpg" class="small" alt="Green beans">
-            <div><input type="checkbox" value="1.99" id="green_beans"><label class="label">Fresh green beans (pd.)</label></div><br>
-            <img src="img/raspberries.jpg" class="small" alt="Local raspberries">
-            <div><input type="checkbox" value="2.99" id="raspberries"><label class="label">Local raspberries (pd.)</label></div><br>
-            <img src="img/chocolate.jpeg" class="small" alt="Fair trade chocolate">
-            <div><input type="checkbox" value="3.00" id="chocolate"><label class="label">Fair trade chocolate</label></div><br>
-            <img src="img/coffee.jpg" class="small" alt="Fair trade chocolate">
-            <div><input type="checkbox" value="7.99" id="coffee"><label class="label">Fair trade coffee (pd.)</label></div><br>
-            <img src="img/wine.png" class="small" alt="Pinot Noir">
-            <div><input type="checkbox" value="9.99" id="wine"><label class="label">Local Pinot Noir</label></div><br>
-        <!--</div>-->
+            <p class="productDescriptor">Locally sourced, pasture raised beef on special - <i>8.99 per 9 oz. filet</i></p>
+            <img src="img/beef.gif" class="small" alt="Filet">
+            <button class ="addCart" id="9 oz. Filet" value="8.99" ><label>Add to cart</label></button><br>
+            <button class ="removeCart" id="9 oz. Filet" value="8.99" ><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Locally sourced swiss cheese - <i>4.99 per pd.</i></p>
+            <img src="img/swiss.gif" class="small" alt="Swiss cheese">
+            <button class = "addCart" id="Locally sourced swiss cheese" value="4.99"><label>Add to Cart</label></button><br>
+            <button class = "removeCart" id="Locally sourced swiss cheese" value="4.99"><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Farm fresh eggs - <i>4.99 per dozen</i></p>
+            <img src="img/eggs.gif" class="small" alt="Eggs">
+            <button class="addCart" id="Farm fresh eggs, 1 dozen" value="4.99" ><label class="label">Add to Cart</label></button><br>
+            <button class = "removeCart" id="Farm fresh eggs, 1 dozen" value="4.99"><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Fresh baked bread - <i>3.99 each</i></p>
+            <img src="img/bread.png" class="small" alt="Fresh baked bread">
+            <button class="addCart" id="Fresh baked bread" value="3.99"><label class="label">Add to Cart</label></button><br>
+            <button class = "removeCart" id="Fresh baked bread" value="3.99"><label class="label">Remove from cart</label></button><br>
         <br>
 
-        <!--<p>-->
-            <!--<label>Total: $ <input type="text" name="total" class="num" size="6" value="0.00"-->
-                                   <!--readonly="readonly"/></label>-->
-        <!--</p>-->
+            <p id="shoppingTag2">Fresh produce, local sundries:</p>
+
+            <p class="productDescriptor">Fresh green beans - <i>1.99 per pd.</i></p>
+            <img src="img/green-bean.gif" class="small" alt="Green beans">
+            <button class = "addCart" id="Fresh green beans (pd.)" value="1.99" ><label class="label">Add to cart</label></button><br>
+            <button class = "removeCart" id="Fresh green beans (pd.)" value="1.99" ><label class="label"></label>Remove from cart</button><br>
+
+            <p class="productDescriptor">Local raspberries - <i>2.99 per pd.</i></p>
+            <img src="img/raspberries.gif" class="small" alt="Local raspberries">
+            <button class = "addCart" id="Local raspberries (pd.)" value="2.99"><label class="label">Add to cart</label></button><br>
+            <button class = "removeCart" id="Local raspberries (pd.)" value="2.99"><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Fair trade chocolate - <i>3.00 each</i></p>
+            <img src="img/choclate.gif" class="small" alt="Fair trade chocolate">
+            <button class = "addCart" id="Fair trade chocolate" value="3.00"><label class="label">Add to cart</label></button><br>
+            <button class = "removeCart" id="Fair trade chocolate" value="3.00"><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Fair trade coffee - <i>7.99 per pd.</i></p>
+            <img src="img/coffee.gif" class="small" alt="Fair trade chocolate">
+            <button class="addCart" id="Fair trade coffee (pd.)" value="7.99"><label class="label">Add to cart</label></button><br>
+            <button class="removeCart" id="Fair trade coffee (pd.)" value="7.99"><label class="label">Remove from cart</label></button><br>
+
+            <p class="productDescriptor">Local pinot noir - <i>9.99 each</i></p>
+            <img src="img/wine.png" class="small" alt="Pinot Noir">
+            <button class="addCart"  id="Local Pinot Noir" value="9.99"><label class="label">Add to cart</label></button><br>
+            <button class="removeCart" id="Local Pinot Noir" value="9.99"><label class="label">Remove from cart</label></button><br>
+        <br>
+
 
 <!--Insert CSS modal-->
-<button onclick= 'checkOut()'>Check Out</button>
-    <!--</fieldset>-->
-<!--</form>-->
-<div id="cartItems">
+<button id="shoppingTotal" onclick= 'checkOut()'>Check Out</button>
 
+<div id="cartItems"></div>
+
+<ul id="navLinksFooter">
+    <li id="navHome" class="navLinksBottom"><a class="navLinksStyle" href="main.html">Home</a></li>
+    <li id="navEmployment" class="navLinksBottom"><a class="navLinksStyle" href="employment.html">Employment</a></li>
+    <li id="navContactUs" class="navLinksBottom"><a class="navLinksStyle" href="contact.html">Contact Us</a></li>
+    <li id="navAbout" class="navLinksBottom"><a class="navLinksStyle" href="about.html">About</a></li>
+</ul>
+
+
+
+<footer>
+<div id="footerBorder"></div>
+<div>
+<p>&copy; 2015 Skylark Grocery</p>
+<a href="http://twitter.com"><img src="img/twitter.png" alt="Twitter Logo" class="social-icon"></a>
+<a href="http://facebook.com"><img src="img/facebook.png" alt="Facebook Logo" class="social-icon"></a>
+<a href="http://instagram.com"><img src="img/instagram.png" alt="Instagram Logo" class="social-icon"></a>
 </div>
+
+</footer>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
 
