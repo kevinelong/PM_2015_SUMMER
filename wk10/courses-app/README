@@ -1,0 +1,4 @@
+These two files were made on Tuesday August 4 as part of a demonstration of a
+courses app. The app models some courses as part of a university. Also included
+is the admin.py file that shows how to get these models to show up in the admin
+pages.
