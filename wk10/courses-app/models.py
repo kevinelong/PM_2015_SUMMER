@@ -15,6 +15,10 @@ class Faculty(models.Model):
     def __unicode__(self):
         return 'Faculty: {}'.format(self.name)
 
+    class Meta:
+        # instead of calling them "Facultys"
+        verbose_name_plural = 'Faculties'
+
 
 class Department(models.Model):
     name = models.CharField(
