@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'polls',
     'courses',
     'commentbox',
+    'shirtstore',
 )
 
 MIDDLEWARE_CLASSES = (

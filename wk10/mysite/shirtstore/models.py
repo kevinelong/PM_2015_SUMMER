@@ -41,4 +41,4 @@ class Store(models.Model):
     available_shirts = models.ManyToManyField(Shirt)
 
     def __unicode__(self):
-        return self.name
+        return '{} store'.format(self.name)
