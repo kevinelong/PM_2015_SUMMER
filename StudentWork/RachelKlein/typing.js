@@ -30,9 +30,9 @@ function addWord() {
 
     var offsetTop = Math.floor((Math.random() * 500) + 1);
     var offsetLeft = Math.floor((Math.random() * 500) + 1);
-    $(newDiv).css({position: "absolute"});
-    newDiv.style.top = offsetTop + "px";
-    newDiv.style.left = offsetLeft + "px";
+    $(newDiv).css({position: 'absolute'});
+    newDiv.style.top = offsetTop + 'px';
+    newDiv.style.left = offsetLeft + 'px';
 
     // Assigns a color to the new word
 
@@ -72,7 +72,7 @@ function chooseColor() {
         'FDD7E4', 'CA3767', 'DE5D83', 'FC89AC', 'F780A1', 'C8385A', 'EE204D', 'FF496C', 'EF98AA', 'FC6C85',
         'FC2847', 'FF9BAA', 'CB4154', 'DBD7D2', 'CDC5C2', '95918C'];
     var colorIndex = Math.floor((Math.random() * (colorValues.length - 1)) + 1);
-    chosenColor = "#" + colorValues[colorIndex];
+    chosenColor = '#' + colorValues[colorIndex];
     return chosenColor;
 }
 
@@ -121,9 +121,3 @@ function checkText(e) {
 $('#reset').click(function() {
     location.reload();
 });
-
-// * More Features * //
-
-// Add ability to set level when game is started (different list of words will be chosen)
-
-// Create penalty for player if word hits right side of screen
