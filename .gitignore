@@ -105,4 +105,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 # django databases
-db.sqlite3
+*.sqlite3
