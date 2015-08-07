@@ -15,3 +15,21 @@ def index(request):
         'There are currently {} comment(s). Their text is: {}'.format(
             total_comments, texts)
     )
+
+
+def comment_page(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+    else:
+        form = CommentForm()
+
+    context = {
+        'comments': CommentBox.objects.all(),
+        'form': form,
+    }
+    context.update(csrf(request))
+
+    return render_to_response(
+        'comment_return.html',
+        context=context,
+    )

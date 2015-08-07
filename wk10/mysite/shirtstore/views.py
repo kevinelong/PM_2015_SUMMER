@@ -6,8 +6,14 @@ from .models import Store
 def availability(request):
 
     stores_list = []
-    for store in Store.objects.iterator():
+    for store in Store.objects.all():
         shirts = ', '.join([str(s) for s in store.available_shirts.iterator()])
+
+        # alternatively
+        # shirts = ''
+        # for shirt in store.available_shirts.all():
+        #     shirts += ', {} '.format(shirt)
+
         store_availability_text = '{} has these shirts: {}'.format(
             store, shirts
         )
