@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'courses',
     'commentbox',
     'shirtstore',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (

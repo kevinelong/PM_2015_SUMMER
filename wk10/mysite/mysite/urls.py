@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^commentbox/', include('commentbox.urls')),
     url(r'^shirtstore/', include('shirtstore.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('accounts.urls')),
 ]
