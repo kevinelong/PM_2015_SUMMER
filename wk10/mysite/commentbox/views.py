@@ -1,7 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.core.urlresolvers import reverse
+from django.template.context_processors import csrf
 
 from .models import CommentBox
-
+from .forms import CommentForm
 
 def index(request):
     total_comments = CommentBox.objects.count()
@@ -20,6 +23,9 @@ def index(request):
 def comment_page(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('comment_page'))
     else:
         form = CommentForm()
 

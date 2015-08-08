@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="outside">
+    {% for comment in comments %}
+        <div class="rawr {{ comment.approved }}">
+            {{ comment.comment_text }}
+        </div>
+    {% endfor %}
+
+    Add a comment:
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+            var rawr = $('.rawr');
+            var rawrFalse = $('.False');
+            var rawrTrue = $('.True');
+            var rawrFalseColor = rawrFalse.css('background-color');
+            var rawrTrueColor = rawrTrue.css('background-color');
+            rawr.on('mouseover', function() {
+                $(this).css('background-color', 'black');
+            });
+            rawrTrue.on('mouseleave', function() {
+                $(this).css('background-color', rawrTrueColor);
+            });
+            rawrFalse.on('mouseleave', function() {
+                $(this).css('background-color', rawrFalseColor);
+            });
+        }
+    );
+</script>
+</html>
