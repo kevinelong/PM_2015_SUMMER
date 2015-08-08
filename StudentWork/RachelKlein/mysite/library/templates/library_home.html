@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shh, This Is a Library!!!</title>
+    <link href="../static/style.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Welcome to the PDX Code Guild Library!</h1>
+
+<div id="summer">Click here if you love the summer reading program!</div>
+{% for book in books %}
+    {% if book.is_checked_out %}
+        <div class="checkedout">
+        {{ book.name }}
+        </div>
+    {% else %}
+        <div class="notcheckedout">
+        {{ book.name }}
+        </div>
+    {% endif %}
+
+{% endfor %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../static/library.js"></script>
+</body>
+</html>

@@ -23,7 +23,8 @@ class Book(models.Model):
     )
 
     def is_checked_out(self):
-        if Checkout.objects.filter(checkout_book=self, checkin_date__isnull=True).exists():
+        if Checkout.objects.filter(checkout_book=self).exists():
+            # checkin_date__isnull=True should be argument when we get that working
             return True
         else:
             return False
@@ -33,10 +34,9 @@ class Book(models.Model):
 
 class Checkout(models.Model):
     checkout_date = models.DateTimeField('date checked out')
-    checkin_date = models.DateTimeField(
-        'date checked in'
-        # Can this be null by default?
-    )
+    # checkin_date = models.DateTimeField(
+    #     'date checked in'
+    # )
     checkout_patron = models.ForeignKey(
         'Patron',
         null='True', blank='True',
