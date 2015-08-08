@@ -15,11 +15,12 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7e#&79fgtxoq0+0h&6pyw@k#cse!3%vy227!1ty^hvff%hja&g'
+SECRET_KEY = '8=nngmhexyp$wl(_7dilt07k01n0x!ps$w7wgu^ep@zdwu$dvc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,8 +43,8 @@ INSTALLED_APPS = (
     'polls',
     'courses',
     'commentbox',
+    'tinytoilet',
     'shirtstore',
-    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,6 +89,7 @@ DATABASES = {
     }
 }
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -107,5 +109,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
-
-DJANGO_SETTINGS_MODULE = 'mysite.settings'

@@ -1,15 +1,24 @@
-from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Shirt, Store
 
-def index(request):
+from .models import Store
 
-    all_shirts_everywhere = ''
+
+def availability(request):
+
+    stores_list = []
     for store in Store.objects.all():
-        list_of_shirts = ''
-        for shirt in store.available_shirts.all():
-            list_of_shirts += ("<br>" + shirt.style_name)
-        store_inventory = 'At the {}, these shirts are available: {} '.format(store, list_of_shirts)
-        all_shirts_everywhere += ("<br>" + store_inventory)
+        shirts = ', '.join([str(s) for s in store.available_shirts.iterator()])
 
-    return HttpResponse("Hi! Welcome to the shirt store. {}".format(all_shirts_everywhere))
+        # alternatively
+        # shirts = ''
+        # for shirt in store.available_shirts.all():
+        #     shirts += ', {} '.format(shirt)
+
+        store_availability_text = '{} has these shirts: {}'.format(
+            store, shirts
+        )
+        stores_list.append(store_availability_text)
+
+    return HttpResponse(
+        'Here are the shirts available by store:<br/><br/>' + '<br/>'.join(stores_list)
+    )
