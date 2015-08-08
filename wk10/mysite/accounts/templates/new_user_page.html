@@ -3,14 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Add user</title>
+    <style>
+        body {
+            background-color: tomato;
+            color: honeydew;
+        }
+        div {
+            margin: 10%;
+            text-align: center;
+
+        }
+        h1 {
+            font-size: 150%;
+        }
+        form {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .helptext {
+            font-size: 70%;
+            font-style: italic;
+            color: darkmagenta;
+        }
+        .errorlist {
+            color: darkred;
+            list-style-type: none;
+            margin-bottom: 0;
+        }
+        p {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-
+<div>
+<h1><strong>Create a user account</strong></h1>
 <form method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit">
 </form>
+    <a href="{% url 'comment_page' %}">return to comments page</a>
+</div>
+
 
 </body>
 </html>

@@ -31,7 +31,7 @@ def comment_page(request):
 
     context = {
         'comments': CommentBox.objects.all(),
-        'form': form,
+        'form': form.as_p(),
     }
     context.update(csrf(request))
 

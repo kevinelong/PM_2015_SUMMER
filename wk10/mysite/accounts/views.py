@@ -11,12 +11,12 @@ def add_user(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('add_user'))
+            return HttpResponseRedirect(reverse('comment_page'))
     else:
         form = NewUserForm()
 
     context = {
-        'form': form,
+        'form': form.as_p(),
     }
     context.update(csrf(request))
 
