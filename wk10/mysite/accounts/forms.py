@@ -39,7 +39,7 @@ class NewUserForm(forms.ModelForm):
             raise forms.ValidationError(
                 'Username must be between 6 and 12 characters long')
         elif not username.isalnum():
-            raise forms.ValidationError('Username must be letters and numbers only')
+            raise forms.ValidationError('Username must be letters and numbers only.')
         return username
 
     def clean_passwd2(self):
@@ -47,7 +47,7 @@ class NewUserForm(forms.ModelForm):
         passwd2 = self.cleaned_data['passwd2']
         if passwd1 != passwd2:
             raise forms.ValidationError(
-                'Passwords do not match'
+                'Passwords do not match.'
             )
         return passwd2
 
