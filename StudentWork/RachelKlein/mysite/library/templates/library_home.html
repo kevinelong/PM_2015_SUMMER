@@ -8,6 +8,12 @@
 <body>
 
 <h1>Welcome to the PDX Code Guild Library!</h1>
+<p>What book do you want to see on our shelves?</p>
+    <form method="post">
+        {%  csrf_token %}
+        {{ form }}
+        <input type="submit" value="This book!">
+    </form>
 
 <div id="summer">Click here if you love the summer reading program!</div>
 {% for book in books %}
