@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Are cats better than dogs?</h1>
+
+<form name="'pollForm">
+    Yes
+    <input type="radio" name="vote" value="yes">
+    No
+    <input type="radio" name="vote" value="no">
+    Undecided
+    <input type="radio" name="vote" value="undecided">
+
+    <button type="submit" onclick="vote(pollForm)">Vote!</button>
+
+</form>
+<script>
+
+    function Poll(question) {
+        this.yays = 0;
+        this.nays = 0;
+        this.undecided = 0;
+        this.getResults = function() {
+            if (this.yays > this.nays) {
+                return 'yays';
+            } else if (this.nays > this.yays) {
+                return 'nays';
+            } else {
+                return 'tie';
+            }
+        };
+    }
+
+    var myPoll = new Poll('Are cats better than dogs?');
+
+    function vote(form) {
+        var userVote = form.vote.value;
+        console.log
+    }
+//    myPoll.yays ++; //increments yays by 1
+</script>
+</body>
+</html>

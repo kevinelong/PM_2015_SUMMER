@@ -12,7 +12,7 @@ var deDupping = function(someArray) {
         }
     }
     return newArray;
-}
+};
 
 var isInArray = function(anArray, value) {
     var counter = 0;
@@ -23,7 +23,7 @@ var isInArray = function(anArray, value) {
             }
    }
     return false;
-}
+};
 
 console.log(mantaRay);
 var newMantaRay = deDupping(mantaRay);

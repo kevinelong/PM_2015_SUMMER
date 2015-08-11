@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name= 'submitForm' onsubmit="return validateEmail()">
+First name:<br>
+<input type="text" name="firstname" id="firstname" required>
+<br>
+Last name:<br>
+<input type="text" name="lastname" id="lastname" required>
+<br>
+Email:<br>
+<input type="text" name="email" id="email">
+<br>
+Confirm email address:<br>
+<input type="text" name="confirmEmail" id="confirmEmail">
+<br>
+Billing Address:<br>
+<input type="text" name="billing" id="billing" required><br>
+<br>
+<input type="checkbox" name="check" value="check" onclick='checkedMailing()'> Click here if your mailing address is same as your billing address<br>
+<br>
+Mailing Address:<br>
+<input type="text" name="mailing" id="mailing"><br>
+<br>
+<br>
+<button>Submit</button>
+</form>
+
+<script>
+
+    function checkedMailing() {
+        if(check.check.checked === true){
+            document.submitForm.mailing.value = document.submitForm.billing.value
+        }
+    }
+
+    function validateEmail() {
+        var email = document.submitForm.email.value;
+        var confirmEmail = document.submitForm.confirmEmail.value;
+        if (email === '') {
+            alert('Please enter a valid email address.');
+            return false;
+        } else if (email !== confirmEmail) {
+            alert('Your email entries do not match.');
+            return false;
+        }
+        return true;
+    }
+
+
+    function callBoth() {
+        checkedMailing();
+        validateEmail()
+    }
+
+
+</script>
+</body>
+</html>
