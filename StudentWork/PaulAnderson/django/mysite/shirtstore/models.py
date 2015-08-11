@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Shirt(models.Model):
     COLOR_CHOICES = (
         ('RED', 'Red'),

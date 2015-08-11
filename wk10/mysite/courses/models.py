@@ -58,7 +58,6 @@ class Student(models.Model):
     )
     courses = models.ManyToManyField(
         'Course',
-        null=True, blank=True,
     )
 
     def __unicode__(self):

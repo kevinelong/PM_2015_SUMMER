@@ -15,6 +15,11 @@ class CommentBox(models.Model):
     blog_post = models.ForeignKey('BlogPost')
     user = models.ForeignKey(User)
 
+    def __unicode__(self):
+        return 'Comment {} on post "{}"'.format(
+            self.id, self.blog_post
+        )
+
 
 class BlogPost(models.Model):
     POLITICAL_PARTY_CHOICES = (
@@ -23,9 +28,13 @@ class BlogPost(models.Model):
         ('OTH', 'Other'),
     )
 
+    blog_title = models.CharField(max_length=20, default='Untitled')
     blog_text = models.TextField()
     political_party = models.CharField(
         choices=POLITICAL_PARTY_CHOICES,
         max_length=15,
         default='OTH',
     )
+
+    def __unicode__(self):
+        return self.blog_title
