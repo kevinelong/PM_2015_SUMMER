@@ -36,7 +36,7 @@ class Clue(models.Model):
     number = models.IntegerField(help_text='The location of the clue on the board')
 
     def __unicode__(self):
-        return '{} {}'.format(self.number, self.direction_display)
+        return '{} {}'.format(self.number, self.get_direction_display())
 
 
 class PuzzleBoard(models.Model):
