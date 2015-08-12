@@ -16,35 +16,35 @@ are described below.
 
 Programming Skills
 ------------------
-_Django_ 20pts: Demonstrate ability to create a web application using the Django
+**Django** (20pts): Demonstrate ability to create a web application using the Django
 framework
 
-_JavaScript_ 10pts: Make the page dynamic by writing custom JavaScript. Copying from
+**JavaScript** (10pts): Make the page dynamic by writing custom JavaScript. Copying from
 the internet is not enough. Using Bootstrap's built in JavaScript libraries is
 not enough. Consider the following ideas:
-#.  List items that change color on hover
-#.  Drop down menus
-#.  JQuery animations when a form is submitted
+  #.  List items that change color on hover
+  #.  Drop down menus
+  #.  JQuery animations when a form is submitted
 
-_CSS_ 10pts: Include quality CSS to ensure the website has a professional look and
+**CSS** (10pts): Include quality CSS to ensure the website has a professional look and
 feel.
 
-_HTML_ 5pts and _python_ 20pts: It is assumed that as part of using Django you will be
+**HTML** (5pts) and **python** (20pts): It is assumed that as part of using Django you will be
 able to demonstrate competence in these.
 
-_Unittests_ 5pts: Include unittests as part of your code base. At least one file
+**Unittests** (5pts): Include unittests as part of your code base. At least one file
 with at least 5 tests is required. All tests must pass.
 
-_Git_ 10pts: The project is tracked in GitHub in a separate repository. Commits are
+**Git** (10pts): The project is tracked in GitHub in a separate repository. Commits are
 created at reasonable intervals to demonstrate progress. Consider creating at
 least one commit per class day.
 
 
 Soft Skills
 -----------
-_Completeness_ 10pts: The project must be complete. All forms completed. All links
-work.
+**Completeness** (10pts): The project must be complete. All forms completed. All links
+work. Code is bug free.
 
-_Project Proposal_ 10pts: The proposal doc was turned in on time and met the
+**Project Proposal** (10pts): The proposal doc was turned in on time and met the
 standards of a professional design document. The project follows this design
 and does not stray from it without a change to the proposal doc.
