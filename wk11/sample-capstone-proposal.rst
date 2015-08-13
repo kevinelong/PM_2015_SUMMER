@@ -2,7 +2,7 @@ Sample Capstone Proposal
 ------------------------
 
 *In this sample proposal, I will be using my Audition Magician idea. Use this
-document as a guild while creating your own. Text that is in italics are
+document as a guide while creating your own. Text that is in italics are
 comments on each section of the proposal. Non-italic text is my actual proposal
 text.*
 
