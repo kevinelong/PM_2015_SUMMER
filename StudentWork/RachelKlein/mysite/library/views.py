@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book, Checkout
+from django.shortcuts import render_to_response
 
 def index(request):
 
@@ -21,8 +22,21 @@ def index(request):
 
     return HttpResponse(
 
-        # "{} books are currently checked out. And you could check out one too, for example: {}".format(
-        #     things_checked_out, books)
+        "{} books are currently checked out. And you could check out one too, for example: {}".format(
+            things_checked_out, books)
 
-        "If you want to remind your friends when to bring their books back, here's some helpful info: {}".format(reminders)
+        # "If you want to remind your friends when to bring their books back, here's some helpful info: {}".format(reminders)
 )
+
+def library(request):
+
+    books = []
+    for book in Book.objects.all():
+        books.append(book)
+
+    return render_to_response(
+        'library_home.html',
+        context= {
+            'books': books
+        }
+    )

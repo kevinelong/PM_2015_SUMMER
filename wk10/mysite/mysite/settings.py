@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'courses',
     'commentbox',
     'shirtstore',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,5 +106,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 DJANGO_SETTINGS_MODULE = 'mysite.settings'
