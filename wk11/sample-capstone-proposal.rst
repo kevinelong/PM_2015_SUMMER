@@ -73,7 +73,7 @@ above components. As you do this, imagine yourself in class having just
 completed a task and consider what you will need to do next.*
 
     #. **Models**: Map out all models and create all migrations.
-    #. **Audition finder**: Write the management command that will do the webscraping. Test it with several orchestra pages.
+    #. **Audition finder**: Write the management command that will do the webscraping. Test it with several orchestra pages. Craft the email that will be sent to users using a django template.
     #. **Templates and views**: Create the pages for orchestra list, orchestra detail, user detail.
     #. **Users an authentication**: Write login page, figure out how to allow interested people how to request an account.
     #. **Polish and style**: 404 and 500 error pages, CSS, JavaScript to make the page look great.
