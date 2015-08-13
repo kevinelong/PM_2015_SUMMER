@@ -1,6 +1,6 @@
 body {
-    background-image: url("images/notepad.jpg");
-    background-size: 100%;
+    background-image: url("../imageSwap/notepad.jpg");
+    background-size: cover;
 }
 
 p {

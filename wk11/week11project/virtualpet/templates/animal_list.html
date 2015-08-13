@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    There are currently {{ animals.count }} animal{{ animals.count|pluralize }} in the pet store:
+    {% for animal in animals %}
+        <p>{{ animal }}</p>
+    {% endfor %}
+</body>
+</html>

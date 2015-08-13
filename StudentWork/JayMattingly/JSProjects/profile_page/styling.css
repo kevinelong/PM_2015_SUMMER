@@ -1,5 +1,5 @@
-body {
-    background: lightsteelblue;
+#description {
+    background-color: lightsteelblue;
 }
 
 #fixedheader {
@@ -55,4 +55,5 @@ p {
 #synopsis {
     border-style: solid;
     background: tan;
+    border-radius:5px;
 }

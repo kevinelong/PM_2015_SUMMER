@@ -5,4 +5,6 @@ $(document).ready(function(){
         pause: true,
         interval: 4000
     });
+    //document.getElementById("myBtn").addEventListener("click", );
+
 });
