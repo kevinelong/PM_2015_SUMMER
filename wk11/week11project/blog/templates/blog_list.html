@@ -54,6 +54,7 @@
 
             <p class="content"><pre class="content">{{ blog.content }}</pre></p>
 
+            <a href="{% url 'animal_list' blog.id %}">Check it out!</a>
         </div>
     {% endfor %}
 
