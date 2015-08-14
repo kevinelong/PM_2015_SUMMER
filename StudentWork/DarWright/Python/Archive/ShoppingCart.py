@@ -49,6 +49,8 @@ class Cart:
         self.show_items()
         choice = raw_input("Enter the name of the item you want to remove: ")
         index = next(index for (index, d) in enumerate(self.itemlist) if d["name"] == choice)
+        if choice == 'Widget':
+            check_id()
         #TODO add error catching
         del self.itemlist[index]
 
@@ -64,6 +66,19 @@ class Cart:
         for item in self.itemlist:
             a = float(item["price"])
             self.total += a
+
+def check_id():
+    age = int(raw_input('Please enter your age:\n'))
+    if age >= 18:
+        return True
+    else:
+        print("You are not old enough to purchase the Widget!")
+        return False
+
+def main_menu():
+    print
+
+
 
 
 

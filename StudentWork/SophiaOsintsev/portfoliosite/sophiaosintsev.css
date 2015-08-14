@@ -1,0 +1,212 @@
+@import url(http://fonts.googleapis.com/css?family=The+Girl+Next+Door|Cookie|Amatic+SC:700);
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(http://p1.pichost.me/i/72/1972046.jpg);
+    background-size: cover;
+}
+
+#page {
+    margin: 0 auto;
+    width: 980px;
+}
+
+/* Navigation Bar */
+header {
+    padding: 10px 0px;
+    width: 100%;
+    height: 40px;
+    border-top: 10px #CDDC39 solid;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    padding: 30px 150px;
+    display: block;
+    float: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 50px;
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-family: 'Amatic SC', cursive;
+}
+
+h1 {
+    color: white;
+    padding-bottom: 0px;
+    font-family: 'Cookie', cursive;
+    font-size: 50px;
+}
+
+h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white
+}
+
+p {
+    font-family: 'The Girl Next Door', cursive;
+    font-size: 22px;
+    line-height: 1;
+    color: white
+}
+
+section {
+    padding: 75px 0px 50px 0px;
+    min-height: 300px;
+}
+
+/*Home Page */
+#home {
+    padding: 100px 0px 0px 0px;
+    border-bottom: 2px #CDDC39 dashed;
+    text-align: center;
+    height: 450px;
+}
+
+#sophia {
+    font-family: 'Cookie', cursive;
+    font-size: 70px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#short_bio {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#textslide {
+    font-family: 'The Girl Next Door', cursive;
+    font-size: 30px;
+    color: #CDDC39;
+    font-weight: bold;
+}
+
+/* About */
+#bio {
+    height: 500px;
+    border-bottom: 2px #CDDC39 dashed;
+}
+
+#interests {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 22px;
+    color: white;
+}
+
+.left-2 {
+    left: 0;
+    width: 300px;
+    float: left;
+    margin-bottom: 30px;
+}
+
+.right-2 {
+    left: 300px;
+    width: 660px;
+    margin-left: 20px;
+    padding-top: 0px;
+    float: left;
+    margin-bottom: 100px;
+}
+
+.first-col-3 {
+    left: 0;
+    width: 220px;
+    height: 120px;
+    float: left;
+}
+
+.col-3 {
+    width: 220px;
+    height: 120px;
+    float: left;
+}
+
+#fav {
+    margin-bottom: 35px;
+    letter-spacing: 7px;
+}
+
+#baking1, #traveling1, #restoring1 {
+    width: 150px;
+    position: absolute;
+    margin: -80px 5px 10px 5px;
+}
+
+#ocean1, #russian1, #duy1 {
+    width: 150px;
+    position: absolute;
+    margin: 0px 5px 10px 5px;
+}
+
+/* Portlfolio */
+#portfolio {
+    height: 500px;
+    border-bottom: 2px #CDDC39 dashed;
+}
+
+#work {
+    width: 980;
+    text-align: center;
+}
+
+#work img {
+    padding: 20px;
+}
+
+#skills {
+    width: 980;
+    text-align: center;
+}
+
+#skills img {
+    padding: 20px;
+}
+
+/* Contact*/
+#contact {
+    height: 500px;
+}
+
+#socialmedia {
+    width: 980;
+    text-align: center;
+}
+
+#socialmedia img {
+    padding: 20px;
+}
+
+footer {
+    border-bottom: 10px #CDDC39 solid;
+    margin: 0 auto;
+}
+
+.scrollup {
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 50px;
+    right: 70px;
+    display: none;
+    background: url("iconimages/Up_arrow_32.png") no-repeat;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>Killer Burger</title>
+</head>
+<body>
+    <ul><li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+<script>
+
+    var honey = $('#three');
+    honey.addClass('drizzle');
+    honey.hide().delay(2000).fadeIn(1000).hide(4000);
+
+</script>
+</body>
+</html>

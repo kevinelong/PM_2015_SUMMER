@@ -12,6 +12,9 @@ def add():
     new_key = new_name.split()
     phone_book[new_key[1].lower()] = {'name': new_name, 'phone': new_phone}
 
+def test_add():
+    assert(add)
+
 def change():
     alter_name = raw_input("Enter the last name of the person whose record you'd like to change: ").lower()
     if alter_name not in phone_book:
@@ -72,5 +75,6 @@ while True:
         delete()
     else:
         break
+
 
 

@@ -1,6 +1,6 @@
 # removing duplicates in a list by converting to a set then back to a list
-mylist = [1, 2, 3, 4, 5, 1, 3]
-mylist = list(set(mylist))
+# mylist = [1, 2, 3, 4, 5, 1, 3]
+# mylist = list(set(mylist))
 
 # same exercise, but one that retains order of list
 def remove_dups(list):

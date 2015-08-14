@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="index.js">
+    <title></title>
+</head>
+
+
+<body>
+<div class="container">
+    Challenge: Build an object to represent a Sandwich. A sandwich constructor! Do it all 4 ways that are<br>
+    described on page 113. 4 attributes and 4 methods. Get the price! Form will check off what you want and then<br>
+    you will submit it, then the page will show you the price!<br>
+    <br>
+    Bonus: Print calories! Add tax then suggest tip. *****
+</div>
+<br>
+<h1>Build your own sandwich! Yum!</h1>
+<form name="builder">
+    <div>
+    Bread:
+        <br>
+    <input type="checkbox" name="wheat">Wheat
+    <input type="checkbox" name="rye">Rye
+    <input type="checkbox" name="white">White
+    <input type="checkbox" name="sourdough">Sourdough
+    </div>
+    <div>
+    Meat:
+        <br>
+    <input type="checkbox" name="bacon">Bacon
+    <input type="checkbox" name="beef">Beef
+    <input type="checkbox" name="ham">Ham
+    <input type="checkbox" name="salami">Salami
+    </div>
+    <div>
+    Toppings:
+        <br>
+    <input type="checkbox" name="lettuce">Lettuce
+    <input type="checkbox" name="tomato">Tomato
+    <input type="checkbox" name="peppers">Peppers
+    <input type="checkbox" name="pickles">Pickles
+    </div>
+    <div>
+    Sauce Choice:
+        <br>
+    <input type="checkbox" name="ketchup">Ketchup
+    <input type="checkbox" name="mayo">Mayonaise
+    <input type="checkbox" name="bbq">Bar B Que Sauce
+    <input type="checkbox" name="hMustard">Honey Mustard
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-success" onclick="mealOrder(builder)">Submit Order</button>
+    </form>
+<script>
+
+
+//    Literal Notation
+//    var sandwich = {}
+//
+//    sandwich.bread = 'wheat';
+//    sandwich.meat = 'bacon';
+//    sandwich.vege = 'lettuce';
+//    sandwich.fruit = 'tomato';
+//    };
+
+
+//    Object Constructor Notation
+//    var sandwich = new specialSandwich();
+//
+//    sandwich.bread = 'wheat';
+//    sandwich.meat = 'bacon';
+//    sandwich.vege = 'lettuce';
+//    sandwich.fruit = 'tomato';
+
+//        Literal Notation
+//    var sandwich = {
+//            bread: 'wheat',
+//            meat: 'bacon',
+//            vege: 'lettuce',
+//            fruit: 'tomato'
+//    }
+
+//    Object Constructor Notation
+//    function sandwich(bread, meat, vege, fruit) {
+//        this.bread = bread;
+//        this.meat = meat;
+//        this.vege = vege;
+//        this.fruit = fruit;
+//    }
+
+var sandwich = {
+    wheatPrice: 2,
+    baconPrice: 1,
+    lettucePrice: 1,
+    tomatoPrice: 2,
+    hasWheat: false,
+    hasBacon: false,
+    hasLettuce: false,
+    hasTomato: false,
+    getPrice: function() {
+        var price = 0;
+        if (this.hasWheat) {
+            price += this.wheatPrice;
+        }
+        if (this.hasBacon) {
+            price += this.baconPrice;
+        }
+        if (this.hasLettuce) {
+            price += this.lettucePrice;
+        }
+        if (this.hasTomato) {
+            price += this.tomatoPrice;
+        }
+        console.log(price);
+        return price;
+    }
+
+};
+
+function mealOrder(form) {
+    var wheat = form.wheat.checked;
+    var bacon = form.bacon.checked;
+    var lettuce = form.lettuce.checked;
+    var tomato = form.tomato.checked;
+    if (wheat === true) {
+        sandwich.hasWheat = true;
+    }
+    if (bacon === true) {
+        sandwich.hasBacon = true;
+    }
+    if (lettuce === true) {
+        sandwich.hasLettuce = true;
+    }
+    if (tomato === true) {
+        sandwich.hasTomato = true;
+    }
+    document.write("You total is:" + sandwich.getPrice());
+
+}
+
+
+
+</script>
+</body>
+</html>

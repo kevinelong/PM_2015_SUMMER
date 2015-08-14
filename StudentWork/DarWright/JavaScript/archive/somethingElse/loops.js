@@ -183,7 +183,7 @@ console.log('dar');
 //
 
 
-var shoppingList = ['eggs', 'milk', 'yogurt', 'turkey', 'corn', 'cereal']
+var shoppingList = ['eggs', 'milk', 'yogurt', 'turkey', 'corn', 'cereal'];
 
 // for each item in our shopping list, display it on the webpage
 
@@ -204,7 +204,7 @@ function listitems() {
         //do something to each div like
         $(".list *").filter(function(){
             $(this).css("display") = "block"};
-    };
+    }
 }
 
 function toggle_visibility(id) {

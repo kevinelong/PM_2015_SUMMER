@@ -23,10 +23,20 @@ h2 {
     background-color: transparent;
 }
 
+.locations h2 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
 #menuExtras h3 {
     /*text-align: center;*/
     color: red;
     font-weight: bold;
+}
+
+#menuItems h3 {
+    font-family: none;
 }
 
 h3.review {
@@ -39,15 +49,16 @@ h3.review {
     color: red;
 }
 
+h4 {
+    color: grey;
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+}
+
 .header {
     text-align: center;
     color: red;
     font-weight: bold;
-}
-
-h4 {
-    color: white;
-    font-family: 'Indie Flower', cursive;
 }
 
 li {
@@ -66,6 +77,11 @@ em {
 .resize {
     width: 200px;
     height: auto;
+}
+
+.hamburger-icon: {
+    content: url(images/burgerfavi.png);
+    height: 20px;
 }
 
 
@@ -94,11 +110,7 @@ strong {
 
 
 
-.locations h2 {
-    text-align: center;
-    font-size: 50px;
-    color: white;
-}
+
 
 
 .list-group-item {
