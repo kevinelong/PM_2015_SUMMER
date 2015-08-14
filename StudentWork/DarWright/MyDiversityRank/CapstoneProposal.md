@@ -17,10 +17,10 @@ A page that allows the logged in user to enter the data from their circles, and 
  
 1. Models: design database models and migrate them 
 2. New User template & view: Setup and design the create a user template 
-..1. Include password recovery via email 
+  1. Include password recovery via email 
 3. Login template & view: Setup and design the login landing page 
 4. Data presentation template & view: Setup the functions and javascript to generate the pie charts on demand. 
-..1. Math and formulas for calculating percentages 
+  1. Math and formulas for calculating percentages 
 5. Form template & view: Create a page that allows for manual data entry to the database 
  
 #Ideas for Later: 
