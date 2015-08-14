@@ -67,7 +67,6 @@ def create_puzzles():
     sys.stdout.write('  Assigning clues to newly created puzzles')
     sys.stdout.flush()
     all_clues = Clue.objects.all()
-    clues_cnt = all_clues.count()
     cnt = 0
     for puzzle in Puzzle.objects.iterator():
         puzzle.clues.add(*random.sample(all_clues, 5))
