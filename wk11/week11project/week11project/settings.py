@@ -40,6 +40,8 @@ INSTALLED_APPS = (
 
     # my apps
     'puzzles',
+    'blog',
+    'virtualpet',
 )
 
 MIDDLEWARE_CLASSES = (
