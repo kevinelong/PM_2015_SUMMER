@@ -16,6 +16,7 @@ class BlogComment(models.Model):
     author = models.ForeignKey(User, null=False, blank=False)
     content = models.TextField(null=False, blank=False)
     comment_date = models.DateTimeField(auto_now_add=True)
+    blog_article = models.ForeignKey('BlogArticle')
 
     def __unicode__(self):
         return 'Comment from {} on {}'.format(self.author, self.comment_date)
