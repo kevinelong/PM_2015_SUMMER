@@ -44,6 +44,8 @@ INSTALLED_APPS = (
     'courses',
     'library',
     'accounts',
+    'puzzles',
+    'petlibrary'
 )
 
 MIDDLEWARE_CLASSES = (

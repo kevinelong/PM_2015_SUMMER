@@ -1,0 +1,11 @@
+# A username of any length that can only be letters or numbers.
+[\w]*
+
+# A username 6 to 12 characters long that can only be letters or numbers.
+^[\w]{6,12}
+
+# Matches any valid Python variable name
+^[a-zA-Z_]{1}[\w]*
+
+# Matches any ordinal number (not really, still allows too many things)
+([2-9]*1st)|11th|([2-9]*2nd|3rd)|12th|13th|([1-9]*4th|5th|6th|7th|8th|9th)|([0-9]+0th)
