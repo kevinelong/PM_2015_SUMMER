@@ -45,7 +45,8 @@ INSTALLED_APPS = (
     'library',
     'accounts',
     'puzzles',
-    'petlibrary'
+    'petlibrary',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
