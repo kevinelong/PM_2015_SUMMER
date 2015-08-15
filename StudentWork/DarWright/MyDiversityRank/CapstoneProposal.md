@@ -25,6 +25,8 @@ A page that allows the logged in user to enter the data from their circles, and 
 6. User can create a survey form, with diversity options, max of ten per question (as applicable) and email it out with a unique link the recipient can click, get to a special data entry form page, fill out the form and submit their results, all associated with the user login that sent the email link. 
   1. Some time to send out surveys and ask circle of people to send to others and GET DATA!
  7. Add an OVERALL pie chart that compares each users diversity high and low stats with other users.
+ 8. Make it look nice no 90s design...
+
 #Ideas for Later: 
  
 Part 2: The Graffiti Wall(s)
@@ -36,7 +38,7 @@ Mouse over a word and the entire statement from a person will open in a pop up w
 Write some sort of program that randomly picks the words
   -Not common words like the, or a etc. 
 Write some sort of a progam that makes the words all graffiti style, not sure if a font or something.
-Have the words be random sized and randomly placed.
+Have the words be random font sized and randomly placed, maybe with some angles and things.
 
  
 
