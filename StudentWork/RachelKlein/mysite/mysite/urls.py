@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^library/', include('library.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blog/', include('blog.urls')),
+    url(r'^puzzles/', include('puzzles.urls')),
 ]

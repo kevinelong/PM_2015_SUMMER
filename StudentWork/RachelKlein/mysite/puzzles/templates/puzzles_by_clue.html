@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block body_block %}
+    <p>Check out all the puzzles that contain the Clue of the Day!</p>
+
+    {% for puzzle in puzzles_by_clue %}
+        <p>{{ puzzle.name }}</p>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

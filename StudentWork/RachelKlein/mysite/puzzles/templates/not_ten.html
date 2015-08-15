@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<p>Fans of puzzles that are are NOT size 10 by 10, this is your page!</p>
+
+{% extends 'base.html' %}
+{% block body_block %}
+    {% for puzzle in not_ten_puzzles %}
+        <p>{{ puzzle.name }}</p>
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>
