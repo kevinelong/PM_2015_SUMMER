@@ -22,10 +22,22 @@ A page that allows the logged in user to enter the data from their circles, and 
 4. Data presentation template & view: Setup the functions and javascript to generate the pie charts on demand. 
   1. Math and formulas for calculating percentages 
 5. Form template & view: Create a page that allows for manual data entry to the database 
- 
+6. User can create a survey form, with diversity options, max of ten per question (as applicable) and email it out with a unique link the recipient can click, get to a special data entry form page, fill out the form and submit their results, all associated with the user login that sent the email link. 
+  1. Some time to send out surveys and ask circle of people to send to others and GET DATA!
+ 7. Add an OVERALL pie chart that compares each users diversity high and low stats with other users.
 #Ideas for Later: 
  
-User can create a survey form, with diversity options, max of ten per question (as applicable) and email it out with a unique link the recipient can click, get to a special data entry form page, fill out the form and submit their results, all associated with the user login that sent the email link. 
+Part 2: The Graffiti Wall(s)
+4 addition survey quetions ask people to define or say what something means to them. 
+The answer would then be used for this:
+
+A large wall picture with sort of random words over it.
+Mouse over a word and the entire statement from a person will open in a pop up window with the entire statement.
+Write some sort of program that randomly picks the words
+  -Not common words like the, or a etc. 
+Write some sort of a progam that makes the words all graffiti style, not sure if a font or something.
+Have the words be random sized and randomly placed.
+
  
-Add an OVERALL pie chart that compares each users diversity high and low stats with other users.
+
  
