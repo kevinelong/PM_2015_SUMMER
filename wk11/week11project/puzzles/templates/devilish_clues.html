@@ -8,9 +8,13 @@
 <body>
 
 <div class="outer">
-    <p>There are currently {{ total_clues }} total clues!</p>
 
+    <p>Here is a list of clues that are being used by puzzles that are ranked "Devilish":</p>
+    {% for clue in clues %}
+        <a href="{% url 'clue_detail' clue.id %}">{{ clue }}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}
     <p><a href="{% url 'puzzles_home' %}">Home</a></p>
+
 </div>
 
 </body>

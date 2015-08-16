@@ -1,0 +1,18 @@
+.outer {
+    border: 2px sandybrown solid;
+    background-color: seashell;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding: 20px;
+}
+
+.grey {
+    background-color: lightgray;
+}
+
+.white {
+    background-color: white;
+}

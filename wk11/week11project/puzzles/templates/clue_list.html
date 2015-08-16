@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<div class="outer">
-    <p>There are currently {{ total_clues }} total clues!</p>
-
-    <p><a href="{% url 'puzzles_home' %}">Home</a></p>
-</div>
+    <div class="outer">
+        {% for clue in clues %}
+            <p class="{% cycle 'grey' 'white' %}">{{ clue }}</p>
+        {% endfor %}
+    </div>
 
 </body>
 </html>

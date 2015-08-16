@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="outer">
+    <p>Welcome to my puzzles site!</p>
+    <p><a href="{% url 'clues_count' %}">Total Clues</a></p>
+    <p><a href="{% url 'clues_width_less_than' 10 %}">Clues in puzzles with width less than 10</a></p>
+    <p><a href="{% url 'clues_width_less_than' 50 %}">Clues in puzzles with width less than 50</a></p>
+    <p><a href="{% url 'devilish_clues' %}">Clues being used by "Devilish" puzzles</a></p>
+</div>
+</body>
+</html>
