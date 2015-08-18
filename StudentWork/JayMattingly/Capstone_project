@@ -26,7 +26,7 @@ This will send information of time and date to the database of when individual c
 #Time records
 ---
 
-*This will be a secondary button underneath the “Time Stamp” button, reading “Recorded Time” which will then pop up a new window with previous recorded time stamp marks(clock in, clock out, lunches, breaks). (user inputs employee/time sheet number in same feild)
+*This will be a secondary button underneath the “Time Stamp” button, reading “Recorded Time” which will then pop up a new window with previous recorded time stamp marks(clock in, clock out, lunches, breaks). (user inputs employee/time sheet number in same field)
 
 ---
 #Email response
@@ -41,7 +41,7 @@ Time Line
 ---
 
  Models: Make models for data base to save into
- User Registration: Create form requesting company affilation, first name and last name.
+ User Registration: Create form requesting company affiliation, first name and last name.
  User Time Stamp: Create event listeners and handlers for accompany given character fields. Used to record time stamps. Test with improvised users and assign each employee/time sheet numbers.
  Views and Templates: Craft login page, Time stamp page.
  Information format: Find way to format information received from application, to be ready for email.
@@ -54,4 +54,4 @@ Time Line
 
 *Make it to where program randomly generates employee/time sheet ID number
 *Give application mobile functionality
-*Give authorization automatically without secondary approval through admin with use of radnomly generated code given by admin prior to loggging in
+*Give authorization automatically without secondary approval through admin with use of randomly generated code given by admin prior to logging in
