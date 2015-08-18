@@ -40,9 +40,9 @@ This will send information of time and date to the database of when individual c
 Time Line
 ---
 
-1.Models: Make models for data base to save into
-2.User Registration: Create form requesting company affiliation, first name and last name.
-3.User Time Stamp: Create event listeners and handlers for accompany given character fields. Used to record time stamps. Test with improvised users and assign each employee/time sheet numbers.
+  Models: Make models for data base to save into
+  User Registration: Create form requesting company affiliation, first name and last name.
+  User Time Stamp: Create event listeners and handlers for accompany given character fields. Used to record time stamps. Test with improvised users and assign each employee/time sheet numbers.
 4.Views and Templates: Craft login page, Time stamp page.
 5.Information format: Find way to format information received from application, to be ready for email.
 6.Email: Figure out a way to use Django or some service to send requested information.
