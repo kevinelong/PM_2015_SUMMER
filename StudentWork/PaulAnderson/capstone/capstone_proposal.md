@@ -37,4 +37,5 @@ or it could take me the better part of a day. Depends on how specific I choose g
 
 ## Ideas for Later
 
-  + Ability to easily share on social media: Facebook, Twitter, Instagram, etc... +Add the ability to purchase prints via an online store
+  + Ability to easily share on social media: Facebook, Twitter, Instagram, etc...
+  + Add the ability to purchase prints via an online store
