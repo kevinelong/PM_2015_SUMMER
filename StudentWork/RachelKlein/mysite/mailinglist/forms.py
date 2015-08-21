@@ -25,7 +25,8 @@ class MultipleMailingListForm(forms.Form):
                                              choices=all_lists)
 
     def __init__(self, *args, **kwargs):
-        super(MultipleMailingListForm, self).init(*args, **kwargs)
+        self.wedding = kwargs.pop('wedding')
+        super(MultipleMailingListForm, self).__init__(*args, **kwargs)
         for mailinglist in MailingList.objects.iterator():
             all_lists.append((mailinglist.id, mailinglist.name))
             self.fields['chosen_lists'].choices = all_lists
