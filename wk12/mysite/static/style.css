@@ -1,3 +1,7 @@
+body {
+    background-color: #fffefa;
+}
+
 .outer {
     border: 2px sandybrown solid;
     background-color: seashell;
@@ -35,4 +39,8 @@ h1 {
 
 form p {
     margin-top: 0px;
+}
+
+form ul li {
+    list-style: none;
 }
