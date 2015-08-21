@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'petlibrary',
     'blog',
     'mailinglist',
+    'registry',
 )
 
 MIDDLEWARE_CLASSES = (

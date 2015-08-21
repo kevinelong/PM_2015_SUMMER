@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^puzzles/', include('puzzles.urls')),
     url(r'^mailinglist/', include('mailinglist.urls')),
+    url(r'^registry/', include('registry.urls')),
 ]

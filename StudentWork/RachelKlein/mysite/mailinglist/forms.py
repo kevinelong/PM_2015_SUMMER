@@ -19,13 +19,13 @@ class MailingListForm(forms.Form):
 class MultipleMailingListForm(forms.Form):
 
     email_address = forms.EmailField()
+    all_lists = []
 
     chosen_lists = forms.MultipleChoiceField(widget=forms.SelectMultiple,
                                              choices=all_lists)
 
     def __init__(self, *args, **kwargs):
         super(MultipleMailingListForm, self).init(*args, **kwargs)
-        all_lists = []
         for mailinglist in MailingList.objects.iterator():
             all_lists.append((mailinglist.id, mailinglist.name))
             self.fields['chosen_lists'].choices = all_lists
