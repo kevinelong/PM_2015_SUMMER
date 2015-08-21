@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Purchase Stuff{% endblock %}
+
+{% block header %}What will you buy for {{ wedding.name }}?{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Buy">
+</form>
+
+{% endblock %}

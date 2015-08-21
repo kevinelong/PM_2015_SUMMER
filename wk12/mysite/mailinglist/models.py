@@ -9,6 +9,9 @@ class MailingList(models.Model):
         return 'MailingList "{}" with {} emails'.format(
             self.name, self.emails.count())
 
+    class Meta:
+        ordering = ['name']
+
 
 class Email(models.Model):
     email_address = models.EmailField()

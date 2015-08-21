@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'mailinglist',
+    'pizza',
+    'registry',
 )
 
 MIDDLEWARE_CLASSES = (
