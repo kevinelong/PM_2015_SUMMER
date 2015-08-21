@@ -1,5 +1,8 @@
 from django.shortcuts import render_to_response
 from .models import Clue, Puzzle, PuzzleBoard
+from .forms import NewPuzzleForm
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template.context_processors import csrf
 
 def welcome(request):
     total_puzzles = Puzzle.objects.count()
@@ -64,3 +67,24 @@ def puzzles_by_clue(request):
             'puzzles_by_clue': puzzles,
         }
     )
+
+def suggest_puzzle(request):
+    if request.method == 'POST':
+        form = NewPuzzleForm(request.POST)
+        if form.is_valid:
+            #save to list of new puzzles
+            form.save()
+            return HttpResponseRedirect('welcome')
+    else:
+        form = NewPuzzleForm()
+
+    context = {
+        'form': form.as_p(),
+    }
+    context.update(csrf(request))
+
+    return render_to_response(
+        'suggest_puzzle.html',
+        context=context,
+    )
+

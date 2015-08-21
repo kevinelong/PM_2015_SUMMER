@@ -2,6 +2,12 @@ h1 {
     text-align: center;
 }
 
+div {
+    width: 400px;
+    padding: 20px;
+    font-size: 1.25em;
+}
+
 #summer {
     background-color: hotpink;
     font-size: 1.25em;
@@ -12,16 +18,18 @@ h1 {
 
 .checkedout {
     background-color: turquoise;
-    font-size: 1.25em;
     color: indigo;
-    width: 400px;
-    padding: 20px;
 }
 
 .notcheckedout {
     background-color: lightseagreen;
-    font-size: 1.25em;
     color: black;
-    width: 400px;
-    padding: 20px;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
 }

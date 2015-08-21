@@ -45,9 +45,13 @@ def library(request):
     else:
         form = BookRequestForm()
 
+    hottest_titles = ['Pickup Lines... of Code', 'Say it With Ruby', 'Wooing Potential Employers', '50 Shades of Django']
+
     context = {
         'form': form.as_p(),
         'books': books,
+        'hottest_titles': hottest_titles,
+        'checkedout': 3,
     }
     context.update(csrf(request))
 

@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^easy_n/$', views.easy_n, name='easy_n'),
     url(r'not_ten/$', views.not_ten, name='not_ten'),
     url(r'puzzles_by_clue/$', views.puzzles_by_clue, name='puzzles_by_clue'),
+    url(r'suggest_puzzle/$', views.suggest_puzzle, name='suggest_puzzle'),
 ]
