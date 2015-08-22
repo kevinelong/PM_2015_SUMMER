@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from .models import MailingList
-from .forms import MailingListForm, ManyMailingListForm
+from .forms import MailingListForm, ManyMailingListForm, DeleteListForm, CreateListForm
 
 
 def add_email(request, list_id):
@@ -60,3 +60,40 @@ def add_email_to_many(request):
                           MailingList.objects.count()
                       ),
                   })
+
+
+def delete_list(request):
+    if request.method == 'POST':
+        form = DeleteListForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('thanks'))
+    else:
+        form = DeleteListForm()
+
+    return render(
+        request,
+        'delete.html',
+        context={
+            'form': form
+        }
+    )
+
+
+def create_list(request):
+    if request.method == 'POST':
+        form = CreateListForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('thanks'))
+
+    else:
+        form = CreateListForm()
+
+    return render(
+        request,
+        'create.html',
+        context={
+            'form': form,
+        }
+    )

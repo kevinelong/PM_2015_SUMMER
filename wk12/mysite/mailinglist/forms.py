@@ -39,3 +39,27 @@ class ManyMailingListForm(forms.Form):
         for mailinglist_id in mailinglist_ids:
             mailinglist = MailingList.objects.get(id=mailinglist_id)
             mailinglist.emails.add(new_email)
+
+
+class DeleteListForm(forms.Form):
+    mailing_lists = forms.ChoiceField(
+        label='List to delete',
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(DeleteListForm, self).__init__(*args, **kwargs)
+        choices = [
+            (mlist.id, mlist.name) for mlist in MailingList.objects.all()
+        ]
+        self.fields['mailing_lists'].choices = choices
+
+    def save(self):
+        mailing_list_id = self.cleaned_data['mailing_lists']
+        mailing_list = MailingList.objects.get(id=mailing_list_id)
+        mailing_list.delete()
+
+
+class CreateListForm(forms.ModelForm):
+    class Meta:
+        model = MailingList
+        fields = ['name']
