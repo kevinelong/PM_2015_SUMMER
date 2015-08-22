@@ -15,17 +15,17 @@ A page that allows the logged in user to enter the data from their circles, and 
  
 #Timeline 
  
-1. Models: design database models and migrate them 
-2. New User template & view: Setup and design the create a user template 
-  1. Include password recovery via email 
-3. Login template & view: Setup and design the login landing page 
-4. Data presentation template & view: Setup the functions and javascript to generate the pie charts on demand. 
-  1. Math and formulas for calculating percentages 
-5. Form template & view: Create a page that allows for manual data entry to the database 
-6. User can create a survey form, with diversity options, max of ten per question (as applicable) and email it out with a unique link the recipient can click, get to a special data entry form page, fill out the form and submit their results, all associated with the user login that sent the email link. 
-  1. Some time to send out surveys and ask circle of people to send to others and GET DATA!
- 7. Add an OVERALL pie chart that compares each users diversity high and low stats with other users.
- 8. Make it look nice no 90s design...
+1. Learn how to make a weg page interact with a database not using django.
+  -Yes, I know I will loose points.
+2. Create database models
+3. Create login pages and landing page.
+4. Create pages for data presentation. 
+  1. Setup fnctions and JS to generate pie charts on demand.
+  2. Matha nd formulas for calculating percentages
+5. Create a page that allows datas to be manually entered.
+6. User survey creation, emails unique link to return survey results to user id.
+7. Create page for calculating over stats against other users in DB
+8. make it look nice
 
 #Ideas for Later: 
  
