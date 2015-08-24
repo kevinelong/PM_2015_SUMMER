@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'blog',
     'mailinglist',
     'registry',
+    'jobs',
 )
 
 MIDDLEWARE_CLASSES = (
