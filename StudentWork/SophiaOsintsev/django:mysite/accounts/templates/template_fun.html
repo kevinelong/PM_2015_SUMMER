@@ -1,0 +1,44 @@
+{% extends 'new_user_page.html' %}
+{% block header %}
+    This template is <em>fun</em>!
+{% endblock %}
+
+{% block content %}
+
+    {% for item in list_var %}
+        <p class="{% cycle 'white' 'gray' %}">bla, bla, bla</p>
+    {% endfor %}
+
+    {% lorem %}
+    <br>
+    <br>
+    {% if list_var %}
+        Number of Users: {{ list_var|length }}
+    {% endif %}
+    <br>
+    <br>
+    {{ list_var|title }}
+    <br>
+    <br>
+    {{ link|urlize }}
+    <br>
+    <br>
+    {{ True|yesno:"yeah, nah, mmm" }}
+    <br>
+    {{ False|yesno:"yeah, nah, mmm" }}
+    <br>
+    {{ None|yesno:"yeah, nah, mmm" }}
+    <br>
+    <br>
+    You have {{ list_var|length }} user{{ list_var|pluralize }}.
+    <br>
+    <br>
+    {{ dict_var|default:"Empty" }}
+    <br>
+    <br>
+    <a href="{% url 'template-fun' %}"> Woohoo </a>
+
+
+
+{% endblock %}
+

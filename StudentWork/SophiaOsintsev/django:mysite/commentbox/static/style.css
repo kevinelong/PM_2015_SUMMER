@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Handlee);
+
+html {
+	margin: 0;
+	padding: 0;
+	background: url('lime-green-and-blue-chevron-background-3.png');
+	background-repeat: no-repeat
+}
+
+form {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px #2c2b29;
+	padding: 20px 30px;
+	box-sizing: border-box;
+
+}
+
+p {
+	font-family: 'Handlee', cursive;
+	font-size: 20px;
+	font-weight: bold;
+}
+form input {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: 'Handlee', cursive;
+	color: #2C3E50;
+	font-size: 16px;
+}
+
+form .button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+	font-family: 'Handlee', cursive;
+	font-size: 20px;
+}
+form .button:hover {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+
+
+.true:hover {
+    background-color: #af8185;
+    color: darkslategrey;
+}
+
+.false:hover {
+    background-color: green;
+    color: darkslategrey;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    {%for comment in comments %}
+        {% if comment.approved %}
+            <div class="true">
+        {% else %}
+            <div class="false">
+        {%endif %}
+        {{ comment.comment_text }}
+        </div>
+    {%endfor %}
+
+    Add a Comment:
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="button" type="submit">
+    </form>
+
+    <div class="accountlink">
+    Click <a href="http://127.0.0.1:8000/accounts/add/">here</a> to create a new account.
+    </div>
+</body>
+</html>
