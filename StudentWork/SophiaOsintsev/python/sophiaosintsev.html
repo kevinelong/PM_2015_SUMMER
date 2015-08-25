@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url(http://fonts.googleapis.com/css?family=The+Girl+Next+Door|Cookie|Amatic+SC:700);
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url(chalkboard.jpg)
+    }
+
+    #page {
+        margin: 0 auto;
+        width: 980px;
+    }
+
+    /* Navigation Bar */
+    header {
+        padding: 10px 0px;
+        width: 100%;
+        height: 40px;
+        border-top: 10px #CDDC39 solid;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        padding: 30px 150px;
+        display: block;
+        float: right;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-left: 50px;
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 22px;
+        font-family: 'Amatic SC', cursive;
+    }
+
+    h1 {
+        color: white;
+        padding-bottom: 0px;
+        font-family: 'Cookie', cursive;
+        font-size: 50px;
+    }
+
+    h3 {
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+        color: white
+    }
+
+    p {
+        font-family: 'The Girl Next Door', cursive;
+        font-size: 22px;
+        line-height: 1;
+        color: white
+    }
+
+    section {
+        padding: 75px 0px 50px 0px;
+        min-height: 300px;
+    }
+
+    /*Home Page */
+    #home {
+        padding: 100px 0px 0px 0px;
+        border-bottom: 2px #CDDC39 dashed;
+        text-align: center;
+        height: 450px;
+    }
+
+    #sophia {
+        font-family: 'Cookie', cursive;
+        font-size: 70px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    #short_bio {
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    #quote {
+        font-family: 'The Girl Next Door', cursive;
+        font-size: 30px;
+        color: white;
+    }
+
+    /* About */
+    #bio {
+        height: 500px;
+        border-bottom: 2px #CDDC39 dashed;
+    }
+
+    #interests {
+        text-align: center;
+        font-family: 'Amatic SC', cursive;
+        font-size: 22px;
+        color: white;
+    }
+
+    .left-2 {
+        left: 0;
+        width: 300px;
+        float: left;
+        margin-bottom: 30px;
+    }
+
+    .right-2 {
+        left: 300px;
+        width: 660px;
+        margin-left: 20px;
+        padding-top: 0px;
+        float: left;
+        margin-bottom: 100px;
+    }
+
+    .first-col-3 {
+        left: 0;
+        width: 220px;
+        height: 120px;
+        float: left;
+    }
+
+    .col-3 {
+        width: 220px;
+        height: 120px;
+        float: left;
+    }
+
+    #fav {
+        margin-bottom: 35px;
+        letter-spacing: 7px;
+    }
+
+    #baking1, #traveling1, #restoring1 {
+        width: 150px;
+        position: absolute;
+        margin: -80px 5px 10px 5px;
+    }
+
+    #ocean1, #russian1, #duy1 {
+        width: 150px;
+        position: absolute;
+        margin: 0px 5px 10px 5px;
+    }
+
+    /* Portlfolio */
+    #portfolio {
+        height: 500px;
+        border-bottom: 2px #CDDC39 dashed;
+    }
+
+    #work {
+        width: 980;
+        text-align: center;
+    }
+
+    #work img {
+        padding: 20px;
+    }
+
+    #skills {
+        width: 980;
+        text-align: center;
+    }
+
+    #skills img {
+        padding: 20px;
+    }
+
+    /* Contact*/
+    #contact {
+        height: 500px;
+    }
+
+    #socialmedia {
+        width: 980;
+        text-align: center;
+    }
+
+    #socialmedia img {
+        padding: 20px;
+    }
+
+    footer {
+        border-bottom: 10px #CDDC39 solid;
+        margin: 0 auto;
+    }
+
+    .scrollup {
+        width: 40px;
+        height: 40px;
+        text-indent: -9999px;
+        opacity: 0.3;
+        position: fixed;
+        bottom: 50px;
+        right: 70px;
+        display: none;
+        background: url("Up_arrow_32.png") no-repeat;
+    }
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="toggle.js"></script>
+
+</head>
+
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#bio">Bio</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="page">
+    <section id="home">
+        <div id="sophia"> Hello, I'm Sophia. </div>
+        <div id="short_bio">Here will be a short description.</div>
+        <div id="quote">Here I might have a cool quote</div>
+    </section>
+
+    <section id="bio">
+        <h1>Bio</h1>
+        <div id="biotext" class="left-2">
+            <p>
+                Hello, my name is
+                <strong>Sophia Osintsev</strong>
+                . Here I will have my bio,
+            </p>
+            <p>
+                Here I will have some more of my bio, and maybe some
+                <br>
+                more, and some more...ok you get the point.
+            </p>
+        </div>
+        <div id="interests" class="right-2">
+            <div class="first-col-3">
+                <div id="baking1">
+                    "Love to bake. Cakes in particular."
+                </div>
+                <div id="baking">
+                    <img src="Whisk_cooking_tool_64.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div id="traveling1">
+                    "Will travel by plane if I have to, but nothing beats roadtrips"
+                </div>
+                <div id="traveling">
+                    <img src="Map_of_roads_64.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div id="restoring1">
+                    "Love to restore old worn down pieces to their former glory"
+                </div>
+                <div id="restoring">
+                    <img src="Bedroom_black_closed_closet_for_clothes_64.png" alt="">
+                </div>
+            </div>
+
+            <div id="fav">My Favorite Things</div>
+
+            <div class="first-col-3">
+                <div id="ocean">
+                    <img src="Sun_and_Sea_64.png" alt="">
+                </div>
+                <div id="ocean1">
+                    "Love the ocean and the beach"
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div id="russian">
+                    <img src="github_cat_in_a_circle_64.png" alt="">
+                </div>
+                <div id="russian1">
+                    "Love the Russian language, food and culture"
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div id="duy">
+                    <img src="Open_scissors_64.png" alt="">
+                </div>
+                <div id="duy1">
+                    "duy queen"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h1>Portfolio</h1>
+        <div id="Work" class="left-col-2">
+            <h3>My Work</h3>
+            <div id="work">
+                <a href="https://github.com/sophiaosintsev">
+                    <img src="github_cat_in_a_circle_64.png" alt="github">
+                </a>
+            </div>
+
+            <div id="Skills" class="left-col-2">
+                <h3>Skills</h3>
+                <div id="skills">
+                    <img src="Python_Language_logotype_64.png" alt="python">
+                    <img src="Html_file_extension_interface_symbol_64.png" alt="HTML">
+                    <img src="CSS_File_64.png" alt="CSS">
+                </div>
+
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <div id="socialmedia">
+            <a href="mailto:sofica05@gmail.com">
+                <img src="Email_new_envelope_closed_back_hand_drawn_outline_64.png" alt="email">
+            </a>
+            <a href="http://www.linkedin.com">
+                <img src="Linkedin_logo_64.png" alt="linkedin">
+            </a>
+            <a href="http://www.instagram.com">
+                <img src="Instagram_hand_drawn_logo_64.png" alt="instagram">
+            </a>
+        </div>
+    </section>
+</div>
+<a href="#" class="scrollup" style="display: inline;">Scroll</a>
+
+<footer> </footer>
+</body>
+</html>
