@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Job Postings R Us</title>
+    <style>
+    .entry_form {
+        background-color: lightblue;
+        border: 2px solid blue;
+        width: 500px;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 25px;
+    }
+    .gray {
+        background-color: gray;
+    }
+    .yellow {
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+
+<h2>So, you want to take down a job posting?</h2>
+
+<div class="entry_form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Buh-bye!">
+    </form>
+</div>
+
+</body>
+</html>

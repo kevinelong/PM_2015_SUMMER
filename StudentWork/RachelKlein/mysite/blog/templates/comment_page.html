@@ -62,6 +62,13 @@
         <input type="submit" value="So there!">
     </form>
 
+{% for comment in comments %}
+    <div class ="inner">
+    <p>{{ comment.author }}</p>
+    <p>{{ comment.content }}</p>
+    </div>
+{% endfor %}
+
 </div>
 
 </body>

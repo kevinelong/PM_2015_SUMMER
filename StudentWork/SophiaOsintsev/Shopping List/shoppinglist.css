@@ -10,11 +10,11 @@ body {
 }
 
 h1 {
-    margin-top: 50px;
+    margin-top: 45px;
     font-size: 80px;
     font-family: 'Montez', cursive;
     text-align: center;
-    color: #151515;
+    color: #000000;
     font-weight: bold;
     text-shadow: 0px 1px 0px #717171;
 }
@@ -28,10 +28,11 @@ h1 {
     font-size: 20px;
     font-family: 'Handlee', cursive;
     text-shadow: 0px 1px 0px #444444;
+
 }
 
 #textbox::-webkit-input-placeholder {
-    color: #272727;
+    color: #343434;
     text-shadow: 0px 1px 0px #444444;
 }
 
@@ -66,12 +67,13 @@ h1 {
 li{
     margin-left: 42px;
     cursor: pointer;
-    line-height: 1;
+    line-height: 1.5;
     transition: all 0.3s;
     list-style-type: none;
     font-size: 30px;
     font-weight: bold;
     font-family: 'Handlee', cursive;
+    color: 151515;
 }
 
 li.complete{
@@ -112,8 +114,6 @@ li.complete{
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-
-    /*border-radius: 25px;*/
 }
 
 .accordion {
@@ -156,4 +156,21 @@ li.complete{
 
 a {
     text-decoration: none;
+}
+
+@media only screen and (max-width : 900px) {
+    .accordion {
+        width: auto;
+        float: none;
+        margin:auto;
+        text-align:center;
+    }
+    .accordion-section {
+        display: none;
+        width: 330px;
+        margin:auto;
+        text-align:center;
+        float: none;
+    }
+
 }

@@ -210,8 +210,7 @@
         <div id="soup-list" class="accordion-section-content">
         </div>
     </div>
-
-</div><!--end .accordion-->
+</div>
 
 <section>
 
@@ -224,6 +223,31 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    var quotes = [
+        "Failure will never overtake me if my determination to succeed is strong enough. -Og Mandino",
+        "What you do today can improve all your tomorrows. -Ralph Marston",
+        "In order to succeed, we must first believe that we can. -Nikos Kazantzakis",
+        "Always do your best. What you plant now, you will harvest later. -Og Mandino",
+        "It does not matter how slowly you go as long as you do not stop. -Confucius",
+        "You are never too old to set another goal or to dream a new dream. -C. S. Lewis",
+        "With the new day comes new strength and new thoughts. -Eleanor Roosevelt",
+        "A creative man is motivated by the desire to achieve, not by the desire to beat others. -Ayn Rand",
+        "Don't watch the clock; do what it does. Keep going. -Sam Levenson"
+    ];
+
+    var i = 0;
+
+    setInterval(function() {
+        $("#textslide").html(quotes[i]);
+        if (i == quotes.length) {
+            i = 0;
+        }
+        else {
+            i++;
+        }
+    }, 10 * 300);
+</script>
 <script src="shoppingList.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 

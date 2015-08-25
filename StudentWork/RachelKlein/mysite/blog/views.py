@@ -1,11 +1,13 @@
 from django.shortcuts import render_to_response
 
-from .models import BlogArticle
+from .models import BlogArticle, BlogComment
 import random
 from forms import CommentForm
 from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
-
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+import django.http as http
 
 def page_with_links(request):
     return render_to_response(
@@ -38,13 +40,14 @@ def comment_page(request, blog_id=None):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('comment_thanks'))
+            return HttpResponseRedirect(reverse('comment_page', args=[blog_id]))
     else:
         form = CommentForm()
 
     context={
             'form': form.as_p(),
-            'blog_entry': BlogArticle.objects.get(id=blog_id)
+            'blog_entry': BlogArticle.objects.get(id=blog_id),
+            'comments': BlogArticle.objects.get(id=blog_id).comments.all(),
         }
     context.update(csrf(request))
 

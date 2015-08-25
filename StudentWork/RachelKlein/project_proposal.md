@@ -22,14 +22,39 @@ When users click on a friend's accomplishment, they will be taken to a detail pa
 
 ## Timeline
 
-1. Map out models and make migrations for User, Goal, Step, Comment
-2. Make views and templates (including base template with CSS themes) for homepage, user profile, feed, accomplishment detail page
-3. Make authentication form for login page
-4. Create view, template, and form for goal setting page
-5. Devise search function to query for users with similar goals and adjust template of feed page to display links to their profiles
-6. Create form to enter a comment on an accomplishment on accomplishment page
-7. Devise point system and make sure points are incrementing correctly
-8. Add JavaScript (such as animations or alerts congratulating you when you make an accomplishment) and error pages
+1. Develop Goal App
+- Map out models and make migrations
+- Make view for goal setting page (read only to users at this stage)
+- Make base template with CSS themes
+- Create template for goal setting page (all templates from now on extend base)
+- Create form that will allow user to choose/edit goal and create steps
+
+2. Develop Account App
+- Map out models and make migrations for User class
+- Make view for profile page
+- Make template for profile page
+
+3. Add user login capability
+- Make view for login page
+- Make template for login page
+- Make authentication form
+
+4. Add functionality to Account App
+- Devise point system
+- Display user's current points on profile page
+- Devise search function to query for users with similar goals
+- Adjust template of profile page so it links to profiles of people with similar goals
+- Add button on profile page that will allow others to friend a user
+
+5. Add Functionality to Goal App
+- Make view and template for "feed" page that will show friends' recent accomplishments
+- Add Comment class to existing models and make migrations
+- Make view and template for detail page for each "step" toward goal
+- Add form that will allow users to leave comments on a certain step
+
+6. Finishing Touches
+- Add more JavaScript (such as animations or alerts congratulating you when you accomplish something)
+- Make custom templates for error pages
 
 ## Ideas for Later
 
@@ -37,3 +62,4 @@ When users click on a friend's accomplishment, they will be taken to a detail pa
 * More nuanced searching for other users' goals
 * Users can make goals visible only to friends
 * Users can block specific other users and report inappropriate content
+* Logging in through Facebook or Google
