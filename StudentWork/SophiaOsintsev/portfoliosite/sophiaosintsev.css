@@ -101,6 +101,7 @@ section {
 #bio {
     height: 500px;
     border-bottom: 2px #CDDC39 dashed;
+    /*background: url(chalkborders/ChalkFloralBorder7.png) no-repeat;*/
 }
 
 #interests {
