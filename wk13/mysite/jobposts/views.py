@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -5,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import JobCreateForm
 from .models import JobPost
 
+logger = logging.getLogger(__name__)
 
 @login_required
 def create_post(request):
@@ -71,6 +74,7 @@ def delete_post(request, job_id):
 
 
 def job_detail(request, job_id):
+    logger.info('hello world!')
     job = get_object_or_404(JobPost, id=job_id)
     return render(
         request,
