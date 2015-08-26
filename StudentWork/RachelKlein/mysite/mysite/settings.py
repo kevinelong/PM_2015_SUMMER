@@ -31,13 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    # django apps
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
 
     #my apps
     'polls',
@@ -50,6 +43,15 @@ INSTALLED_APPS = (
     'mailinglist',
     'registry',
     'jobs',
+
+    # django apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,3 +116,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+LOGIN_REDIRECT_URL = '/jobs/posting_site/'
+
+# Session expiration
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

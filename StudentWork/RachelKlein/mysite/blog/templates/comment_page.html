@@ -62,20 +62,20 @@
         <input type="submit" value="So there!">
     </form>
 
-{% for comment in comments %}
-    <div class ="inner">
-    <p>{{ comment.author }}</p>
-    <p>{{ comment.content }}</p>
-        <form action="{% url 'edit_comment' comment.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Edit">
-        </form>
-        <form action="{% url 'delete_comment' comment.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Delete">
-        </form>
-    </div>
-{% endfor %}
+{#{% for comment in comments %}#}
+{#    <div class ="inner">#}
+{#    <p>{{ comment.author }}</p>#}
+{#    <p>{{ comment.content }}</p>#}
+{#        <form action="{% url 'edit_comment' comment.id %}" method="POST">#}
+{#            {% csrf_token %}#}
+{#            <input type="submit" value="Edit">#}
+{#        </form>#}
+{#        <form action="{% url 'delete_comment' comment.id %}" method="POST">#}
+{#            {% csrf_token %}#}
+{#            <input type="submit" value="Delete">#}
+{#        </form>#}
+{#    </div>#}
+{#{% endfor %}#}
 
 </div>
 

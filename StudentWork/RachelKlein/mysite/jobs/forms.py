@@ -1,6 +1,8 @@
 from django.forms import ModelForm
 from .models import JobPosting
 from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 class JobPostingForm(ModelForm):
     class Meta:
@@ -22,3 +24,9 @@ class JobRemovalForm(forms.Form):
         job_id = self.cleaned_data['selected_job']
         job_to_delete = JobPosting.objects.get(id=job_id)
         job_to_delete.delete()
+
+
+class NewUserForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ("username", "email", "password1", "password2")
