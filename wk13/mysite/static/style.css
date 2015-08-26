@@ -22,10 +22,6 @@ body {
     background-color: white;
 }
 
-h1 {
-    text-align: center;
-}
-
 .helptext {
     font-size: 75%;
     font-style: italic;
@@ -48,4 +44,32 @@ form ul li {
 
 option {
     font-size: 15px;
+}
+
+.user {
+    background-color: seashell;
+    border-bottom: 2px solid sandybrown;
+    padding: 4px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.login {
+    float: right;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+hr {
+    box-shadow: 0px 0px 1px sandybrown;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.footer-btn {
+    margin-top: 50px;
 }

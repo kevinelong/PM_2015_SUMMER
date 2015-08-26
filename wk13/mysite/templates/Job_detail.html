@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}{{ job.title }}{% endblock %}
+
+{% block content %}
+
+<p>
+    Job Title: <em>{{ job.title }}</em>
+</p>
+<p>
+    Job Description: <em>{{ job.description }}</em>
+</p>
+
+<p>
+    Date Posted: <em>{{ job.post_date }}</em>
+</p>
+
+<p>
+    <a href="{% url 'jobs_list' %}">Back</a>
+</p>
+
+{% if user.is_authenticated %}
+<p>
+    <a href="{% url 'update_jobpost' job.id %}">Edit this posting</a>
+</p>
+{% endif %}
+
+{% endblock %}

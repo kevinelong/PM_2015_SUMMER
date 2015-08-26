@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from jobposts import views as jobpost_views
 
+
 urlpatterns = [
+    url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/login/$', auth_views.login),
     url(r'^jobs/', include([
         url(r'^create/$', jobpost_views.create_post, name='create_jobpost'),
         url(r'^(?P<job_id>[0-9]+)/update/$', jobpost_views.update_post, name='update_jobpost'),
+        url(r'^$', jobpost_views.jobs_list, name='jobs_list'),
+        url(r'^(?P<job_id>[0-9]+)/$', jobpost_views.job_detail, name='job_detail'),
+        url(r'^(?P<job_id>[0-9]+)/delete/$', jobpost_views.delete_post, name='delete_jobpost'),
     ])),
 ]

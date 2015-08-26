@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}{{ title }}{% endblock %}
+
+
+{% block content %}
+<p>
+    <a href="{% url 'login' %}">Log in again</a>
+</p>
+
+<p>
+    <a href="{% url 'jobs_list' %}">View jobs list</a>
+</p>
+
+{% endblock %}
