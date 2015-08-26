@@ -6,8 +6,7 @@ from forms import CommentForm
 from django.core.urlresolvers import reverse
 from django.template.context_processors import csrf
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-import django.http as http
+from django.shortcuts import get_object_or_404, render
 
 def page_with_links(request):
     return render_to_response(
@@ -37,12 +36,12 @@ def about(request):
 def comment_page(request, blog_id=None):
 
     if request.method == 'POST':
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, blog_id=blog_id)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('comment_page', args=[blog_id]))
     else:
-        form = CommentForm()
+        form = CommentForm(blog_id=blog_id)
 
     context={
             'form': form.as_p(),
@@ -55,3 +54,12 @@ def comment_page(request, blog_id=None):
         'comment_page.html',
         context=context
     )
+
+def delete_comment(request, comment_id):
+
+    comment = get_object_or_404(BlogComment, id=comment_id)
+
+    if request.method == 'POST':
+        comment.delete()
+
+    return HttpResponseRedirect(reverse('comment_page', args=[comment.article.id]))
