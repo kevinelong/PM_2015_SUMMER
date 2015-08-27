@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{{ user.username }}
+{% endblock %}
+
+{% block content %}
+    <p>Username: <em>{{ user.username }}</em></p>
+    <p>First Name: <em>{{ user.first_name }}</em></p>
+    <p>Last Name: <em>{{ user.last_name }}</em></p>
+    <p>Instrument: <em>{{ user.musician.get_instrument_display }}</em></p>
+{% endblock %}

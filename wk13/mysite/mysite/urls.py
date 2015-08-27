@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from jobposts import views as jobpost_views
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -30,5 +31,11 @@ urlpatterns = [
         url(r'^$', jobpost_views.jobs_list, name='jobs_list'),
         url(r'^(?P<job_id>[0-9]+)/$', jobpost_views.job_detail, name='job_detail'),
         url(r'^(?P<job_id>[0-9]+)/delete/$', jobpost_views.delete_post, name='delete_jobpost'),
+    ])),
+    url(r'^accounts/', include([
+        # do not use this! there is a better way! (just this one --v )
+        url(r'^(?P<user_id>\d+)/change_password/$', accounts_views.change_password, name='change_password'),
+        url(r'^(?P<user_id>\d+)/$', accounts_views.user_detail, name='user_detail'),
+        url(r'^create/$', accounts_views.create_user, name='create_user'),
     ])),
 ]

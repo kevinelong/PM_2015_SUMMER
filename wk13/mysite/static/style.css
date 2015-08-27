@@ -10,6 +10,7 @@ body {
     margin-right: 20%;
     margin-left: 20%;
     margin-top: 5%;
+    margin-bottom: 5%;
     padding: 20px;
     font-size: 20px;
 }
@@ -72,4 +73,15 @@ hr {
 
 .footer-btn {
     margin-top: 50px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: seashell;
+    border-top: 2px solid sandybrown;
+    margin-top: 5%;
 }
