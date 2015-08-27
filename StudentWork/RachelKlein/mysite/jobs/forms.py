@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import JobPosting
+from .models import JobPosting, Goal
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -29,4 +29,26 @@ class JobRemovalForm(forms.Form):
 class NewUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
+        fields = (
+            'username',
+            'email',
+            'password1',
+            'password2')
+
+    def __init__(self, *args, **kwargs):
+        super(NewUserForm, self).__init__(*args, **kwargs)
+        self.fields['goal_type'] = forms.ChoiceField(
+            choices = Goal.GOAL_CATEGORIES,
+        )
+
+    def save(self):
+        new_user = super(NewUserForm, self).save()
+        goal_type = self.cleaned_data['goal_type']
+        Goal.objects.create(
+            user = new_user,
+            goal_type = goal_type,
+        )
+        password = self.cleaned_data['password1']
+        new_user.set_password(password)
+        new_user.save()
+        return new_user

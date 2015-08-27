@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from forms import JobPostingForm, JobRemovalForm, NewUserForm
 from .models import JobPosting
 from django.core.urlresolvers import reverse
@@ -63,13 +63,12 @@ def new_user(request):
     else:
         form = NewUserForm()
 
-        context = {
-            'form': form,
-        }
+    context = {
+        'form': form,
+    }
 
-        context.update(csrf(request))
-
-        return render_to_response(
-            'new_user.html',
-            context=context,
-        )
+    return render(
+        request,
+        'new_user.html',
+        context=context,
+    )
