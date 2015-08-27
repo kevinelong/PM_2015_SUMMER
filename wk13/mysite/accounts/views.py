@@ -33,7 +33,7 @@ def user_detail(request, user_id):
         request,
         'user_detail.html',
         context={
-            'user': user,
+            'this_user': user,
         }
     )
 

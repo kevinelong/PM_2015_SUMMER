@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
 {% block header %}
-{{ user.username }}
+{{ this_user.username }}
 {% endblock %}
 
 {% block content %}
-    <p>Username: <em>{{ user.username }}</em></p>
-    <p>First Name: <em>{{ user.first_name }}</em></p>
-    <p>Last Name: <em>{{ user.last_name }}</em></p>
-    <p>Instrument: <em>{{ user.musician.get_instrument_display }}</em></p>
+    <p>Username: <em>{{ this_user.username }}</em></p>
+    <p>First Name: <em>{{ this_user.first_name }}</em></p>
+    <p>Last Name: <em>{{ this_user.last_name }}</em></p>
+    <p>Instrument: <em>{{ this_user.musician.get_instrument_display }}</em></p>
+
+    {% if this_user.id == user.id %}
+        <p><a href="{% url 'password_change' %}">Change Password</a></p>
+    {% endif %}
+
 {% endblock %}

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Musician(models.Model):
     INSTRUMENT_CHOICES = (
         ('CL', 'Clarinet'),
+        ('RE', 'Recorder'),
     )
 
     user = models.OneToOneField(User)
