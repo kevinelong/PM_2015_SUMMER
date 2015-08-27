@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import Musician
 
@@ -48,7 +49,7 @@ class ChangePasswordForm(forms.ModelForm):
         user.save()
 
 
-class CreateUserForm(forms.ModelForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
@@ -56,7 +57,8 @@ class CreateUserForm(forms.ModelForm):
             'first_name',
             'last_name',
             'email',
-            'password',
+            'password1',
+            'password2',
         )
 
     def __init__(self, *args, **kwargs):
@@ -74,7 +76,7 @@ class CreateUserForm(forms.ModelForm):
             instrument=instrument,
         )
 
-        pw = self.cleaned_data['password']
+        pw = self.cleaned_data['password1']
         new_user.set_password(pw)
         new_user.save()
         return new_user

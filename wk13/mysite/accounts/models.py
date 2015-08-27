@@ -14,6 +14,4 @@ class Musician(models.Model):
     )
 
     def __unicode__(self):
-        return 'Musician: {}'.format(
-            self.instrument,
-        )
+        return self.instrument
