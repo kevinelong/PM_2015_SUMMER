@@ -91,7 +91,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -121,14 +121,31 @@ LOGGING = {
         'default': {
             'format': '%(asctime)s: [%(levelname)s] %(message)s'
         },
+        'verbose': {
+            'format': '%(asctime)s: [%(levelname)s] %(pathname)s <%(lineno)d> %(message)s'
+
+        },
     },
     'handlers': {
         'file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'debug.log'),
             'formatter': 'default',
         },
+        'noisy-file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'noisy.log'),
+            'formatter': 'verbose',
+            'maxBytes': 50,
+            'backupCount': 5,
+        },
+        'stream': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        }
     },
     'loggers': {
         'django.request': {
@@ -137,9 +154,14 @@ LOGGING = {
             'propagate': True,
         },
         'jobposts': {
-            'handlers': ['file'],
+            'handlers': ['file', 'stream'],
             'level': 'DEBUG',
             'propagate': True,
         },
+        '': {
+            'handlers': ['noisy-file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
     },
 }
