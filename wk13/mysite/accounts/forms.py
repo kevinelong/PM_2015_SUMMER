@@ -67,6 +67,12 @@ class CreateUserForm(UserCreationForm):
             choices=Musician.INSTRUMENT_CHOICES,
         )
 
+    def clean_password1(self):
+        pw = self.cleaned_data['password1']
+        if len(pw) < 6:
+            raise forms.ValidationError('Must be more than 6 chars')
+        return pw
+
     def save(self):
         new_user = super(CreateUserForm, self).save()
 
@@ -93,11 +99,6 @@ def has_capital(word):
 
 
 def has_lower(word):
-    """
-    docstring goes here!
-    :param word:
-    :return:
-    """
     for char in word:
         if char.islower():
             return True

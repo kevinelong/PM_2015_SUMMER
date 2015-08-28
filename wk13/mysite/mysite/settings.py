@@ -138,7 +138,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': os.path.join(BASE_DIR, 'log', 'noisy.log'),
             'formatter': 'verbose',
-            'maxBytes': 50,
+            'maxBytes': 500,
             'backupCount': 5,
         },
         'stream': {
