@@ -130,13 +130,13 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'filename': os.path.join(BASE_DIR, 'log', 'debug.log'),
             'formatter': 'default',
         },
         'noisy-file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'noisy.log'),
+            'filename': os.path.join(BASE_DIR, 'log', 'noisy.log'),
             'formatter': 'verbose',
             'maxBytes': 50,
             'backupCount': 5,
