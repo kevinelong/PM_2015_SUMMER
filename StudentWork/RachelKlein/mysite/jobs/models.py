@@ -1,3 +1,5 @@
+import logging
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,6 +19,6 @@ class Goal(models.Model):
     )
 
     def __unicode__(self):
-        return '{}, which is a great kind of goal if you ask me!'.format(
+        return '{} goal'.format(
             self.goal_type,
         )

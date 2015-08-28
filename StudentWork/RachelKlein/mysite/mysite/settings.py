@@ -102,7 +102,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -121,3 +121,49 @@ LOGIN_REDIRECT_URL = '/jobs/posting_site/'
 
 # Session expiration
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    formatters: {
+        'default': {
+            'format': '%(asctime)s: [%(levelname)s] %(message)s'
+        },
+        'verbose': {
+            'format': '%(asctime)s: [%(levelname)s] %(pathname)s <%(lineno)d> %(message)s'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'formatter': 'default',
+        },
+        'noisy-file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'noisy.log'),
+            'formatter': 'default',
+            'maxBytes': 50,
+            'backupCount': 5,
+        },
+        'stream': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'jobs': {
+            'handlers': ['file', 'stream'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
+    },
+}
