@@ -50,6 +50,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.log.[0-9]
 
 # Sphinx documentation
 docs/_build/
