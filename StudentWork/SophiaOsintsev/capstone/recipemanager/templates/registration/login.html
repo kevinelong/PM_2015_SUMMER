@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Login to view your recipes</h1>
+
+<form id="login_form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" />
+    <br />
+    Password: <input type="password" name="password" />
+    <br />
+
+    <input type="submit" value="submit" />
+</form>
+    <a href="{% url "reset" %}">Forgot Password?</a>
+{% endblock %}
+
+

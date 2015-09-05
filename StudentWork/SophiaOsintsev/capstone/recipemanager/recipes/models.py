@@ -1,7 +1,6 @@
 from django.db import models
 
-
-class Recipes(models.Model):
+class Recipe(models.Model):
 
     title = models.CharField(
         max_length=50,
@@ -38,3 +37,4 @@ class Recipes(models.Model):
 
     def __unicode__(self):
         return self.title
+

@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block header %}
+{{ button_name }} a Recipe
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="{{ button_name }}" />
+</form>
+{% endif %}
+{% endblock %}
