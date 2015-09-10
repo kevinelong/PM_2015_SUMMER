@@ -1,6 +1,10 @@
 {% extends 'main.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
+    <h3>Hello {{ user.username }}</h3>
+    <a href="{% url 'logout' %}">Logout</a><br />
+{% endif %}
 
 <form method="get">
 <input id="searchbox" name="q" type="text" placeholder="Search Recipes">
