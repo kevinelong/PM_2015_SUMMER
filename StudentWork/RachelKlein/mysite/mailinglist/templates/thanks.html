@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    Thanks for joining our <em>{{ list.name }}</em> mailing list!
+</div>
+
+<div>
+    Here are more mailing lists to join:
+    {% for list_to_join in lists_to_join %}
+        <p><a href="{% url 'add_email' list_to_join.id %}">{{ list_to_join.name }}</a></p>
+    {% endfor %}
+</div>
+
+{% endblock %}

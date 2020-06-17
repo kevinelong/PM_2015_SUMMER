@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block header %}Register{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div>
+        First Name:
+
+        {{ form.first_name.errors }}
+        {{ form.first_name }}
+<br>
+        Last Name:
+
+        {{ form.last_name.errors }}
+        {{ form.last_name }}
+<br>
+
+        Username:
+
+        {{ form.username.errors }}
+        {{ form.username }}
+<br>
+        Email:
+
+        {{ form.email.errors }}
+        {{ form.email }}
+<br>
+        Password:
+
+        {{ form.password1.errors }}
+        {{ form.password1 }}
+<br>
+        Verify Password:
+
+        {{ form.password2.errors }}
+        {{ form.password2 }}
+
+
+    <input type="submit" value="Submit">
+</div>
+</form>
+{% endblock %}

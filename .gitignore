@@ -50,6 +50,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.log.[0-9]
 
 # Sphinx documentation
 docs/_build/
@@ -103,3 +104,6 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+
+# django databases
+*.sqlite3

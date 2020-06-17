@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="outer">
+    <p>Here is a list of clues that are being used by puzzles with a width less than {{ width }}:</p>
+    {% for clue in clues %}
+        <a href="{% url 'clue_detail' clue.id %}">{{ clue }}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    <p><a href="{% url 'puzzles_home' %}">Home</a></p>
+</div>
+
+</body>
+</html>

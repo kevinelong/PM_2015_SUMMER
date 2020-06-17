@@ -1,0 +1,22 @@
+body {
+    background: lightgrey;
+    text-align: center;
+    padding-top: 10%;
+}
+li {
+    width: 100%;
+    padding: 10px 0;
+    background-color: lightblue;
+    list-style-type: none;
+}
+li:hover {
+    background-color: blue;
+    color: white;
+}
+
+.true {
+    background-color: aquamarine;
+}
+.false {
+    background-color: crimson;
+}

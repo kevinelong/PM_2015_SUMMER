@@ -40,10 +40,6 @@ $(function(){
         $newItemForm.hide();
         $newItemButton.show();
         $textInput.val("");
-         });
-
-
-
-
-
+    };
+    )
 });

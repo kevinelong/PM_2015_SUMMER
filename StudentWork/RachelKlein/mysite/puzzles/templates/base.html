@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>The Puzzle Palace!</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        p, h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    {% block body_block %}{% endblock %}
+
+<p><a href="{% url 'welcome' %}">Back to the home page!</a></p>
+
+</body>
+</html>

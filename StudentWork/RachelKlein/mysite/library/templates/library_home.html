@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shh, This Is a Library!!!</title>
+    <link href="../static/style.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Welcome to the PDX Code Guild Library!</h1>
+
+<p>Welcome, patron. You have {{ checkedout }} book{{ checkedout|pluralize }} checked out.</p>
+
+<p>Are we open right now? Great question.</p>
+{% now H as current_hour %}
+{% if current_hour < 18 %}
+    Yes!
+{% else %}
+    No.
+{% endif %}
+
+
+
+<p>What book do you want to see on our shelves?</p>
+    <form method="post">
+        {%  csrf_token %}
+        {{ form }}
+        <input type="submit" value="This book!">
+    </form>
+
+<div id="summer">Click here if you love the summer reading program!</div>
+{% for book in books %}
+    {% if book.is_checked_out %}
+        <div class="checkedout">
+        {{ book.name }}
+        </div>
+    {% else %}
+        <div class="notcheckedout">
+        {{ book.name|title }}
+        </div>
+    {% endif %}
+
+{% endfor %}
+
+<p>Check out our hottest titles!</p>
+<table>
+    {% for title in hottest_titles %}
+        <tr class="{% cycle 'red' 'orange' %}">
+            <td>{{ title }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p>Here's some sample text from a great book you could be reading!</p>
+
+{% lorem 3 p %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../static/library.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for job in jobs %}
+    <div class="posting">
+        <a href="{% url 'job_detail' job.id %}">{{ job.title }}</a>
+
+        {% if user.is_authenticated %}
+            <form action="{% url 'delete_jobpost' job.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-default">delete?</button>
+            </form>
+        {% endif %}
+
+    </div>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <div class="footer-btn">
+        <a href="{% url 'create_jobpost' %}"><button class="btn btn-primary">Create new posting</button></a>
+    </div>
+{% endif %}
+
+{% endblock %}

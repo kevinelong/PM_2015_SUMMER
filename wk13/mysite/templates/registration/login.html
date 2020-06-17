@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}Login{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="login" class="btn btn-default">
+</form>
+
+<hr />
+
+<a id="password" href="{% url 'password_reset' %}">Forgot Password?</a>&nbsp;&nbsp;
+<a id="newuser" href="{% url 'create_user' %}">New User?</a>
+
+<div id="toobad" hidden="true"><h1>TOO BAD!</h1></div>
+<div id="goaway" hidden="true"><h1>GO AWAY!</h1></div>
+{% endblock %}
+
+
+
+{% block ready %}
+    $('#password').on('click', function() {
+        $('#toobad').show().delay(2000).fadeOut();
+    });
+
+    $('#newuser').on('click', function() {
+        $('#goaway').show().delay(2000).fadeOut();
+    });
+{% endblock %}

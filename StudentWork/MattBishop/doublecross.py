@@ -36,7 +36,7 @@ def death():
 
 # A late game, periodic check to see if the computer has planted compelling evidence to warrant a loss
 def check_lose():
-    if evidence_planted > clues:
+    if evidence_planted > clues:  # This is probably not going to work; will fix when I finish text!
         print """
 *text*
 """
@@ -156,7 +156,7 @@ class Scene(object):
         pass
 
 
-# Essentially the game revolves around numerous nested conditions to advance gameplay, the manipulation of lists that
+# Essentially the game revolves around numerous nested conditions to advance game play, the manipulation of lists that
 # ultimately determine whether the player wins or loses and the implementation of simple yet well-suited functions. I
 # really only use a class once, which is to define a 'game map', or list of child classes of Scene. That variable is
 # then called with the 'play' function.

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Hello world!</h1>
+<p>This is a paragraph. Wheeh!</p>
+
+<script></script>
+
+<script>
+    var today = new Date();
+    var nowHour = today.getHours();
+    if (nowHour > 17) {
+        document.write('Good evening!');
+        console.log('the hour is now',nowHour);
+    }
+    else {
+        document.write('This is so cool!');
+    }
+
+    var header1 = $('h1');
+    header1.on('mouseover', function() {
+        header1.fadeOut(1500);
+    });
+</script>
+
+<script>
+    var math = 4 + 7;
+    var more_math = 3 + 3;
+    if (math > more_math) {
+        document.write('Yup yup!');
+    }
+</script>
+
+</body>
+</html>

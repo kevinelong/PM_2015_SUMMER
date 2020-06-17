@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h3>Hello {{ user.username }}</h3>
+    <a href="{% url 'logout' %}">Logout</a><br />
+{% endif %}
+
+<form method="get">
+<input id="searchbox" name="q" type="text" placeholder="Search Recipes">
+<input type="submit" value="Submit">
+
+{% if found_entries %}
+    <p>Here are all recipes containing the word(s) "{{ query_string }}"</p>
+    <div>
+        {% for recipe in found_entries %}
+            {% if user.is_authenticated %}
+            <ul><a href="{% url 'full_recipe' recipe.id %}">{{ recipe.title }}</a></ul>
+            {% endif %}
+            <a href="{% url 'all_recipes' %}">Back to all Recipes</a>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if query_string and not found_entries %}
+    <p>No results found.</p>
+    <br>
+    <a href="{% url 'all_recipes' %}">Back to all Recipes</a>
+
+{% endif %}
+</form>
+
+{% for recipe in recipes %}
+    {% if user.is_authenticated %}
+    <div class="all_recipes_list">
+        <a href="{% url 'full_recipe' recipe.id %}">{{ recipe.title }}</a>
+    {% endif %}
+    </div>
+{% endfor %}
+{% if user.is_authenticated %}
+    <div class="add-recipe">
+        <a href="{% url 'add_recipe' %}">Add a new recipe</a>
+    {% endif %}
+    </div>
+
+{% endblock %}

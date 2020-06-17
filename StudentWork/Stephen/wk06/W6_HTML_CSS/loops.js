@@ -11,7 +11,7 @@ astringray.length;
 astringray.push('cat');
 astringray.pop();
 astringray.unshift('Hamsters');
-astringray.shift('Goat')
+astringray.shift('Goat');
 astringray.slice(1,4);
 astringray.join();
 //console.log(aRayZing);

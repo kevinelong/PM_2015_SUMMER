@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple Mailing Lists</title>
+</head>
+<body>
+
+<h1>Choose one or more of our many lists!</h1>
+
+<div class="outer">
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add!" />
+</form>
+
+</div>
+
+</body>
+</html>

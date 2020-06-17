@@ -1,0 +1,19 @@
+from django.views.decorators import csrf
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>So thoughtful of you!!</title>
+</head>
+<body>
+<h1>Would you like to get us something?</h1>
+
+<form method="post">
+    {{ csrf_token }}
+    {{ form }}
+    <input type="submit" value="Thank you!">
+</form>
+
+</body>
+</html>

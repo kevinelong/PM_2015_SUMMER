@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="outer">
+
+    <p>Here is some information about clue with id {{ clue.id }}!</p>
+    <p>Number: {{ clue.number }}</p>
+    <p>Direction: {{ clue.get_direction_display }}</p>
+    <p>Text: {{ clue.text }}</p>
+    <p>Puzzles using this clue:
+    {% for puzzle in clue.puzzle_set.all %}
+        <a href="{% url 'puzzle_detail' puzzle.id %}">{{ puzzle }}</a>{% if not forloop.last %},{% endif %}
+    {% empty %}
+        <i>none</i>
+    {% endfor %}
+    </p>
+    <p><a href="{% url 'puzzles_home' %}">Home</a></p>
+
+</div>
+
+</body>
+</html>

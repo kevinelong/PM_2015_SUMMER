@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    width: 400px;
+    padding: 20px;
+    font-size: 1.25em;
+}
+
+#summer {
+    background-color: hotpink;
+    font-size: 1.25em;
+    color: darkmagenta;
+    width: 400px;
+    padding: 20px;
+}
+
+.checkedout {
+    background-color: turquoise;
+    color: indigo;
+}
+
+.notcheckedout {
+    background-color: lightseagreen;
+    color: black;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}

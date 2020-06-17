@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block header %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+
+   {{ recipe.title }}
+<br>
+   {{ recipe.get_category_display }}
+<br>
+    {{ recipe.ingredients }}
+<br>
+    {{ recipe.directions }}
+<br>
+    {% if user.is_authenticated %}
+    <form action="{% url 'delete_recipe' recipe.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    {% endif %}
+<br>
+    {% if user.is_authenticated %}
+    <a href="{% url 'edit_recipe' recipe.id %}">Edit this recipe</a>
+    {% endif %}
+<br>
+    <a href="{% url 'all_recipes' %}">Back to all Recipes</a>
+<br>
+{% endblock %}

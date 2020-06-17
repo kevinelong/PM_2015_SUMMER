@@ -1,0 +1,23 @@
+ body {
+    background-color: aquamarine;
+    color: blueviolet;
+}
+
+ .outside {
+     margin: 5%;
+ }
+
+.rawr {
+    text-align: center;
+    margin: 2px;
+    border: 1px darkgreen solid;
+    padding: 20px;
+}
+
+.True {
+    background-color: antiquewhite;
+}
+
+.False {
+    background-color: lightpink;
+}

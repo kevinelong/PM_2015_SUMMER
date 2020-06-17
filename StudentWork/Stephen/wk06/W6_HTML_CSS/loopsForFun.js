@@ -3,7 +3,7 @@
  */
 
 
-var i=1
+var i=1;
 var msg ='';
 
 do {
@@ -14,4 +14,4 @@ do {
 
 } while (i<1);
 
-document.
+document.;

@@ -167,7 +167,7 @@ function Sandwich(bread, meat, cheese, veggie) {
     this.getSandwichPrice = function() {
         var sandwichPrice = this.bread.price + this.meat.price + this.cheese.price + this.veggie.price;
         return sandwichPrice;
-    }
+    };
 
     this.getSandwichCalories = function() {
         var sandwichCalories = this.bread.calories + this.meat.calories + this.cheese.calories + this.veggie.calories;
