@@ -107,3 +107,23 @@ crashlytics-build.properties
 
 # django databases
 *.sqlite3
+
+# --- dependency stores, caches and build output (added 2026-11-05) ---
+node_modules/
+bower_components/
+.deno/
+.venv/
+venv/
+virtualenv/
+site-packages/
+.pytest_cache/
+.mypy_cache/
+.gradle/
+.next/
+.nuxt/
+.parcel-cache/
+Pods/
+DerivedData/
+.cache/
+.DS_Store
+Thumbs.db
